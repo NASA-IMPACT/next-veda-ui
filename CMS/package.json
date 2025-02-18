@@ -1,5 +1,5 @@
 {
-  "name": "veda-demo",
+  "name": "cms",
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
@@ -15,9 +15,9 @@
     "@strapi/plugin-cloud": "5.10.2",
     "@strapi/plugin-users-permissions": "5.10.2",
     "@strapi/strapi": "5.10.2",
-    "better-sqlite3": "11.3.0",
     "fs-extra": "^10.0.0",
     "mime-types": "^2.1.27",
+    "pg": "8.8.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
@@ -34,6 +34,6 @@
     "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "d88e21e8-427c-4a8a-b4c9-649f856d7b2f"
+    "uuid": "dddf9e97-f6cb-4a61-bcfd-c9c927769502"
   }
 }
