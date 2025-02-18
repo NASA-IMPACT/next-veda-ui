@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_shared_side_by_sides",
+  "info": {
+    "displayName": "SideBySide"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "sectionTitle": {
+      "type": "string"
+    },
+    "body": {
+      "type": "text"
+    },
+    "Orientation": {
+      "type": "enumeration",
+      "enum": [
+        "Image Left",
+        "Image Right"
+      ],
+      "required": true,
+      "default": "Image Left"
+    }
+  }
+}
