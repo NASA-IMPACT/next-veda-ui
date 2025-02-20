@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { CustomMDX } from 'app/components/mdx';
 import { getStories } from 'app/content/utils/mdx';
 import { PageHero } from '@lib';
-import { useRouter } from 'next/navigation';
 
 async function generateStaticParams() {
   const posts = getStories();
@@ -15,36 +14,24 @@ async function generateStaticParams() {
 
 async function getPost(slug) {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:1337';
-  const path = '/api/articles';
+  const path = `/api/articles?filters%5Bslug%5D%5B$eq%5D=${slug}&populate=*`;
 
-  const query = `?slug='${slug}'&populate=*`;
-  const url = new URL(`${path + query}`, baseUrl);
-
+  const url = new URL(path, baseUrl);
   const res = await fetch(url);
-
-  if (!res.ok) throw new Error('Failed to fetch team members');
-
-  return fetch(url).then((response) =>
-    response
-      .json()
-      .then((data) => {
-        return data;
-      })
-      .catch((err) => {
-        console.log(err);
-      }),
-  );
+  const data = await res.json();
+  return data;
 }
 
 async function translateData(slug) {
   let strapiData;
   await getPost(slug).then((data) => {
+    console.log('strapiData', data);
     strapiData = data;
   });
 
   const { description, name, cover, blocks } = strapiData.data[0];
-
   const components = blocks[0].body;
+
   // const components = componentBody.replace(
   //   /(\r\n|\\n|\r|['\*\+\\\|]|\n)/gm,
   //   '',
@@ -52,7 +39,7 @@ async function translateData(slug) {
 
   // console.log('components', componentBody)
   // const components = componentBody
-
+  // console.log(description);
   const newData = {
     metadata: {
       id: slug,
@@ -60,7 +47,7 @@ async function translateData(slug) {
       description: description,
       media: {
         src: `http://localhost:1337${cover.formats.large.url}`,
-        alt: 'Nighttime view of New Orleans',
+        alt: cover.alternativeText,
       },
     },
     slug,
