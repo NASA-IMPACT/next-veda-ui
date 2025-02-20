@@ -3,8 +3,20 @@ import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { highlight } from 'sugar-high';
 
-import { Block, Prose, Caption, Chapter, Figure, Image, CompareImage, Chart } from '@lib';
-import { EnhancedMapBlock, EnhancedScrollyTellingBlock } from './mdx-components/block';
+import {
+  Block,
+  Prose,
+  Caption,
+  Chapter,
+  Figure,
+  Image,
+  CompareImage,
+  Chart,
+} from '@lib';
+import {
+  EnhancedMapBlock,
+  EnhancedScrollyTellingBlock,
+} from './mdx-components/block';
 
 function Table({ data }: { data: any }) {
   const headers = data.headers.map((header, index) => (
@@ -89,6 +101,7 @@ const components = {
 };
 
 export function CustomMDX(props: any) {
+
   return (
     <MDXRemote
       {...props}

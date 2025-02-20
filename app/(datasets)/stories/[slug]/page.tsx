@@ -44,26 +44,35 @@ async function translateData(slug) {
 
   const { description, name, cover, blocks } = strapiData.data[0];
 
-  const componentBody = blocks[0].body;
+  const components = blocks[0].body;
+  // const components = componentBody.replace(
+  //   /(\r\n|\\n|\r|['\*\+\\\|]|\n)/gm,
+  //   '',
+  // );
+
+  // console.log('components', componentBody)
+  // const components = componentBody
+
   const newData = {
     metadata: {
       id: slug,
       name: name,
       description: description,
       media: {
-        src: `http://localhost:1337/uploads/${cover.formats.large.url}`,
-        alt: cover.alternativeText,
+        src: `http://localhost:1337${cover.formats.large.url}`,
+        alt: 'Nighttime view of New Orleans',
       },
     },
     slug,
-    content: { componentBody },
+    content: components,
   };
   return newData;
 }
 
 export default async function StoryOverview({ params }: { params: any }) {
-  // console.log('post.content', post);
   const strapiOn = process.env.USE_STRAPI_CMS;
+  // const strapiOn = false;
+
   let post;
   if (strapiOn) {
     post = await translateData(params.slug);
