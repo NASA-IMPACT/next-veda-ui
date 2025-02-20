@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 const getPage = async () => {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:1337';
   const path = '/api/pages';
-  console.log('getPage called');
+
   const url = new URL(path, baseUrl);
 
   const res = await fetch('http://localhost:1337/api/pages');
@@ -54,7 +54,7 @@ const getPage = async () => {
   if (!res.ok) throw new Error('Failed to fetch team pages');
 
   const data = await res.json();
-  console.log(data);
+  // console.log(data);
 
   return data;
 };
@@ -63,7 +63,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  console.log('before page');
+
   await getPage();
   return (
     <html lang='en'>
