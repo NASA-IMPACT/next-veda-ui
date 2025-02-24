@@ -25,21 +25,11 @@ async function getPost(slug) {
 async function translateData(slug) {
   let strapiData;
   await getPost(slug).then((data) => {
-    console.log('strapiData', data);
     strapiData = data;
   });
 
   const { description, name, cover, blocks } = strapiData.data[0];
   const components = blocks[0].body;
-
-  // const components = componentBody.replace(
-  //   /(\r\n|\\n|\r|['\*\+\\\|]|\n)/gm,
-  //   '',
-  // );
-
-  // console.log('components', componentBody)
-  // const components = componentBody
-  // console.log(description);
   const newData = {
     metadata: {
       id: slug,
@@ -58,7 +48,6 @@ async function translateData(slug) {
 
 export default async function StoryOverview({ params }: { params: any }) {
   const strapiOn = process.env.USE_STRAPI_CMS;
-  // const strapiOn = false;
 
   let post;
   if (strapiOn) {
