@@ -14,7 +14,9 @@ export default function Catalog({ datasets }: { datasets: any }) {
   return (
     <CatalogView
       datasets={datasets}
-      onFilterChanges={() => controlVars}
+      search={controlVars.search}
+      onAction={controlVars.onAction}
+      taxonomies={controlVars.taxonomies}
       onCardNavigate={handleCardNavigation}
     />
   );
