@@ -17,7 +17,9 @@ async function getPost(slug) {
   const path = `/api/articles?filters%5Bslug%5D%5B$eq%5D=${slug}&populate=*`;
 
   const url = new URL(path, baseUrl);
+  console.log(url);
   const res = await fetch(url);
+
   const data = await res.json();
   return data;
 }
@@ -47,14 +49,16 @@ async function translateData(slug) {
 }
 
 export default async function StoryOverview({ params }: { params: any }) {
+  console.log('this is a test');
   const strapiOn = process.env.USE_STRAPI_CMS;
+  console.log(strapiOn);
 
-  let post;
-  if (strapiOn) {
-    post = await translateData(params.slug);
-  } else {
-    post = getStories().find((post) => post.slug === params.slug);
-  }
+  const post = await translateData(params.slug);
+  // if (strapiOn) {
+  // post = await translateData(params.slug);
+  // } else {
+  //   post = getStories().find((post) => post.slug === params.slug);
+  // }
   if (!post) {
     notFound();
   }
