@@ -1,0 +1,63 @@
+
+services:
+  strapi:
+    container_name: strapi
+    build:
+      context: ./cms
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: ./cms/.env
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: postgres
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PORT: 5432
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      NODE_ENV: development
+    volumes:
+      - ./cms/_docker_volumes/public/uploads:/opt/app/public/uploads
+      - ./cms/config:/opt/app/config
+      - ./cms/src:/opt/app/src
+      - ./cms/package.json:/opt/package.json
+      - ./cms/yarn.lock:/opt/yarn.lock
+    ports:
+      - "1337:1337"
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: postgres
+    platform: linux/amd64 #for platform error on Apple M1 chips
+    env_file: ./cms/.env
+    image: postgres:14.5-alpine
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+    volumes:
+      - ./_docker_volumes/postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"     
+
+  veda:
+      container_name: veda-ui
+      build:
+        context: ./
+        dockerfile: Dockerfile
+      restart: unless-stopped
+      x-dev:
+        watch:
+          - action: sync
+            path: ./app
+            target: /app
+            ignore: ["node_modules", ".git"]
+      volumes:
+        - .:/app
+      ports:
+        - '3000:3000'
+      depends_on:
+        - strapi
+      
