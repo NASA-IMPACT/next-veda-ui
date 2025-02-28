@@ -49,16 +49,16 @@ async function translateData(slug) {
 }
 
 export default async function StoryOverview({ params }: { params: any }) {
-  console.log('this is a test');
-  const strapiOn = process.env.USE_STRAPI_CMS;
-  console.log(strapiOn);
 
-  const post = await translateData(params.slug);
-  // if (strapiOn) {
-  // post = await translateData(params.slug);
-  // } else {
-  //   post = getStories().find((post) => post.slug === params.slug);
-  // }
+  const strapiOn = process.env.USE_STRAPI_CMS;
+
+
+  let post;
+  if (strapiOn) {
+  post = await translateData(params.slug);
+  } else {
+    post = getStories().find((post) => post.slug === params.slug);
+  }
   if (!post) {
     notFound();
   }
