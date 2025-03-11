@@ -10,7 +10,7 @@ import {
 import { useSetAtom } from 'jotai';
 import useElementHeight from '@utils/hooks/use-element-height';
 import Providers from '../providers';
-
+import { LegacyGlobalStyles } from 'app/lib';
 export default function ExplorationAnalysis({ datasets }: { datasets: any }) {
   const setExternalDatasets = useSetAtom(externalDatasetsAtom);
 
@@ -32,6 +32,7 @@ export default function ExplorationAnalysis({ datasets }: { datasets: any }) {
 
   return (
     <Providers datasets={datasets}>
+      <LegacyGlobalStyles />
       <div
         id='ea-wrapper'
         // The below styles adjust the E&A page to match what we have on earthdata.nasa.gov
@@ -45,13 +46,8 @@ export default function ExplorationAnalysis({ datasets }: { datasets: any }) {
         <DatasetSelectorModal
           revealed={datasetModalRevealed}
           close={closeModal}
-          linkProperties={{
-            LinkElement: Link,
-            pathAttributeKeyName: 'href',
-          }}
           timelineDatasets={timelineDatasets}
           setTimelineDatasets={setTimelineDatasets}
-          datasetPathName={'data-catalog'}
           datasets={datasets}
         />
         <ExplorationAndAnalysis
