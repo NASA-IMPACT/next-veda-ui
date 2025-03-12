@@ -44,6 +44,30 @@
     },
     "publishDate": {
       "type": "date"
+    },
+    "Taxonomy": {
+      "type": "enumeration",
+      "enum": [
+        "Wildfire",
+        "Environmental Justice ",
+        "Natural Disasters",
+        "Covid 19",
+        "Nasa ",
+        "Hurricane",
+        "Energy consumption",
+        "Transportation emissions",
+        "Waste generation",
+        "Food & water consumption",
+        "Water conservation",
+        "Water quality",
+        "Water usage tracking",
+        "Recycling",
+        "Composting",
+        "Waste reduction tips",
+        "Species conservation",
+        "Endangered species",
+        "Habitat loss"
+      ]
     }
   }
 }
