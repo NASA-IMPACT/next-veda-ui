@@ -12,16 +12,59 @@ async function generateStaticParams() {
   }));
 }
 
-export default function StoryOverview({ params }: { params: any }) {
-  const post = getStories().find((post) => post.slug === params.slug);
+async function getPost(slug) {
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:1337';
+  const path = `/api/articles?filters%5Bslug%5D%5B$eq%5D=${slug}&populate=*`;
 
+  const url = new URL(path, baseUrl);
+  console.log(url);
+  const res = await fetch(url);
+
+  const data = await res.json();
+  return data;
+}
+
+async function translateData(slug) {
+  let strapiData;
+  await getPost(slug).then((data) => {
+    strapiData = data;
+  });
+
+  const { description, name, cover, blocks } = strapiData.data[0];
+  const components = blocks[0].body;
+  const newData = {
+    metadata: {
+      id: slug,
+      name: name,
+      description: description,
+      media: {
+        src: `http://localhost:1337${cover.formats.large.url}`,
+        alt: cover.alternativeText,
+      },
+    },
+    slug,
+    content: components,
+  };
+  return newData;
+}
+
+export default async function StoryOverview({ params }: { params: any }) {
+
+  const strapiOn = process.env.USE_STRAPI_CMS;
+
+
+  let post;
+  if (strapiOn) {
+  post = await translateData(params.slug);
+  } else {
+    post = getStories().find((post) => post.slug === params.slug);
+  }
   if (!post) {
     notFound();
   }
-
   return (
     <section>
-      <script 
+      <script
         type='application/ld+json'
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
@@ -31,7 +74,7 @@ export default function StoryOverview({ params }: { params: any }) {
             title: post.metadata.name,
             description: post.metadata.description,
             coverSrc: post.metadata.media?.src,
-            coverAlt: post.metadata.media?.alt
+            coverAlt: post.metadata.media?.alt,
           }),
         }}
       />

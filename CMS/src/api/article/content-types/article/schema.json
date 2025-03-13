@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Story",
+    "description": "Create your blog content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 80
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.media",
+        "shared.quote",
+        "shared.rich-text",
+        "shared.slider",
+        "shared.mdx-block"
+      ]
+    },
+    "publishDate": {
+      "type": "date"
+    },
+    "Taxonomy": {
+      "type": "enumeration",
+      "enum": [
+        "Wildfire",
+        "Environmental Justice ",
+        "Natural Disasters",
+        "Covid 19",
+        "Nasa ",
+        "Hurricane",
+        "Energy consumption",
+        "Transportation emissions",
+        "Waste generation",
+        "Food & water consumption",
+        "Water conservation",
+        "Water quality",
+        "Water usage tracking",
+        "Recycling",
+        "Composting",
+        "Waste reduction tips",
+        "Species conservation",
+        "Endangered species",
+        "Habitat loss"
+      ]
+    }
+  }
+}

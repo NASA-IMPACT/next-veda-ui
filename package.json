@@ -14,6 +14,8 @@
   "dependencies": {
     "@teamimpact/veda-ui": "v5.13.0",
     "@devseed-ui/theme-provider": "^4.1.0",
+    "@strapi-community/dockerize": "^1.16.2",
+    "@teamimpact/veda-ui": "v5.12.1",
     "@types/node": "20.11.17",
     "@types/react": "18.2.55",
     "@types/react-dom": "18.2.19",
