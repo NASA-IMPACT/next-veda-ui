@@ -13,13 +13,13 @@ The most up-to-date list of components, hooks, and types offered by VEDA-UI can 
 To use a VEDA-UI component, import it from the library and include it in your application. For example:
 
 ```tsx
-import { PageHero, CatalogView } from '@teamimpact/veda-ui';
+import { PageHero, CatalogContent } from '@teamimpact/veda-ui';
 
 export default function ExamplePage() {
   return (
     <div>
       <PageHero title="Explore Datasets" subtitle="Discover insights from geospatial data." />
-      <CatalogView datasets={[...]} />
+      <CatalogContent datasets={[...]} />
     </div>
   );
 }
