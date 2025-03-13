@@ -26,9 +26,23 @@ const DATASET_CONTENT_PATH = path.join(
 
 const md = markdownit();
 
+function getParentDataset(data) {
+  return {
+    id: data.id,
+  };
+}
+
 function parseAttributes(obj) {
   const convert = (obj) => {
-    return Object.keys(obj).reduce(
+    const mdxData = {
+      ...obj,
+      layers: obj.layers?.map((l) => ({
+        ...l,
+        parentDataset: getParentDataset(obj),
+      })),
+    };
+
+    return Object.keys(mdxData).reduce(
       (acc, key) => {
         if (typeof obj[key] === 'object' && obj[key] !== null) {
           acc[key] = convert(obj[key]);
