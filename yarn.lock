@@ -2560,10 +2560,10 @@
   resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.21.2.tgz#dd57595a1773652bb6fb437e90a5f5386a49fd7e"
   integrity sha512-uvXk/U4cBiFMxt+p9/G7yUWI/UbHYbyghLCjlpWZ3mLeIZiUBSKcUnw9UnKkdRz7Z/N4UBuFLWQdJCjUe7HjvA==
 
-"@teamimpact/veda-ui@^5.14.0-pagination.2":
-  version "5.14.0-pagination.2"
-  resolved "https://registry.yarnpkg.com/@teamimpact/veda-ui/-/veda-ui-5.14.0-pagination.2.tgz#3795d74ffc46686dfb1ccabeaee14dbb82d19bf3"
-  integrity sha512-nwcmNCb5TiBZ14ASUy80/pC4pJ2QHIC+zRN91CfQx/kxsLfdrDb4rx0inK86fye9J05IWbYdDcKmUGO7hYlPQQ==
+"@teamimpact/veda-ui@^5.14.0":
+  version "5.14.0"
+  resolved "https://registry.yarnpkg.com/@teamimpact/veda-ui/-/veda-ui-5.14.0.tgz#9c3f18adcafa46f6769c4103bea75409db76b835"
+  integrity sha512-TvlqALPqQaJrOfb84y3w585y8NJHiXGw/29JKsP2zASfvHKsqNP4Fp7OL4JRS3h/Wuw0f/bYbWo+rk+RC6IaWg==
   dependencies:
     "@codemirror/lang-markdown" "^6.1.1"
     "@codemirror/state" "^6.2.1"
