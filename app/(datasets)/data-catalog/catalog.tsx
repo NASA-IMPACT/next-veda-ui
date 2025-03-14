@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { CatalogView, useFiltersWithQS } from '@lib';
+import { CatalogContent, useFiltersWithQS } from '@lib';
 import { useRouter } from 'next/navigation';
 import Providers from '../providers';
 
@@ -14,9 +14,11 @@ export default function Catalog({ datasets }: { datasets: any }) {
 
   return (
     <Providers>
-      <CatalogView
+      <CatalogContent
         datasets={datasets}
-        onFilterChanges={() => controlVars}
+        search={controlVars.search}
+        onAction={controlVars.onAction}
+        taxonomies={controlVars.taxonomies}
         onCardNavigate={handleCardNavigation}
       />
     </Providers>
