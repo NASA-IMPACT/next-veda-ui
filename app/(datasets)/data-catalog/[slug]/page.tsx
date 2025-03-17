@@ -5,14 +5,6 @@ import { getDatasets } from 'app/content/utils/mdx';
 import { PageHero } from '@lib';
 import Providers from 'app/(datasets)/providers';
 
-function generateStaticParams() {
-  const datasets = getDatasets();
-
-  return datasets.map((d) => ({
-    slug: d.slug,
-  }));
-}
-
 export default function DatasetOverviewPage({ params }: { params: any }) {
   const dataset = getDatasets().find((dataset) => dataset.slug === params.slug);
 

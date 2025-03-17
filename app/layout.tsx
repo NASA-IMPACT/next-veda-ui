@@ -17,7 +17,7 @@ const Footer = dynamic(() => import('./components/footer'), {
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
+  metadataBase: new URL(baseUrl ?? ''),
   title: {
     default: 'Next.js VEDA Template Instance',
     template: '%s | Next.js VEDA Template Instance',

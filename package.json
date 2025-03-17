@@ -12,33 +12,36 @@
     "check": "yarn run format:check && yarn run lint",
     "fix": "yarn run format && yarn run lint:fix"
   },
+  "resolutions": {
+    "@types/react": "18.0.32"
+  },
   "dependencies": {
-    "@teamimpact/veda-ui": "v5.13.0",
     "@devseed-ui/theme-provider": "^4.1.0",
-    "@types/node": "20.11.17",
-    "@types/react": "18.2.55",
-    "@types/react-dom": "18.2.19",
-    "@typescript-eslint/eslint-plugin": "^8.8.0",
-    "@typescript-eslint/parser": "^8.8.0",
+    "@teamimpact/veda-ui": "v5.13.0",
     "@uswds/uswds": "^3.10.0",
-    "@vercel/analytics": "^1.1.3",
-    "@vercel/speed-insights": "^1.0.9",
-    "eslint": "8.57.0",
-    "eslint-config-next": "^14.2.14",
-    "eslint-config-prettier": "^9.1.0",
     "geist": "1.2.2",
     "gray-matter": "^4.0.3",
     "markdown-it": "^14.1.0",
     "next": "14.2.3",
     "next-mdx-remote": "^4.4.1",
-    "postcss": "^8.4.35",
-    "prettier": "^3.3.3",
-    "prettier-eslint": "^16.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "^1.83.0",
     "styled-components": "^5.3.3",
-    "sugar-high": "^0.6.0",
+    "sugar-high": "^0.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@types/react": "18.0.32",
+    "@types/react-dom": "^18.0.32",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "eslint": "8.57.0",
+    "eslint-config-next": "^14.2.14",
+    "eslint-config-prettier": "^9.1.0",
+    "postcss": "^8.4.35",
+    "prettier": "^3.3.3",
+    "prettier-eslint": "^16.3.0",
     "typescript": "5.3.3"
   }
 }
