@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck : until veda-ui fixes its types: NavItem type enum
 import React from 'react';
 import { PageHeader } from '@lib';
 import { NavItem } from '@lib';

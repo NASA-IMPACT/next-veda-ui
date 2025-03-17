@@ -8,6 +8,7 @@ module.exports = {
     // !! WARN !!
     ignoreBuildErrors: true,
     moduleResolution: 'bundler',
+    include: ['app/**/*.ts', 'app/**/*.tsx'],
   },
   async rewrites() {
     return [
