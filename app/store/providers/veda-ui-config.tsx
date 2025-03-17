@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck : until veda-ui fixes its types : Link Component Type
 'use client';
 import React from 'react';
 import Link from 'next/link';

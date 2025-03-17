@@ -1,7 +1,7 @@
 # This workflow performs basic checks:
 #
 #   1. run a preparation step to install and cache node modules
-#   2. once prep succeeds, run lint and test in parallel
+#   2. once prep succeeds, run lint and ts check
 
 name: Checks
 
