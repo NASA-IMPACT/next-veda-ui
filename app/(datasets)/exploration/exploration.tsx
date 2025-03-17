@@ -45,13 +45,8 @@ export default function ExplorationAnalysis({ datasets }: { datasets: any }) {
         <DatasetSelectorModal
           revealed={datasetModalRevealed}
           close={closeModal}
-          linkProperties={{
-            LinkElement: Link,
-            pathAttributeKeyName: 'href',
-          }}
           timelineDatasets={timelineDatasets}
           setTimelineDatasets={setTimelineDatasets}
-          datasetPathName={'data-catalog'}
           datasets={datasets}
         />
         <ExplorationAndAnalysis

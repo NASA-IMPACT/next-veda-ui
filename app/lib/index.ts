@@ -17,6 +17,7 @@ import {
   PageHeader,
   PageFooter,
   NavItem,
+  NavItemType,
   InternalNavLink,
   ExplorationAndAnalysis,
   DatasetSelectorModal,
@@ -74,4 +75,11 @@ export {
   externalDatasetsAtom,
 };
 
-export type { DatasetData, NavItem, InternalNavLink, StoryData, VedaData };
+export type {
+  DatasetData,
+  NavItem,
+  NavItemType,
+  InternalNavLink,
+  StoryData,
+  VedaData,
+};

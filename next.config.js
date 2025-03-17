@@ -7,6 +7,7 @@ module.exports = {
     // your project has type errors.
     // !! WARN !!
     ignoreBuildErrors: true,
+    moduleResolution: 'bundler',
   },
   async rewrites() {
     return [
@@ -46,6 +47,6 @@ module.exports = {
       'node_modules/@uswds/uswds',
       'node_modules/@uswds/uswds/dist',
       'node_modules/@uswds/uswds/packages',
-    ]
-  }
+    ],
+  },
 };

@@ -49,6 +49,7 @@ export default function Header() {
   return (
     <VedaUIConfigProvider>
       <PageHeader
+        title={'Earthdata VEDA Dashboard'}
         mainNavItems={navItems}
         subNavItems={subNavItems}
         logoSvg={

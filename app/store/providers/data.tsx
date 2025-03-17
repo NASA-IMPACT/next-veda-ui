@@ -2,10 +2,13 @@
 
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { ReactQueryProvider } from '@lib';
+import { DatasetMetadata } from 'app/types/content';
 
 interface DataStore {
-  datasets?: any[];
-  setDatasets?: React.Dispatch<React.SetStateAction<any[] | undefined>>;
+  datasets?: DatasetMetadata[];
+  setDatasets?: React.Dispatch<
+    React.SetStateAction<DatasetMetadata[] | undefined>
+  >;
 }
 
 export const DataContext = createContext<DataStore>({});

@@ -23,13 +23,12 @@ export const transformToDatasetsList = (
 };
 
 export const transformToVedaData = (
-  datasets: DatasetWithContent[],
+  datasets: DatasetMetadata[] | undefined,
 ): VedaData<DatasetData> => {
   const transformed = {};
   datasets?.map((dataset) => {
     const id = dataset.metadata.id;
     transformed[id] = {
-      content: dataset.content,
       data: dataset.metadata,
     };
   });
