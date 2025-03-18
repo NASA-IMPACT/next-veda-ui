@@ -17,7 +17,7 @@ export default function Footer() {
     },
     returnToTop: true,
   };
-  
+
   return (
     <VedaUIConfigProvider>
       <PageFooter
@@ -25,7 +25,6 @@ export default function Footer() {
         subNavItems={subNavItems}
         hideFooter={false}
         logoSvg={<NasaLogoColor />}
-        linkProperties={{ LinkElement: Link, pathAttributeKeyName: 'href' }}
         footerSettings={defaultFooterSettings}
       />
     </VedaUIConfigProvider>

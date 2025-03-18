@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck : until veda-ui fixes its types
 'use client';
 
 import {
@@ -17,6 +19,7 @@ import {
   PageHeader,
   PageFooter,
   NavItem,
+  NavItemType,
   InternalNavLink,
   ExplorationAndAnalysis,
   DatasetSelectorModal,
@@ -74,4 +77,11 @@ export {
   externalDatasetsAtom,
 };
 
-export type { DatasetData, NavItem, InternalNavLink, StoryData, VedaData };
+export type {
+  DatasetData,
+  NavItem,
+  NavItemType,
+  InternalNavLink,
+  StoryData,
+  VedaData,
+};

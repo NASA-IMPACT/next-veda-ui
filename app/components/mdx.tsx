@@ -3,8 +3,20 @@ import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { highlight } from 'sugar-high';
 
-import { Block, Prose, Caption, Chapter, Figure, Image, CompareImage, Chart } from '@lib';
-import { EnhancedMapBlock, EnhancedScrollyTellingBlock } from './mdx-components/block';
+import {
+  Block,
+  Prose,
+  Caption,
+  Chapter,
+  Figure,
+  Image,
+  CompareImage,
+  Chart,
+} from '@lib';
+import {
+  EnhancedMapBlock,
+  EnhancedScrollyTellingBlock,
+} from './mdx-components/block';
 import { getDatasetsMetadata } from 'app/content/utils/mdx';
 import Providers from 'app/(datasets)/providers';
 
