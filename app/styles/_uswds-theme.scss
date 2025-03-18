@@ -1,7 +1,6 @@
 @use 'uswds-core' with (
-  // $theme-image-path: add-base-path('img'),
-  $theme-image-path: '/images/uswds',
-  $theme-font-path: '/fonts',
+  $theme-image-path: '~/node_modules/@uswds/uswds/dist/img',
+  $theme-font-path: '~/node_modules/@uswds/uswds/dist/fonts',
   $theme-show-notifications: false,
   $utilities-use-important: true,
   $theme-font-weight-semibold: '600',
