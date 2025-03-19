@@ -4,9 +4,9 @@ FROM node:18-alpine AS builder
 WORKDIR /veda
 
 # Copy package.json and package-lock.json
-COPY ./package.json ./yarn.lock* ./package-lock.json* ./next.config.js  ./
+COPY ./package.json ./next.config.js  ./
 COPY . .
-RUN ["yarn"]
+RUN "yarn"
 EXPOSE 3000
 
 # Build the Next.js app

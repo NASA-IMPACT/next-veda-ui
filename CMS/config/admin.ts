@@ -4,29 +4,10 @@ const getPreviewPathname = (uid, { locale, document }): string => {
 
   // Handle different content types with their specific URL patterns
   switch (uid) {
-    // Handle pages with predefined routes
-    case 'api::page.page':
-      switch (slug) {
-        case 'homepage':
-          return `/${locale}`; // Localized homepage
-        case 'pricing':
-          return '/pricing'; // Pricing page
-        case 'contact':
-          return '/contact'; // Contact page
-        case 'faq':
-          return '/faq'; // FAQ page
-      }
-    // Handle product pages
-    case 'api::product.product': {
-      if (!slug) {
-        return '/products'; // Products listing page
-      }
-      return `/products/${slug}`; // Individual product page
-    }
     // Handle blog articles
-    case 'api::article.article': {
+    case 'api::article.articles': {
       if (!slug) {
-        return '/stories'; // Blog listing page
+        return '/blog'; // Blog listing page
       }
       return `/blog/${slug}`; // Individual article page
     }
@@ -56,8 +37,7 @@ export default ({ env }) => ({
     enabled: true,
     config: {
       allowedOrigins: [env.STRAPI_ADMIN_FRONT_END_URL],
-      async handler(uid, { documentId, locale, status, slug }) {
-
+      async handler(uid, { documentId, locale, status }) {
         // Fetch the complete document from Strapi
         const document = await strapi.documents(uid).findOne({ documentId });
 
@@ -73,6 +53,7 @@ export default ({ env }) => ({
         const urlSearchParams = new URLSearchParams({
           url: pathname,
           secret: env.ADMIN_JWT_SECRET,
+          status,
         });
         return `${env.STRAPI_ADMIN_FRONT_END_URL}/api/${urlSearchParams}`;
       },

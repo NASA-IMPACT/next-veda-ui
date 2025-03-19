@@ -14,8 +14,8 @@ export default async function Page() {
     const path = `/api/articles?&populate=*`;
 
     const url = new URL(path, baseUrl);
-    const res = await fetch(url);
 
+    const res = await fetch(url);
     const data = await res.json();
     return data;
   };
@@ -50,7 +50,7 @@ export default async function Page() {
   if (strapiOn) {
     stories = await translateData();
   } else {
-    stories = getStoriesMetadata().map((d) => ({
+    const stories = getStoriesMetadata().map((d) => ({
       ...d.metadata,
       path: `stories/${d.slug}`,
     }));

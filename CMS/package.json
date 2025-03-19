@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.10.2",
+    "@strapi/plugin-graphql": "^5.11.2",
     "@strapi/plugin-users-permissions": "5.10.2",
     "@strapi/strapi": "5.10.2",
     "fs-extra": "^10.0.0",

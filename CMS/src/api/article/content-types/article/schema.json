@@ -17,7 +17,8 @@
     },
     "description": {
       "type": "text",
-      "maxLength": 80
+      "maxLength": 500,
+      "unique": false
     },
     "slug": {
       "type": "uid"
@@ -38,8 +39,11 @@
         "shared.media",
         "shared.quote",
         "shared.rich-text",
-        "shared.slider",
-        "shared.mdx-block"
+        "shared.custom-mdx-block",
+        "shared.line-graph",
+        "shared.map",
+        "shared.side-by-side",
+        "shared.graph-with-desc"
       ]
     },
     "publishDate": {

@@ -8,6 +8,7 @@ import { EnhancedMapBlock, EnhancedScrollyTellingBlock } from './mdx-components/
 import { getDatasetsMetadata } from 'app/content/utils/mdx';
 import Providers from 'app/(datasets)/providers';
 
+
 function Table({ data }: { data: any }) {
   const headers = data.headers.map((header, index) => (
     <th key={index}>{header}</th>

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_captions",
+  "info": {
+    "displayName": "caption",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "attributeAuthor": {
+      "type": "text",
+      "required": true
+    },
+    "attrURL": {
+      "type": "text",
+      "required": true,
+      "regex": "^((https?|ftp|smtp):\\/\\/)?(www.)?[a-z0-9]+\\.[a-z]+(\\/[a-zA-Z0-9#]+\\/?)*$"
+    },
+    "captionFig": {
+      "type": "text",
+      "maxLength": 200
+    }
+  }
+}

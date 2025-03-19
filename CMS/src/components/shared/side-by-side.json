@@ -1,26 +1,11 @@
 {
   "collectionName": "components_shared_side_by_sides",
   "info": {
-    "displayName": "SideBySide"
+    "displayName": "mapWithDesc",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "image": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
-    },
-    "sectionTitle": {
-      "type": "string"
-    },
-    "body": {
-      "type": "text"
-    },
     "Orientation": {
       "type": "enumeration",
       "enum": [
@@ -29,6 +14,16 @@
       ],
       "required": true,
       "default": "Image Left"
+    },
+    "sectionDescription": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.custom-mdx-block"
+    },
+    "map": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.map"
     }
   }
 }

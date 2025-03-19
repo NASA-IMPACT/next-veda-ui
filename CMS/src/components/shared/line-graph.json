@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_shared_line_graphs",
+  "info": {
+    "displayName": "line graph",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "dataPath": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "dateFormat": {
+      "type": "enumeration",
+      "enum": [
+        "MM/YYY",
+        "MM/DD/YYY"
+      ],
+      "default": "MM/YYY",
+      "required": true
+    },
+    "idKey": {
+      "type": "string"
+    },
+    "xKey": {
+      "type": "string",
+      "required": true
+    },
+    "yKey": {
+      "type": "string",
+      "required": true
+    },
+    "Attribution": {
+      "displayName": "caption",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.caption"
+    }
+  }
+}
