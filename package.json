@@ -12,8 +12,10 @@
     "fix": "yarn run format && yarn run lint:fix"
   },
   "dependencies": {
-    "@teamimpact/veda-ui": "v5.13.0",
     "@devseed-ui/theme-provider": "^4.1.0",
+    "@remix-run/router": "^1.23.0",
+    "@svgr/webpack": "^8.1.0",
+    "@teamimpact/veda-ui": "^6.1.0",
     "@types/node": "20.11.17",
     "@types/react": "18.2.55",
     "@types/react-dom": "18.2.19",
@@ -39,5 +41,8 @@
     "styled-components": "^5.3.3",
     "sugar-high": "^0.6.0",
     "typescript": "5.3.3"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^13.0.0"
   }
 }
