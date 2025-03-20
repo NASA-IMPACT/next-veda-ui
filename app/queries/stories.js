@@ -1,7 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const STORIES_PAGE = gql`
-  query articles($slug: String) {
+export const STORIES_PAGE = gql`query articles($slug: String) {
   articles(filters: { slug: { eq: $slug } }) {
     documentId
     cover {
@@ -78,8 +77,55 @@ export const STORIES_PAGE = gql`
           captionFig
         }
       }
+      ... on ComponentSharedSideBySide {
+        id
+        Orientation
+        sectionDescription {
+          id
+          customMDX
+        }
+        map {
+          id
+          Zoom
+          dateTime
+          compareDateTime
+          center
+          layerId
+          datasetId
+          Caption {
+            id
+            attributeAuthor
+            attrURL
+            captionFig
+          }
+        }
+      }
+      ... on ComponentSharedGraphWithDesc {
+        id
+        sectionDesc {
+          id
+          descriptionBlock
+        }
+        descriptionPosition
+        lineGraph {
+          id
+          dataPath {
+            url
+            caption
+            alternativeText
+          }
+          dateFormat
+          idKey
+          xKey
+          yKey
+          Attribution {
+            id
+            attributeAuthor
+            attrURL
+            captionFig
+          }
+        }
+      }
     }
   }
-}
-
-`;
+}`;

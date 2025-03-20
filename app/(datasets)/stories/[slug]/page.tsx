@@ -139,7 +139,6 @@ export default async function StoryOverview({ params }: { params: any }) {
         );
         break;
       case 'ComponentSharedMap':
-        console.log(block);
         return (
           <div className='grid-row padding-bottom-3'>
             <EnhancedMapBlock
@@ -155,6 +154,31 @@ export default async function StoryOverview({ params }: { params: any }) {
               July 2017) and post-landfall (20 September 2017) for Hurricane
               Maria.
             </Caption>
+          </div>
+        );
+        break;
+      case 'ComponentSharedGraphWithDesc':
+        console.log(block);
+        return (
+          <div className='grid-row padding-bottom-3'>
+            <div className='grid-col-6'>
+              <CustomMDX source={block.sectionDesc.descriptionBlock} />
+            </div>
+            <div className='grid-col-6'>
+              <Chart
+                idKey={block.lineGraph.idKey}
+                xKey={block.lineGraph.xKey}
+                yKey={block.lineGraph.yKey}
+                dateFormat={'%m/%Y'}
+                dataPath={`http://localhost:1337${block.lineGraph.dataPath.url}`}
+              />
+              <Caption
+                attrAuthor={block.lineGraph.Attribution.attributeAuthor}
+                attrUrl={block.lineGraph.Attribution.attrURL}
+              >
+                {block.lineGraph.captionFig}
+              </Caption>
+            </div>
           </div>
         );
         break;

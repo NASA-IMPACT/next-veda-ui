@@ -1,12 +1,13 @@
 {
   "collectionName": "components_shared_mdx_blocks",
   "info": {
-    "displayName": "mdxBlock"
+    "displayName": "mdxBlock",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "markdown": {
-      "type": "blocks"
+    "descriptionBlock": {
+      "type": "richtext"
     }
   }
 }

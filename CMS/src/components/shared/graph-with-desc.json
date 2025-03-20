@@ -1,7 +1,8 @@
 {
   "collectionName": "components_shared_graph_with_descs",
   "info": {
-    "displayName": "graphWithDesc"
+    "displayName": "graphWithDesc",
+    "description": ""
   },
   "options": {},
   "attributes": {
