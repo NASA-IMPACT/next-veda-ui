@@ -1,6 +1,15 @@
 const path = require('path');
 
 module.exports = {
+  graphql: {
+    enabled: true,
+    config: {
+      apolloServer: {
+        introspection: true,
+      },
+      playgroundAlways: true,
+    }
+  },
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if

@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_graph_with_descs",
+  "info": {
+    "displayName": "graphWithDesc",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sectionDesc": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.mdx-block"
+    },
+    "descriptionPosition": {
+      "type": "enumeration",
+      "enum": [
+        "Description Left",
+        "Description Right"
+      ]
+    },
+    "lineGraph": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.line-graph"
+    }
+  }
+}
