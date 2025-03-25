@@ -27,16 +27,19 @@ const DATASET_CONTENT_PATH = path.join(
 const md = markdownit();
 
 function parseAttributes(obj) {
+  const mdxData = {
+    ...obj,
+    ...(obj.layers
+      ? {
+          layers: obj.layers?.map((l) => ({
+            ...l,
+            parentDataset: { id: obj.id },
+          })),
+        }
+      : {}),
+  };
   const convert = (obj) => {
-    const mdxData = {
-      ...obj,
-      layers: obj.layers?.map((l) => ({
-        ...l,
-        parentDataset: { id: obj.id },
-      })),
-    };
-
-    return Object.keys(mdxData).reduce(
+    return Object.keys(obj).reduce(
       (acc, key) => {
         if (typeof obj[key] === 'object' && obj[key] !== null) {
           acc[key] = convert(obj[key]);
@@ -67,7 +70,7 @@ function parseAttributes(obj) {
     );
   };
 
-  return convert(obj);
+  return convert(mdxData);
 }
 
 function getMDXFiles(dir) {
