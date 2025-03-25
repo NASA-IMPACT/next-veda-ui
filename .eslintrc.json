@@ -1,13 +1,28 @@
 {
-  "plugins": ["react", "react-hooks", "import"],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "import"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier"
+    "prettier",
+    "plugin:storybook/recommended",
+    "plugin:storybook/recommended",
+    "plugin:storybook/recommended",
+    "plugin:storybook/recommended",
+    "plugin:storybook/recommended",
+    "plugin:storybook/recommended",
+    "plugin:storybook/recommended",
+    "plugin:storybook/recommended"
   ],
   "rules": {
-    "jsx-quotes": [2, "prefer-single"],
+    "jsx-quotes": [
+      2,
+      "prefer-single"
+    ],
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-require-imports": "off",
@@ -25,8 +40,13 @@
   },
   "overrides": [
     {
-      "files": ["**/*.ts", "**/*.tsx"],
-      "plugins": ["@typescript-eslint"]
+      "files": [
+        "**/*.ts",
+        "**/*.tsx"
+      ],
+      "plugins": [
+        "@typescript-eslint"
+      ]
     }
   ]
 }
