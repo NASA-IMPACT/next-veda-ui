@@ -26,7 +26,7 @@ const DATASET_CONTENT_PATH = path.join(
 
 const md = markdownit();
 
-function parseAttributes(obj) {
+export function parseAttributes(obj) {
   const mdxData = {
     ...obj,
     ...(obj.layers
