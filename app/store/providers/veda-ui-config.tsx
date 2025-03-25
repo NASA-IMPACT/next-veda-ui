@@ -11,7 +11,6 @@ export default function VedaUIConfigProvider({ children }: { children: any }) {
         envApiStacEndpoint: process.env.NEXT_PUBLIC_API_STAC_ENDPOINT ?? '',
         envApiRasterEndpoint: process.env.NEXT_PUBLIC_API_RASTER_ENDPOINT ?? '',
         navigation: {
-          // @ts-expect-error until veda-ui fixes types
           LinkComponent: Link,
           linkProps: {
             pathAttributeKeyName: 'href',
