@@ -4,6 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "vitest",
     "lint": "next lint",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
@@ -12,8 +13,8 @@
     "fix": "yarn run format && yarn run lint:fix"
   },
   "dependencies": {
-    "@teamimpact/veda-ui": "v5.13.0",
     "@devseed-ui/theme-provider": "^4.1.0",
+    "@teamimpact/veda-ui": "v5.13.0",
     "@types/node": "20.11.17",
     "@types/react": "18.2.55",
     "@types/react-dom": "18.2.19",
@@ -38,6 +39,14 @@
     "sass": "^1.83.0",
     "styled-components": "^5.3.3",
     "sugar-high": "^0.6.0",
-    "typescript": "5.3.3"
+    "typescript": "5.3.3",
+    "vitest": "^3.0.9"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.2.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^26.0.0",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }
