@@ -1,12 +1,12 @@
 'use client';
 import React, { useState } from 'react';
-import Link from 'next/link';
 import {
   ExplorationAndAnalysis,
   DatasetSelectorModal,
   useTimelineDatasetAtom,
   externalDatasetsAtom,
-} from 'app/lib';
+  LegacyGlobalStyles,
+} from '@lib';
 import { useSetAtom } from 'jotai';
 import useElementHeight from '@utils/hooks/use-element-height';
 import Providers from '../providers';
@@ -32,6 +32,7 @@ export default function ExplorationAnalysis({ datasets }: { datasets: any }) {
 
   return (
     <Providers datasets={datasets}>
+      <LegacyGlobalStyles />
       <div
         id='ea-wrapper'
         // The below styles adjust the E&A page to match what we have on earthdata.nasa.gov

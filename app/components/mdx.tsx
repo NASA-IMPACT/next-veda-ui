@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { highlight } from 'sugar-high';
+import { LegacyGlobalStyles } from '@lib';
 
 import {
   Block,
@@ -106,6 +107,7 @@ export function CustomMDX(props: any) {
   const datasets = getDatasetsMetadata();
   return (
     <Providers datasets={datasets}>
+      <LegacyGlobalStyles />
       <MDXRemote
         {...props}
         components={{ ...components, ...(props.components || {}) }}

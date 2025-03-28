@@ -3,7 +3,7 @@
 'use client';
 
 import {
-  CatalogView,
+  CatalogContent,
   PageHero,
   useFiltersWithQS,
   ReactQueryProvider,
@@ -33,6 +33,7 @@ import {
   DatasetData,
   StoryData,
   VedaData,
+  LegacyGlobalStyles,
 } from '@teamimpact/veda-ui';
 
 /**
@@ -48,7 +49,7 @@ export {
   VedaUIProvider,
 
   // Components
-  CatalogView,
+  CatalogContent,
   PageHero,
   PageHeader,
   PageFooter,
@@ -75,6 +76,7 @@ export {
   timelineDatasetsAtom,
   useTimelineDatasetAtom,
   externalDatasetsAtom,
+  LegacyGlobalStyles,
 };
 
 export type {

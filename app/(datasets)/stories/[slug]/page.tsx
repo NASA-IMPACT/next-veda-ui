@@ -2,14 +2,14 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import { CustomMDX } from 'app/components/mdx';
 import { getStories } from 'app/content/utils/mdx';
-import { PageHero } from '@lib';
+import { LegacyGlobalStyles, PageHero } from '@lib';
+import './index.scss';
+import Providers from 'app/(datasets)/providers';
 
 async function generateStaticParams() {
   const posts = getStories();
 
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
 export default function StoryOverview({ params }: { params: any }) {
@@ -21,7 +21,7 @@ export default function StoryOverview({ params }: { params: any }) {
 
   return (
     <section>
-      <script 
+      <script
         type='application/ld+json'
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
@@ -31,18 +31,22 @@ export default function StoryOverview({ params }: { params: any }) {
             title: post.metadata.name,
             description: post.metadata.description,
             coverSrc: post.metadata.media?.src,
-            coverAlt: post.metadata.media?.alt
+            coverAlt: post.metadata.media?.alt,
           }),
         }}
       />
       <article className='prose'>
-        <PageHero
-          title={post.metadata.name}
-          description={post.metadata.description}
-          coverSrc={post.metadata.media?.src}
-          coverAlt={post.metadata.media?.alt}
-        />
-        <CustomMDX source={post.content} />
+        <Providers>
+          <LegacyGlobalStyles />
+
+          <PageHero
+            title={post.metadata.name}
+            description={post.metadata.description}
+            coverSrc={post.metadata.media?.src}
+            coverAlt={post.metadata.media?.alt}
+          />
+          <CustomMDX source={post.content} />
+        </Providers>
       </article>
     </section>
   );

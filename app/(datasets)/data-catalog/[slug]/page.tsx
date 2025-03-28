@@ -2,7 +2,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import { CustomMDX } from 'app/components/mdx';
 import { getDatasets } from 'app/content/utils/mdx';
-import { PageHero } from '@lib';
+import { PageHero, LegacyGlobalStyles } from '@lib';
 import Providers from 'app/(datasets)/providers';
 
 export default function DatasetOverviewPage({ params }: { params: any }) {
@@ -16,6 +16,7 @@ export default function DatasetOverviewPage({ params }: { params: any }) {
     <section>
       <article className='prose'>
         <Providers>
+          <LegacyGlobalStyles />
           <PageHero
             title={dataset.metadata.name}
             description={dataset.metadata.description}

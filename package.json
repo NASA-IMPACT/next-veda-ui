@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@devseed-ui/theme-provider": "^4.1.0",
-    "@teamimpact/veda-ui": "^5.13.0",
+    "@teamimpact/veda-ui": "^6.1.1",
     "@uswds/uswds": "^3.10.0",
     "geist": "1.2.2",
     "gray-matter": "^4.0.3",
