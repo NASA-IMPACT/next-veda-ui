@@ -19,9 +19,9 @@ import {
   EnhancedScrollyTellingBlock,
 } from '../../../components/mdx-components/block';
 import Providers from 'app/(datasets)/providers';
-
+import { draftMode } from 'next/headers';
 import { ApolloClient, InMemoryCache, useQuery } from '@apollo/client';
-import { STORIES_PAGE } from '../../../queries/stories';
+import { STORIES_PAGE, STORIES_PAGE_DRAFT } from '../../../queries/stories';
 import { getDatasetsMetadata } from 'app/content/utils/mdx';
 
 async function generateStaticParams() {
@@ -35,6 +35,7 @@ async function generateStaticParams() {
 async function getPost(slug) {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:1337';
   const path = `/api/articles?filters%5Bslug%5D%5B$eq%5D=${slug}&populate=*`;
+  const { isEnabled } = await draftMode();
 
   const url = new URL(path, baseUrl);
   const res = await fetch(url);
@@ -46,8 +47,10 @@ async function getPost(slug) {
     cache: new InMemoryCache(),
   });
 
+  const qeuryValue = isEnabled ? STORIES_PAGE_DRAFT : STORIES_PAGE;
+  console.log('isEnabled', isEnabled);
   const { data } = await client.query({
-    query: STORIES_PAGE,
+    query: qeuryValue,
     variables: { slug: slug },
   });
 
@@ -79,7 +82,6 @@ async function translateData(slug) {
 
 export default async function StoryOverview({ params }: { params: any }) {
   const strapiOn = process.env.USE_STRAPI_CMS;
-
   let post;
   if (strapiOn) {
     post = await translateData(params.slug);
@@ -141,19 +143,21 @@ export default async function StoryOverview({ params }: { params: any }) {
       case 'ComponentSharedMap':
         return (
           <div className='grid-row padding-bottom-3'>
-            <EnhancedMapBlock
-              datasetId={block.datasetId}
-              layerId={block.layerId}
-              zoom={block.zoom}
-              center={block.center}
-              dateTime={block.dateTime}
-              compareDateTime={block.compareDateTime}
-            />
-            <Caption attrAuthor='NASA' attrUrl='https://nasa.gov/'>
-              Comparison of nightlights data for Puerto Rico pre-landfall (17
-              July 2017) and post-landfall (20 September 2017) for Hurricane
-              Maria.
-            </Caption>
+            <div className='grid-col '>
+              <EnhancedMapBlock
+                datasetId={block.datasetId}
+                layerId={block.layerId}
+                zoom={block.zoom}
+                center={block.center}
+                dateTime={block.dateTime}
+                compareDateTime={block.compareDateTime}
+              />
+              <Caption attrAuthor='NASA' attrUrl='https://nasa.gov/'>
+                Comparison of nightlights data for Puerto Rico pre-landfall (17
+                July 2017) and post-landfall (20 September 2017) for Hurricane
+                Maria.
+              </Caption>
+            </div>
           </div>
         );
         break;
@@ -172,6 +176,7 @@ export default async function StoryOverview({ params }: { params: any }) {
                 dateFormat={'%m/%Y'}
                 dataPath={`http://localhost:1337${block.lineGraph.dataPath.url}`}
               />
+
               <Caption
                 attrAuthor={block.lineGraph.Attribution.attributeAuthor}
                 attrUrl={block.lineGraph.Attribution.attrURL}
@@ -186,6 +191,7 @@ export default async function StoryOverview({ params }: { params: any }) {
         return;
     }
   };
+
   return (
     <section>
       <script
