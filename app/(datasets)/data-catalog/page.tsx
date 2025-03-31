@@ -4,7 +4,7 @@ import { getTransformedDatasetMetadata } from 'app/content/utils/mdx';
 
 // @NOTE: Dynamically load to ensure only CSR since this depends ContextProviders for routing and etc...
 const Catalog = dynamic(() => import('./catalog'), {
-  ssr: false,
+  ssr: !!false,
   loading: () => <p>Loading...</p>, // @NOTE @TODO: We need a loading state!!!
 });
 

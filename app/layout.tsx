@@ -7,12 +7,12 @@ import '@teamimpact/veda-ui/lib/main.css';
 
 // @NOTE: Dynamically load to ensure only CSR since these depends on VedaUI ContextProvider for routing...
 const Header = dynamic(() => import('./components/header'), {
-  ssr: false,
+  ssr: !!false,
   loading: () => <p>Loading...</p>, // @NOTE @TODO: We need a loading state!!!
 });
 
 const Footer = dynamic(() => import('./components/footer'), {
-  ssr: false,
+  ssr: !!false,
   loading: () => <p>Loading...</p>,
 });
 
