@@ -1,22 +1,17 @@
 const path = require('path');
-
-module.exports = {
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if
     // your project has type errors.
     // !! WARN !!
     ignoreBuildErrors: true,
-    moduleResolution: 'bundler',
-    include: ['app/**/*.ts', 'app/**/*.tsx'],
   },
   async rewrites() {
-    return [
-      {
-        source: '/public/:path*',
-        destination: '/:path*',
-      },
-    ];
+    return [{ source: '/public/:path*', destination: '/:path*' }];
   },
   reactStrictMode: false,
   webpack: (config) => {
@@ -51,3 +46,5 @@ module.exports = {
     ],
   },
 };
+
+module.exports = nextConfig;
