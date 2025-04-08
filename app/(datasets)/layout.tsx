@@ -9,6 +9,5 @@ export default function DatasetLayout({
 }) {
   const datasets = getDatasetsMetadata();
   
-
   return <DataProvider initialDatasets={datasets}>{children}</DataProvider>;
 }

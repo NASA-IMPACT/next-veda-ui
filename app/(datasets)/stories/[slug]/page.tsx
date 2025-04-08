@@ -48,6 +48,7 @@ async function getPost(slug) {
   });
 
   const qeuryValue = isEnabled ? STORIES_PAGE_DRAFT : STORIES_PAGE;
+  const status = isEnabled ? 'DRAFT' : 'PUBLISHED';
   console.log('isEnabled', isEnabled);
   const { data } = await client.query({
     query: qeuryValue,
@@ -63,7 +64,6 @@ async function translateData(slug) {
     strapiData = data;
   });
   const { description, name, cover, blocks } = strapiData.articles[0];
-
   const newData = {
     metadata: {
       id: slug,
@@ -97,7 +97,6 @@ export default async function StoryOverview({ params }: { params: any }) {
     } else return '%d/%m/%Y';
   };
   const datasets = getDatasetsMetadata();
-
   const buildPage = (block) => {
     const components = block.__typename;
     switch (components) {
@@ -163,29 +162,106 @@ export default async function StoryOverview({ params }: { params: any }) {
         break;
       case 'ComponentSharedGraphWithDesc':
         console.log(block);
-        return (
-          <div className='grid-row padding-bottom-3'>
-            <div className='grid-col-6'>
-              <CustomMDX source={block.sectionDesc.descriptionBlock} />
-            </div>
-            <div className='grid-col-6'>
-              <Chart
-                idKey={block.lineGraph.idKey}
-                xKey={block.lineGraph.xKey}
-                yKey={block.lineGraph.yKey}
-                dateFormat={'%m/%Y'}
-                dataPath={`http://localhost:1337${block.lineGraph.dataPath.url}`}
-              />
 
-              <Caption
-                attrAuthor={block.lineGraph.Attribution.attributeAuthor}
-                attrUrl={block.lineGraph.Attribution.attrURL}
-              >
-                {block.lineGraph.captionFig}
-              </Caption>
+        if (block.descriptionPosition === 'Description_Left') {
+          return (
+            <div className='grid-row padding-bottom-3'>
+              <div className='grid-col-6 padding-right-2'>
+                <CustomMDX source={block.sectionDesc.descriptionBlock} />
+              </div>
+              <div className='grid-col-6'>
+                <Chart
+                  idKey={block.lineGraph.idKey}
+                  xKey={block.lineGraph.xKey}
+                  yKey={block.lineGraph.yKey}
+                  dateFormat={'%m/%Y'}
+                  dataPath={`http://localhost:1337${block.lineGraph.dataPath.url}`}
+                />
+
+                <Caption
+                  attrAuthor={block.lineGraph.Attribution.attributeAuthor}
+                  attrUrl={block.lineGraph.Attribution.attrURL}
+                >
+                  {block.lineGraph.captionFig}
+                </Caption>
+              </div>
             </div>
-          </div>
-        );
+          );
+        } else {
+          return (
+            <div className='grid-row padding-bottom-3'>
+              <div className='grid-col-6'>
+                <Chart
+                  idKey={block.lineGraph.idKey}
+                  xKey={block.lineGraph.xKey}
+                  yKey={block.lineGraph.yKey}
+                  dateFormat={'%m/%Y'}
+                  dataPath={`http://localhost:1337${block.lineGraph.dataPath.url}`}
+                />
+
+                <Caption
+                  attrAuthor={block.lineGraph.Attribution.attributeAuthor}
+                  attrUrl={block.lineGraph.Attribution.attrURL}
+                >
+                  {block.lineGraph.captionFig}
+                </Caption>
+              </div>
+              <div className='grid-col-6 padding-left-2'>
+                <CustomMDX source={block.sectionDesc.descriptionBlock} />
+              </div>
+            </div>
+          );
+        }
+
+        break;
+      case 'ComponentSharedSideBySide':
+        if (block.Orientation === 'Image_Left') {
+          return (
+            <div className='grid-row padding-bottom-3'>
+              <div className='grid-col-6'>
+                <EnhancedMapBlock
+                  datasetId={block.map.datasetId}
+                  layerId={block.map.layerId}
+                  zoom={block.map.zoom}
+                  center={block.map.center}
+                  dateTime={block.map.dateTime}
+                  compareDateTime={block.map.compareDateTime}
+                />
+                <Caption attrAuthor='NASA' attrUrl='https://nasa.gov/'>
+                  Comparison of nightlights data for Puerto Rico pre-landfall
+                  (17 July 2017) and post-landfall (20 September 2017) for
+                  Hurricane Maria.
+                </Caption>
+              </div>
+              <div className='grid-col-6 padding-left-2'>
+                <CustomMDX source={block.sectionDescription.customMDX} />
+              </div>
+            </div>
+          );
+        } else {
+          return (
+            <div className='grid-row padding-bottom-3'>
+              <div className='grid-col-6 padding-right-2'>
+                <CustomMDX source={block.sectionDescription.customMDX} />
+              </div>
+              <div className='grid-col-6'>
+                <EnhancedMapBlock
+                  datasetId={block.map.datasetId}
+                  layerId={block.map.layerId}
+                  zoom={block.map.zoom}
+                  center={block.map.center}
+                  dateTime={block.map.dateTime}
+                  compareDateTime={block.map.compareDateTime}
+                />
+                <Caption attrAuthor='NASA' attrUrl='https://nasa.gov/'>
+                  Comparison of nightlights data for Puerto Rico pre-landfall
+                  (17 July 2017) and post-landfall (20 September 2017) for
+                  Hurricane Maria.
+                </Caption>
+              </div>
+            </div>
+          );
+        }
         break;
       default:
         return;
@@ -209,16 +285,19 @@ export default async function StoryOverview({ params }: { params: any }) {
         }}
       />
       <article className='prose'>
-        <PageHero
-          title={post.metadata.name}
-          description={post.metadata.description}
-          coverSrc={post.metadata.media?.src}
-          coverAlt={post.metadata.media?.alt}
-        />
-        <div className='grid-container padding-y-3'>
+        <Providers>
+          <PageHero
+            title={post.metadata.name}
+            description={post.metadata.description}
+            coverSrc={post.metadata.media?.src}
+            coverAlt={post.metadata.media?.alt}
+          />
+        </Providers>
+
+        <div className='grid-container maxw-widescreen padding-x-0'>
           <Providers datasets={datasets}>
             {post.content.map((block) => {
-              return buildPage(block);
+              return <div className='padding-top-4'>{buildPage(block)}</div>;
             })}
           </Providers>
         </div>

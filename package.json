@@ -10,9 +10,7 @@
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "check": "yarn run format:check && yarn run lint",
     "fix": "yarn run format && yarn run lint:fix",
-    "generate-backup": "docker exec -t postgres pg_dumpall -c -U postgres > dump_`date +%Y-%m-%d`.sql",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "generate-backup": "docker exec -t postgres pg_dumpall -c -U postgres > dump_`date +%Y-%m-%d`.sql"
   },
   "dependencies": {
     "@apollo/client": "^3.13.4",
@@ -44,7 +42,6 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "^1.83.0",
-    "storybook": "^8.6.9",
     "styled-components": "^5.3.3",
     "sugar-high": "^0.6.0",
     "typescript": "5.3.3",
@@ -52,19 +49,8 @@
   },
   "packageManager": "yarn@2.4.3",
   "devDependencies": {
-    "@chromatic-com/storybook": "^3",
-    "@storybook/addon-essentials": "^8.6.9",
-    "@storybook/addon-onboarding": "^8.6.9",
-    "@storybook/blocks": "^8.6.9",
-    "@storybook/experimental-addon-test": "^8.6.9",
-    "@storybook/experimental-nextjs-vite": "^8.6.9",
-    "@storybook/nextjs": "^8.6.9",
-    "@storybook/react": "^8.6.9",
-    "@storybook/react-webpack5": "^8.6.9",
-    "@storybook/test": "^8.6.9",
     "@vitest/browser": "^3.0.9",
     "@vitest/coverage-v8": "^3.0.9",
-    "eslint-plugin-storybook": "^0.11.6",
     "playwright": "^1.51.1",
     "vitest": "^3.0.9"
   }

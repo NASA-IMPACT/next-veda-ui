@@ -36,8 +36,6 @@
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "shared.media",
-        "shared.quote",
         "shared.rich-text",
         "shared.custom-mdx-block",
         "shared.line-graph",

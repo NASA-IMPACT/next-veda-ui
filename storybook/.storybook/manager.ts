@@ -1,6 +1,6 @@
 import { addons } from '@storybook/manager-api';
-import impactTheme from './impactTheme';
+import VedaTheme from './VedaTheme';
 
 addons.setConfig({
-  theme: impactTheme,
+  theme: VedaTheme,
 });

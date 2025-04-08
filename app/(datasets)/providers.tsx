@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
-import DataProvider from 'app/store/providers/data';
-import VedaUIConfigProvider from 'app/store/providers/veda-ui-config';
-import DevseedUIThemeProvider from 'app/store/providers/theme';
+import DataProvider from '../store/providers/data';
+import VedaUIConfigProvider from '../store/providers/veda-ui-config';
+import DevseedUIThemeProvider from '../store/providers/theme';
 
 export default function Providers ({
   datasets,

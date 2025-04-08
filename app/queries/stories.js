@@ -1,8 +1,9 @@
 import { gql } from '@apollo/client';
 
-export const STORIES_PAGE = gql`query articles($slug: String) {
-  articles(filters: { slug: { eq: $slug } }) {
-    documentId
+export const STORIES_PAGE = gql`
+  query articles($slug: String) {
+    articles(filters: { slug: { eq: $slug } }) {
+       documentId
     cover {
       alternativeText
       caption
@@ -16,22 +17,6 @@ export const STORIES_PAGE = gql`query articles($slug: String) {
     name
     Taxonomy
     blocks {
-      ... on ComponentSharedMedia {
-        id
-        file {
-          alternativeText
-          caption
-          name
-          url
-          formats
-          size
-        }
-      }
-      ... on ComponentSharedQuote {
-        id
-        title
-        body
-      }
       ... on ComponentSharedRichText {
         id
         body
@@ -43,14 +28,6 @@ export const STORIES_PAGE = gql`query articles($slug: String) {
       }
       ... on ComponentSharedLineGraph {
         id
-        dataPath {
-          alternativeText
-          caption
-          name
-          url
-          formats
-          size
-        }
         dateFormat
         idKey
         xKey
@@ -60,6 +37,11 @@ export const STORIES_PAGE = gql`query articles($slug: String) {
           attributeAuthor
           attrURL
           captionFig
+        }
+        dataPath {
+          url
+          alternativeText
+          name
         }
       }
       ... on ComponentSharedMap {
@@ -110,9 +92,9 @@ export const STORIES_PAGE = gql`query articles($slug: String) {
         lineGraph {
           id
           dataPath {
-            url
-            caption
             alternativeText
+            name
+            url
           }
           dateFormat
           idKey
@@ -128,11 +110,12 @@ export const STORIES_PAGE = gql`query articles($slug: String) {
       }
     }
   }
-}`;
+}
+`;
 
 export const STORIES_PAGE_DRAFT = gql`query articles($slug: String) {
-  articles(filters: { slug: { eq: $slug } }, status: DRAFT ) {
-    documentId
+  articles(filters: { slug: { eq: $slug} }, status: DRAFT) {
+     documentId
     cover {
       alternativeText
       caption
@@ -146,22 +129,6 @@ export const STORIES_PAGE_DRAFT = gql`query articles($slug: String) {
     name
     Taxonomy
     blocks {
-      ... on ComponentSharedMedia {
-        id
-        file {
-          alternativeText
-          caption
-          name
-          url
-          formats
-          size
-        }
-      }
-      ... on ComponentSharedQuote {
-        id
-        title
-        body
-      }
       ... on ComponentSharedRichText {
         id
         body
@@ -173,14 +140,6 @@ export const STORIES_PAGE_DRAFT = gql`query articles($slug: String) {
       }
       ... on ComponentSharedLineGraph {
         id
-        dataPath {
-          alternativeText
-          caption
-          name
-          url
-          formats
-          size
-        }
         dateFormat
         idKey
         xKey
@@ -190,6 +149,11 @@ export const STORIES_PAGE_DRAFT = gql`query articles($slug: String) {
           attributeAuthor
           attrURL
           captionFig
+        }
+        dataPath {
+          url
+          alternativeText
+          name
         }
       }
       ... on ComponentSharedMap {
@@ -240,9 +204,9 @@ export const STORIES_PAGE_DRAFT = gql`query articles($slug: String) {
         lineGraph {
           id
           dataPath {
-            url
-            caption
             alternativeText
+            name
+            url
           }
           dateFormat
           idKey
@@ -258,5 +222,5 @@ export const STORIES_PAGE_DRAFT = gql`query articles($slug: String) {
       }
     }
   }
-}`;
-
+}
+`;
