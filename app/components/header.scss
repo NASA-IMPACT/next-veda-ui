@@ -1,0 +1,103 @@
+.usa-nav-container {
+  height: 48px;
+  @media only screen and (min-width: 1024px) {
+    height: 100px;
+  }
+}
+
+.usa-nav__link {
+  color: #ffffff !important;
+  text-transform: uppercase;
+  &:hover {
+    &:after {
+      background-color: #ffffff !important;
+    }
+  }
+}
+
+.usa-nav__primary button[aria-expanded='true'],
+.usa-nav__submenu,
+.usa-menu-btn,
+.usa-nav-container,
+.usa-nav {
+  background-color: #141414 !important;
+}
+
+.usa-nav__submenu {
+  padding-left: 1rem !important;
+  padding-right: 1rem;
+  margin-top: 15px !important;
+
+  & .usa-nav__submenu-item {
+    & a:hover {
+      text-underline-offset: 6px;
+      text-decoration-thickness: 4px !important;
+      text-decoration-line: underline !important;
+    }
+    & .usa-nav__link {
+      font-weight: 700;
+      padding: inherit 0 !important;
+    }
+    & > .usa-nav__link:hover::after {
+      display: none !important;
+    }
+  }
+}
+
+.usa-nav__primary {
+  & button span:after {
+    background-color: #ffffff !important;
+
+    & button {
+      &:hover {
+        color: #141414 !important;
+      }
+      & [aria-expanded='true'] {
+        background-color: #141414 !important;
+      }
+    }
+  }
+}
+
+.usa-nav__primary button {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  @media only screen and (max-width: 1024px) {
+    padding: 8px 16px !important;
+    height: 35px;
+  }
+}
+
+.usa-nav__submenu-item .usa-nav__link{
+  @media only screen and (max-width: 1024px) {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+  }
+}
+
+.usa-nav .usa-accordion {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
+
+.usa-nav__primary-item:last-child {
+  border-bottom: 1px solid #ffffff;
+
+  @media only screen and (min-width: 1024px) {
+    border: #ffffff 2px solid;
+    &:hover {
+      background-color: #ffffff;
+    }
+    & > .usa-nav__link:hover {
+      color: #141414 !important;
+
+      &:after {
+        display: none !important;
+      }
+    }
+  }
+}
+
+.usa-navbar {
+  border: 0px solid #141414 !important;
+}
