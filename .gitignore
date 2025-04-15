@@ -12,6 +12,9 @@
 /.next/
 /out/
 
+# docker
+/_docker_volumes
+
 # production
 /build
 
