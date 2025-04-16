@@ -10,7 +10,7 @@
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "check": "yarn run format:check && yarn run lint",
     "fix": "yarn run format && yarn run lint:fix",
-    "generate-backup": "docker exec -t postgres pg_dumpall -c -U postgres > dump_`date +%Y-%m-%d`.sql"
+    "db-gen-backup": "docker exec -t postgres pg_dumpall -c -U postgres > _db_backups/pgsql_backup_`date +%Y-%m-%d`.sql"
   },
   "dependencies": {
     "@apollo/client": "^3.13.4",
