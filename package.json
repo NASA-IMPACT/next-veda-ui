@@ -47,7 +47,6 @@
     "typescript": "5.3.3",
     "yarn": "^1.22.22"
   },
-  "packageManager": "yarn@2.4.3",
   "devDependencies": {
     "@vitest/browser": "^3.0.9",
     "@vitest/coverage-v8": "^3.0.9",

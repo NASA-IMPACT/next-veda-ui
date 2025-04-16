@@ -41,23 +41,4 @@ services:
       - ./_docker_volumes/postgres:/var/lib/postgresql/data
     ports:
       - "5432:5432"     
-
-  veda:
-      container_name: veda-ui
-      build:
-        context: ./
-        dockerfile: Dockerfile
-      restart: unless-stopped
-      x-dev:
-        watch:
-          - action: sync
-            path: ./app
-            target: /app
-            ignore: ["node_modules", ".git"]
-      volumes:
-        - .:/app
-      ports:
-        - '3000:3000'
-      depends_on:
-        - strapi
       
