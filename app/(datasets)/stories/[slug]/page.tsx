@@ -49,7 +49,7 @@ async function getPost(slug) {
 
   const qeuryValue = isEnabled ? STORIES_PAGE_DRAFT : STORIES_PAGE;
   const status = isEnabled ? 'DRAFT' : 'PUBLISHED';
-  console.log('isEnabled', isEnabled);
+
   const { data } = await client.query({
     query: qeuryValue,
     variables: { slug: slug },
@@ -91,8 +91,9 @@ export default async function StoryOverview({ params }: { params: any }) {
   if (!post) {
     notFound();
   }
+
   const convertedDate = (dateFormat) => {
-    if (dateFormat === 'MM_YYY') {
+    if (dateFormat === 'MM_YY') {
       return '%m/%Y';
     } else return '%d/%m/%Y';
   };
@@ -161,8 +162,6 @@ export default async function StoryOverview({ params }: { params: any }) {
         );
         break;
       case 'ComponentSharedGraphWithDesc':
-        console.log(block);
-
         if (block.descriptionPosition === 'Description_Left') {
           return (
             <div className='grid-row padding-bottom-3'>
@@ -294,10 +293,18 @@ export default async function StoryOverview({ params }: { params: any }) {
           />
         </Providers>
 
-        <div className='grid-container maxw-widescreen padding-x-0'>
+        <div
+          className={`${post.content.length > 1 && post.content[0].__typename !== 'ComponentSharedCustomMdxBlock' ? 'grid-container maxw-widescreen padding-x-0' : ''}`}
+        >
           <Providers datasets={datasets}>
             {post.content.map((block) => {
-              return <div className='padding-top-4'>{buildPage(block)}</div>;
+              return (
+                <div
+                  className={`${post.content.length > 1 && block.__typename !== 'ComponentSharedCustomMdxBlock' ? 'padding-top-4' : ''}`}
+                >
+                  {buildPage(block)}
+                </div>
+              );
             })}
           </Providers>
         </div>
