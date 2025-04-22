@@ -8,7 +8,7 @@ export default function AboutLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className='wrapper'>
+    <div className='bg-white text-ink wrapper'>
       <div className='title'>
         <h1 className='text-uppercase'>About</h1>
       </div>
