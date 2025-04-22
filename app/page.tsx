@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Icon, Link } from '@trussworks/react-uswds';
 
-const DATA_THEMES = [
+export const DATA_THEMES = [
   { title: 'Air Quality' },
   { title: 'Agriculture' },
   { title: 'Biodiversity' },

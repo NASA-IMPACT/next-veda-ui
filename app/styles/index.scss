@@ -4,6 +4,11 @@
 @use 'uswds-core' as *;
 
 @forward 'homepage';
+@forward '../components/header/header.scss';
+
+:root {
+  --header-height: 75px; /* Default height, setting the value aims to minimize layout shift on initial load. It is overwritten with the actual measured value in header-client.tsx */
+}
 
 body {
   box-sizing: border-box;

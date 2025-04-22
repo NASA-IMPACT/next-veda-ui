@@ -1,0 +1,87 @@
+@use 'uswds-core/src/styles/functions/utilities' as utils;
+@use 'uswds-core/src/styles/functions/units' as spacing;
+
+/* Specific style overrides for the header */
+
+header {
+  /*
+  Why do I need to specifically set the color for the chevron,
+  instead of it just adapting to the span's color?
+  Seems like a bug in the uswds library.
+  */
+  .usa-nav__primary button[aria-expanded=false] span:after {
+    background-color: utils.color('white');
+  }
+  .usa-nav__primary button[aria-expanded=false]:hover span::after {
+    background-color: utils.color('white');
+  }
+
+  .usa-nav__primary-item > .usa-current::after , .usa-nav__link:hover::after {
+    background-color: utils.color('white') !important;
+  }
+
+  .usa-nav__primary-item {
+    .usa-nav__link, .usa-button {
+      color: utils.color('white') !important;
+      text-transform: uppercase;
+    }
+
+    .usa-nav__link:focus:not(:focus-visible),
+    .usa-nav__submenu-item a:focus:not(:focus-visible) {
+      // Remove focus outline on non-keyboard focus
+      outline: none;
+      box-shadow: none;
+    }
+
+    .usa-button:focus:not(:focus-visible) {
+      // Remove focus outline on non-keyboard focus
+      outline: none;
+      // but keep the white box-shadow of the button outline style
+    }
+  }
+
+  .usa-logo a:focus:not(:focus-visible) {
+    // Remove focus outline on non-keyboard focus
+    outline: none;
+    box-shadow: none;
+  }
+
+  @media (min-width: spacing.units('desktop')) {
+    .usa-nav__submenu {
+      padding: spacing.units(2);
+
+      .usa-nav__submenu-item {
+        padding: spacing.units(1);
+        font-weight: bold;
+      }
+    }
+  }
+
+  @media (max-width: spacing.units('desktop')) {
+    .usa-nav__primary {
+      a:hover, button:hover {
+        background-color: utils.color('base-darkest') !important;
+        color: utils.color('white') !important;
+      }
+      button[aria-expanded="true"]:after {
+        background-color: utils.color('white') !important;
+      }
+    }
+
+    .usa-menu-btn {
+      background-color: utils.color('ink') !important;
+      cursor: pointer;
+    }
+    .usa-menu-btn:hover{
+      background-color: utils.color('base-darkest') !important;
+    }
+  }
+}
+
+// Remove white border between header and main, both desktop and mobile
+.usa-header + .usa-section, .usa-header + main {
+  border-top: 0;
+}
+.usa-navbar {
+  border-bottom: 0;
+}

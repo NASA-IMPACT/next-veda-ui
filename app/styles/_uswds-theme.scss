@@ -19,9 +19,18 @@
   ),
   $theme-font-type-serif: 'public-sans',
   $theme-font-type-sans: 'public-sans',
+  
+  // COLORS
+  // Body
+  $theme-body-background-color: 'ink',
+  // Text
+  $theme-text-color: 'white',
+  $theme-text-reverse-color: 'ink',
+  // Base
+  $theme-color-base-lightest: 'gray-cool-4',
   $theme-color-base-darkest: 'gray-cool-80',
   $theme-color-base-ink: 'gray-cool-90',
-  $theme-color-secondary: 'yellow-30',
+
   $overflow-settings: (
     responsive: true,
   ),
