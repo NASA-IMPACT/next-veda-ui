@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import useClickOutside from './use-click-outside';
+import { USWDS_DESKTOP_BREAKPOINT } from '@utils/constants';
 
 /**
  * Hook to handle mobile menu behavior, closing
@@ -10,10 +11,6 @@ import useClickOutside from './use-click-outside';
  * Subscribe to https://github.com/trussworks/react-uswds/issues/2586
  * for updates
  * */
-
-const USWDS_DESKTOP_BREAKPOINT = 1024;
-// no magic numbers! Use value from theme?
-
 export default function useMobileMenuFix(
   expanded: boolean,
   setExpanded: (expanded: boolean) => void,

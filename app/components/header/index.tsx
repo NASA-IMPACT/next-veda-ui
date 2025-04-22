@@ -98,7 +98,7 @@ export default function Header() {
         <div className='usa-nav-container'>
           <div className='usa-navbar' ref={mobileMenuRef}>
             <Title>
-              <Link href='/' className='padding-2 text-white'>
+              <Link href='/' className='text-white'>
                 Earth.gov
               </Link>
             </Title>
@@ -111,7 +111,7 @@ export default function Header() {
             items={primaryNavItems}
             mobileExpanded={isMobileExpanded}
             onToggleMobileNav={onMenuClick}
-            className={`${isMobileExpanded ? 'bg-ink' : ''} text-white`}
+            className={`${isMobileExpanded && 'bg-ink'} text-white`}
           ></PrimaryNav>
         </div>
       </USWDSHeader>

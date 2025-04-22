@@ -1,11 +1,11 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { SideNav } from '@trussworks/react-uswds';
+import { SideNav as USWDSSideNav } from '@trussworks/react-uswds';
 import useActiveSection from '@utils/hooks/use-active-section';
 
 const SECTION_HEADING = 'h2';
 
-export default function AboutSideNav() {
+export default function SideNav() {
   const [sectionIds, setSectionIds] = useState<string[]>([]);
 
   // On page mount, get the ids of h3 elements, which should be the topmost
@@ -22,7 +22,7 @@ export default function AboutSideNav() {
   return (
     <aside>
       <p className='margin-y-2'>On this page</p>
-      <SideNav
+      <USWDSSideNav
         items={sectionIds.map((id, i) => (
           <a
             key={id}
