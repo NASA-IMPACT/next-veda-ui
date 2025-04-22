@@ -12,8 +12,8 @@ export default function AboutLayout({
     <GridContainer
       containerSize='widescreen'
       // TODO: Figure out how to enable responsive text color
-      // className='desktop:bg-white desktop:text-ink padding-x-15 padding-y-10'
-      className='bg-white text-ink padding-x-15 padding-y-10'
+      // className='desktop:bg-white desktop:text-ink desktop:padding-x-15 desktop:padding-y-10'
+      className='bg-white text-ink desktop:padding-x-15 desktop:padding-y-10'
     >
       <Grid row>
         <h1 className='text-uppercase'>About</h1>
