@@ -1,7 +1,6 @@
-import React, { use } from 'react';
+import React from 'react';
 import SideNav from './side-nav';
-import { Accordion, Grid, GridContainer } from '@trussworks/react-uswds';
-import { USWDS_DESKTOP_BREAKPOINT } from '@utils/constants';
+import { Grid, GridContainer } from '@trussworks/react-uswds';
 
 export default function AboutLayout({
   children,
