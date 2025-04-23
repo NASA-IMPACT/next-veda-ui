@@ -10,7 +10,7 @@ export default function AboutLayout({
   return (
     // The about page needs a full width white bg color, so we're adding a div wrapper
     // around the GridContainer to achieve that.
-    <div className='bg-white'>
+    <div className='desktop:bg-white'>
       <GridContainer
         containerSize='widescreen'
         className='desktop:bg-white desktop:text-ink desktop:padding-x-15 desktop:padding-y-10'
