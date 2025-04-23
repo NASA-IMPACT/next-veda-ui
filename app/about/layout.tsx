@@ -8,31 +8,35 @@ export default function AboutLayout({
   children: React.ReactNode;
 }) {
   return (
-    <GridContainer
-      containerSize='widescreen'
-      className='desktop:bg-white desktop:text-ink desktop:padding-x-15 desktop:padding-y-10'
-    >
-      <Grid row className='margin-bottom-4'>
-        <h1 className='text-uppercase'>About</h1>
-      </Grid>
-
-      <Grid row gap={6}>
-        {/* Desktop Sidebar: visible only on desktop */}
-        <Grid col={3} className='display-none desktop:display-block'>
-          <div className='position-sticky top-2'>
-            <SideNav />
-          </div>
+    // The about page needs a full width white bg color, so we're adding a div wrapper
+    // around the GridContainer to achieve that.
+    <div className='bg-white'>
+      <GridContainer
+        containerSize='widescreen'
+        className='desktop:bg-white desktop:text-ink desktop:padding-x-15 desktop:padding-y-10'
+      >
+        <Grid row className='margin-bottom-4'>
+          <h1 className='text-uppercase'>About</h1>
         </Grid>
 
-        {/* Mobile Sidebar: visible only on mobile */}
-        <Grid col={12} className='display-block desktop:display-none'>
-          {/* TODO: <Accordion></Accordion> */}
-        </Grid>
+        <Grid row gap={6}>
+          {/* Desktop Sidebar: visible only on desktop */}
+          <Grid col={3} className='display-none desktop:display-block'>
+            <div className='position-sticky top-2'>
+              <SideNav />
+            </div>
+          </Grid>
 
-        <Grid col={'fill'} className='mdx margin-top-neg-2'>
-          {children}
+          {/* Mobile Sidebar: visible only on mobile */}
+          <Grid col={12} className='display-block desktop:display-none'>
+            {/* TODO: <Accordion></Accordion> */}
+          </Grid>
+
+          <Grid col={'fill'} className='mdx margin-top-neg-2'>
+            {children}
+          </Grid>
         </Grid>
-      </Grid>
-    </GridContainer>
+      </GridContainer>
+    </div>
   );
 }
