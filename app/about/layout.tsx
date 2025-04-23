@@ -1,5 +1,6 @@
 import React from 'react';
-import AboutSideNav from './side-nav';
+import SideNav from './side-nav';
+import { Grid, GridContainer } from '@trussworks/react-uswds';
 
 export default function AboutLayout({
   children,
@@ -7,20 +8,35 @@ export default function AboutLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className='grid-container'>
-      <div className='grid-row'>
-        <div className='grid-col-3'>
-          <div className='grid-row position-sticky top-0'>
-            <div>
-              <div className='height-15 grid-row flex-column flex-justify-center'>
-                <h2 className='text-uppercase'>About</h2>
-              </div>
-              <AboutSideNav />
+    // The about page needs a full width white bg color, so we're adding a div wrapper
+    // around the GridContainer to achieve that.
+    <div className='desktop:bg-white'>
+      <GridContainer
+        containerSize='widescreen'
+        className='desktop:bg-white desktop:text-ink desktop:padding-x-15 desktop:padding-y-10'
+      >
+        <Grid row className='margin-bottom-4'>
+          <h1 className='text-uppercase'>About</h1>
+        </Grid>
+
+        <Grid row gap={6}>
+          {/* Desktop Sidebar: visible only on desktop */}
+          <Grid col={3} className='display-none desktop:display-block'>
+            <div className='position-sticky top-2'>
+              <SideNav />
             </div>
-          </div>
-        </div>
-        <div className='grid-col-fill padding-top-15 mdx'>{children}</div>
-      </div>
+          </Grid>
+
+          {/* Mobile Sidebar: visible only on mobile */}
+          <Grid col={12} className='display-block desktop:display-none'>
+            {/* TODO: <Accordion></Accordion> */}
+          </Grid>
+
+          <Grid col={'fill'} className='mdx margin-top-neg-2'>
+            {children}
+          </Grid>
+        </Grid>
+      </GridContainer>
     </div>
   );
 }

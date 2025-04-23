@@ -47,6 +47,18 @@ header {
   }
 
   @media (min-width: spacing.units('desktop')) {
+    .usa-nav-container {
+      align-items: center !important;
+    }
+
+    .usa-logo {
+      margin-top: spacing.units(1.5);
+    }
+
+    .usa-nav {
+      padding-bottom: 0 !important;
+    }
+
     .usa-nav__submenu {
       padding: spacing.units(2);
 
@@ -58,6 +70,10 @@ header {
   }
 
   @media (max-width: spacing.units('desktop')) {
+    .usa-logo {
+      margin-top: 0;
+    }
+
     .usa-nav__primary {
       a:hover, button:hover {
         background-color: utils.color('base-darkest') !important;

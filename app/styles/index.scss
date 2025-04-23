@@ -45,7 +45,12 @@ body {
     line-height: 27px;
   }
 
-  section {
-    padding-bottom: 60px;
+  h2:not(:first-of-type) {
+    margin-top: units(8);
+  }
+
+  // Not sure why this is not applied by default using uswds theme
+  a {
+    color: color('primary');
   }
 }

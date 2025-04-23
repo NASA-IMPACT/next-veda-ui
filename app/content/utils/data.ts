@@ -1,5 +1,5 @@
 import type { DatasetData, StoryData, VedaData } from '@lib';
-import type { DatasetMetadata, DatasetWithContent } from 'app/types/content';
+import type { DatasetMetadata } from 'app/types/content';
 
 export function processTaxonomies(data): DatasetData | StoryData {
   const updatedTax = data.taxonomy.map((t) => {

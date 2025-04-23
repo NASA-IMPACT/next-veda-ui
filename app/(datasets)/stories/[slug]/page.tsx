@@ -6,12 +6,6 @@ import { LegacyGlobalStyles, PageHero } from '@lib';
 import './index.scss';
 import Providers from 'app/(datasets)/providers';
 
-async function generateStaticParams() {
-  const posts = getStories();
-
-  return posts.map((post) => ({ slug: post.slug }));
-}
-
 export default function StoryOverview({ params }: { params: any }) {
   const post = getStories().find((post) => post.slug === params.slug);
 
