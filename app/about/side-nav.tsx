@@ -21,7 +21,7 @@ export default function SideNav() {
 
   return (
     <aside>
-      <p className='margin-y-2'>On this page</p>
+      <p className='margin-top-0 margin-bottom-2 text-bold'>On this page</p>
       <USWDSSideNav
         items={sectionIds.map((id, i) => (
           <a

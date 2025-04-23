@@ -12,14 +12,14 @@ export default function AboutLayout({
       containerSize='widescreen'
       className='desktop:bg-white desktop:text-ink desktop:padding-x-15 desktop:padding-y-10'
     >
-      <Grid row>
+      <Grid row className='margin-bottom-4'>
         <h1 className='text-uppercase'>About</h1>
       </Grid>
 
       <Grid row gap={6}>
         {/* Desktop Sidebar: visible only on desktop */}
         <Grid col={3} className='display-none desktop:display-block'>
-          <div className='position-sticky top-0 padding-top-10'>
+          <div className='position-sticky top-2'>
             <SideNav />
           </div>
         </Grid>
@@ -29,7 +29,7 @@ export default function AboutLayout({
           {/* TODO: <Accordion></Accordion> */}
         </Grid>
 
-        <Grid col={'fill'} className='mdx'>
+        <Grid col={'fill'} className='mdx margin-top-neg-2'>
           {children}
         </Grid>
       </Grid>
