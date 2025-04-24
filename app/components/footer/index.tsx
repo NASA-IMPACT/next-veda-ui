@@ -79,9 +79,9 @@ export default function Footer() {
           <Grid
             row
             gap={4}
-            className='desktop:flex-row flex-justify border-top-1px border-base-darkest padding-top-2 text-base-light font-body-2xs'
+            className='desktop:grid-row flex-justify border-top-1px border-base-darkest padding-top-2 text-base-light font-body-2xs'
           >
-            <div className='desktop:display-flex desktop:flex-row flex-justify desktop:order-last'>
+            <div className='desktop:display-flex desktop:flex-row desktop:order-last flex-justify'>
               <div className='padding-right-4'>
                 <p>
                   Page last updated:{' '}
@@ -96,7 +96,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div>
+            <div className='desktop:display-flex desktop:order-first'>
               <p>
                 Looking for U.S. government information and services? Visit
                 USA.gov
