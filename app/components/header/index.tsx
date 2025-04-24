@@ -16,7 +16,7 @@ import {
 import { DATA_THEMES } from '../../page';
 import useMobileMenuFix from './use-mobile-menu-fix';
 import useClickOutside from './use-click-outside';
-import useHeaderHeight from './use-header-height';
+import useHeaderHeight, { useTransparentHeader } from './use-header-height';
 
 export default function Header() {
   const [isMobileExpanded, setExpanded] = useState(false);
@@ -29,6 +29,12 @@ export default function Header() {
   const dropdownRef = useClickOutside(() => setIsDropdownOpen([false, false]));
 
   const headerRef = useHeaderHeight();
+
+  // const [ isVisible ] = useTransparentHeader({
+  //   root: null,
+  //   rootMargin: '0px',
+  //   threshold: 1.0
+  // })
 
   const onToggle = (
     index: number,
@@ -56,6 +62,12 @@ export default function Header() {
       </Link>
     );
   });
+
+
+  // useEffect(() => {
+  //   if (isVisible) console.log(`hero visible`)
+  //     else console.log(`hero not visible`)
+  // }, [isVisible])
 
   const primaryNavItems = [
     <Link href='about' key='about' className='usa-nav__link'>

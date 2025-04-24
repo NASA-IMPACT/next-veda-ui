@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 /**
  * Hook to set the header height as a CSS custom property.
  *
@@ -28,4 +28,43 @@ export default function useHeaderHeight() {
   }, []);
 
   return ref;
+}
+
+export function useTransparentHeader(containerRef, options) {
+  // const containerRef = useRef<HTMLDivElement>(null);
+  const [ isVisible, setIsVisible ] = useState(false);
+
+  // const callbackFn = (entries) => {
+  //   const [ entry ] = entries;
+  //   console.log(`entry.IsIntersecting?: `, entry.IsIntersecting)
+  //   setIsVisible(entry.IsIntersecting)
+  // }
+
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(callbackFn, options);
+  //   if (containerRef.current) observer.observe(containerRef.current);
+
+  //   return () => {
+  //     if (containerRef.current) observer.unobserve(containerRef.current)
+  //   }
+  // }, [containerRef, options])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([ entry ]) => {
+      console.log(`entry.isIntersecting: `, entry.isIntersecting)
+      setIsVisible(entry.isIntersecting);
+    }, options);
+    const currentRef = containerRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [ options, containerRef ]);
+
+  // return [containerRef, isVisible];
+  return isVisible;
 }

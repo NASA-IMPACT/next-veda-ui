@@ -43,7 +43,9 @@ export default function RootLayout({
     <html lang='en'>
       <body>
         <div className='minh-viewport display-flex flex-column'>
-          <Header />
+          <header>
+            <Header />
+          </header>
           <main id='pagebody' tabIndex={-1}>
             {children}
           </main>

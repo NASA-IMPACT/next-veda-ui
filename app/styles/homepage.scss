@@ -41,6 +41,7 @@ main {
       max-width: 800px;
       margin-left: 90px;
       text-transform: uppercase;
+      height: 100vh; // @TODO-SANDRA: To be deleted, just here for testing
 
       h1 {
         color: white;
@@ -48,6 +49,10 @@ main {
         margin-bottom: 40px;
       }
     }
+  }
+
+  .testing {
+    height: 150vh;
   }
 }
 
