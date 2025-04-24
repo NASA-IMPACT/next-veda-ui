@@ -1,0 +1,7 @@
+
+// We need to override the default background color of the footer
+// used by the trussworks implementation
+.usa-footer__primary-section, .usa-footer__secondary-section {
+  color: unset !important;
+  background-color: transparent !important;
+}

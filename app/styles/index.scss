@@ -5,6 +5,7 @@
 
 @forward 'homepage';
 @forward '../components/header/header.scss';
+@forward '../components/footer/footer.scss';
 
 :root {
   --header-height: 75px; /* Default height, setting the value aims to minimize layout shift on initial load. It is overwritten with the actual measured value in header-client.tsx */
