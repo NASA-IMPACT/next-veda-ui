@@ -1,19 +1,20 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 
 import Header from '.';
-
-const BREAKPOINTS = {
-  'mobile-lg': 480,
-  desktop: 1024,
-};
 
 describe('Header Component', () => {
   it('renders the header component', () => {
     render(<Header />);
     const headerElement = screen.getByTestId('header');
     expect(headerElement).toBeInTheDocument();
+  });
+
+  it('matches the snapshot (no unintended side-effects)', () => {
+    render(<Header />);
+    const headerElement = screen.getByTestId('header');
+    expect(headerElement).toMatchSnapshot();
   });
 
   it('displays the site title', () => {
@@ -33,5 +34,15 @@ describe('Header Component', () => {
 
     const themeItem = screen.getByText('AIR QUALITY');
     expect(themeItem).toBeInTheDocument();
+  });
+
+  it('contains the main nav items', () => {
+    render(<Header />);
+    const navItems = ['About', 'Themes', 'Dashboard'];
+
+    navItems.forEach((item) => {
+      const navItem = screen.getByText(item);
+      expect(navItem).toBeInTheDocument();
+    });
   });
 });
