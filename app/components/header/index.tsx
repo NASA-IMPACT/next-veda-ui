@@ -111,7 +111,7 @@ export default function Header() {
             items={primaryNavItems}
             mobileExpanded={isMobileExpanded}
             onToggleMobileNav={onMenuClick}
-            className={`${isMobileExpanded && 'bg-ink'} text-white`}
+            className={`${isMobileExpanded ? 'bg-ink' : ''} text-white`}
           ></PrimaryNav>
         </div>
       </USWDSHeader>

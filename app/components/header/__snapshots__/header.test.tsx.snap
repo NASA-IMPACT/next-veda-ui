@@ -18,7 +18,7 @@ exports[`Header Component > matches the snapshot (no unintended side-effects) 1`
           class="usa-logo__text"
         >
           <a
-            class="padding-2 text-white"
+            class="text-white"
             href="/"
           >
             Earth.gov
