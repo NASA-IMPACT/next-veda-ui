@@ -101,3 +101,7 @@ header {
 .usa-navbar {
   border-bottom: 0;
 }
+
+.usa-navbar, .usa-nav {
+  z-index: 500;
+}
