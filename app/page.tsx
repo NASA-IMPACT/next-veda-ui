@@ -16,7 +16,7 @@ export const DATA_THEMES = [
   { title: 'Water Resources' },
 ];
 
-const FADE_DURATION = 3000; // Duration in milliseconds
+const FADE_DURATION = 3000;
 
 export default function HomePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
