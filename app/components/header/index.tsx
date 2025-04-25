@@ -48,7 +48,7 @@ export default function Header() {
 
   const dropdownMenuItems = DATA_THEMES.map(({ title }) => {
     const id = title.toLowerCase().replace(/\s+/g, '-');
-    const href = `/${id}`;
+    const href = `/themes/${id}`;
     const label = title.toUpperCase();
     return (
       <Link href={href} key={id}>
@@ -58,7 +58,7 @@ export default function Header() {
   });
 
   const primaryNavItems = [
-    <Link href='about' key='about' className='usa-nav__link'>
+    <Link href='/about' key='about' className='usa-nav__link'>
       <span>About</span>
     </Link>,
     <div ref={dropdownRef} key='themes'>
@@ -81,7 +81,7 @@ export default function Header() {
     </div>,
     <>
       {isMobileExpanded ? (
-        <Link href='dashboard' key='dashboard' className='usa-nav__link'>
+        <Link href='/dashboard' key='dashboard' className='usa-nav__link'>
           <span>Dashboard</span>
         </Link>
       ) : (
