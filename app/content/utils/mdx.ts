@@ -10,6 +10,14 @@ import type {
   StoryWithContent,
   StoryMetadata,
 } from 'app/types/content';
+import { compileMDX } from 'next-mdx-remote/rsc';
+import React from 'react';
+
+type ThemeFrontmatter = {
+  title: string;
+  description: string;
+  image: string;
+};
 
 const STORY_CONTENT_PATH = path.join(
   process.cwd(),
@@ -139,6 +147,16 @@ export function getTransformedDatasets() {
   return transformToDatasetsList(getDatasets());
 }
 
+/**
+ * Returns metadata (frontmatter) for all available themes.
+ *
+ * This is used for:
+ * - `generateStaticParams()` to statically generate all dynamic [theme] routes.
+ * - Building listing pages that show multiple themes with their title, image, etc.
+ *
+ * It avoids compiling the full MDX content for performance reasons,
+ * and only reads/parses frontmatter from the MDX files.
+ */
 export async function getAllThemes() {
   return getMDXFiles(THEME_CONTENT_PATH)
     .map((filename) => {
@@ -159,4 +177,31 @@ export async function getAllThemes() {
       }
     })
     .filter(Boolean);
+}
+
+/**
+ * Returns both frontmatter and compiled JSX content for a single theme by slug.
+ *
+ * This is used in dynamic page rendering of `/themes/[theme]` pages:
+ * - Reads and parses the specified MDX file
+ * - Compiles the full MDX content
+ * - Returns both the frontmatter and compiled content
+ *
+ */
+export async function getThemeContent(slug: string) {
+  const filePath = path.join(THEME_CONTENT_PATH, `${slug}.mdx`);
+  const { content: rawContent, data } = readMDXFile(filePath);
+  const frontmatter = parseAttributes(data) as ThemeFrontmatter;
+
+  const { content } = await compileMDX({
+    source: rawContent,
+    components: {
+      p: function P({ children }: { children: React.ReactNode }) {
+        return React.createElement(React.Fragment, null, children);
+      },
+    },
+    options: { parseFrontmatter: false },
+  });
+
+  return { frontmatter, content };
 }
