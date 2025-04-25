@@ -24,6 +24,8 @@ const DATASET_CONTENT_PATH = path.join(
   'datasets',
 );
 
+const THEME_CONTENT_PATH = path.join(process.cwd(), 'app', 'content', 'themes');
+
 const md = markdownit();
 
 export function parseAttributes(obj) {
@@ -77,7 +79,7 @@ function getMDXFiles(dir) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx');
 }
 
-function readMDXFile(filePath) {
+export function readMDXFile(filePath) {
   const rawContent = fs.readFileSync(filePath, 'utf-8');
   const parsedData = matter(rawContent);
   return parsedData;
@@ -135,4 +137,26 @@ export function getTransformedDatasetMetadata() {
 
 export function getTransformedDatasets() {
   return transformToDatasetsList(getDatasets());
+}
+
+export async function getAllThemes() {
+  return getMDXFiles(THEME_CONTENT_PATH)
+    .map((filename) => {
+      const filePath = path.join(THEME_CONTENT_PATH, filename);
+
+      try {
+        const { data } = readMDXFile(filePath);
+        const parsedData = parseAttributes(data);
+        const slug = path.basename(filename, '.mdx');
+
+        return {
+          slug,
+          ...parsedData,
+        };
+      } catch (err) {
+        console.error(`Failed to parse theme file ${filename}:`, err);
+        return null;
+      }
+    })
+    .filter(Boolean);
 }
