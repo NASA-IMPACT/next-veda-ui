@@ -15,15 +15,15 @@ const PrimarySection = () => {
 
   return (
     <>
-      <Grid row>
-        <h3>Earth.gov</h3>
+      <Grid row className='desktop:padding-top-8 padding-top-6'>
+        <span className='font-ui-lg'>Earth.gov</span>
       </Grid>
       <Grid
         row
         className='display-flex flex-column desktop:flex-row flex-justify'
       >
         <div>
-          <p className='text-base-light font-body-2xs measure-1'>
+          <p className='margin-0 margin-top-105 text-base-light font-body-2xs measure-1'>
             The EIC was created by NASA and is enabled by contributions across
             EPA, FEMA, NASA, NOAA, USAID, USDA and USGS.
           </p>

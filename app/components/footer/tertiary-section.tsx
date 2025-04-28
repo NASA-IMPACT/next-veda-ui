@@ -5,13 +5,15 @@ const TertiarySection = () => {
   return (
     <Grid
       row
-      gap={4}
-      className='desktop:grid-row flex-justify border-top-1px border-base-darkest padding-top-2 text-base-light font-body-2xs'
+      className='border-top-1px border-base-darkest padding-top-2 desktop:display-flex flex-column desktop:flex-row text-base-light font-body-2xs'
     >
       <div className='desktop:display-flex desktop:flex-row desktop:order-last flex-justify'>
         <div className='padding-right-4'>
           <p>
-            Page last updated: <span className='text-white'>Mar 26, 2024</span>
+            Page last updated:{' '}
+            <span className='text-white'>
+              {/*TODO: Add current date */}Mar 26, 2024
+            </span>
           </p>
         </div>
         <div>
