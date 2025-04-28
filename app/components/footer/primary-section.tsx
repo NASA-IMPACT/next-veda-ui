@@ -29,7 +29,10 @@ const PrimarySection = () => {
           </p>
         </div>
         <div>
-          <nav className='display-flex flex-column desktop:flex-row'>
+          <nav
+            aria-label='Footer navigation'
+            className='display-flex flex-column desktop:flex-row'
+          >
             {primaryNavItems.map(({ label, href }) => (
               <Link
                 className='usa-footer__primary-link padding-0 desktop:padding-2 desktop:padding-bottom-205 text-white text-no-underline text-normal line-height-ui-6 font-ui-2xs'
