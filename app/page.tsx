@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import { Icon, Link } from '@trussworks/react-uswds';
-import { useTransparentHeader } from './components/header/use-header-height';
+import { useIntersectionObserver } from './components/header/hooks';
 
 export const DATA_THEMES = [
   { title: 'Air Quality' },
@@ -22,14 +22,10 @@ const FADE_DURATION = 3000; // Duration in milliseconds
 export default function HomePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(true);
-  const targetRef = useRef<HTMLDivElement>(null); 
-  // const [ containerRef, isVisible ] = useTransparentHeader({
-  //   root: null,
-  //   rootMargin: '0px',
-  //   threshold: 1.0
-  // });
+  const heroRef = useRef<HTMLDivElement>(null); 
 
-  const isVisible = useTransparentHeader(targetRef, { threshold: 0.5 });
+  useIntersectionObserver(heroRef, { threshold: 0.1 });
+
   // Rotate themes
   useEffect(() => {
     const interval = setInterval(() => {
@@ -44,11 +40,11 @@ export default function HomePage() {
   }, []);
 
   const currentHighlight = DATA_THEMES[currentIndex];
-  console.log(`HeroIsVisible: `, isVisible)
+
   return (
     <div>
       <section className='homepage'>
-        <div className='hero' ref={targetRef}>
+        <div className='hero' ref={heroRef}>
           <h1>
             Data for
             <br />

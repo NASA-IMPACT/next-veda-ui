@@ -1,11 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useContext } from 'react';
+import { TransparentHeaderContext } from './transparent-header-context';
 /**
  * Hook to set the header height as a CSS custom property.
  *
  * @returns A ref to be attached to the header element to measure the height.
  */
 
-export default function useHeaderHeight() {
+export function useHeaderHeight() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -30,29 +31,14 @@ export default function useHeaderHeight() {
   return ref;
 }
 
-export function useTransparentHeader(containerRef, options) {
-  // const containerRef = useRef<HTMLDivElement>(null);
-  const [ isVisible, setIsVisible ] = useState(false);
-
-  // const callbackFn = (entries) => {
-  //   const [ entry ] = entries;
-  //   console.log(`entry.IsIntersecting?: `, entry.IsIntersecting)
-  //   setIsVisible(entry.IsIntersecting)
-  // }
-
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(callbackFn, options);
-  //   if (containerRef.current) observer.observe(containerRef.current);
-
-  //   return () => {
-  //     if (containerRef.current) observer.unobserve(containerRef.current)
-  //   }
-  // }, [containerRef, options])
+export function useIntersectionObserver(containerRef, options) {
+  const [ isVisible, setIsVisible ] = useState(true);
+  const { setTransparentHeader } = useTransparentHeader();
 
   useEffect(() => {
     const observer = new IntersectionObserver(([ entry ]) => {
-      console.log(`entry.isIntersecting: `, entry.isIntersecting)
       setIsVisible(entry.isIntersecting);
+      setTransparentHeader(entry.isIntersecting);
     }, options);
     const currentRef = containerRef.current;
     if (currentRef) {
@@ -64,7 +50,7 @@ export function useTransparentHeader(containerRef, options) {
       }
     };
   }, [ options, containerRef ]);
-
-  // return [containerRef, isVisible];
   return isVisible;
 }
+
+export const useTransparentHeader = () => useContext(TransparentHeaderContext);

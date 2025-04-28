@@ -9,6 +9,11 @@ header {
   instead of it just adapting to the span's color?
   Seems like a bug in the uswds library.
   */
+
+  .solid{
+    background-color: #1c1d1f;
+  }
+
   .usa-nav__primary button[aria-expanded=false] span:after {
     background-color: utils.color('white');
   }

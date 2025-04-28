@@ -16,7 +16,7 @@ import {
 import { DATA_THEMES } from '../../page';
 import useMobileMenuFix from './use-mobile-menu-fix';
 import useClickOutside from './use-click-outside';
-import useHeaderHeight, { useTransparentHeader } from './use-header-height';
+import { useHeaderHeight, useTransparentHeader } from './hooks';
 
 export default function Header() {
   const [isMobileExpanded, setExpanded] = useState(false);
@@ -29,13 +29,8 @@ export default function Header() {
   const dropdownRef = useClickOutside(() => setIsDropdownOpen([false, false]));
 
   const headerRef = useHeaderHeight();
-
-  // const [ isVisible ] = useTransparentHeader({
-  //   root: null,
-  //   rootMargin: '0px',
-  //   threshold: 1.0
-  // })
-
+  const { isTransparentHeader } = useTransparentHeader();
+  
   const onToggle = (
     index: number,
     setIsDropdownOpen: React.Dispatch<React.SetStateAction<boolean[]>>,
@@ -62,12 +57,13 @@ export default function Header() {
       </Link>
     );
   });
+  const [classNames, setClassNames] = useState('usa-nav-container');
 
 
-  // useEffect(() => {
-  //   if (isVisible) console.log(`hero visible`)
-  //     else console.log(`hero not visible`)
-  // }, [isVisible])
+  useEffect(() => {
+    if (isTransparentHeader) setClassNames('usa-nav-container') 
+    else setClassNames('usa-nav-container solid')
+  }, [isTransparentHeader, useTransparentHeader])
 
   const primaryNavItems = [
     <Link href='about' key='about' className='usa-nav__link'>
@@ -107,7 +103,7 @@ export default function Header() {
   return (
     <div ref={headerRef}>
       <USWDSHeader basic={true} showMobileOverlay={isMobileExpanded}>
-        <div className='usa-nav-container'>
+        <div className={classNames}>
           <div className='usa-navbar' ref={mobileMenuRef}>
             <Title>
               <Link href='/' className='text-white'>
