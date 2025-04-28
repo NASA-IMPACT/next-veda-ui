@@ -39,10 +39,11 @@ body {
 
 .mdx {
   *:not(h1, h2, h3, h4, h5){
-    line-height: 1.6rem;
+    line-height: line-height('ui', 5);
   }
+
   h1, h2, h3, h4, h5 {
-    line-height: 27px;
+    line-height: line-height('heading', 6);
   }
 
   h2:not(:first-of-type) {
