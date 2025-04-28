@@ -10,7 +10,7 @@ export default function Footer() {
     <USWDSFooter
       size='slim'
       primary={
-        <GridContainer containerSize='widescreen' className='text-white'>
+        <GridContainer>
           <PrimarySection />
         </GridContainer>
       }
