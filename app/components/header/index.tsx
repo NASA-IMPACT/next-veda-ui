@@ -27,6 +27,7 @@ export default function Header() {
   const mobileMenuRef = useMobileMenuFix(isMobileExpanded, setExpanded);
 
   const dropdownRef = useClickOutside(() => setIsDropdownOpen([false, false]));
+  const [backgroundStyle, setBackgroundStyle] = useState('');
 
   const headerRef = useHeaderHeight();
   const { isTransparentHeader } = useTransparentHeader();
@@ -57,12 +58,10 @@ export default function Header() {
       </Link>
     );
   });
-  const [classNames, setClassNames] = useState('usa-nav-container');
-
 
   useEffect(() => {
-    if (isTransparentHeader) setClassNames('usa-nav-container') 
-    else setClassNames('usa-nav-container solid')
+    if (isTransparentHeader) setBackgroundStyle('') 
+    else setBackgroundStyle('solid')
   }, [isTransparentHeader, useTransparentHeader])
 
   const primaryNavItems = [
@@ -101,9 +100,9 @@ export default function Header() {
   ];
 
   return (
-    <div ref={headerRef}>
+    <header ref={headerRef} className={backgroundStyle}>
       <USWDSHeader basic={true} showMobileOverlay={isMobileExpanded}>
-        <div className={classNames}>
+        <div className='usa-nav-container'>
           <div className='usa-navbar' ref={mobileMenuRef}>
             <Title>
               <Link href='/' className='text-white'>
@@ -123,6 +122,6 @@ export default function Header() {
           ></PrimaryNav>
         </div>
       </USWDSHeader>
-    </div>
+    </header>
   );
 }

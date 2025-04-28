@@ -17,9 +17,7 @@ export default function RootLayout({
       <body>
         <TransparentHeaderProvider>
           <div className='minh-viewport display-flex flex-column'>
-            <header>
-              <Header />
-            </header>
+            <Header/>
             <main id='pagebody' tabIndex={-1}>
               {children}
             </main>
