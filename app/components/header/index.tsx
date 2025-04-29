@@ -51,7 +51,7 @@ export default function Header() {
     const href = `/themes/${id}`;
     const label = title.toUpperCase();
     return (
-      <Link href={href} key={id}>
+      <Link href={href} key={id} role='submenu-item'>
         {label}
       </Link>
     );
@@ -111,7 +111,7 @@ export default function Header() {
             items={primaryNavItems}
             mobileExpanded={isMobileExpanded}
             onToggleMobileNav={onMenuClick}
-            className={`${isMobileExpanded && 'bg-ink'} text-white`}
+            className={`${isMobileExpanded ? 'bg-ink' : ''} text-white`}
           ></PrimaryNav>
         </div>
       </USWDSHeader>
