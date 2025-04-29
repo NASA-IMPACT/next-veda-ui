@@ -41,7 +41,7 @@ const THEME_CONTENT_PATH = path.join(process.cwd(), 'app', 'content', 'themes');
 
 const md = markdownit();
 
-export function parseAttributes(obj) {
+export function parseAttributes<T extends Record<string, any>>(obj: T): T {
   const mdxData = {
     ...obj,
     ...(obj.layers
@@ -53,21 +53,20 @@ export function parseAttributes(obj) {
         }
       : {}),
   };
-  const convert = (obj) => {
+
+  const convert = (obj: any): any => {
     return Object.keys(obj).reduce(
-      (acc, key) => {
+      (acc: any, key) => {
         if (typeof obj[key] === 'object' && obj[key] !== null) {
           acc[key] = convert(obj[key]);
         } else if (typeof obj[key] === 'string') {
           if (obj[key].includes('::markdown')) {
             const v = obj[key];
             const p = v.replace(/^::markdown ?/, '');
-            // Conver the string to HTML
             const parsedVal = md.render(p);
             acc[key] = parsedVal.replaceAll(/(\r\n|\n|\r)/gm, '');
             return acc;
           }
-
           if (obj[key].includes('::js')) {
             const v = obj[key];
             const p = v.replace(/^::js ?/, '').replaceAll('\\n', '\n');
@@ -85,7 +84,7 @@ export function parseAttributes(obj) {
     );
   };
 
-  return convert(mdxData);
+  return convert(mdxData) as T;
 }
 
 function getMDXFiles(dir) {
