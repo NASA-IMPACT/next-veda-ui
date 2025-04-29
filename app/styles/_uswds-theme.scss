@@ -14,12 +14,13 @@
     )
   ),
   $theme-utility-breakpoints: (
-    'mobile-lg': true,
-    'desktop': true
+    'desktop': true,
+    'desktop-lg': true,
+    'widescreen': true,
   ),
   $theme-font-type-serif: 'public-sans',
-  $theme-font-type-sans: 'public-sans',
-  
+  $theme-font-type-sans: 'helvetica',
+
   // COLORS
   // Body
   $theme-body-background-color: 'ink',
