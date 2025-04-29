@@ -95,8 +95,11 @@ export default function Header() {
   return (
     <div ref={headerRef}>
       <USWDSHeader basic={true} showMobileOverlay={isMobileExpanded}>
-        <div className='usa-nav-container'>
-          <div className='usa-navbar' ref={mobileMenuRef}>
+        <div className='usa-nav-container desktop:padding-y-2'>
+          <div
+            className='usa-navbar position-relative z-100'
+            ref={mobileMenuRef}
+          >
             <Title>
               <Link href='/' className='text-white'>
                 Earth.gov
