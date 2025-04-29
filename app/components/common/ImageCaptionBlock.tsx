@@ -14,7 +14,7 @@ export function ImageCaptionBlock({
   return (
     <>
       <img src={src} alt={alt} className='width-full' />
-      <p className='font-body-sm line-height-160 letter-spacing-0 margin-top-1 text-base-light'>
+      <p className='font-body-sm line-height-body-4 margin-top-1 text-base-light'>
         {caption}
       </p>
     </>

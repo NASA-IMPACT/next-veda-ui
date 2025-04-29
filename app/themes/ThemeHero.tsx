@@ -33,11 +33,11 @@ export default function ThemeHero({
             <Icon.ArrowBack size={3} className='margin-right-1' />
             Back
           </a>
-          <h1 className='font-sans-2xl text-uppercase text-bold line-height-1 margin-0 margin-bottom-1'>
+          <h1 className='font-sans-2xl text-uppercase text-bold line-height-body-2 margin-0 margin-bottom-1'>
             {title}
           </h1>
 
-          <p className='font-body-sm text-base-lighter text-normal line-height-4 margin-0'>
+          <p className='font-body-sm text-base-lighter text-normal line-height-body-4 margin-0'>
             {description}
           </p>
         </div>
