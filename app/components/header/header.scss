@@ -47,6 +47,10 @@ header {
   }
 
   @media (min-width: spacing.units('desktop')) {
+    .usa-navbar, .usa-nav {
+      z-index: 400;
+    }
+
     .usa-nav-container {
       align-items: center !important;
     }
@@ -100,8 +104,4 @@ header {
 }
 .usa-navbar {
   border-bottom: 0;
-}
-
-.usa-navbar, .usa-nav {
-  z-index: 500;
 }

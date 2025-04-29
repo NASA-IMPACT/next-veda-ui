@@ -4,53 +4,48 @@ description: "The quality of the air you breathe every day has a big impact on y
 image: "/images/themes/air-quality/air-quality-banner.png"
 ---
 
-<section className="usa-section">
-  <div className="grid-container">
-    <h2 className="font-body-xl text-bold line-height-100 letter-spacing-0">INFO</h2>
+<Section>
+  <Title>INFO</Title>
+  <Paragraph>
+    Air pollution is a global hazard, so it takes a combination of airborne, ground and satellite-based tools to better understand the origins and movement of pollutants, as well as the impacts on air quality. The causes of air pollution vary from human activities, such as coal-fired power plants, to natural events, like wildfires and dust storms.
+  </Paragraph>
 
-    <p className="font-body-sm  line-height-160 letter-spacing-0">
-      Air pollution is a global hazard, so it takes a combination of airborne, ground and satellite-based tools to better understand the origins and movement of pollutants, as well as the impacts on air quality. The causes of air pollution vary from human activities, such as coal-fired power plants, to natural events, like wildfires and dust storms.
-    </p>
+  <Paragraph>
+    Ground-based measurements are used to assess air quality and the concentrations of different types of atmospheric pollution. Ground-level data help evaluate information from satellite. And satellite data help fill the gaps between ground-based monitors, so there is global coverage over all neighborhoods.
+  </Paragraph>
 
-    <p className="font-body-sm  line-height-160 letter-spacing-0">
-      Ground-based measurements are used to assess air quality and the concentrations of different types of atmospheric pollution. Ground-level data help evaluate information from satellite. And satellite data help fill the gaps between ground-based monitors, so there is global coverage over all neighborhoods.
-    </p>
+  <Paragraph>
+    Satellite-acquired data have many health and air-quality applications, including:
+  </Paragraph>
 
-    <p className="font-body-sm  line-height-160 letter-spacing-0">
-      Satellite-acquired data have many health and air-quality applications, including:
-    </p>
+  <ul className="usa-list">
+    <li>Monitoring the movement of wildfire smoke and dust plumes.</li>
+    <li>Tracking the path of ash from volcanic eruptions.</li>
+    <li>
+      Identifying concentrations of nitrogen dioxide, sulfur dioxide and other pollutants near cities,
+      suburbs and major transportation systems.
+    </li>
+    <li>
+      Understanding how concentrations of these pollutants are changing over time.
+    </li>
+  </ul>
+</Section>
 
-    <ul className="usa-list">
-      <li>Monitoring the movement of wildfire smoke and dust plumes.</li>
-      <li>Tracking the path of ash from volcanic eruptions.</li>
-      <li>
-        Identifying concentrations of nitrogen dioxide, sulfur dioxide and other pollutants near cities,
-        suburbs and major transportation systems.
-      </li>
-      <li>
-        Understanding how concentrations of these pollutants are changing over time.
-      </li>
-    </ul>
-  </div>
-</section>
-
-<section className="usa-section">
+<Section>
   <div className="grid-container display-flex flex-align-center flex-wrap flex-justify">
     <div className="tablet:grid-col-6">
       <h2 className="font-body-xl text-bold line-height-100 letter-spacing-0 margin-bottom-1">DID YOU KNOW?</h2>
 
-      <p className="font-body-sm text-base-light line-height-160 letter-spacing-0">
+      <Paragraph className="text-base-light">
         The ozone hole is primarily caused by human-produced chemicals like chlorofluorocarbons (CFCs), which were banned by an international treaty in 1989 to protect our natural sunscreen. Modern global warming is driven by greenhouse gases like carbon dioxide (CO₂) and is primarily linked to the burning of fossil fuels.
-      </p>
+      </Paragraph>
     </div>
 
     <div className="tablet:grid-col-6 display-flex flex-justify-end">
-      <img
+      <ImageCaptionBlock
         src="/images/themes/air-quality/ozone-hole.png"
         alt="Visualization of the ozone hole over the South Pole"
-        className="margin-bottom-2"
-        style={{ width: '420px', height: '420px' }}
       />
     </div>
   </div>
-</section>
+</Section>

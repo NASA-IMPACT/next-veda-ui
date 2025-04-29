@@ -3,13 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { Icon, Link } from '@trussworks/react-uswds';
 
 export const DATA_THEMES = [
-  { title: 'Air Quality' },
   { title: 'Agriculture' },
+  { title: 'Air Quality' },
   { title: 'Biodiversity' },
   { title: 'Disasters' },
-  {
-    title: 'Sustainable Energy',
-  },
+  { title: 'Energy' },
   { title: 'Greenhouse Gases' },
   { title: 'Sea Level Rise' },
   { title: 'Wildfires' },

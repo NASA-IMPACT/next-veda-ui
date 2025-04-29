@@ -12,6 +12,11 @@ import type {
 } from 'app/types/content';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import React from 'react';
+import { Paragraph } from 'app/components/common/Paragraph';
+import { Section } from 'app/components/common/Section';
+import { VideoCaptionBlock } from 'app/components/common/VideoCaptionBlock';
+import { ImageCaptionBlock } from 'app/components/common/ImageCaptionBlock';
+import { Title } from 'app/components/common/Title';
 
 type ThemeFrontmatter = {
   title: string;
@@ -199,6 +204,11 @@ export async function getThemeContent(slug: string) {
       p: function P({ children }: { children: React.ReactNode }) {
         return React.createElement(React.Fragment, null, children);
       },
+      ImageCaptionBlock,
+      VideoCaptionBlock,
+      Section,
+      Paragraph,
+      Title,
     },
     options: { parseFrontmatter: false },
   });
