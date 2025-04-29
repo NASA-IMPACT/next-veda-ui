@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 type ImageCaptionBlockProps = {
@@ -13,7 +14,13 @@ export function ImageCaptionBlock({
 }: ImageCaptionBlockProps) {
   return (
     <>
-      <img src={src} alt={alt} className='width-full' />
+      <Image
+        src={src}
+        alt={alt}
+        width={800}
+        height={600}
+        style={{ width: '100%', height: 'auto' }}
+      />
       <p className='font-body-sm line-height-body-4 margin-top-1 text-base-light'>
         {caption}
       </p>

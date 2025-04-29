@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { useRouter } from 'next/navigation';
 import { Icon } from '@trussworks/react-uswds';
+import Link from 'next/link';
 
 type ThemeHeroProps = {
   title: string;
@@ -15,8 +15,6 @@ export default function ThemeHero({
   description,
   coverSrc,
 }: ThemeHeroProps) {
-  const router = useRouter();
-
   return (
     <section
       className='theme-hero'
@@ -26,13 +24,13 @@ export default function ThemeHero({
     >
       <div className='theme-hero__content grid-container text-white display-flex flex-align-center'>
         <div className='tablet:grid-col-8 desktop-lg:margin-left-neg-15'>
-          <a
-            onClick={() => router.back()}
+          <Link
+            href='/'
             className='usa-link text-primary-light margin-bottom-5 display-flex flex-align-center cursor-pointer'
           >
             <Icon.ArrowBack size={3} className='margin-right-1' />
             Back
-          </a>
+          </Link>
           <h1 className='font-sans-2xl text-uppercase text-bold line-height-body-2 margin-0 margin-bottom-1'>
             {title}
           </h1>
