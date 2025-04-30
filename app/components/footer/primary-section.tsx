@@ -16,7 +16,7 @@ const PrimarySection = () => {
   return (
     <>
       <Grid row className='desktop:padding-top-8 padding-top-6'>
-        <Title className='margin-left-0 margin-bottom-3 desktop:margin-bottom-105'>
+        <Title className='margin-left-0 margin-bottom-3 desktop:margin-bottom-105 desktop:margin-top-0'>
           <Link href='/' className='text-white hover:text-base-light'>
             Earth.gov
           </Link>
@@ -26,7 +26,7 @@ const PrimarySection = () => {
         row
         className='display-flex flex-column desktop:flex-row flex-justify'
       >
-        <div className='padding-bottom-4'>
+        <div className='padding-bottom-4 desktop:padding-bottom-0'>
           <p className='margin-0 text-base-light font-body-2xs measure-1'>
             The EIC was created by NASA and is enabled by contributions across
             EPA, FEMA, NASA, NOAA, USAID, USDA and USGS.
