@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@trussworks/react-uswds';
+import { Grid, Title } from '@trussworks/react-uswds';
 import Link from 'next/link';
 
 const PrimarySection = () => {
@@ -16,7 +16,11 @@ const PrimarySection = () => {
   return (
     <>
       <Grid row className='desktop:padding-top-8 padding-top-6'>
-        <span className='font-ui-lg'>Earth.gov</span>
+        <Title className='margin-left-0 margin-bottom-3 desktop:margin-bottom-105'>
+          <Link href='/' className='text-white'>
+            Earth.gov
+          </Link>
+        </Title>
       </Grid>
       <Grid
         row
