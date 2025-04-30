@@ -3,7 +3,6 @@ import { Grid, Title } from '@trussworks/react-uswds';
 import Link from 'next/link';
 
 const PrimarySection = () => {
-  // TODO: Update the links to point to the correct pages
   const primaryNavItems = [
     { label: 'About', href: '/about' },
     { label: 'Dashboard', href: '/dashboard' },
