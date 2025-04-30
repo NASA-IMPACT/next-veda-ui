@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { SideNav as USWDSSideNav } from '@trussworks/react-uswds';
+import { Link, SideNav as USWDSSideNav } from '@trussworks/react-uswds';
 import useActiveSection from '@utils/hooks/use-active-section';
 
 const SECTION_HEADING = 'h2';
@@ -24,17 +24,17 @@ export default function SideNav() {
       <p className='margin-top-0 margin-bottom-2 text-bold'>On this page</p>
       <USWDSSideNav
         items={sectionIds.map((id, i) => (
-          <a
+          <Link
             key={id}
             href={`#${id}`}
-            className={`text-capitalize ${
+            className={`usa-side-nav__link text-capitalize text-primary ${
               activeSection === id || (!activeSection && i == 0)
                 ? 'usa-current'
                 : ''
             }`}
           >
             {id}
-          </a>
+          </Link>
         ))}
       />
     </aside>

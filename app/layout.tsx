@@ -5,6 +5,7 @@ import './styles/index.scss';
 import '@teamimpact/veda-ui/lib/main.css';
 
 import Header from './components/header';
+import Footer from './components/footer';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl ?? ''),
@@ -47,6 +48,7 @@ export default function RootLayout({
           <main id='pagebody' tabIndex={-1}>
             {children}
           </main>
+          <Footer />
         </div>
       </body>
     </html>
