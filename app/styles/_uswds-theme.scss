@@ -3,9 +3,14 @@
   $theme-font-path: '~/node_modules/@uswds/uswds/dist/fonts',
   $theme-show-notifications: false,
   $utilities-use-important: true,
-  $theme-font-weight-semibold: '600',
-  $theme-type-scale-md: 8,
   $theme-button-border-radius: 0,
+  $theme-utility-breakpoints: (
+    'mobile-lg': true,
+    'desktop': true,
+    'widescreen': true,
+  ),
+  
+  // TYPOGRAPHY
   $theme-typeface-tokens:
   (
     baseFontFamily: (
@@ -13,13 +18,19 @@
       'cap-height': 364px
     )
   ),
-  $theme-utility-breakpoints: (
-    'desktop': true,
-    'desktop-lg': true,
-    'widescreen': true,
-  ),
-  $theme-font-type-serif: 'public-sans',
+  $theme-font-type-serif: 'merriweather',
   $theme-font-type-sans: 'helvetica',
+  $theme-font-type-mono: 'roboto-mono',
+
+  $theme-type-scale-3xs: 1,
+  $theme-type-scale-2xs: 3,
+  $theme-type-scale-xs: 4,
+  $theme-type-scale-sm: 5,
+  $theme-type-scale-md: 7,
+  $theme-type-scale-lg: 9,
+  $theme-type-scale-xl: 12,
+  $theme-type-scale-2xl: 14,
+  $theme-type-scale-3xl: 18,
 
   // COLORS
   // Body
@@ -29,6 +40,7 @@
   $theme-text-reverse-color: 'ink',
   // Base
   $theme-color-base-lightest: 'gray-cool-4',
+  $theme-color-base-light: 'gray-cool-30',
   $theme-color-base-darkest: 'gray-cool-80',
   $theme-color-base-ink: 'gray-cool-90',
 
