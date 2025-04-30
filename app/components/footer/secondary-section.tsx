@@ -13,7 +13,7 @@ const SecondarySection = () => {
   ];
 
   return (
-    <Grid row className='border-top-1px border-base-darkest padding-y-2'>
+    <Grid row className='border-top-1px border-base-darkest padding-y-3'>
       <div className='display-flex flex-column desktop:flex-row'>
         {secondaryNavItems.map(({ label, href }) => (
           <div key={href}>

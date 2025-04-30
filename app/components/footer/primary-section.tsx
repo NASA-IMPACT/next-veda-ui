@@ -26,20 +26,20 @@ const PrimarySection = () => {
         row
         className='display-flex flex-column desktop:flex-row flex-justify'
       >
-        <div>
-          <p className='margin-0 margin-top-105 text-base-light font-body-2xs measure-1'>
+        <div className='padding-bottom-4'>
+          <p className='margin-0 text-base-light font-body-2xs measure-1'>
             The EIC was created by NASA and is enabled by contributions across
             EPA, FEMA, NASA, NOAA, USAID, USDA and USGS.
           </p>
         </div>
-        <div>
+        <div className='border-top-1px border-base-darkest desktop:border-0 padding-top-3 desktop:padding-top-0'>
           <nav
             aria-label='Footer navigation'
             className='display-flex flex-column desktop:flex-row'
           >
             {primaryNavItems.map(({ label, href }) => (
               <Link
-                className='usa-footer__primary-link padding-0 desktop:padding-2 desktop:padding-bottom-205 text-white text-no-underline text-normal line-height-ui-6 font-ui-2xs'
+                className='usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white text-no-underline text-normal line-height-ui-6 font-ui-2xs'
                 href={href}
                 key={href}
               >
