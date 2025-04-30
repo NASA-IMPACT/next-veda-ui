@@ -77,7 +77,7 @@ exports[`Header Component > matches the snapshot (no unintended side-effects) 1`
         >
           <a
             class="usa-nav__link"
-            href="about"
+            href="/about"
           >
             <span>
               About
@@ -108,17 +108,7 @@ exports[`Header Component > matches the snapshot (no unintended side-effects) 1`
                 class="usa-nav__submenu-item"
               >
                 <a
-                  href="/air-quality"
-                  role="submenu-item"
-                >
-                  AIR QUALITY
-                </a>
-              </li>
-              <li
-                class="usa-nav__submenu-item"
-              >
-                <a
-                  href="/agriculture"
+                  href="/themes/agriculture"
                   role="submenu-item"
                 >
                   AGRICULTURE
@@ -128,7 +118,17 @@ exports[`Header Component > matches the snapshot (no unintended side-effects) 1`
                 class="usa-nav__submenu-item"
               >
                 <a
-                  href="/biodiversity"
+                  href="/themes/air-quality"
+                  role="submenu-item"
+                >
+                  AIR QUALITY
+                </a>
+              </li>
+              <li
+                class="usa-nav__submenu-item"
+              >
+                <a
+                  href="/themes/biodiversity"
                   role="submenu-item"
                 >
                   BIODIVERSITY
@@ -138,7 +138,7 @@ exports[`Header Component > matches the snapshot (no unintended side-effects) 1`
                 class="usa-nav__submenu-item"
               >
                 <a
-                  href="/disasters"
+                  href="/themes/disasters"
                   role="submenu-item"
                 >
                   DISASTERS
@@ -148,17 +148,17 @@ exports[`Header Component > matches the snapshot (no unintended side-effects) 1`
                 class="usa-nav__submenu-item"
               >
                 <a
-                  href="/sustainable-energy"
+                  href="/themes/energy"
                   role="submenu-item"
                 >
-                  SUSTAINABLE ENERGY
+                  ENERGY
                 </a>
               </li>
               <li
                 class="usa-nav__submenu-item"
               >
                 <a
-                  href="/greenhouse-gases"
+                  href="/themes/greenhouse-gases"
                   role="submenu-item"
                 >
                   GREENHOUSE GASES
@@ -168,7 +168,7 @@ exports[`Header Component > matches the snapshot (no unintended side-effects) 1`
                 class="usa-nav__submenu-item"
               >
                 <a
-                  href="/sea-level-rise"
+                  href="/themes/sea-level-rise"
                   role="submenu-item"
                 >
                   SEA LEVEL RISE
@@ -178,7 +178,7 @@ exports[`Header Component > matches the snapshot (no unintended side-effects) 1`
                 class="usa-nav__submenu-item"
               >
                 <a
-                  href="/wildfires"
+                  href="/themes/wildfires"
                   role="submenu-item"
                 >
                   WILDFIRES
@@ -188,7 +188,7 @@ exports[`Header Component > matches the snapshot (no unintended side-effects) 1`
                 class="usa-nav__submenu-item"
               >
                 <a
-                  href="/water-resources"
+                  href="/themes/water-resources"
                   role="submenu-item"
                 >
                   WATER RESOURCES

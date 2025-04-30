@@ -1,0 +1,23 @@
+@use 'uswds-core/src/styles/functions/units' as spacing;
+
+.theme-hero {
+  height: 465px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  background-blend-mode: overlay;
+  background-color: transparent;
+
+  @media (min-width: spacing.units('desktop')) {
+    margin-top: calc(-1 * var(--header-height, 0px));
+    padding-top: var(--header-height, 0px);
+  }
+}
+
+.theme-hero__content {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}

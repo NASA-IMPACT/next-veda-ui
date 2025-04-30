@@ -1,0 +1,20 @@
+@use 'uswds-core' as *;
+
+.mdx {
+  *:not(h1, h2, h3, h4, h5){
+    line-height: line-height('ui', 5);
+  }
+
+  h1, h2, h3, h4, h5 {
+    line-height: line-height('heading', 6);
+  }
+
+  h2:not(:first-of-type) {
+    margin-top: units(8);
+  }
+
+  // Not sure why this is not applied by default using uswds theme
+  a {
+    color: color('primary');
+  }
+}
