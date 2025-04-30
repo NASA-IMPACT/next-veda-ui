@@ -17,7 +17,7 @@ const PrimarySection = () => {
     <>
       <Grid row className='desktop:padding-top-8 padding-top-6'>
         <Title className='margin-left-0 margin-bottom-3 desktop:margin-bottom-105'>
-          <Link href='/' className='text-white'>
+          <Link href='/' className='text-white hover:text-base-light'>
             Earth.gov
           </Link>
         </Title>
@@ -39,7 +39,7 @@ const PrimarySection = () => {
           >
             {primaryNavItems.map(({ label, href }) => (
               <Link
-                className='usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white text-no-underline text-normal line-height-ui-6 font-ui-2xs'
+                className='usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs'
                 href={href}
                 key={href}
               >

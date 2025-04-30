@@ -1,15 +1,32 @@
 import React from 'react';
-import { Grid } from '@trussworks/react-uswds';
+import { Grid, Link } from '@trussworks/react-uswds';
 
 const SecondarySection = () => {
-  // TODO: Update the links to point to the correct pages
   const secondaryNavItems = [
-    { label: 'Accessibility support', href: '/a' },
-    { label: 'No FEAR Act data', href: '/b' },
-    { label: 'Office of the Inspector General', href: '/c' },
-    { label: 'FOIA requests', href: '/d' },
-    { label: 'Performance reports', href: '/e' },
-    { label: 'Privacy policy', href: '/f' },
+    {
+      label: 'Accessibility support',
+      href: 'https://www.nasa.gov/accessibility/',
+    },
+    {
+      label: 'No FEAR Act data',
+      href: 'https://www.nasa.gov/no-fear-act/',
+    },
+    {
+      label: 'Office of the Inspector General',
+      href: 'http://oig.nasa.gov/',
+    },
+    {
+      label: 'FOIA requests',
+      href: 'https://www.nasa.gov/foia/',
+    },
+    {
+      label: 'Performance reports',
+      href: 'https://www.nasa.gov/organizations/budget-annual-reports/agency-financial-reports/',
+    },
+    {
+      label: 'Privacy policy',
+      href: 'https://www.nasa.gov/nasa-web-privacy-policy-and-important-notices/',
+    },
   ];
 
   return (
@@ -17,12 +34,14 @@ const SecondarySection = () => {
       <div className='display-flex flex-column desktop:flex-row'>
         {secondaryNavItems.map(({ label, href }) => (
           <div key={href}>
-            <a
+            <Link
               href={href}
-              className='text-base-light font-body-2xs padding-right-4'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-base-light hover:text-base font-body-2xs padding-right-4'
             >
               {label}
-            </a>
+            </Link>
           </div>
         ))}
       </div>

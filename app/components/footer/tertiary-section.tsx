@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@trussworks/react-uswds';
+import { Grid, Link } from '@trussworks/react-uswds';
 
 const TertiarySection = () => {
   return (
@@ -18,14 +18,22 @@ const TertiarySection = () => {
         </div>
         <div>
           <p className='margin-top-0 measure-1 desktop:measure-4'>
-            U.S. Earth Information Center Responsible Official: Eleanor Stokes
+            U.S. Earth Information Center Responsible Official:{' '}
+            <Link href='mailto:eleanor.stokes@nasa.gov'>Eleanor Stokes</Link>
           </p>
         </div>
       </div>
 
       <div className='desktop:display-flex desktop:order-first'>
         <p className='margin-top-0 measure-1 desktop:measure-4'>
-          Looking for U.S. government information and services? Visit USA.gov
+          Looking for U.S. government information and services?{' '}
+          <Link
+            href='https://www.usa.gov'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Visit USA.gov
+          </Link>
         </p>
       </div>
     </Grid>

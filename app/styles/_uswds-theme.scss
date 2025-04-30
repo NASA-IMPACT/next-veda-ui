@@ -38,6 +38,10 @@
   // Text
   $theme-text-color: 'white',
   $theme-text-reverse-color: 'ink',
+  $theme-link-color: "primary-light",
+  $theme-link-reverse-color: "primary-light",
+  $theme-link-visited-color: "primary-light",
+
   // Base
   $theme-color-base-lightest: 'gray-cool-4',
   $theme-color-base-light: 'gray-cool-30',
@@ -76,6 +80,7 @@
   ),
   $color-settings: (
     responsive: true,
+    hover: true,
   ),
   $flex-direction-settings: (
     responsive: true,

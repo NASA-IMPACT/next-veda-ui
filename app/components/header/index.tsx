@@ -98,7 +98,7 @@ export default function Header() {
         <div className='usa-nav-container'>
           <div className='usa-navbar' ref={mobileMenuRef}>
             <Title>
-              <Link href='/' className='text-white'>
+              <Link href='/' className='text-white hover:text-base-light'>
                 Earth.gov
               </Link>
             </Title>
