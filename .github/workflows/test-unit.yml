@@ -1,0 +1,33 @@
+name: Unit Tests (vitest)
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+# Prevent running the same workflow multiple times
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    uses: ./.github/workflows/checks.yml
+
+  test-unit:
+    needs: checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ needs.checks.outputs.node_version }}
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Test
+        run: yarn test:unit
