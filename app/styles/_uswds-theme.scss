@@ -6,8 +6,10 @@
   $theme-button-border-radius: 0,
   $theme-utility-breakpoints: (
     'mobile-lg': true,
-    'desktop': true
+    'desktop': true,
+    'widescreen': true,
   ),
+  
   // TYPOGRAPHY
   $theme-typeface-tokens:
   (

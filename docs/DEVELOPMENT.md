@@ -58,6 +58,16 @@ This project includes both unit and integration tests to ensure code quality and
   yarn test
   ```
 
+**Handling Snapshot Test Failures**
+
+If a snapshot test fails after you've updated a component:
+
+Run yarn test to inspect the failure. Review the snapshot diff to make sure the changes are expected.
+If they are, press u in the test runner to update the snapshot.
+
+Only update snapshots when you're confident the changes are intentional.
+If something looks wrong, revisit your component changes and ensure they aren’t unintentionally affecting other parts of the UI.
+
 - **Run Integration Tests**: To run integration tests, use:
   ```bash
   yarn test:integration

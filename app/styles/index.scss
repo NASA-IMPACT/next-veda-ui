@@ -4,6 +4,7 @@
 @use 'uswds-core' as *;
 
 @forward 'homepage';
+@forward 'themepage';
 @forward '../components/header/header.scss';
 @forward './mdx.scss';
 

@@ -3,20 +3,18 @@ import React, { useState, useEffect } from 'react';
 import { Icon, Link } from '@trussworks/react-uswds';
 
 export const DATA_THEMES = [
-  { title: 'Air Quality' },
   { title: 'Agriculture' },
+  { title: 'Air Quality' },
   { title: 'Biodiversity' },
   { title: 'Disasters' },
-  {
-    title: 'Sustainable Energy',
-  },
+  { title: 'Energy' },
   { title: 'Greenhouse Gases' },
   { title: 'Sea Level Rise' },
   { title: 'Wildfires' },
   { title: 'Water Resources' },
 ];
 
-const FADE_DURATION = 3000; // Duration in milliseconds
+const FADE_DURATION = 3000;
 
 export default function HomePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
