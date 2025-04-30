@@ -9,7 +9,7 @@ exports[`Header Component > matches the snapshot (no unintended side-effects) 1`
     class="usa-nav-container desktop:padding-y-2"
   >
     <div
-      class="usa-navbar position-relative z-100"
+      class="usa-navbar position-relative z-100 mobile:bg-ink desktop:bg-transparent"
     >
       <div
         class="usa-logo"
