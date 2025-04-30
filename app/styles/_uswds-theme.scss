@@ -5,11 +5,12 @@
   $utilities-use-important: true,
   $theme-button-border-radius: 0,
   $theme-utility-breakpoints: (
+    'mobile': true,
     'mobile-lg': true,
     'desktop': true,
     'widescreen': true,
   ),
-  
+
   // TYPOGRAPHY
   $theme-typeface-tokens:
   (
