@@ -21,6 +21,11 @@ on:
 env:
   NODE: 20
 
+# Prevent running the same workflow multiple times
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   prep:
     if: github.event.pull_request.draft == false
@@ -29,11 +34,6 @@ jobs:
       node_version: ${{ env.NODE }}
 
     steps:
-      - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.9.1
-        with:
-          access_token: ${{ github.token }}
-
       - name: Checkout
         uses: actions/checkout@v4
 
