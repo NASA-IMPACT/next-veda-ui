@@ -21,11 +21,6 @@ on:
 env:
   NODE: 20
 
-# Prevent running the same workflow multiple times
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   prep:
     if: github.event.pull_request.draft == false
