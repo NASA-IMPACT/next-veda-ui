@@ -13,6 +13,10 @@ on:
       - reopened
       - ready_for_review
   workflow_call:
+    outputs:
+      node_version:
+        description: 'The Node.js version used in the workflow'
+        value: ${{ jobs.prep.outputs.node_version }}
 
 env:
   NODE: 20
@@ -21,6 +25,8 @@ jobs:
   prep:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
+    outputs:
+      node_version: ${{ env.NODE }}
 
     steps:
       - name: Cancel Previous Runs
