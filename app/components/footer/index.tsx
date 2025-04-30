@@ -22,6 +22,7 @@ export default function Footer() {
           <TertiarySection />
         </>
       }
+      data-testid='footer'
     />
   );
 }
