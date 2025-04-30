@@ -1,9 +1,10 @@
 name: Unit and E2E Tests
 
 on:
-  push:
-    branches: [main, develop]
   pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches: [main, develop]
+  push:
     branches: [main, develop]
 
 # Prevent running the same workflow multiple times
@@ -16,6 +17,7 @@ jobs:
     uses: ./.github/workflows/checks.yml
 
   test-unit:
+    if: github.event.pull_request.draft == false
     needs: checks
     runs-on: ubuntu-latest
     steps:
@@ -33,6 +35,7 @@ jobs:
         run: yarn test:unit
 
   test-e2e:
+    if: github.event.pull_request.draft == false
     needs: checks
     timeout-minutes: 60
     runs-on: ubuntu-latest

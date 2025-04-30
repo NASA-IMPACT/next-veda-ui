@@ -7,11 +7,10 @@ name: Checks
 
 on:
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
-      - ready_for_review
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
   workflow_call:
     outputs:
       node_version:
@@ -42,6 +41,7 @@ jobs:
         run: yarn
 
   lint:
+    if: github.event.pull_request.draft == false
     needs: prep
     runs-on: ubuntu-latest
 
