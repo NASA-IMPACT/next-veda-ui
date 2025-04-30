@@ -10,15 +10,15 @@ import Footer from './components/footer';
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl ?? ''),
   title: {
-    default: 'Next.js VEDA Template Instance',
-    template: '%s | Next.js VEDA Template Instance',
+    default: 'Earth Information Center',
+    template: '%s | Earth Information Center',
   },
-  description: 'Next.js VEDA Template Instance.',
+  description: 'Explore our changing planet.',
   openGraph: {
-    title: 'Next.js VEDA Template Instance',
-    description: 'Next.js VEDA Template Instance.',
+    title: 'Earth Information Center',
+    description: 'Explore our changing planet.',
     url: baseUrl,
-    siteName: 'Next.js VEDA Template Instance',
+    siteName: 'Earth Information Center',
     locale: 'en_US',
     type: 'website',
   },
