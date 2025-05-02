@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Icon, Link } from '@trussworks/react-uswds';
+import { Grid, GridContainer, Icon, Link } from '@trussworks/react-uswds';
 
 export const DATA_THEMES = [
   { title: 'Agriculture' },
@@ -36,24 +36,30 @@ export default function HomePage() {
   const currentHighlight = DATA_THEMES[currentIndex];
 
   return (
-    <section className='homepage'>
-      <div className='hero'>
-        <h1>
-          Data for
-          <br />
-          <span className={`fade ${fade ? 'fade-in' : 'fade-out'}`}>
-            {currentHighlight.title}
-          </span>
-        </h1>
-        <Link className='usa-button' href='/dashboard'>
-          Get Started
-          <Icon.ArrowForward
-            size={3}
-            className='margin-left-05'
-            aria-hidden='true'
-          />
-        </Link>
-      </div>
-    </section>
+    <div className='hero minh-viewport display-flex'>
+      <GridContainer className='flex-fill flex-align-self-center text-uppercase'>
+        <Grid row className='font-ui-lg tablet:font-ui-xl desktop:font-ui-2xl'>
+          <Grid tablet={{ col: 6 }}>
+            <h1>
+              Data for
+              <br />
+              <span className={`fade ${fade ? 'fade-in' : 'fade-out'}`}>
+                {currentHighlight.title}
+              </span>
+            </h1>
+          </Grid>
+        </Grid>
+        <Grid row>
+          <Link className='usa-button' href='/dashboard'>
+            Get Started
+            <Icon.ArrowForward
+              size={3}
+              className='margin-left-05'
+              aria-hidden='true'
+            />
+          </Link>
+        </Grid>
+      </GridContainer>
+    </div>
   );
 }

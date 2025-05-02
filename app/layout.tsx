@@ -5,6 +5,7 @@ import './styles/index.scss';
 import '@teamimpact/veda-ui/lib/main.css';
 
 import Header from './components/header';
+import Footer from './components/footer';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl ?? ''),
@@ -44,9 +45,10 @@ export default function RootLayout({
       <body>
         <div className='minh-viewport display-flex flex-column'>
           <Header />
-          <main id='pagebody' tabIndex={-1}>
+          <main id='pagebody' tabIndex={-1} className='flex-fill'>
             {children}
           </main>
+          <Footer />
         </div>
       </body>
     </html>

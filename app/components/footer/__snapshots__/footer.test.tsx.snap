@@ -1,0 +1,229 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Footer Component > matches the snapshot (no unintended side-effects) 1`] = `
+<footer
+  class="usa-footer usa-footer--slim"
+  data-testid="footer"
+>
+  <div
+    class="usa-footer__primary-section"
+  >
+    <div
+      class="grid-container"
+      data-testid="gridContainer"
+    >
+      <div
+        class="grid-row desktop:padding-top-8 padding-top-6"
+        data-testid="grid"
+      >
+        <div
+          class="usa-logo margin-left-0 margin-bottom-3 desktop:margin-bottom-105 desktop:margin-top-0"
+        >
+          <em
+            class="usa-logo__text"
+          >
+            <a
+              class="text-white hover:text-base-light"
+              href="/"
+            >
+              Earth.gov
+            </a>
+          </em>
+        </div>
+      </div>
+      <div
+        class="grid-row display-flex flex-column desktop:flex-row flex-justify"
+        data-testid="grid"
+      >
+        <div
+          class="padding-bottom-4 desktop:padding-bottom-0"
+        >
+          <p
+            class="margin-0 text-base-light font-body-2xs measure-1"
+          >
+            The EIC was created by NASA and is enabled by contributions across EPA, FEMA, NASA, NOAA, USAID, USDA and USGS.
+          </p>
+        </div>
+        <div
+          class="border-top-1px border-base-darkest desktop:border-0 padding-top-3 desktop:padding-top-0"
+        >
+          <nav
+            aria-label="Footer navigation"
+            class="display-flex flex-column desktop:flex-row"
+          >
+            <a
+              class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
+              href="/about"
+            >
+              About
+            </a>
+            <a
+              class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
+              href="/dashboard"
+            >
+              Dashboard
+            </a>
+            <a
+              class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
+              href="/mapping"
+            >
+              Mapping App
+            </a>
+            <a
+              class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
+              href="/themes"
+            >
+              Themes
+            </a>
+            <a
+              class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
+              href="/visit"
+            >
+              Visit a Center
+            </a>
+            <a
+              class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
+              href="/contact"
+            >
+              Contact Us
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="usa-footer__secondary-section"
+  >
+    <div
+      class="grid-container"
+    >
+      <div
+        class="grid-row border-top-1px border-base-darkest padding-y-3"
+        data-testid="grid"
+      >
+        <div
+          class="display-flex flex-column desktop:flex-row"
+        >
+          <div>
+            <a
+              class="usa-link text-base-light hover:text-base font-body-2xs padding-right-4"
+              href="https://www.nasa.gov/accessibility/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Accessibility support
+            </a>
+          </div>
+          <div>
+            <a
+              class="usa-link text-base-light hover:text-base font-body-2xs padding-right-4"
+              href="https://www.nasa.gov/no-fear-act/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              No FEAR Act data
+            </a>
+          </div>
+          <div>
+            <a
+              class="usa-link text-base-light hover:text-base font-body-2xs padding-right-4"
+              href="http://oig.nasa.gov/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Office of the Inspector General
+            </a>
+          </div>
+          <div>
+            <a
+              class="usa-link text-base-light hover:text-base font-body-2xs padding-right-4"
+              href="https://www.nasa.gov/foia/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              FOIA requests
+            </a>
+          </div>
+          <div>
+            <a
+              class="usa-link text-base-light hover:text-base font-body-2xs padding-right-4"
+              href="https://www.nasa.gov/organizations/budget-annual-reports/agency-financial-reports/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Performance reports
+            </a>
+          </div>
+          <div>
+            <a
+              class="usa-link text-base-light hover:text-base font-body-2xs padding-right-4"
+              href="https://www.nasa.gov/nasa-web-privacy-policy-and-important-notices/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Privacy policy
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="grid-row border-top-1px border-base-darkest padding-top-2 desktop:display-flex flex-column desktop:flex-row text-base-light font-body-2xs"
+        data-testid="grid"
+      >
+        <div
+          class="desktop:display-flex desktop:flex-row desktop:order-last"
+        >
+          <div
+            class="padding-right-4"
+          >
+            <p
+              class="margin-top-0 measure-1 desktop:measure-4"
+            >
+              Page last updated:
+               
+              <span
+                class="text-white"
+              >
+                Mar 26, 2024
+              </span>
+            </p>
+          </div>
+          <div>
+            <p
+              class="margin-top-0 measure-1 desktop:measure-4"
+            >
+              U.S. Earth Information Center Responsible Official:
+               
+              <a
+                class="usa-link"
+                href="mailto:eleanor.stokes@nasa.gov"
+              >
+                Eleanor Stokes
+              </a>
+            </p>
+          </div>
+        </div>
+        <div
+          class="desktop:display-flex desktop:order-first"
+        >
+          <p
+            class="margin-top-0 measure-1 desktop:measure-4"
+          >
+            Looking for U.S. government information and services?
+             
+            <a
+              class="usa-link"
+              href="https://www.usa.gov"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Visit USA.gov
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+`;

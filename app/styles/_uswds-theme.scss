@@ -5,11 +5,12 @@
   $utilities-use-important: true,
   $theme-button-border-radius: 0,
   $theme-utility-breakpoints: (
+    'mobile': true,
     'mobile-lg': true,
     'desktop': true,
     'widescreen': true,
   ),
-  
+
   // TYPOGRAPHY
   $theme-typeface-tokens:
   (
@@ -38,6 +39,10 @@
   // Text
   $theme-text-color: 'white',
   $theme-text-reverse-color: 'ink',
+  $theme-link-color: "primary-light",
+  $theme-link-reverse-color: "primary",
+  $theme-link-visited-color: "primary-light",
+
   // Base
   $theme-color-base-lightest: 'gray-cool-4',
   $theme-color-base-light: 'gray-cool-30',
@@ -45,6 +50,7 @@
   $theme-color-base-ink: 'gray-cool-90',
 
   $theme-header-max-width: 'widescreen',
+  $theme-footer-max-width: 'widescreen',
 
   $overflow-settings: (
     responsive: true,
@@ -75,5 +81,15 @@
   ),
   $color-settings: (
     responsive: true,
+    hover: true,
+  ),
+  $flex-direction-settings: (
+    responsive: true,
+  ),
+  $flex-settings: (
+    responsive: true,
+  ),
+  $order-settings: (
+    responsive: true
   ),
 );

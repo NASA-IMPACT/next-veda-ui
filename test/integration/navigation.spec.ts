@@ -13,7 +13,7 @@ test.describe('Navigation', () => {
   }) => {
     await page.goto('/');
 
-    const nav = page.getByRole('navigation');
+    const nav = page.getByTestId('header').getByRole('navigation');
     const aboutNavItem = nav.getByRole('link', { name: 'About' });
     await aboutNavItem.click();
     await expect(page).toHaveURL(/.*about/i);
