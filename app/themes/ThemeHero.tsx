@@ -28,7 +28,11 @@ export default function ThemeHero({
             href='/'
             className='usa-link text-primary-light margin-bottom-5 display-flex flex-align-center cursor-pointer'
           >
-            <Icon.ArrowBack size={3} className='margin-right-1' />
+            <Icon.ArrowBack
+              size={3}
+              className='margin-right-1'
+              aria-hidden='true' // purely decorative
+            />
             Back
           </Link>
           <h1 className='font-sans-2xl text-uppercase text-bold line-height-body-2 margin-0 margin-bottom-1'>

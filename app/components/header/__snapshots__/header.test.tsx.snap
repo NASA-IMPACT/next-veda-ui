@@ -31,6 +31,7 @@ exports[`Header Component > matches the snapshot (no unintended side-effects) 1`
         type="button"
       >
         <svg
+          aria-label="Open menu"
           class="usa-icon usa-icon--size-3"
           focusable="false"
           height="1em"

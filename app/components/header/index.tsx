@@ -123,7 +123,7 @@ export default function Header() {
             </Title>
             <NavMenuButton
               onClick={onMenuClick}
-              label={<Icon.Menu size={3} />}
+              label={<Icon.Menu size={3} aria-label='Open menu' />}
             />
           </div>
           <PrimaryNav
