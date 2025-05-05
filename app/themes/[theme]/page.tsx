@@ -33,6 +33,7 @@ export default async function ThemePage({
           title={frontmatter.title}
           description={frontmatter.description}
           coverSrc={frontmatter.image}
+          pubDate={frontmatter.pubDate}
         />
         {content}
       </div>
