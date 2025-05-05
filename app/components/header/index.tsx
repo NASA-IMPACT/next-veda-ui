@@ -44,6 +44,7 @@ export default function Header() {
   // Close menu when route changes
   useEffect(() => {
     setExpanded(false);
+    setIsDropdownOpen([false, false]);
   }, [pathname]);
 
   const dropdownMenuItems = DATA_THEMES.map(({ title }) => {
