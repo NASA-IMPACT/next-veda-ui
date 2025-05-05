@@ -46,14 +46,15 @@ export default function Header() {
   // Close menu when route changes
   useEffect(() => {
     setExpanded(false);
+    setIsDropdownOpen([false, false]);
   }, [pathname]);
 
   const dropdownMenuItems = DATA_THEMES.map(({ title }) => {
     const id = title.toLowerCase().replace(/\s+/g, '-');
-    const href = `/${id}`;
+    const href = `/themes/${id}`;
     const label = title.toUpperCase();
     return (
-      <Link href={href} key={id}>
+      <Link href={href} key={id} role='submenu-item'>
         {label}
       </Link>
     );
@@ -65,7 +66,7 @@ export default function Header() {
   }, [isTransparentHeader, useTransparentHeader])
 
   const primaryNavItems = [
-    <Link href='about' key='about' className='usa-nav__link'>
+    <Link href='/about' key='about' className='usa-nav__link'>
       <span>About</span>
     </Link>,
     <div ref={dropdownRef} key='themes'>
@@ -88,7 +89,7 @@ export default function Header() {
     </div>,
     <>
       {isMobileExpanded ? (
-        <Link href='dashboard' key='dashboard' className='usa-nav__link'>
+        <Link href='/dashboard' key='dashboard' className='usa-nav__link'>
           <span>Dashboard</span>
         </Link>
       ) : (
@@ -102,10 +103,13 @@ export default function Header() {
   return (
     <header ref={headerRef} className={backgroundStyle}>
       <USWDSHeader basic={true} showMobileOverlay={isMobileExpanded}>
-        <div className='usa-nav-container'>
-          <div className='usa-navbar' ref={mobileMenuRef}>
+        <div className='usa-nav-container desktop:padding-y-2'>
+          <div
+            className='usa-navbar position-relative z-100 mobile:bg-ink desktop:bg-transparent'
+            ref={mobileMenuRef}
+          >
             <Title>
-              <Link href='/' className='text-white'>
+              <Link href='/' className='text-white hover:text-base-light'>
                 Earth.gov
               </Link>
             </Title>
@@ -118,7 +122,7 @@ export default function Header() {
             items={primaryNavItems}
             mobileExpanded={isMobileExpanded}
             onToggleMobileNav={onMenuClick}
-            className={`${isMobileExpanded && 'bg-ink'} text-white`}
+            className={`${isMobileExpanded ? 'bg-ink' : ''} text-white`}
           ></PrimaryNav>
         </div>
       </USWDSHeader>

@@ -7,11 +7,15 @@ name: Checks
 
 on:
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
-      - ready_for_review
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
+  workflow_call:
+    outputs:
+      node_version:
+        description: 'The Node.js version used in the workflow'
+        value: ${{ jobs.prep.outputs.node_version }}
 
 env:
   NODE: 20
@@ -20,50 +24,36 @@ jobs:
   prep:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
+    outputs:
+      node_version: ${{ env.NODE }}
 
     steps:
-      - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.9.1
-        with:
-          access_token: ${{ github.token }}
-
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Use Node.js ${{ env.NODE }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE }}
-
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        id: cache-node-modules
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
+          cache: 'yarn'
 
       - name: Install
         run: yarn
 
   lint:
+    if: github.event.pull_request.draft == false
     needs: prep
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Use Node.js ${{ env.NODE }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE }}
-
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        id: cache-node-modules
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
+          cache: 'yarn'
 
       - name: Install
         run: yarn install
@@ -83,42 +73,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE }}
-
-      - name: Cache node_modules
-        uses: actions/cache@v4
-        id: cache-node-modules
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
+          cache: 'yarn'
 
       - name: Install
         run: yarn install
 
       - name: Check TS errors
         run: yarn ts-check
-
-  test:	
-    needs: prep	
-    runs-on: ubuntu-latest
-    steps:	
-      - name: Checkout	
-        uses: actions/checkout@v4	
-
-      - name: Use Node.js ${{ env.NODE }}	
-        uses: actions/setup-node@v4	
-        with:	
-          node-version: ${{ env.NODE }}	
-
-      - name: Cache node_modules	
-        uses: actions/cache@v4	
-        id: cache-node-modules	
-        with:	
-          path: node_modules	
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}	
-
-      - name: Install	
-        run: yarn install	
-
-      - name: Test	
-        run: yarn test	
-  

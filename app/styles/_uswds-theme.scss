@@ -3,9 +3,15 @@
   $theme-font-path: '~/node_modules/@uswds/uswds/dist/fonts',
   $theme-show-notifications: false,
   $utilities-use-important: true,
-  $theme-font-weight-semibold: '600',
-  $theme-type-scale-md: 8,
   $theme-button-border-radius: 0,
+  $theme-utility-breakpoints: (
+    'mobile': true,
+    'mobile-lg': true,
+    'desktop': true,
+    'widescreen': true,
+  ),
+
+  // TYPOGRAPHY
   $theme-typeface-tokens:
   (
     baseFontFamily: (
@@ -13,25 +19,38 @@
       'cap-height': 364px
     )
   ),
-  $theme-utility-breakpoints: (
-    'mobile-lg': true,
-    'desktop': true
-  ),
-  $theme-font-type-serif: 'public-sans',
-  $theme-font-type-sans: 'public-sans',
-  
+  $theme-font-type-serif: 'merriweather',
+  $theme-font-type-sans: 'helvetica',
+  $theme-font-type-mono: 'roboto-mono',
+
+  $theme-type-scale-3xs: 1,
+  $theme-type-scale-2xs: 3,
+  $theme-type-scale-xs: 4,
+  $theme-type-scale-sm: 5,
+  $theme-type-scale-md: 7,
+  $theme-type-scale-lg: 9,
+  $theme-type-scale-xl: 12,
+  $theme-type-scale-2xl: 14,
+  $theme-type-scale-3xl: 18,
+
   // COLORS
   // Body
   $theme-body-background-color: 'ink',
   // Text
   $theme-text-color: 'white',
   $theme-text-reverse-color: 'ink',
+  $theme-link-color: "primary-light",
+  $theme-link-reverse-color: "primary",
+  $theme-link-visited-color: "primary-light",
+
   // Base
   $theme-color-base-lightest: 'gray-cool-4',
+  $theme-color-base-light: 'gray-cool-30',
   $theme-color-base-darkest: 'gray-cool-80',
   $theme-color-base-ink: 'gray-cool-90',
 
   $theme-header-max-width: 'widescreen',
+  $theme-footer-max-width: 'widescreen',
 
   $overflow-settings: (
     responsive: true,
@@ -62,5 +81,15 @@
   ),
   $color-settings: (
     responsive: true,
+    hover: true,
+  ),
+  $flex-direction-settings: (
+    responsive: true,
+  ),
+  $flex-settings: (
+    responsive: true,
+  ),
+  $order-settings: (
+    responsive: true
   ),
 );

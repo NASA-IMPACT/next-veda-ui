@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [tsconfigPaths(), react()],
   test: {
     environment: 'jsdom',
+    setupFiles: ['./vitest.setup.ts', 'vitest.cleanup-after-each.ts'],
     exclude: [...configDefaults.exclude, '**/integration/**', '**/*.spec.ts'], // add your playwright folder/patterns here
   },
 });

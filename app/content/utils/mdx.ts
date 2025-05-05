@@ -10,6 +10,20 @@ import type {
   StoryWithContent,
   StoryMetadata,
 } from 'app/types/content';
+import { compileMDX } from 'next-mdx-remote/rsc';
+import React from 'react';
+import { Paragraph } from 'app/components/common/Paragraph';
+import { Section } from 'app/components/common/Section';
+import { VideoCaptionBlock } from 'app/components/common/VideoCaptionBlock';
+import { ImageCaptionBlock } from 'app/components/common/ImageCaptionBlock';
+import { Title } from 'app/components/common/Title';
+
+type ThemeFrontmatter = {
+  title: string;
+  description: string;
+  image: string;
+  pubDate?: string;
+};
 
 const STORY_CONTENT_PATH = path.join(
   process.cwd(),
@@ -24,9 +38,11 @@ const DATASET_CONTENT_PATH = path.join(
   'datasets',
 );
 
+const THEME_CONTENT_PATH = path.join(process.cwd(), 'app', 'content', 'themes');
+
 const md = markdownit();
 
-export function parseAttributes(obj) {
+export function parseAttributes<T extends Record<string, any>>(obj: T): T {
   const mdxData = {
     ...obj,
     ...(obj.layers
@@ -38,21 +54,20 @@ export function parseAttributes(obj) {
         }
       : {}),
   };
-  const convert = (obj) => {
+
+  const convert = (obj: any): any => {
     return Object.keys(obj).reduce(
-      (acc, key) => {
+      (acc: any, key) => {
         if (typeof obj[key] === 'object' && obj[key] !== null) {
           acc[key] = convert(obj[key]);
         } else if (typeof obj[key] === 'string') {
           if (obj[key].includes('::markdown')) {
             const v = obj[key];
             const p = v.replace(/^::markdown ?/, '');
-            // Conver the string to HTML
             const parsedVal = md.render(p);
             acc[key] = parsedVal.replaceAll(/(\r\n|\n|\r)/gm, '');
             return acc;
           }
-
           if (obj[key].includes('::js')) {
             const v = obj[key];
             const p = v.replace(/^::js ?/, '').replaceAll('\\n', '\n');
@@ -70,14 +85,14 @@ export function parseAttributes(obj) {
     );
   };
 
-  return convert(mdxData);
+  return convert(mdxData) as T;
 }
 
 function getMDXFiles(dir) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx');
 }
 
-function readMDXFile(filePath) {
+export function readMDXFile(filePath) {
   const rawContent = fs.readFileSync(filePath, 'utf-8');
   const parsedData = matter(rawContent);
   return parsedData;
@@ -135,4 +150,68 @@ export function getTransformedDatasetMetadata() {
 
 export function getTransformedDatasets() {
   return transformToDatasetsList(getDatasets());
+}
+
+/**
+ * Returns metadata (frontmatter) for all available themes.
+ *
+ * This is used for:
+ * - `generateStaticParams()` to statically generate all dynamic [theme] routes.
+ * - Building listing pages that show multiple themes with their title, image, etc.
+ *
+ * It avoids compiling the full MDX content for performance reasons,
+ * and only reads/parses frontmatter from the MDX files.
+ */
+export async function getAllThemes() {
+  return getMDXFiles(THEME_CONTENT_PATH)
+    .map((filename) => {
+      const filePath = path.join(THEME_CONTENT_PATH, filename);
+
+      try {
+        const { data } = readMDXFile(filePath);
+        const parsedData = parseAttributes(data);
+        const slug = path.basename(filename, '.mdx');
+
+        return {
+          slug,
+          ...parsedData,
+        };
+      } catch (err) {
+        console.error(`Failed to parse theme file ${filename}:`, err);
+        return null;
+      }
+    })
+    .filter(Boolean);
+}
+
+/**
+ * Returns both frontmatter and compiled JSX content for a single theme by slug.
+ *
+ * This is used in dynamic page rendering of `/themes/[theme]` pages:
+ * - Reads and parses the specified MDX file
+ * - Compiles the full MDX content
+ * - Returns both the frontmatter and compiled content
+ *
+ */
+export async function getThemeContent(slug: string) {
+  const filePath = path.join(THEME_CONTENT_PATH, `${slug}.mdx`);
+  const { content: rawContent, data } = readMDXFile(filePath);
+  const frontmatter = parseAttributes(data) as ThemeFrontmatter;
+
+  const { content } = await compileMDX({
+    source: rawContent,
+    components: {
+      p: function P({ children }: { children: React.ReactNode }) {
+        return React.createElement(React.Fragment, null, children);
+      },
+      ImageCaptionBlock,
+      VideoCaptionBlock,
+      Section,
+      Paragraph,
+      Title,
+    },
+    options: { parseFrontmatter: false },
+  });
+
+  return { frontmatter, content };
 }
