@@ -92,8 +92,24 @@ export default function Header() {
     </>,
   ];
 
+  const skipNav = (e) => {
+    e.preventDefault();
+    const mainElement = document.querySelector('main');
+    if (mainElement) {
+      mainElement.setAttribute('tabindex', '-1');
+      mainElement.focus();
+    }
+  };
+
   return (
     <div ref={headerRef}>
+      <button
+        type='button'
+        className='usa-skipnav z-200 margin-2'
+        onClick={skipNav}
+      >
+        Skip to main content
+      </button>
       <USWDSHeader basic={true} showMobileOverlay={isMobileExpanded}>
         <div className='usa-nav-container desktop:padding-y-2'>
           <div
