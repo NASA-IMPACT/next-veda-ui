@@ -34,3 +34,15 @@ body {
   text-transform: capitalize;
 }
 
+// Default link color for dark backgrounds (mobile and dark sections)
+a {
+  color: color('primary-light');
+}
+
+// Override link color for light backgrounds (desktop only)
+@include at-media('desktop') {
+  a {
+    color: color('primary');
+  }
+}
+
