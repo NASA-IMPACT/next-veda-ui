@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState, useContext } from 'react';
-import { TransparentHeaderContext } from './transparent-header-context';
+import { useEffect, useRef, useState } from 'react';
 /**
  * Hook to set the header height as a CSS custom property.
  *
@@ -30,30 +29,6 @@ export function useHeaderHeight() {
 
   return ref;
 }
-
-export function useIntersectionObserver(containerRef, options) {
-  // const [ isVisible, setIsVisible ] = useState(true);
-  const { setTransparentHeader } = useTransparentHeader();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([ entry ]) => {
-      // setIsVisible(entry.isIntersecting);
-      setTransparentHeader(entry.isIntersecting);
-    }, options);
-    const currentRef = containerRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, [ options, containerRef ]);
-  return;
-}
-
-export const useTransparentHeader = () => useContext(TransparentHeaderContext);
 
 export function useScrollDirection(): boolean {
   const [scrollingUp, setScrollingUp] = useState(false);

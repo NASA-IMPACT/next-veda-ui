@@ -27,11 +27,10 @@ export default function Header() {
   const mobileMenuRef = useMobileMenuFix(isMobileExpanded, setExpanded);
 
   const dropdownRef = useClickOutside(() => setIsDropdownOpen([false, false]));
-  const [backgroundStyle, setBackgroundStyle] = useState('');
+  const [backgroundStyle, setBackgroundStyle] = useState('hidden');
   const pathname = usePathname();
 
   const headerRef = useHeaderHeight();
-  // const { isTransparentHeader } = useTransparentHeader();
   const isScrollingUp = useScrollDirection();
   
   const onToggle = (
@@ -60,21 +59,22 @@ export default function Header() {
     );
   });
 
-  // useEffect(() => {
-  //   if (isTransparentHeader) setBackgroundStyle('') 
-  //   else setBackgroundStyle('solid')
-  // }, [isTransparentHeader, useTransparentHeader])
-
   useEffect(() => {
     if (isScrollingUp) {
       setBackgroundStyle('solid slide-in')
-    } else {
-      setBackgroundStyle('hidden')
-    }
+    } else if (backgroundStyle.includes('solid')) {
+      setBackgroundStyle('solid hidden')
+    } 
   }, [isScrollingUp])
 
   useEffect(() => {
-    if (pathname == '/') setBackgroundStyle('') // reset the header
+    if (window.scrollY === 0) {
+      setBackgroundStyle('slide-out')
+    }
+  }, [window.scrollY])
+
+  useEffect(() => {
+    if (pathname == '/') setBackgroundStyle('hidden') // reset the header
   }, [pathname])
 
   const primaryNavItems = [

@@ -1,6 +1,5 @@
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
-// import { useIntersectionObserver } from './components/header/hooks';
+import React, { useState, useEffect } from 'react';
 import { Grid, GridContainer, Icon, Link } from '@trussworks/react-uswds';
 
 export const DATA_THEMES = [
@@ -20,9 +19,6 @@ const FADE_DURATION = 3000;
 export default function HomePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(true);
-  const heroRef = useRef<HTMLDivElement>(null); 
-
-  // useIntersectionObserver(heroRef, { threshold: 0.1 });
 
   // Rotate themes
   useEffect(() => {
@@ -40,7 +36,7 @@ export default function HomePage() {
   const currentHighlight = DATA_THEMES[currentIndex];
 
   return (
-    <div className='hero minh-viewport display-flex' ref={heroRef}>
+    <div className='hero minh-viewport display-flex'>
       <GridContainer className='flex-fill flex-align-self-center text-uppercase'>
         <Grid row className='font-ui-lg tablet:font-ui-xl desktop:font-ui-2xl'>
           <Grid tablet={{ col: 6 }}>

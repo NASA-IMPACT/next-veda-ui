@@ -9,12 +9,20 @@
   top: 0;
 }
 
+.slide-out {
+  transition: all 100ms ease-out;
+  z-index: 100;
+  top: -100px;
+}
+
 .hidden {
   top: -100px;
 }
 
 .solid {
   background-color: utils.color('ink');
+  top: 0;
+  z-index: 100;
 }
 
 header {
