@@ -1,35 +1,49 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Navigation', () => {
-  test('should have a header, and main element', async ({ page }) => {
+  test('user can navigate through main menu and theme pages', async ({ page }, {
+    project: {
+      metadata: { isMobile },
+    },
+  }) => {
+    // Visit home page
     await page.goto('/');
 
+    // Verify home page elements
     await expect(page.locator('main')).toBeVisible();
     await expect(page.locator('.hero')).toHaveText(/DATA FOR.*/i);
-  });
 
-  test('navigates to the correct page when a nav item is clicked', async ({
-    page,
-  }) => {
-    await page.goto('/');
+    // Handle mobile navigation menu
+    if (isMobile) {
+      await page.getByTestId('navMenuButton').click();
+      // Wait for menu animation to complete
+      await page.waitForTimeout(300);
+    }
 
+    // Navigate to about page
     const nav = page.getByTestId('header').getByRole('navigation');
     const aboutNavItem = nav.getByRole('link', { name: 'About' });
     await aboutNavItem.click();
+
+    // Verify navigation to about page
     await expect(page).toHaveURL(/.*about/i);
-  });
+    await expect(page.locator('main')).toBeVisible();
+    await expect(page.locator('h1')).toHaveText('About');
 
-  test.skip('navigates to the correct page when a dropdown item is clicked', async ({
-    page,
-  }) => {
-    await page.goto('/');
+    // Navigate to theme page
+    if (isMobile) {
+      await page.getByTestId('navMenuButton').click();
+      await page.waitForTimeout(300);
+    }
 
-    const dropdownButton = page.getByRole('button', { name: /themes/i });
-    await dropdownButton.click();
+    // Open the themes dropdown
+    await page.locator('button[aria-controls="themesDropDown"]').click();
 
-    const dropdownItem = page.getByRole('menuitem', { name: 'Air Quality' });
-    await dropdownItem.click();
+    // Click air quality theme
+    await page.locator('a[href="/themes/air-quality"]').click();
 
-    expect(window.location.pathname).toBe('/air-quality');
+    // Verify navigation to theme page
+    await expect(page).toHaveURL('/themes/air-quality');
+    await expect(page.locator('h1')).toHaveText('Air Quality');
   });
 });
