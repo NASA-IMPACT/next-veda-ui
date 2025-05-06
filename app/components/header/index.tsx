@@ -16,7 +16,7 @@ import {
 import { DATA_THEMES } from '../../page';
 import useMobileMenuFix from './use-mobile-menu-fix';
 import useClickOutside from './use-click-outside';
-import { useHeaderHeight, useScrollDirection, /*useTransparentHeader*/ } from './hooks';
+import { useHeaderHeight, useScrollDirection } from './hooks';
 
 export default function Header() {
   const [isMobileExpanded, setExpanded] = useState(false);
@@ -112,8 +112,24 @@ export default function Header() {
     </>,
   ];
 
+  const skipNav = (e) => {
+    e.preventDefault();
+    const mainElement = document.querySelector('main');
+    if (mainElement) {
+      mainElement.setAttribute('tabindex', '-1');
+      mainElement.focus();
+    }
+  };
+
   return (
-    <div ref={headerRef} id='header-container' className={backgroundStyle}>
+    <div ref={headerRef}>
+      <button
+        type='button'
+        onClick={skipNav}
+        className={`'usa-skipnav z-200 margin-2' ${backgroundStyle}`}
+      >
+        Skip to main content
+      </button>
       <USWDSHeader basic={true} showMobileOverlay={isMobileExpanded}>
         <div className='usa-nav-container desktop:padding-y-2'>
           <div
@@ -127,7 +143,7 @@ export default function Header() {
             </Title>
             <NavMenuButton
               onClick={onMenuClick}
-              label={<Icon.Menu size={3} />}
+              label={<Icon.Menu size={3} aria-label='Open menu' />}
             />
           </div>
           <PrimaryNav

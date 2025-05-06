@@ -14,13 +14,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-          <div className='minh-viewport display-flex flex-column'>
-            <Header/>
-            <main id='pagebody' tabIndex={-1}>
-              {children}
-            </main>
-            <Footer />
-          </div>
+        <div className='minh-viewport display-flex flex-column'>
+          <Header />
+          <main className='flex-fill outline-0'>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
