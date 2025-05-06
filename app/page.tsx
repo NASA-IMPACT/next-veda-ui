@@ -39,8 +39,8 @@ export default function HomePage() {
     <div className='hero minh-viewport display-flex'>
       <GridContainer className='flex-fill flex-align-self-center text-uppercase'>
         <Grid row className='font-ui-lg tablet:font-ui-xl desktop:font-ui-2xl'>
-          <Grid tablet={{ col: 6 }}>
-            <h1 style={{ minHeight: '18rem' }}>
+          <Grid tablet={{ col: 12 }}>
+            <h1>
               Data for
               <br />
               <span className={`fade ${fade ? 'fade-in' : 'fade-out'}`}>

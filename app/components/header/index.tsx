@@ -122,11 +122,11 @@ export default function Header() {
   };
 
   return (
-    <div ref={headerRef}>
+    <div ref={headerRef} className={backgroundStyle}>
       <button
         type='button'
         onClick={skipNav}
-        className={`'usa-skipnav z-200 margin-2' ${backgroundStyle}`}
+        className='usa-skipnav z-200 margin-2'
       >
         Skip to main content
       </button>
