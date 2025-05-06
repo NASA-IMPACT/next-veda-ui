@@ -22,6 +22,7 @@ type ThemeFrontmatter = {
   title: string;
   description: string;
   image: string;
+  pubDate?: string;
 };
 
 const STORY_CONTENT_PATH = path.join(

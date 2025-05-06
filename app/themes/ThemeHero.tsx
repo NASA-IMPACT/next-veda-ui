@@ -1,40 +1,31 @@
 'use client';
 
 import React from 'react';
-import { Icon } from '@trussworks/react-uswds';
-import Link from 'next/link';
 
 type ThemeHeroProps = {
   title: string;
   description: string;
   coverSrc: string;
+  pubDate?: string;
 };
 
 export default function ThemeHero({
   title,
   description,
   coverSrc,
+  pubDate,
 }: ThemeHeroProps) {
   return (
     <section
       className='theme-hero'
+      data-testid='theme-hero'
       style={{
         backgroundImage: `linear-gradient(180deg, rgba(27, 27, 27, 0.1) 0%, rgba(27, 27, 27, 0.75) 100%), url(${coverSrc})`,
       }}
     >
       <div className='theme-hero__content grid-container text-white display-flex flex-align-center'>
         <div className='tablet:grid-col-8 desktop-lg:margin-left-neg-15'>
-          <Link
-            href='/'
-            className='usa-link text-primary-light margin-bottom-5 display-flex flex-align-center cursor-pointer'
-          >
-            <Icon.ArrowBack
-              size={3}
-              className='margin-right-1'
-              aria-hidden='true' // purely decorative
-            />
-            Back
-          </Link>
+          {pubDate && <p className='margin-bottom-4'>Published on {pubDate}</p>}
           <h1 className='font-sans-2xl text-uppercase text-bold line-height-body-2 margin-0 margin-bottom-1'>
             {title}
           </h1>
