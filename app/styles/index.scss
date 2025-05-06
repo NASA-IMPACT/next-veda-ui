@@ -41,7 +41,7 @@ a {
 
 // Override link color for light backgrounds (desktop only)
 @include at-media('desktop') {
-  a {
+  .desktop\:bg-white a {
     color: color('primary');
   }
 }
