@@ -28,6 +28,8 @@ export default function Header() {
 
   const dropdownRef = useClickOutside(() => setIsDropdownOpen([false, false]));
   const [backgroundStyle, setBackgroundStyle] = useState('hidden');
+  const [scrollY, setScrollY] = useState(0);
+
   const pathname = usePathname();
 
   const headerRef = useHeaderHeight();
@@ -68,10 +70,25 @@ export default function Header() {
   }, [isScrollingUp])
 
   useEffect(() => {
-    if (window.scrollY === 0) {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', handleScroll);
+      handleScroll(); // Initial scroll position
+
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, []);
+
+  useEffect(() => {
+    if (scrollY === 0) {
       setBackgroundStyle('slide-out')
     }
-  }, [window.scrollY])
+  }, [scrollY])
 
   useEffect(() => {
     if (pathname == '/') setBackgroundStyle('hidden') // reset the header
