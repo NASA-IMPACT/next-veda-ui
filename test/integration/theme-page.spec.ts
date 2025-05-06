@@ -3,8 +3,18 @@ import { test, expect } from '@playwright/test';
 test.describe('Theme page', () => {
   test('On the home page, click on the Themes dropdown takes to a theme page', async ({
     page,
+  }, {
+    project: {
+      metadata: { isMobile },
+    },
   }) => {
     await page.goto('/');
+
+    // Navigate to theme page
+    if (isMobile) {
+      await page.getByTestId('navMenuButton').click();
+      await page.waitForTimeout(300);
+    }
 
     // click on the themes dropdown
     await page.locator('button[aria-controls="themesDropDown"]').click();
