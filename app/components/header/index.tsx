@@ -16,7 +16,7 @@ import {
 import { DATA_THEMES } from '../../page';
 import useMobileMenuFix from './use-mobile-menu-fix';
 import useClickOutside from './use-click-outside';
-import { useHeaderHeight, useTransparentHeader } from './hooks';
+import { useHeaderHeight, useScrollDirection, /*useTransparentHeader*/ } from './hooks';
 
 export default function Header() {
   const [isMobileExpanded, setExpanded] = useState(false);
@@ -28,9 +28,11 @@ export default function Header() {
 
   const dropdownRef = useClickOutside(() => setIsDropdownOpen([false, false]));
   const [backgroundStyle, setBackgroundStyle] = useState('');
+  const pathname = usePathname();
 
   const headerRef = useHeaderHeight();
-  const { isTransparentHeader } = useTransparentHeader();
+  // const { isTransparentHeader } = useTransparentHeader();
+  const isScrollingUp = useScrollDirection();
   
   const onToggle = (
     index: number,
@@ -40,8 +42,6 @@ export default function Header() {
     newIsOpen[index] = !newIsOpen[index];
     setIsDropdownOpen(newIsOpen);
   };
-
-  const pathname = usePathname();
 
   // Close menu when route changes
   useEffect(() => {
@@ -60,10 +60,22 @@ export default function Header() {
     );
   });
 
+  // useEffect(() => {
+  //   if (isTransparentHeader) setBackgroundStyle('') 
+  //   else setBackgroundStyle('solid')
+  // }, [isTransparentHeader, useTransparentHeader])
+
   useEffect(() => {
-    if (isTransparentHeader) setBackgroundStyle('') 
-    else setBackgroundStyle('solid')
-  }, [isTransparentHeader, useTransparentHeader])
+    if (isScrollingUp) {
+      setBackgroundStyle('solid slide-in')
+    } else {
+      setBackgroundStyle('hidden')
+    }
+  }, [isScrollingUp])
+
+  useEffect(() => {
+    if (pathname == '/') setBackgroundStyle('') // reset the header
+  }, [pathname])
 
   const primaryNavItems = [
     <Link href='/about' key='about' className='usa-nav__link'>
@@ -101,7 +113,7 @@ export default function Header() {
   ];
 
   return (
-    <header ref={headerRef} className={backgroundStyle}>
+    <div ref={headerRef} id='header-container' className={backgroundStyle}>
       <USWDSHeader basic={true} showMobileOverlay={isMobileExpanded}>
         <div className='usa-nav-container desktop:padding-y-2'>
           <div
@@ -126,6 +138,6 @@ export default function Header() {
           ></PrimaryNav>
         </div>
       </USWDSHeader>
-    </header>
+    </div>
   );
 }

@@ -2,9 +2,19 @@
 @use 'uswds-core/src/styles/functions/units' as spacing;
 
 /* Specific style overrides for the header */
+.slide-in {
+  transition: top 300ms;
+  z-index: 100;
+  position: sticky;
+  top: 0;
+}
+
+.hidden {
+  top: -100px;
+}
 
 .solid {
-  background-color: #1c1d1f;
+  background-color: utils.color('ink');
 }
 
 header {

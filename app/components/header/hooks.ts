@@ -32,12 +32,12 @@ export function useHeaderHeight() {
 }
 
 export function useIntersectionObserver(containerRef, options) {
-  const [ isVisible, setIsVisible ] = useState(true);
+  // const [ isVisible, setIsVisible ] = useState(true);
   const { setTransparentHeader } = useTransparentHeader();
 
   useEffect(() => {
     const observer = new IntersectionObserver(([ entry ]) => {
-      setIsVisible(entry.isIntersecting);
+      // setIsVisible(entry.isIntersecting);
       setTransparentHeader(entry.isIntersecting);
     }, options);
     const currentRef = containerRef.current;
@@ -50,7 +50,31 @@ export function useIntersectionObserver(containerRef, options) {
       }
     };
   }, [ options, containerRef ]);
-  return isVisible;
+  return;
 }
 
 export const useTransparentHeader = () => useContext(TransparentHeaderContext);
+
+export function useScrollDirection(): boolean {
+  const [scrollingUp, setScrollingUp] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPosition = window.scrollY;
+      if (currentScrollPosition < scrollPosition) {
+        setScrollingUp(true);
+      } else if (currentScrollPosition > scrollPosition) {
+        setScrollingUp(false);
+      }
+      setScrollPosition(currentScrollPosition)
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    };
+  }, [scrollPosition])
+  return scrollingUp;
+}
