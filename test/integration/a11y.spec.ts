@@ -54,20 +54,32 @@ test.describe('Dashboard page', () => {
 });
 
 test.describe('Visit page', () => {
-  test('should not have any automatically detectable accessibility issues', async ({
-    page,
-  }, testInfo) => {
-    await page.goto('/visit');
-    await expect(page.locator('h1')).toHaveText(/Plan your visit/i);
-    const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
+  const visitPages = [
+    { path: '/visit', heading: /Plan your visit/i },
+    { path: '/visit/hq', heading: /NASA HQ/i },
+    { path: '/visit/ksc', heading: /KENNEDY SPACE CENTER/i },
+    {
+      path: '/visit/nmnh',
+      heading: /Smithsonian National Museum of Natural History/i,
+    },
+  ];
 
-    await testInfo.attach('accessibility-scan-results', {
-      body: JSON.stringify(accessibilityScanResults, null, 2),
-      contentType: 'application/json',
+  for (const { path, heading } of visitPages) {
+    test(`should not have any automatically detectable accessibility issues on ${path}`, async ({
+      page,
+    }, testInfo) => {
+      await page.goto(path);
+      await expect(page.locator('h1')).toHaveText(heading);
+      const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
+
+      await testInfo.attach('accessibility-scan-results', {
+        body: JSON.stringify(accessibilityScanResults, null, 2),
+        contentType: 'application/json',
+      });
+
+      expect(accessibilityScanResults.violations).toEqual([]);
     });
-
-    expect(accessibilityScanResults.violations).toEqual([]);
-  });
+  }
 });
 
 test.describe('Not Found page', () => {
