@@ -16,7 +16,8 @@ import {
 import { DATA_THEMES } from '../../page';
 import useMobileMenuFix from './use-mobile-menu-fix';
 import useClickOutside from './use-click-outside';
-import { useHeaderHeight, useScrollDirection } from './hooks';
+import { useHeaderHeight } from './hooks/use-header-height';
+import { useScrollDirection } from './hooks/use-scroll-direction';
 
 export default function Header() {
   const [isMobileExpanded, setExpanded] = useState(false);
