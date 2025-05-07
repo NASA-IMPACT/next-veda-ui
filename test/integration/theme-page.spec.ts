@@ -10,22 +10,17 @@ test.describe('Theme page', () => {
   }) => {
     await page.goto('/');
 
-    // Navigate to theme page
     if (isMobile) {
       await page.getByTestId('navMenuButton').click();
       await page.waitForTimeout(300);
     }
 
-    // click on the themes dropdown
     await page.locator('button[aria-controls="themesDropDown"]').click();
 
-    // click on the themes dropdown item
     await page.locator('a[href="/themes/air-quality"]').click();
 
-    // expect to be on the theme page
     await expect(page).toHaveURL('/themes/air-quality');
 
-    // hero includes pub date
     await expect(page.getByTestId('theme-hero')).toContainText(
       'Published on November 27, 2023',
     );
