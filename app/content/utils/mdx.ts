@@ -17,6 +17,13 @@ import { Section } from 'app/components/common/Section';
 import { VideoCaptionBlock } from 'app/components/common/VideoCaptionBlock';
 import { ImageCaptionBlock } from 'app/components/common/ImageCaptionBlock';
 import { Title } from 'app/components/common/Title';
+import Carousel from 'app/components/common/Carousel/Carousel';
+import { TopicCard } from '@lib';
+import dynamic from 'next/dynamic';
+
+const ClientOnly = dynamic(() => import('app/components/common/ClientOnly'), {
+  ssr: false,
+});
 
 type ThemeFrontmatter = {
   title: string;
@@ -201,6 +208,7 @@ export async function getThemeContent(slug: string) {
   const { content } = await compileMDX({
     source: rawContent,
     components: {
+      ClientOnly,
       p: function P({ children }: { children: React.ReactNode }) {
         return React.createElement(React.Fragment, null, children);
       },
@@ -209,6 +217,8 @@ export async function getThemeContent(slug: string) {
       Section,
       Paragraph,
       Title,
+      Carousel,
+      TopicCard,
     },
     options: { parseFrontmatter: false },
   });

@@ -33,6 +33,7 @@ import {
   DatasetData,
   StoryData,
   VedaData,
+  TopicCard,
   LegacyGlobalStyles,
 } from '@teamimpact/veda-ui';
 
@@ -68,6 +69,7 @@ export {
   ScrollytellingBlock,
   Chapter,
   Chart,
+  TopicCard,
 
   // Hooks
   useFiltersWithQS,
