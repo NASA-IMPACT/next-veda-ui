@@ -12,8 +12,8 @@ export default function AboutLayout({
     // around the GridContainer to achieve that.
     <div className='desktop:bg-white'>
       <GridContainer
-        containerSize='widescreen'
-        className='desktop:bg-white desktop:text-ink desktop:padding-x-15 desktop:padding-y-10'
+        containerSize='desktop-lg'
+        className='desktop:text-ink desktop:padding-y-10'
       >
         <Grid row className='margin-bottom-4'>
           <h1 className='text-uppercase'>About</h1>

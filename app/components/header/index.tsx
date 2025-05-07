@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import {
-  Button,
   Header as USWDSHeader,
   Icon,
   Menu,
@@ -80,17 +79,17 @@ export default function Header() {
         className={`${isDropdownOpen[0] ? 'bg-ink ' : ''}text-white`}
       />
     </div>,
-    <>
-      {isMobileExpanded ? (
-        <Link href='/dashboard' key='dashboard' className='usa-nav__link'>
-          <span>Dashboard</span>
-        </Link>
-      ) : (
-        <Button key='dashboard' type='button' outline inverse>
-          Dashboard
-        </Button>
-      )}
-    </>,
+    <Link
+      href='/dashboard'
+      key='dashboard'
+      className={
+        isMobileExpanded
+          ? 'usa-nav__link'
+          : 'usa-button usa-button--outline usa-button--inverse'
+      }
+    >
+      Dashboard
+    </Link>,
   ];
 
   const skipNav = (e) => {
