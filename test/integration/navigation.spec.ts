@@ -1,35 +1,37 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Navigation', () => {
-  test('should have a header, and main element', async ({ page }) => {
+  test('user can navigate through main menu and theme pages', async ({ page }, {
+    project: {
+      metadata: { isMobile },
+    },
+  }) => {
     await page.goto('/');
 
     await expect(page.locator('main')).toBeVisible();
     await expect(page.locator('.hero')).toHaveText(/DATA FOR.*/i);
-  });
 
-  test('navigates to the correct page when a nav item is clicked', async ({
-    page,
-  }) => {
-    await page.goto('/');
+    if (isMobile) {
+      await page.getByTestId('navMenuButton').click();
+      await page.waitForTimeout(300);
+    }
 
     const nav = page.getByTestId('header').getByRole('navigation');
     const aboutNavItem = nav.getByRole('link', { name: 'About' });
     await aboutNavItem.click();
+
     await expect(page).toHaveURL(/.*about/i);
-  });
+    await expect(page.locator('main')).toBeVisible();
+    await expect(page.locator('h1')).toHaveText('About');
 
-  test.skip('navigates to the correct page when a dropdown item is clicked', async ({
-    page,
-  }) => {
-    await page.goto('/');
+    if (isMobile) {
+      await page.getByTestId('navMenuButton').click();
+      await page.waitForTimeout(300);
+    }
 
-    const dropdownButton = page.getByRole('button', { name: /themes/i });
-    await dropdownButton.click();
-
-    const dropdownItem = page.getByRole('menuitem', { name: 'Air Quality' });
-    await dropdownItem.click();
-
-    expect(window.location.pathname).toBe('/air-quality');
+    await page.locator('button[aria-controls="themesDropDown"]').click();
+    await page.locator('a[href="/themes/air-quality"]').click();
+    await expect(page).toHaveURL('/themes/air-quality');
+    await expect(page.locator('h1')).toHaveText('Air Quality');
   });
 });
