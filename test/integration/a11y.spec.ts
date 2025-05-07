@@ -36,6 +36,23 @@ test.describe('About page', () => {
   });
 });
 
+test.describe('Dashboard page', () => {
+  test('should not have any automatically detectable accessibility issues', async ({
+    page,
+  }, testInfo) => {
+    await page.goto('/dashboard');
+    await expect(page.locator('h1')).toHaveText(/Explore/i);
+    const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
+
+    await testInfo.attach('accessibility-scan-results', {
+      body: JSON.stringify(accessibilityScanResults, null, 2),
+      contentType: 'application/json',
+    });
+
+    expect(accessibilityScanResults.violations).toEqual([]);
+  });
+});
+
 test.describe('Not Found page', () => {
   test('should not have any automatically detectable accessibility issues', async ({
     page,

@@ -201,13 +201,12 @@ exports[`Header Component > matches the snapshot (no unintended side-effects) 1`
         <li
           class="usa-nav__primary-item"
         >
-          <button
+          <a
             class="usa-button usa-button--outline usa-button--inverse"
-            data-testid="button"
-            type="button"
+            href="/dashboard"
           >
             Dashboard
-          </button>
+          </a>
         </li>
       </ul>
     </nav>

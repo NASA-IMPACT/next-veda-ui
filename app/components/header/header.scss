@@ -71,6 +71,19 @@ header {
         font-weight: bold;
       }
     }
+
+    .usa-nav__primary-item {
+      .usa-nav__link, .usa-button {
+        &:hover{
+          color: utils.color('base-light') !important;
+        }
+      }
+      .usa-button {
+        &:hover {
+          box-shadow: inset 0 0 0 2px utils.color('base-light') !important;
+        }
+      }
+    }
   }
 
   @media (max-width: spacing.units('desktop')) {
