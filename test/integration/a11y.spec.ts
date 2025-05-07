@@ -36,6 +36,23 @@ test.describe('About page', () => {
   });
 });
 
+test.describe('Theme pages', () => {
+  test('should not have any automatically detectable accessibility issues', async ({
+    page,
+  }, testInfo) => {
+    await page.goto('/themes/air-quality');
+    await expect(page.locator('h1')).toHaveText(/Air Quality/i);
+    const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
+
+    await testInfo.attach('accessibility-scan-results', {
+      body: JSON.stringify(accessibilityScanResults, null, 2),
+      contentType: 'application/json',
+    });
+
+    expect(accessibilityScanResults.violations).toEqual([]);
+  });
+});
+
 test.describe('Dashboard page', () => {
   test('should not have any automatically detectable accessibility issues', async ({
     page,
