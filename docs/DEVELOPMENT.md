@@ -63,13 +63,13 @@ yarn test
 - **Unit/Integration tests**:
 
   ```bash
-  yarn vitest:watch
+  yarn test:vitest:watch
   ```
 
 - **End-to-End tests (UI mode)**:
 
   ```bash
-  yarn playwright:ui
+  yarn test:playwright:ui
   ```
 
 #### Folder and Filename Conventions

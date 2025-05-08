@@ -32,7 +32,7 @@ jobs:
         run: yarn
 
       - name: Test
-        run: yarn vitest:test
+        run: yarn test:vitest
 
   playwright:
     if: github.event.pull_request.draft == false
@@ -55,7 +55,7 @@ jobs:
         run: yarn playwright install chromium --with-deps
 
       - name: Run Playwright tests
-        run: yarn playwright:test
+        run: yarn test:playwright
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
