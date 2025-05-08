@@ -1,4 +1,4 @@
-name: Unit and E2E Tests
+name: Tests
 
 on:
   pull_request:
@@ -16,7 +16,7 @@ jobs:
   checks:
     uses: ./.github/workflows/checks.yml
 
-  test-unit:
+  vitest:
     if: github.event.pull_request.draft == false
     needs: checks
     runs-on: ubuntu-latest
@@ -32,9 +32,9 @@ jobs:
         run: yarn
 
       - name: Test
-        run: yarn test:unit
+        run: yarn test:vitest
 
-  test-e2e:
+  playwright:
     if: github.event.pull_request.draft == false
     needs: checks
     timeout-minutes: 60
@@ -52,10 +52,10 @@ jobs:
 
       - name: Install Playwright Browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: yarn playwright install --with-deps
+        run: yarn playwright install chromium --with-deps
 
       - name: Run Playwright tests
-        run: yarn test:e2e
+        run: yarn test:playwright
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
