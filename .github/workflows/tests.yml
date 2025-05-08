@@ -1,4 +1,4 @@
-name: Unit and E2E Tests
+name: Tests
 
 on:
   pull_request:
@@ -16,7 +16,7 @@ jobs:
   checks:
     uses: ./.github/workflows/checks.yml
 
-  test-unit:
+  vitest:
     if: github.event.pull_request.draft == false
     needs: checks
     runs-on: ubuntu-latest
@@ -32,9 +32,9 @@ jobs:
         run: yarn
 
       - name: Test
-        run: yarn test:unit
+        run: yarn vitest
 
-  test-e2e:
+  playwright:
     if: github.event.pull_request.draft == false
     needs: checks
     timeout-minutes: 60
@@ -55,7 +55,7 @@ jobs:
         run: yarn playwright install --with-deps
 
       - name: Run Playwright tests
-        run: yarn test:e2e
+        run: yarn playwright
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
