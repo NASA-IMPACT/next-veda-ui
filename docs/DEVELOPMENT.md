@@ -50,30 +50,54 @@ The website will then be accessible at <http://localhost:3000>.
 
 ### Testing
 
-This project includes both unit and integration tests to ensure code quality and functionality.
+This project uses **Vitest** for unit and integration tests, and **Playwright** for end-to-end (E2E) tests.
 
-- **Run Unit Tests**: Use the following command to execute unit tests:
+#### Run the Full Test Suite
+
+```bash
+yarn test
+```
+
+#### Watch Mode (for Development)
+
+- **Unit/Integration tests**:
 
   ```bash
-  yarn test
+  yarn vitest:watch
   ```
 
-**Handling Snapshot Test Failures**
+- **End-to-End tests (UI mode)**:
 
-If a snapshot test fails after you've updated a component:
-
-Run yarn test to inspect the failure. Review the snapshot diff to make sure the changes are expected.
-If they are, press u in the test runner to update the snapshot.
-
-Only update snapshots when you're confident the changes are intentional.
-If something looks wrong, revisit your component changes and ensure they aren’t unintentionally affecting other parts of the UI.
-
-- **Run Integration Tests**: To run integration tests, use:
   ```bash
-  yarn test:integration
+  yarn playwright:ui
   ```
 
-All tests must pass locally before committing changes. The Continuous Integration (CI) pipeline will automatically run these tests, and the build will fail if any test does not pass.
+#### Folder and Filename Conventions
+
+- **Unit tests**
+  Target a single component or function. Place the test file alongside the source file (e.g. `Header.tsx` and `Header.test.tsx`).
+
+- **Integration tests**
+  Test interactions between components or elements without covering full user journeys. Place them under `test/integration` and use the `.test.*` suffix.
+
+- **End-to-End (E2E) tests**
+  Simulate complete user flows. Place them under `test/e2e` and use the `.spec.ts` suffix.
+
+#### Snapshot Test Failures
+
+If a snapshot test fails after a component update:
+
+1. Run `yarn vitest` to inspect the failure and review the diff.
+2. If the change is expected, run `yarn vitest:update` to update the snapshot (or press `u` in watch mode).
+3. Only update snapshots if you’re confident the changes are intentional.
+
+> If something looks off, double-check your component updates to avoid unintended UI changes.
+
+#### CI Requirement
+
+All tests must pass locally before committing changes. The **CI pipeline** runs the test suite automatically on non-draft PRs and will fail the build if any test fails.
+
+If your PR is a work in progress, mark it as **draft** to skip the test workflow.
 
 ### Building for production
 
