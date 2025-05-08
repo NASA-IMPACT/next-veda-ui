@@ -32,7 +32,7 @@ jobs:
         run: yarn
 
       - name: Test
-        run: yarn vitest
+        run: yarn vitest:test
 
   playwright:
     if: github.event.pull_request.draft == false
@@ -55,7 +55,7 @@ jobs:
         run: yarn playwright install --with-deps
 
       - name: Run Playwright tests
-        run: yarn playwright
+        run: yarn playwright:test
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
