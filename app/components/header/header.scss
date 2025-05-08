@@ -2,6 +2,28 @@
 @use 'uswds-core/src/styles/functions/units' as spacing;
 
 /* Specific style overrides for the header */
+.slide-in {
+  transition: top 300ms;
+  z-index: 100;
+  position: sticky;
+  top: 0;
+}
+
+.slide-out {
+  transition: all 100ms ease-out;
+  z-index: 100;
+  top: -100px;
+}
+
+.hidden {
+  top: -100px;
+}
+
+.solid {
+  background-color: utils.color('ink');
+  top: 0;
+  z-index: 100;
+}
 
 header {
   /*
@@ -9,6 +31,7 @@ header {
   instead of it just adapting to the span's color?
   Seems like a bug in the uswds library.
   */
+
   .usa-nav__primary button[aria-expanded=false] span:after {
     background-color: utils.color('white');
   }
