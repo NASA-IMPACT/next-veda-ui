@@ -7,6 +7,6 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts', 'vitest.cleanup-after-each.ts'],
-    exclude: [...configDefaults.exclude, '**/integration/**', '**/*.spec.ts'], // add your playwright folder/patterns here
+    exclude: [...configDefaults.exclude, '**/e2e/**', '**/*.spec.ts'],
   },
 });
