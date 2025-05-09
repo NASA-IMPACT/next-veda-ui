@@ -3,7 +3,7 @@ import { Grid, GridContainer } from '@trussworks/react-uswds';
 
 import { Paragraph } from 'app/components/common/Paragraph';
 
-const NmnhPage: React.FC = () => {
+const SmithsonianMuseumPage: React.FC = () => {
   return (
     <GridContainer containerSize='desktop-lg' className='desktop:padding-y-10'>
       <Grid row className='margin-bottom-4 measure-1 desktop:measure-4'>
@@ -23,4 +23,4 @@ const NmnhPage: React.FC = () => {
   );
 };
 
-export default NmnhPage;
+export default SmithsonianMuseumPage;

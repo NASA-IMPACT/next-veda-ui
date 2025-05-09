@@ -3,7 +3,7 @@ import { Grid, GridContainer } from '@trussworks/react-uswds';
 
 import { Paragraph } from 'app/components/common/Paragraph';
 
-const KscPage: React.FC = () => {
+const KennedySpaceCenterPage: React.FC = () => {
   return (
     <GridContainer containerSize='desktop-lg' className='desktop:padding-y-10'>
       <Grid row className='margin-bottom-4 measure-1 desktop:measure-4'>
@@ -20,4 +20,4 @@ const KscPage: React.FC = () => {
   );
 };
 
-export default KscPage;
+export default KennedySpaceCenterPage;

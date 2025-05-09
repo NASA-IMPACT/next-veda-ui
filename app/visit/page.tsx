@@ -6,7 +6,7 @@ import { ExhibitCard, Exhibit } from './ExhibitCard';
 
 const exhibits: Exhibit[] = [
   {
-    key: 'nasa-hq',
+    id: 'nasa-hq',
     heading: 'NASA HQ',
     openingHours: ['Monday - Friday', '8:30am - 5:30pm'],
     address: [
@@ -17,7 +17,7 @@ const exhibits: Exhibit[] = [
     imgAlt: 'NASA HQ exhibit view',
   },
   {
-    key: 'smithsonian-museum',
+    id: 'smithsonian-museum',
     heading: 'Smithsonian National Museum of Natural History',
     openingHours: ['Every day (closed on Christmas)', '10am - 5:30pm'],
     address: [
@@ -28,7 +28,7 @@ const exhibits: Exhibit[] = [
     imgAlt: 'Smithsonian National Museum of Natural History exterior view',
   },
   {
-    key: 'kennedy-space-center',
+    id: 'kennedy-space-center',
     heading: 'Kennedy Space Center',
     openingHours: ['Every day (closed on Christmas)', '9am - 5pm'],
     address: [
@@ -54,7 +54,7 @@ const VisitPage: React.FC = () => {
       </Grid>
       <Grid row gap='lg' style={{ listStyle: 'none' }}>
         {exhibits.map((exhibit) => (
-          <ExhibitCard key={exhibit.key} exhibit={exhibit} />
+          <ExhibitCard key={exhibit.id} exhibit={exhibit} />
         ))}
       </Grid>
     </GridContainer>

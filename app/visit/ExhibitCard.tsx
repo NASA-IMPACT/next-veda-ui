@@ -11,7 +11,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export interface Exhibit {
-  key: string;
+  id: string;
   heading: string;
   openingHours: string[];
   address: string[];
@@ -54,7 +54,7 @@ export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
 
   return (
     <Card
-      key={exhibit.key}
+      key={exhibit.id}
       gridLayout={{ desktop: { col: 4 }, tablet: { col: 6 } }}
       className='padding-bottom-4'
     >
@@ -89,7 +89,7 @@ export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
       </CardBody>
       <Link
         className='position-absolute top-0 left-0 width-full height-full'
-        href={`/visit/${exhibit.key}`}
+        href={`/visit/exhibit/${exhibit.id}`}
         aria-label={`View details for ${exhibit.heading} exhibit.`}
       />
     </Card>
