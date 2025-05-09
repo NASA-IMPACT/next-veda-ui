@@ -15,7 +15,8 @@ import {
 import { DATA_THEMES } from '../../page';
 import useMobileMenuFix from './use-mobile-menu-fix';
 import useClickOutside from './use-click-outside';
-import useHeaderHeight from './use-header-height';
+import { useHeaderHeight } from './hooks/use-header-height';
+import { useScrollDirection } from './hooks/use-scroll-direction';
 
 export default function Header() {
   const [isMobileExpanded, setExpanded] = useState(false);
@@ -26,9 +27,14 @@ export default function Header() {
   const mobileMenuRef = useMobileMenuFix(isMobileExpanded, setExpanded);
 
   const dropdownRef = useClickOutside(() => setIsDropdownOpen([false, false]));
+  const [backgroundStyle, setBackgroundStyle] = useState('hidden');
+  const [scrollY, setScrollY] = useState(0);
+
+  const pathname = usePathname();
 
   const headerRef = useHeaderHeight();
-
+  const isScrollingUp = useScrollDirection();
+  
   const onToggle = (
     index: number,
     setIsDropdownOpen: React.Dispatch<React.SetStateAction<boolean[]>>,
@@ -37,8 +43,6 @@ export default function Header() {
     newIsOpen[index] = !newIsOpen[index];
     setIsDropdownOpen(newIsOpen);
   };
-
-  const pathname = usePathname();
 
   // Close menu when route changes
   useEffect(() => {
@@ -56,6 +60,39 @@ export default function Header() {
       </Link>
     );
   });
+
+  useEffect(() => {
+    if (isScrollingUp) {
+      setBackgroundStyle('solid slide-in')
+    } else if (backgroundStyle.includes('solid')) {
+      setBackgroundStyle('solid hidden')
+    } 
+  }, [isScrollingUp])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', handleScroll);
+      handleScroll(); // Initial scroll position
+
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, []);
+
+  useEffect(() => {
+    if (scrollY === 0) {
+      setBackgroundStyle('slide-out')
+    }
+  }, [scrollY])
+
+  useEffect(() => {
+    if (pathname == '/') setBackgroundStyle('hidden') // reset the header
+  }, [pathname])
 
   const primaryNavItems = [
     <Link href='/about' key='about' className='usa-nav__link'>
@@ -102,11 +139,11 @@ export default function Header() {
   };
 
   return (
-    <div ref={headerRef}>
+    <div ref={headerRef} className={backgroundStyle}>
       <button
         type='button'
-        className='usa-skipnav z-200 margin-2'
         onClick={skipNav}
+        className='usa-skipnav z-200 margin-2'
       >
         Skip to main content
       </button>

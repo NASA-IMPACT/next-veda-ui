@@ -38,8 +38,8 @@ export default function HomePage() {
   return (
     <div className='hero minh-viewport display-flex'>
       <GridContainer className='flex-fill flex-align-self-center text-uppercase'>
-        <Grid row className='font-ui-lg tablet:font-ui-xl desktop:font-ui-2xl'>
-          <Grid tablet={{ col: 6 }}>
+        <Grid row className='font-ui-lg mobile:font-ui-sm tablet:font-ui-xl desktop:font-ui-2xl'>
+          <Grid tablet={{ col: 12 }} style={{ 'overflow': 'hidden', 'whiteSpace': 'nowrap'}}>
             <h1>
               Data for
               <br />
@@ -50,7 +50,7 @@ export default function HomePage() {
           </Grid>
         </Grid>
         <Grid row>
-          <Link className='usa-button' href='/dashboard'>
+          <Link className='usa-button mobile:font-ui-sm' href='/dashboard'>
             Get Started
             <Icon.ArrowForward
               size={3}
