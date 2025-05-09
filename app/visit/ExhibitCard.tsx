@@ -8,6 +8,7 @@ import {
   Icon,
 } from '@trussworks/react-uswds';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export interface Exhibit {
   key: string;
@@ -86,6 +87,11 @@ export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
         <FormattedSection heading='Hours' lines={exhibit.openingHours} />
         <FormattedSection heading='Address' lines={exhibit.address} />
       </CardBody>
+      <Link
+        className='position-absolute top-0 left-0 width-full height-full'
+        href={`/visit/${exhibit.key}`}
+        aria-label={`View details for ${exhibit.heading} exhibit.`}
+      />
     </Card>
   );
 };
