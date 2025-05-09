@@ -10,7 +10,6 @@
  * - options: optional Embla carousel config
  * - slideWidth: 'full' (1 slide per view) or 'third' (3 slides per view)
  * - fade: enables fade transition between slides
- * - scrollByGroup: enables moving 3 slides per view (only works with 'third' width)
  *
  * Note:
  * - When `fade` is enabled, scaling/styling is skipped
@@ -31,7 +30,6 @@ type PropType = {
   options?: EmblaOptionsType;
   slideWidth?: 'full' | 'third';
   fade?: boolean;
-  scrollByGroup?: boolean;
 };
 
 const Carousel: React.FC<PropType> = ({
@@ -39,7 +37,6 @@ const Carousel: React.FC<PropType> = ({
   options,
   slideWidth = 'full',
   fade = false,
-  scrollByGroup = false,
 }) => {
   const slidesPerView = slideWidth === 'third' ? 3 : 1;
 
@@ -49,7 +46,7 @@ const Carousel: React.FC<PropType> = ({
     dragFree: false,
     containScroll: false,
     align: 'start',
-    slidesToScroll: scrollByGroup ? slidesPerView : 1,
+    slidesToScroll: slidesPerView,
     breakpoints: {
       // Match the USWDS desktop-to-tablet breakpoint.
       // On small screens, the slides become full width so we need to
@@ -100,7 +97,7 @@ const Carousel: React.FC<PropType> = ({
       .on('select', updateStateFromEmbla);
 
     requestAnimationFrame(updateStateFromEmbla);
-  }, [emblaApi, slideWidth, scrollByGroup, slidesPerView]);
+  }, [emblaApi, slideWidth, slidesPerView]);
 
   const {
     prevBtnDisabled,
@@ -133,12 +130,8 @@ const Carousel: React.FC<PropType> = ({
                 className={`padding-x-1 ${classNames}`}
                 onClick={() => {
                   if (emblaApi && !visibleSlides.includes(index)) {
-                    if (scrollByGroup) {
-                      const groupIndex = Math.floor(index / slidesPerView);
-                      emblaApi.scrollTo(groupIndex);
-                    } else {
-                      emblaApi.scrollTo(index);
-                    }
+                    const groupIndex = Math.floor(index / slidesPerView);
+                    emblaApi.scrollTo(groupIndex);
                   }
                 }}
               >
