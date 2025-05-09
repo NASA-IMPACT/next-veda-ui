@@ -77,9 +77,9 @@ describe('Carousel', () => {
     });
   });
 
-  it('scrolls by a group index when scrollByGroup is enabled', () => {
+  it('scrolls by a group index when 1/3 layout mode is enabled', () => {
     const { container } = render(
-      <Carousel slides={slides} slideWidth='third' scrollByGroup={true} />,
+      <Carousel slides={slides} slideWidth='third' />,
     );
 
     const slide = container.querySelectorAll('ul')[3];
