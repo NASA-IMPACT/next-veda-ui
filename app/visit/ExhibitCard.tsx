@@ -5,7 +5,6 @@ import {
   CardMedia,
   CardHeader,
   CardBody,
-  Button,
   Icon,
 } from '@trussworks/react-uswds';
 import Image from 'next/image';
@@ -37,10 +36,13 @@ export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
       <CardHeader />
       <CardMedia exdent className='position-relative'>
         <div className='position-absolute top-0 left-0 padding-2 z-top'>
-          <Button className='usa-button' type='button'>
-            <Icon.Home size={3} className='' aria-hidden='true' />
-            Exhibit
-          </Button>
+          <div className='bg-white padding-x-1 display-flex flex-align-center radius-md text-base-dark'>
+            <Icon.AccountBalance
+              className='margin-right-1'
+              aria-hidden='true'
+            />
+            <span>Exhibit</span>
+          </div>
         </div>
         <div style={{ position: 'relative' }}>
           <Image
