@@ -56,7 +56,7 @@ export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
     <Card
       key={exhibit.id}
       gridLayout={{ desktop: { col: 4 }, tablet: { col: 6 } }}
-      className='padding-bottom-4'
+      className='padding-bottom-4 padding-x-2'
     >
       <CardHeader />
       <CardMedia exdent className='position-relative'>
@@ -95,3 +95,5 @@ export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
     </Card>
   );
 };
+
+export default ExhibitCard;

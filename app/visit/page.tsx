@@ -1,10 +1,10 @@
 'use client';
 import React from 'react';
-import { Grid, GridContainer } from '@trussworks/react-uswds';
+import { CardGroup, Grid, GridContainer } from '@trussworks/react-uswds';
 import { Paragraph } from 'app/components/common/Paragraph';
 import { ExhibitCard, Exhibit } from './ExhibitCard';
 
-const exhibits: Exhibit[] = [
+export const exhibits: Exhibit[] = [
   {
     id: 'nasa-hq',
     heading: 'NASA HQ',
@@ -52,11 +52,11 @@ const VisitPage: React.FC = () => {
           Florida). All exhibits are open to the public.
         </Paragraph>
       </Grid>
-      <Grid row gap='lg' style={{ listStyle: 'none' }}>
+      <CardGroup>
         {exhibits.map((exhibit) => (
           <ExhibitCard key={exhibit.id} exhibit={exhibit} />
         ))}
-      </Grid>
+      </CardGroup>
     </GridContainer>
   );
 };
