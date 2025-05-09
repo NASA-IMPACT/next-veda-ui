@@ -15,6 +15,11 @@ const emblaApi = {
   canScrollNext: () => true,
   scrollSnapList: () => [0, 1, 2, 3, 4, 5],
   on: vi.fn().mockReturnThis(),
+  internalEngine: () => ({
+    options: {
+      slidesToScroll: 3,
+    },
+  }),
 };
 
 vi.mock('embla-carousel-react', () => {
