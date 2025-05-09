@@ -81,7 +81,7 @@ export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
           {exhibit.heading}
         </h2>
       </CardMedia>
-      <CardBody className='font-body-2xs'>
+      <CardBody className='font-body-2xs height-card'>
         <FormattedSection heading='Hours' lines={exhibit.openingHours} />
         <FormattedSection heading='Address' lines={exhibit.address} />
       </CardBody>
