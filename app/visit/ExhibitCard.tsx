@@ -18,6 +18,29 @@ export interface Exhibit {
   imgAlt: string;
 }
 
+interface FormattedSectionProps {
+  heading: string;
+  lines: string[];
+}
+
+const FormattedSection: React.FC<FormattedSectionProps> = ({
+  heading,
+  lines,
+}) => {
+  return (
+    <>
+      <h3 className='margin-bottom-0' style={{ lineHeight: '1.1' }}>
+        {heading}
+      </h3>
+      {lines.map((line, index) => (
+        <div key={index} style={{ lineHeight: '1.1' }}>
+          {line}
+        </div>
+      ))}
+    </>
+  );
+};
+
 export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
   const overlayStyle: React.CSSProperties = {
     position: 'absolute',
@@ -58,19 +81,9 @@ export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
           {exhibit.heading}
         </h2>
       </CardMedia>
-      <CardBody>
-        <h3 className='margin-bottom-1'>Hours</h3>
-        <ul className='usa-list'>
-          {exhibit.openingHours.map((hour, index) => (
-            <li key={index}>{hour}</li>
-          ))}
-        </ul>
-        <h3 className='margin-bottom-1'>Address</h3>
-        <ul className='usa-list'>
-          {exhibit.address.map((line, index) => (
-            <li key={index}>{line}</li>
-          ))}
-        </ul>
+      <CardBody className='font-body-2xs'>
+        <FormattedSection heading='Hours' lines={exhibit.openingHours} />
+        <FormattedSection heading='Address' lines={exhibit.address} />
       </CardBody>
     </Card>
   );
