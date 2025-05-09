@@ -1,20 +1,23 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
+import { waitFor } from '@testing-library/react';
 
 import Carousel from './Carousel';
 
-vi.mock('embla-carousel-react', () => {
-  const scrollTo = vi.fn();
-  const emblaApi = {
-    slideNodes: () => [1, 2, 3],
-    selectedScrollSnap: () => 0,
-    scrollTo,
-    canScrollPrev: () => false,
-    canScrollNext: () => true,
-    on: vi.fn().mockReturnThis(),
-  };
+const scrollTo = vi.fn();
 
+const emblaApi = {
+  slideNodes: () => new Array(6).fill(null),
+  selectedScrollSnap: () => 0,
+  scrollTo,
+  canScrollPrev: () => false,
+  canScrollNext: () => true,
+  scrollSnapList: () => [0, 1, 2, 3, 4, 5],
+  on: vi.fn().mockReturnThis(),
+};
+
+vi.mock('embla-carousel-react', () => {
   return {
     default: () => [vi.fn(), emblaApi],
     __esModule: true,
@@ -53,16 +56,30 @@ describe('Carousel', () => {
     expect(third.length).toBeGreaterThan(0);
   });
 
-  it('adds "is-visible" class to visible slides', () => {
+  it('adds "slide--is-visible" class to visible slides', () => {
     const { container } = render(
       <Carousel slides={slides} slideWidth='third' />,
     );
-    const visible = container.querySelectorAll('.is-visible');
+    const visible = container.querySelectorAll('.slide--is-visible');
     expect(visible.length).toBeGreaterThan(0);
   });
 
-  it('shows current index counter', () => {
-    render(<Carousel slides={slides} />);
-    expect(screen.getByText('1 / 6')).toBeInTheDocument();
+  it('shows current index counter', async () => {
+    const { container } = render(<Carousel slides={slides} />);
+    await waitFor(() => {
+      const counter = container.querySelector('.carousel__counter');
+      expect(counter?.textContent?.trim()).toBe('1 / 6');
+    });
+  });
+
+  it('scrolls by a group index when scrollByGroup is enabled', () => {
+    const { container } = render(
+      <Carousel slides={slides} slideWidth='third' scrollByGroup={true} />,
+    );
+
+    const slide = container.querySelectorAll('ul')[3];
+    slide?.click();
+
+    expect(emblaApi.scrollTo).toHaveBeenCalledWith(1);
   });
 });

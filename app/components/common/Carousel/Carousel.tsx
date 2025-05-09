@@ -80,7 +80,7 @@ const Carousel: React.FC<PropType> = ({
       .on('select', updateStateFromEmbla);
 
     requestAnimationFrame(updateStateFromEmbla);
-  }, [emblaApi, slideWidth, moveBy, slidesPerView]);
+  }, [emblaApi, slideWidth, scrollByGroup, slidesPerView]);
 
   const {
     prevBtnDisabled,
