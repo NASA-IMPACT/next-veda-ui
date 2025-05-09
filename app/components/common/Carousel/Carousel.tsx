@@ -50,6 +50,15 @@ const Carousel: React.FC<PropType> = ({
     containScroll: false,
     align: 'start',
     slidesToScroll: scrollByGroup ? slidesPerView : 1,
+    breakpoints: {
+      // Match the USWDS desktop-to-tablet breakpoint.
+      // On small screens, the slides become full width so we need to
+      // scroll 1 slide at a time instead of grouped (by 3). This matches
+      // the USWDS desktop -> tablet breakpoint.
+      '(max-width: 1024px)': {
+        slidesToScroll: 1,
+      },
+    },
   };
 
   const [emblaRef, emblaApi] = useEmblaCarousel(emblaOptions, plugins);
@@ -60,17 +69,28 @@ const Carousel: React.FC<PropType> = ({
   useEffect(() => {
     if (!emblaApi) return;
 
+    // This handles updating which slides are considered "visible" (non-faded).
+    // We need this because Embla's `slidesToScroll` can change via breakpoints (e.g. 3 on desktop, 1 on mobile).
+    // Instead of hardcoding the visible slide count, we read the resolved value from Embla's options (set above).
+    // Then we calculate the visible indexes for the current group and store them,
+    // so we can style them (e.g. add 'slide--is-visible').
+    // Without this, small screens wouldn't get the correct visible styling.
     const updateStateFromEmbla = () => {
       const index = emblaApi.selectedScrollSnap();
       setSelectedIndex(index);
       setScrollSnapsLength(emblaApi.scrollSnapList().length);
 
       const total = emblaApi.slideNodes().length;
-      const perView = slidesPerView;
+      const rawSlidesToScroll =
+        emblaApi.internalEngine().options.slidesToScroll;
+      const groupSize =
+        typeof rawSlidesToScroll === 'number' ? rawSlidesToScroll : 1;
+
       const visible = Array.from(
-        { length: perView },
-        (_, i) => index * (scrollByGroup ? perView : 1) + i,
-      ).filter((i) => i < total);
+        { length: groupSize },
+        (_, i) => index * groupSize + i,
+      ).filter((i): i is number => typeof i === 'number' && i < total);
+
       setVisibleSlides(visible);
     };
 
