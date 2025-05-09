@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import {
   Grid,
@@ -6,9 +7,12 @@ import {
   CardMedia,
   CardHeader,
   CardBody,
+  Button,
+  Icon,
 } from '@trussworks/react-uswds';
 import { Paragraph } from 'app/components/common/Paragraph';
 import Image from 'next/image';
+import { CSSProperties } from 'react';
 
 interface CenterCard {
   key: string;
@@ -55,30 +59,60 @@ const centerCards: CenterCard[] = [
   },
 ];
 
-const renderCenterCard = (card: CenterCard) => (
-  <Card key={card.key}>
-    <CardHeader>
-      <h2 className='margin-top-0'>{card.heading}</h2>
-    </CardHeader>
-    <CardMedia>
-      <Image width={300} height={300} src={card.imgSrc} alt={card.imgAlt} />
-    </CardMedia>
-    <CardBody>
-      <h3 className='margin-bottom-1'>Hours</h3>
-      <ul className='usa-list'>
-        {card.openingHours.map((hour, index) => (
-          <li key={index}>{hour}</li>
-        ))}
-      </ul>
-      <h3 className='margin-bottom-1'>Address</h3>
-      <ul className='usa-list'>
-        {card.address.map((line, index) => (
-          <li key={index}>{line}</li>
-        ))}
-      </ul>
-    </CardBody>
-  </Card>
-);
+const CenterCardComponent: React.FC<{ card: CenterCard }> = ({ card }) => {
+  const overlayStyle: CSSProperties = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+  };
+
+  return (
+    <Card
+      key={card.key}
+      gridLayout={{ desktop: { col: 4 }, tablet: { col: 6 } }}
+    >
+      <CardHeader />
+      <CardMedia exdent className='position-relative'>
+        <div className='position-absolute top-0 left-0 padding-2 z-top'>
+          <Button className='usa-button' type='button'>
+            <Icon.Home size={3} className='' aria-hidden='true' />
+            Exhibit
+          </Button>
+        </div>
+        <div style={{ position: 'relative' }}>
+          <Image
+            width={300}
+            height={300}
+            src={card.imgSrc}
+            alt={card.imgAlt}
+            className='width-full'
+          />
+          <div style={overlayStyle} />
+        </div>
+        <h2 className='position-absolute bottom-0 width-full padding-2 bg-white-90 margin-0 text-white'>
+          {card.heading}
+        </h2>
+      </CardMedia>
+      <CardBody>
+        <h3 className='margin-bottom-1'>Hours</h3>
+        <ul className='usa-list'>
+          {card.openingHours.map((hour, index) => (
+            <li key={index}>{hour}</li>
+          ))}
+        </ul>
+        <h3 className='margin-bottom-1'>Address</h3>
+        <ul className='usa-list'>
+          {card.address.map((line, index) => (
+            <li key={index}>{line}</li>
+          ))}
+        </ul>
+      </CardBody>
+    </Card>
+  );
+};
 
 const VisitPage: React.FC = () => {
   return (
@@ -92,7 +126,11 @@ const VisitPage: React.FC = () => {
           Florida). All exhibits are open to the public.
         </Paragraph>
       </Grid>
-      <Grid row>{centerCards.map(renderCenterCard)}</Grid>
+      <Grid row gap>
+        {centerCards.map((card) => (
+          <CenterCardComponent key={card.key} card={card} />
+        ))}
+      </Grid>
     </GridContainer>
   );
 };
