@@ -52,7 +52,7 @@ const VisitPage: React.FC = () => {
           Florida). All exhibits are open to the public.
         </Paragraph>
       </Grid>
-      <Grid row gap>
+      <Grid row gap style={{ listStyle: 'none' }}>
         {exhibits.map((exhibit) => (
           <ExhibitCard key={exhibit.key} exhibit={exhibit} />
         ))}
