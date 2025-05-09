@@ -10,6 +10,7 @@
  * - options: optional Embla carousel config
  * - slideWidth: 'full' (1 slide per view) or 'third' (3 slides per view)
  * - fade: enables fade transition between slides
+ * - scrollByGroup: enables moving 3 slides per view (only works with 'third' width)
  *
  * Note:
  * - When `fade` is enabled, scaling/styling is skipped
@@ -17,15 +18,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { EmblaOptionsType } from 'embla-carousel';
-import { AlignmentOptionType } from 'embla-carousel/components/Alignment';
 import useEmblaCarousel from 'embla-carousel-react';
 import Fade from 'embla-carousel-fade';
 
-import {
-  PrevButton,
-  NextButton,
-  usePrevNextButtons,
-} from './CarouselArrowButtons';
+import { PrevButton, NextButton } from './CarouselArrowButtons';
+import { usePrevNextButtons } from './usePrevNextButtons';
 
 import './carousel.scss';
 
@@ -34,39 +31,46 @@ type PropType = {
   options?: EmblaOptionsType;
   slideWidth?: 'full' | 'third';
   fade?: boolean;
+  scrollByGroup?: boolean;
 };
 
 const Carousel: React.FC<PropType> = ({
   slides,
   options,
-  slideWidth,
-  fade,
+  slideWidth = 'full',
+  fade = false,
+  scrollByGroup = false,
 }) => {
+  const slidesPerView = slideWidth === 'third' ? 3 : 1;
+
   const plugins = fade ? [Fade()] : [];
   const emblaOptions: EmblaOptionsType = {
-    containScroll: false,
-    align: 'start' as AlignmentOptionType,
     ...options,
+    dragFree: false,
+    containScroll: false,
+    align: 'start',
+    slidesToScroll: scrollByGroup ? slidesPerView : 1,
   };
 
   const [emblaRef, emblaApi] = useEmblaCarousel(emblaOptions, plugins);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [visibleSlides, setVisibleSlides] = useState<number[]>([0]);
+  const [scrollSnapsLength, setScrollSnapsLength] = useState(0);
 
   useEffect(() => {
     if (!emblaApi) return;
 
     const updateStateFromEmbla = () => {
-      const total = emblaApi.slideNodes().length;
       const index = emblaApi.selectedScrollSnap();
       setSelectedIndex(index);
+      setScrollSnapsLength(emblaApi.scrollSnapList().length);
 
-      const perView = slideWidth === 'third' ? 3 : 1;
+      const total = emblaApi.slideNodes().length;
+      const perView = slidesPerView;
       const visible = Array.from(
         { length: perView },
-        (_, i) => index + i,
+        (_, i) => index * (scrollByGroup ? perView : 1) + i,
       ).filter((i) => i < total);
-
       setVisibleSlides(visible);
     };
 
@@ -76,7 +80,7 @@ const Carousel: React.FC<PropType> = ({
       .on('select', updateStateFromEmbla);
 
     requestAnimationFrame(updateStateFromEmbla);
-  }, [emblaApi, slideWidth]);
+  }, [emblaApi, slideWidth, moveBy, slidesPerView]);
 
   const {
     prevBtnDisabled,
@@ -90,11 +94,15 @@ const Carousel: React.FC<PropType> = ({
       <div className='carousel__viewport' ref={emblaRef}>
         <div className='display-flex flex-row flex-no-wrap margin-x-neg-1'>
           {slides.map((slide, index) => {
+            const isTransitional = !fade;
+            const isCurrentlyVisible = visibleSlides.includes(index);
+            const layoutClass =
+              slideWidth === 'third' ? 'slide--third' : 'slide--full';
+
             const classNames = [
-              !fade && 'slide__container',
-              'padding-x-1',
-              !fade && visibleSlides.includes(index) && 'is-visible',
-              slideWidth === 'third' ? 'slide--third' : 'slide--full',
+              isTransitional && 'slide--transitional',
+              isTransitional && isCurrentlyVisible && 'slide--is-visible',
+              layoutClass,
             ]
               .filter(Boolean)
               .join(' ');
@@ -102,10 +110,15 @@ const Carousel: React.FC<PropType> = ({
             return (
               <ul
                 key={index}
-                className={classNames}
+                className={`padding-x-1 ${classNames}`}
                 onClick={() => {
                   if (emblaApi && !visibleSlides.includes(index)) {
-                    emblaApi.scrollTo(index);
+                    if (scrollByGroup) {
+                      const groupIndex = Math.floor(index / slidesPerView);
+                      emblaApi.scrollTo(groupIndex);
+                    } else {
+                      emblaApi.scrollTo(index);
+                    }
                   }
                 }}
               >
@@ -116,7 +129,7 @@ const Carousel: React.FC<PropType> = ({
         </div>
       </div>
 
-      <div className='carousel__controls margin-top-2'>
+      <div className='carousel__controls display-flex flex-justify-center margin-top-2'>
         <PrevButton
           className='usa-button--unstyled margin-right-2'
           onClick={onPrevButtonClick}
@@ -124,7 +137,7 @@ const Carousel: React.FC<PropType> = ({
         />
 
         <div className='carousel__counter'>
-          {selectedIndex + 1} / {slides.length}
+          {selectedIndex + 1} / {scrollSnapsLength}
         </div>
 
         <NextButton

@@ -1,61 +1,11 @@
 'use client';
 
-import React, {
-  ComponentPropsWithRef,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
-import { EmblaCarouselType } from 'embla-carousel';
-
-type UsePrevNextButtonsType = {
-  prevBtnDisabled: boolean;
-  nextBtnDisabled: boolean;
-  onPrevButtonClick: () => void;
-  onNextButtonClick: () => void;
-};
-
-/**
- * Hook to manage Embla's prev/next button state and handlers
- */
-export const usePrevNextButtons = (
-  emblaApi: EmblaCarouselType | undefined,
-): UsePrevNextButtonsType => {
-  const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
-  const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
-
-  const updateButtonStates = useCallback((api: EmblaCarouselType) => {
-    setPrevBtnDisabled(!api.canScrollPrev());
-    setNextBtnDisabled(!api.canScrollNext());
-  }, []);
-
-  const onPrevButtonClick = useCallback(() => {
-    emblaApi?.scrollPrev();
-  }, [emblaApi]);
-
-  const onNextButtonClick = useCallback(() => {
-    emblaApi?.scrollNext();
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    updateButtonStates(emblaApi);
-    emblaApi.on('reInit', updateButtonStates).on('select', updateButtonStates);
-  }, [emblaApi, updateButtonStates]);
-
-  return {
-    prevBtnDisabled,
-    nextBtnDisabled,
-    onPrevButtonClick,
-    onNextButtonClick,
-  };
-};
+import React, { ComponentPropsWithRef } from 'react';
 
 type ButtonProps = ComponentPropsWithRef<'button'>;
 
 export const PrevButton: React.FC<ButtonProps> = ({ children, ...props }) => (
-  <button type='button' {...props}>
+  <button type='button' aria-label='Prev slide' {...props}>
     <svg
       width='18'
       height='18'
@@ -75,7 +25,7 @@ export const PrevButton: React.FC<ButtonProps> = ({ children, ...props }) => (
 );
 
 export const NextButton: React.FC<ButtonProps> = ({ children, ...props }) => (
-  <button type='button' {...props}>
+  <button type='button' aria-label='Next slide' {...props}>
     <svg
       width='16'
       height='16'

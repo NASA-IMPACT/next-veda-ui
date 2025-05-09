@@ -26,9 +26,9 @@ describe('Carousel', () => {
     <div key='1'>Slide 1</div>,
     <div key='2'>Slide 2</div>,
     <div key='3'>Slide 3</div>,
-    <div key='3'>Slide 4</div>,
-    <div key='3'>Slide 5</div>,
-    <div key='3'>Slide 6</div>,
+    <div key='4'>Slide 4</div>,
+    <div key='5'>Slide 5</div>,
+    <div key='6'>Slide 6</div>,
   ];
 
   it('renders all slides', () => {

@@ -9,7 +9,7 @@ export function Section({
 }) {
   return (
     <section className='usa-section'>
-      <div className={`grid-container${full ? '-full' : ''}`}>{children}</div>
+      <div className={full ? '' : 'grid-container'}>{children}</div>
     </section>
   );
 }
