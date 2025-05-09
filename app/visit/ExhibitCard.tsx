@@ -44,10 +44,10 @@ export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
             <span>Exhibit</span>
           </div>
         </div>
-        <div style={{ position: 'relative' }}>
+        <div className='height-card-lg'>
           <Image
-            width={300}
-            height={300}
+            width={400}
+            height={400}
             src={exhibit.imgSrc}
             alt={exhibit.imgAlt}
             className='width-full'
