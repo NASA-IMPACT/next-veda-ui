@@ -6,7 +6,7 @@ import ExhibitCard from './exhibit-card';
 
 import { exhibits } from './page';
 
-describe('Header Component', () => {
+describe('Exhibit Card', () => {
   it('matches the snapshot', () => {
     render(<ExhibitCard exhibit={exhibits[0]} />);
     const cardElement = screen.getByTestId('Card');
