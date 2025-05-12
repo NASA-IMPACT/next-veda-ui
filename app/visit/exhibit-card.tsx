@@ -30,11 +30,9 @@ const FormattedSection: React.FC<FormattedSectionProps> = ({
 }) => {
   return (
     <>
-      <h3 className='margin-bottom-0' style={{ lineHeight: '1.1' }}>
-        {heading}
-      </h3>
+      <h3 className='margin-bottom-0 line-height-sans-1'>{heading}</h3>
       {lines.map((line, index) => (
-        <div key={index} style={{ lineHeight: '1.1' }}>
+        <div key={index} className='line-height-sans-1'>
           {line}
         </div>
       ))}

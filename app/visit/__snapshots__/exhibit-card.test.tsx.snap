@@ -75,34 +75,32 @@ exports[`Exhibit Card > matches the snapshot 1`] = `
       data-testid="CardBody"
     >
       <h3
-        class="margin-bottom-0"
-        style="line-height: 1.1;"
+        class="margin-bottom-0 line-height-sans-1"
       >
         Hours
       </h3>
       <div
-        style="line-height: 1.1;"
+        class="line-height-sans-1"
       >
         Monday - Friday
       </div>
       <div
-        style="line-height: 1.1;"
+        class="line-height-sans-1"
       >
         8:30am - 5:30pm
       </div>
       <h3
-        class="margin-bottom-0"
-        style="line-height: 1.1;"
+        class="margin-bottom-0 line-height-sans-1"
       >
         Address
       </h3>
       <div
-        style="line-height: 1.1;"
+        class="line-height-sans-1"
       >
         NASA Headquarters (East Lobby)
       </div>
       <div
-        style="line-height: 1.1;"
+        class="line-height-sans-1"
       >
         300 E St. SW, Washington, DC 20546
       </div>
