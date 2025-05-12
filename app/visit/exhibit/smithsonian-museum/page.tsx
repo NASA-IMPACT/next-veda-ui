@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, GridContainer } from '@trussworks/react-uswds';
+import { Grid, GridContainer, Table } from '@trussworks/react-uswds';
 
 import { Paragraph } from 'app/components/common/Paragraph';
 import Separator from 'app/components/common/Separator';
@@ -29,7 +29,40 @@ const SmithsonianMuseumPage: React.FC = () => {
       <Separator />
 
       <GridContainer containerSize='desktop-lg'>
-        <Grid row>{/* Add other content here! */}</Grid>
+        <Grid row>
+          <Grid col desktop={{ col: 6 }}>
+            <Table bordered={false}>
+              <tbody>
+                <tr>
+                  <th scope='row' className='text-bold'>
+                    Admission
+                  </th>
+                  <td className='measure-1'>Free</td>
+                </tr>
+                <tr>
+                  <th scope='row' className='text-bold'>
+                    Hours
+                  </th>
+                  <td className='measure-1'>
+                    Every day (except Dec 25), 10am - 5:30pm
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row' className='text-bold'>
+                    Address
+                  </th>
+                  <td className='measure-1'>
+                    Smithsonian National Museum of Natural History, 2nd Floor
+                    <br />
+                    1000 Madison Drive NW
+                    <br />
+                    Washington, D.C. 20560
+                  </td>
+                </tr>
+              </tbody>
+            </Table>
+          </Grid>
+        </Grid>
       </GridContainer>
 
       <Separator />
