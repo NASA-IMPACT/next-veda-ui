@@ -23,7 +23,7 @@
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^15.3.0",
-    "@teamimpact/veda-ui": "^6.5.2-dev-test",
+    "@teamimpact/veda-ui": "^6.1.1",
     "@trussworks/react-uswds": "^9.1.0",
     "@types/mdx": "^2.0.13",
     "@uswds/uswds": "^3.10.0",
