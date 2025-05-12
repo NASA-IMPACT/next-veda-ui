@@ -18,7 +18,6 @@ import { VideoCaptionBlock } from 'app/components/common/VideoCaptionBlock';
 import { ImageCaptionBlock } from 'app/components/common/ImageCaptionBlock';
 import { Title } from 'app/components/common/Title';
 import Carousel from 'app/components/common/Carousel/Carousel';
-import { TopicCard } from '@lib';
 import dynamic from 'next/dynamic';
 
 const ClientOnly = dynamic(() => import('app/components/common/ClientOnly'), {
@@ -218,7 +217,6 @@ export async function getThemeContent(slug: string) {
       Paragraph,
       Title,
       Carousel,
-      TopicCard,
     },
     options: { parseFrontmatter: false },
   });
