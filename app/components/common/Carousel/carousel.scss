@@ -5,6 +5,7 @@
 
   @media (width <= spacing.units('desktop')) {
     min-height: auto;
+    overflow-x: hidden;
   }
 }
 
