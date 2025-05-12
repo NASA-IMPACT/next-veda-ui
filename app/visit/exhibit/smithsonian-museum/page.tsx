@@ -4,7 +4,7 @@ import { Grid, GridContainer } from '@trussworks/react-uswds';
 import { Paragraph } from 'app/components/common/Paragraph';
 import Separator from 'app/components/common/Separator';
 
-const NmnhPage: React.FC = () => {
+const SmithsonianMuseumPage: React.FC = () => {
   return (
     <>
       <GridContainer
@@ -41,4 +41,4 @@ const NmnhPage: React.FC = () => {
   );
 };
 
-export default NmnhPage;
+export default SmithsonianMuseumPage;

@@ -4,7 +4,7 @@ import { Grid, GridContainer } from '@trussworks/react-uswds';
 import { Paragraph } from 'app/components/common/Paragraph';
 import Separator from 'app/components/common/Separator';
 
-const HqPage: React.FC = () => {
+const KennedySpaceCenterPage: React.FC = () => {
   return (
     <>
       <GridContainer
@@ -12,13 +12,12 @@ const HqPage: React.FC = () => {
         className='desktop:padding-top-10'
       >
         <Grid row className='margin-bottom-4 measure-1 desktop:measure-4'>
-          <h1 className='text-uppercase'>NASA HQ</h1>
+          <h1 className='text-uppercase'>KENNEDY SPACE CENTER</h1>
           <Paragraph>
-            The Earth Information Center at HQ is a physical and virtual
-            experience at NASA Headquarters, where visitors can see how our
-            planet is changing in areas that affect lives and livelihoods– from
-            temperatures in our cities to sea level rise, greenhouse gas
-            emissions to agricultural productivity.
+            The Earth Information Center exhibit at the Kennedy Space Center
+            Visitor Complex reimagines the observation gantry at Launch Complex
+            39 and includes a data hub featuring a theater show, a Hyperwall
+            display, and an interactive exhibit gallery.
           </Paragraph>
         </Grid>
       </GridContainer>
@@ -38,4 +37,4 @@ const HqPage: React.FC = () => {
   );
 };
 
-export default HqPage;
+export default KennedySpaceCenterPage;

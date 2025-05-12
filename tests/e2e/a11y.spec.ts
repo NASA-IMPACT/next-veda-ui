@@ -73,10 +73,13 @@ test.describe('Dashboard page', () => {
 test.describe('Visit page', () => {
   const visitPages = [
     { path: '/visit', heading: /Plan your visit/i },
-    { path: '/visit/hq', heading: /NASA HQ/i },
-    { path: '/visit/ksc', heading: /KENNEDY SPACE CENTER/i },
+    { path: '/visit/exhibit/nasa-hq', heading: /NASA HQ/i },
     {
-      path: '/visit/nmnh',
+      path: '/visit/exhibit/kennedy-space-center',
+      heading: /KENNEDY SPACE CENTER/i,
+    },
+    {
+      path: '/visit/exhibit/smithsonian-museum',
       heading: /Smithsonian National Museum of Natural History/i,
     },
   ];
