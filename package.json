@@ -29,6 +29,8 @@
     "@trussworks/react-uswds": "^9.1.0",
     "@types/mdx": "^2.0.13",
     "@uswds/uswds": "^3.10.0",
+    "embla-carousel-fade": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
     "focus-trap-react": "^11.0.3",
     "geist": "1.2.2",
     "gray-matter": "^4.0.3",

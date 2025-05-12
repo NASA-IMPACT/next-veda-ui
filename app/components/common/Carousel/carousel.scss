@@ -1,0 +1,33 @@
+@use 'uswds-core/src/styles/functions/units' as spacing;
+
+.carousel__viewport {
+  min-height: 400px;
+
+  @media (width <= spacing.units('desktop')) {
+    min-height: auto;
+    overflow-x: hidden;
+  }
+}
+
+.slide--transitional {
+    opacity: 0.2;
+    transform: scale(0.90);
+    transition: all 0.3s ease-in-out;
+}
+
+.slide--is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.slide--third {
+  flex: 1 0 33.3333%;
+
+  @media (width <= spacing.units('desktop')) {
+    flex: 1 0 100%;
+  }
+}
+
+.slide--full {
+  flex: 1 0 100%;
+}
