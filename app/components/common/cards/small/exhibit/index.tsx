@@ -10,15 +10,6 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 
-export interface Exhibit {
-  id: string;
-  heading: string;
-  openingHours: string[];
-  address: string[];
-  imgSrc: string;
-  imgAlt: string;
-}
-
 interface FormattedSectionProps {
   heading: string;
   lines: string[];

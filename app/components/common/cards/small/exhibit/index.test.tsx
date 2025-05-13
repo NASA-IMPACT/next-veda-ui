@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 
 import ExhibitCard from './index';
-import { exhibits } from '../../../../../visit/page';
+import { exhibits } from 'app/config';
 
 describe('Exhibit Card', () => {
   it('matches the snapshot', () => {
