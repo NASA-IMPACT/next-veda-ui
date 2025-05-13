@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { Link, SideNav as USWDSSideNav } from '@trussworks/react-uswds';
-import useActiveSection from '@utils/hooks/use-active-section';
+import useActiveSection from 'app/hooks/use-active-section';
 
 const SECTION_HEADING = 'h2';
 
