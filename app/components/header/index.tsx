@@ -13,10 +13,10 @@ import {
 } from '@trussworks/react-uswds';
 
 import { DATA_THEMES } from '../../page';
-import useMobileMenuFix from './use-mobile-menu-fix';
-import useClickOutside from './use-click-outside';
-import { useHeaderHeight } from './hooks/use-header-height';
-import { useScrollDirection } from './hooks/use-scroll-direction';
+import useMobileMenuFix from '../../hooks/use-mobile-menu-fix';
+import useClickOutside from '../../hooks/use-click-outside';
+import useHeaderHeight from '../../hooks/use-header-height';
+import useScrollDirection from '../../hooks/use-scroll-direction';
 
 export default function Header() {
   const [isMobileExpanded, setExpanded] = useState(false);
@@ -34,7 +34,7 @@ export default function Header() {
 
   const headerRef = useHeaderHeight();
   const isScrollingUp = useScrollDirection();
-  
+
   const onToggle = (
     index: number,
     setIsDropdownOpen: React.Dispatch<React.SetStateAction<boolean[]>>,
@@ -63,11 +63,11 @@ export default function Header() {
 
   useEffect(() => {
     if (isScrollingUp) {
-      setBackgroundStyle('solid slide-in')
+      setBackgroundStyle('solid slide-in');
     } else if (backgroundStyle.includes('solid')) {
-      setBackgroundStyle('solid hidden')
-    } 
-  }, [isScrollingUp])
+      setBackgroundStyle('solid hidden');
+    }
+  }, [isScrollingUp]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -86,13 +86,13 @@ export default function Header() {
 
   useEffect(() => {
     if (scrollY === 0) {
-      setBackgroundStyle('slide-out')
+      setBackgroundStyle('slide-out');
     }
-  }, [scrollY])
+  }, [scrollY]);
 
   useEffect(() => {
-    if (pathname == '/') setBackgroundStyle('hidden') // reset the header
-  }, [pathname])
+    if (pathname == '/') setBackgroundStyle('hidden'); // reset the header
+  }, [pathname]);
 
   const primaryNavItems = [
     <Link href='/about' key='about' className='usa-nav__link'>
