@@ -12,11 +12,11 @@ import {
   Title,
 } from '@trussworks/react-uswds';
 
-import { DATA_THEMES } from '../../page';
-import useMobileMenuFix from '../../hooks/use-mobile-menu-fix';
-import useClickOutside from '../../hooks/use-click-outside';
-import useHeaderHeight from '../../hooks/use-header-height';
-import useScrollDirection from '../../hooks/use-scroll-direction';
+import { DATA_THEMES } from 'app/(pages)/page';
+import useMobileMenuFix from 'app/hooks/use-mobile-menu-fix';
+import useClickOutside from 'app/hooks/use-click-outside';
+import useHeaderHeight from 'app/hooks/use-header-height';
+import useScrollDirection from 'app/hooks/use-scroll-direction';
 
 export default function Header() {
   const [isMobileExpanded, setExpanded] = useState(false);
