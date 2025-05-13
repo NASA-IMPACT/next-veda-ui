@@ -1,45 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { Grid, GridContainer, Icon, Link } from '@trussworks/react-uswds';
-
-export const DATA_THEMES = [
-  {
-    id: 'agriculture',
-    title: 'Agriculture',
-  },
-  {
-    id: 'air-quality',
-    title: 'Air Quality',
-  },
-  {
-    id: 'biodiversity',
-    title: 'Biodiversity',
-  },
-  {
-    id: 'disasters',
-    title: 'Disasters',
-  },
-  {
-    id: 'energy',
-    title: 'Energy',
-  },
-  {
-    id: 'greenhouse-gases',
-    title: 'Greenhouse Gases',
-  },
-  {
-    id: 'sea-level-rise',
-    title: 'Sea Level Rise',
-  },
-  {
-    id: 'wildfires',
-    title: 'Wildfires',
-  },
-  {
-    id: 'water-resources',
-    title: 'Water Resources',
-  },
-];
+import { DATA_THEMES } from './config';
 
 const FADE_DURATION = 3000;
 

@@ -12,7 +12,7 @@ import {
   Title,
 } from '@trussworks/react-uswds';
 
-import { DATA_THEMES } from '../../page';
+import { DATA_THEMES } from 'app/config';
 import useMobileMenuFix from './use-mobile-menu-fix';
 import useClickOutside from './use-click-outside';
 import { useHeaderHeight } from './hooks/use-header-height';
