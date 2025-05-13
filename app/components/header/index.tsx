@@ -50,8 +50,7 @@ export default function Header() {
     setIsDropdownOpen([false, false]);
   }, [pathname]);
 
-  const dropdownMenuItems = DATA_THEMES.map(({ title }) => {
-    const id = title.toLowerCase().replace(/\s+/g, '-');
+  const dropdownMenuItems = DATA_THEMES.map(({ id, title }) => {
     const href = `/themes/${id}`;
     const label = title.toUpperCase();
     return (
