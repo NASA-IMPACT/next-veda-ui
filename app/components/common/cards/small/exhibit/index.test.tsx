@@ -2,9 +2,8 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 
-import ExhibitCard from './exhibit-card';
-
-import { exhibits } from './page';
+import ExhibitCard from './index';
+import { exhibits } from '../../../../../visit/page';
 
 describe('Exhibit Card', () => {
   it('matches the snapshot', () => {

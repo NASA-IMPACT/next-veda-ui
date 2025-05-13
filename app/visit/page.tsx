@@ -2,7 +2,9 @@
 import React from 'react';
 import { CardGroup, Grid, GridContainer } from '@trussworks/react-uswds';
 import { Paragraph } from 'app/components/common/Paragraph';
-import { ExhibitCard, Exhibit } from './exhibit-card';
+import ExhibitCard, {
+  Exhibit,
+} from 'app/components/common/cards/small/exhibit';
 
 export const exhibits: Exhibit[] = [
   {
