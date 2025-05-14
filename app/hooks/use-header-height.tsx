@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react';
  * @returns A ref to be attached to the header element to measure the height.
  */
 
-export function useHeaderHeight() {
+export default function useHeaderHeight() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

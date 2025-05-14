@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export function useScrollDirection(): boolean {
+export default function useScrollDirection(): boolean {
   const [scrollingUp, setScrollingUp] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -12,14 +12,14 @@ export function useScrollDirection(): boolean {
       } else if (currentScrollPosition > scrollPosition) {
         setScrollingUp(false);
       }
-      setScrollPosition(currentScrollPosition)
-    }
+      setScrollPosition(currentScrollPosition);
+    };
 
     window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('scroll', handleScroll);
     };
-  }, [scrollPosition])
+  }, [scrollPosition]);
   return scrollingUp;
 }

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import useClickOutside from './use-click-outside';
-import { USWDS_DESKTOP_BREAKPOINT } from '@utils/constants';
+import { USWDS_DESKTOP_BREAKPOINT } from 'app/constants';
 
 /**
  * Hook to handle mobile menu behavior, closing
