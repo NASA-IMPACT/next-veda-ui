@@ -65,27 +65,9 @@ exports[`Footer Component > matches the snapshot (no unintended side-effects) 1`
             </a>
             <a
               class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
-              href="/mapping"
-            >
-              Mapping App
-            </a>
-            <a
-              class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
-              href="/themes"
-            >
-              Themes
-            </a>
-            <a
-              class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
               href="/visit"
             >
               Visit a Center
-            </a>
-            <a
-              class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
-              href="/contact"
-            >
-              Contact Us
             </a>
           </nav>
         </div>
