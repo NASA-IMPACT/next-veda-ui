@@ -6,10 +6,10 @@ const PrimarySection = () => {
   const primaryNavItems = [
     { label: 'About', href: '/about' },
     { label: 'Dashboard', href: '/dashboard' },
-    { label: 'Mapping App', href: '/mapping' },
-    { label: 'Themes', href: '/themes' },
+    // { label: 'Mapping App', href: '/mapping' },
+    // { label: 'Themes', href: '/themes' },
     { label: 'Visit a Center', href: '/visit' },
-    { label: 'Contact Us', href: '/contact' },
+    // { label: 'Contact Us', href: '/contact' }, //TODO: Add form!
   ];
 
   return (
