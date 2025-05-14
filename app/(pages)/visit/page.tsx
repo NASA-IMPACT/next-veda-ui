@@ -3,7 +3,7 @@ import React from 'react';
 import { CardGroup, Grid, GridContainer } from '@trussworks/react-uswds';
 import { Paragraph } from 'app/components/common/Paragraph';
 import ExhibitCard from 'app/components/common/cards/small/exhibit';
-import { exhibits } from 'app/config';
+import { DATA_EXHIBITS as exhibits } from 'app/constants';
 
 const VisitPage: React.FC = () => {
   return (
