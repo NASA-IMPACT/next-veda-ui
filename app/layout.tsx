@@ -1,11 +1,10 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { baseUrl } from './sitemap';
-import './styles/index.scss';
-import '@teamimpact/veda-ui/lib/main.css';
 
-import Header from './components/header';
-import Footer from './components/footer';
+import 'app/styles/index.scss';
+import Header from 'app/components/header';
+import Footer from 'app/components/footer';
+import { baseUrl } from 'app/sitemap';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl ?? ''),

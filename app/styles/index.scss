@@ -5,8 +5,8 @@
 
 @forward 'homepage';
 @forward 'themepage';
-@forward '../components/header/header.scss';
-@forward '../components/footer/footer.scss';
+@forward 'app/components/header/header.scss';
+@forward 'app/components/footer/footer.scss';
 @forward './mdx.scss';
 
 :root {
