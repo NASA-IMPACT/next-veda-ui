@@ -3,7 +3,7 @@ import { Grid, GridContainer, CardGroup } from '@trussworks/react-uswds';
 
 import Separator from 'app/components/common/Separator';
 import ThemeCard from 'app/components/common/cards/small/theme';
-import { DATA_THEMES } from 'app/config';
+import { DATA_THEMES } from 'app/constants';
 
 const DashboardPage: React.FC = () => {
   return (

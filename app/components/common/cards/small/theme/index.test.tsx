@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 
 import ThemeCard from './index';
-import { DATA_THEMES } from 'app/config';
+import { DATA_THEMES } from 'app/constants';
 
 describe('Theme Card', () => {
   const testTheme = DATA_THEMES[0];

@@ -2,7 +2,7 @@
 import React from 'react';
 import { Icon } from '@trussworks/react-uswds';
 import SmallCard from '../index';
-import type { Theme } from 'app/config';
+import type { Theme } from 'app/types';
 
 export const ThemeCard: React.FC<{ theme: Theme }> = ({ theme }) => {
   return (

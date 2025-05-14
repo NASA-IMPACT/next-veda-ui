@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { Grid, GridContainer, Icon, Link } from '@trussworks/react-uswds';
-import { DATA_THEMES } from 'app/config';
+import { DATA_THEMES } from 'app/constants';
 
 const FADE_DURATION = 3000;
 
