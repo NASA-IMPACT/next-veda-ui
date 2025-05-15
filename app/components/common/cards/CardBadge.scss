@@ -1,4 +1,10 @@
+/**
+ * CardBadge styles
+ * Reusable badge component for any card that needs to display a badge with an icon
+ * Parent components must have isolation: isolate for proper stacking context
+ */
+
 .card-badge {
-  /* Using z-index: 1 is sufficient when parent has isolation: isolate */
+  /* z-index: 1 is sufficient since parent has isolation: isolate */
   z-index: 1;
 } 

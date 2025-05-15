@@ -14,6 +14,15 @@ interface CardBadgeProps {
   icon: keyof typeof BADGE_ICONS;
 }
 
+/**
+ * CardBadge Component
+ *
+ * A reusable badge component that displays an icon and label.
+ *
+ * @requires Parent component to have `isolation: isolate` CSS property
+ * @param {CardBadgeProps} props - Component props
+ * @returns {React.ReactElement} A badge with an icon and label
+ */
 export const CardBadge: React.FC<CardBadgeProps> = ({ label, icon }) => {
   const IconComponent = BADGE_ICONS[icon];
 
