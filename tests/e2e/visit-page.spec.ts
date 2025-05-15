@@ -11,7 +11,9 @@ test.describe('Visit pages', () => {
     await expect(cardGroup.locator('[data-testid="Card"]')).toHaveCount(3);
   });
 
-  test('Each card should navigate to the correct page', async ({ page }) => {
+  test('Each card should navigate to the correct page and back', async ({
+    page,
+  }) => {
     await page.goto('/visit');
 
     const cards = page.locator('[data-testid="Card"]');
@@ -26,7 +28,8 @@ test.describe('Visit pages', () => {
         await card.click();
         await expect(page).toHaveURL(/visit.*/i);
         await expect(page.locator('h1')).toHaveText(new RegExp(heading, 'i'));
-        await page.goBack();
+        await page.getByRole('link', { name: 'Back' }).click();
+        await expect(page).toHaveURL(/visit/i);
       }
     }
   });

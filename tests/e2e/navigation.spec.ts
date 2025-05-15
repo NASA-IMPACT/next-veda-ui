@@ -94,4 +94,18 @@ test.describe('Footer Navigation', () => {
     await expect(page.locator('main')).toBeVisible();
     await expect(page.locator('.hero')).toHaveText(/DATA FOR.*/i);
   });
+
+  test('user can navigate to the visit page', async ({ page }) => {
+    await page.goto('/');
+
+    const footer = page.getByTestId('footer');
+    const nav = footer.getByRole('navigation');
+    const visitLink = nav.getByRole('link', { name: 'Visit a center' });
+
+    await visitLink.click();
+
+    await expect(page).toHaveURL(/.*visit/i);
+    await expect(page.locator('main')).toBeVisible();
+    await expect(page.locator('h1')).toHaveText(/Plan your Visit/i);
+  });
 });
