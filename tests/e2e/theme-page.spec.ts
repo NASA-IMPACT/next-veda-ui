@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { DATA_THEMES } from 'app/(pages)/page';
+import { DATA_THEMES } from 'app/constants';
 
 test.describe('Theme pages', () => {
   for (const { title } of DATA_THEMES) {

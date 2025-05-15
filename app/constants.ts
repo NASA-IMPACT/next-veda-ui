@@ -40,9 +40,9 @@ export const DATA_THEMES: Theme[] = [
     cardImage: '/images/themes/greenhouse-gases/greenhouse-gases-banner.png',
   },
   {
-    id: 'sea-level-change',
-    title: 'Sea Level Change',
-    cardImage: '/images/themes/sea-level-change/sea-level-change-banner.png',
+    id: 'sea-level-rise',
+    title: 'Sea Level Rise',
+    cardImage: '/images/themes/sea-level-rise/sea-level-rise-banner.png',
   },
   {
     id: 'wildfires',
