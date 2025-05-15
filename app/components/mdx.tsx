@@ -2,24 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { highlight } from 'sugar-high';
-import { LegacyGlobalStyles } from '@lib';
-
-import {
-  Block,
-  Prose,
-  Caption,
-  Chapter,
-  Figure,
-  Image,
-  CompareImage,
-  Chart,
-} from '@lib';
-import {
-  EnhancedMapBlock,
-  EnhancedScrollyTellingBlock,
-} from './mdx-components/block';
-import { getDatasetsMetadata } from 'app/content/utils/mdx';
-import Providers from 'app/(datasets)/providers';
 
 function Table({ data }: { data: any }) {
   const headers = data.headers.map((header, index) => (
@@ -90,30 +72,16 @@ const components = {
   h6: createHeading(6),
   code: Code,
   Table,
-  Block: Block,
-  Prose: Prose,
-  Caption: Caption,
-  Figure: Figure,
-  Image: Image,
-  Map: EnhancedMapBlock,
-  CompareImage: CompareImage,
-  ScrollytellingBlock: EnhancedScrollyTellingBlock,
   Link: Link,
-  Chapter: Chapter,
-  Chart: Chart,
 };
 
 export function CustomMDX(props: any) {
-  const datasets = getDatasetsMetadata();
   return (
-    <Providers datasets={datasets}>
-      <LegacyGlobalStyles />
-      <MDXRemote
-        {...props}
-        components={{ ...components, ...(props.components || {}) }}
-      >
-        {props.children}
-      </MDXRemote>
-    </Providers>
+    <MDXRemote
+      {...props}
+      components={{ ...components, ...(props.components || {}) }}
+    >
+      {props.children}
+    </MDXRemote>
   );
 }

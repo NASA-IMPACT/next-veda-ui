@@ -1,6 +1,6 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-import { getAllThemes, getThemeContent } from 'app/content/utils/mdx';
+import { getAllThemes, getThemeContent } from 'app/utils/mdx';
 import ThemeHero from '../ThemeHero';
 
 export async function generateStaticParams() {
