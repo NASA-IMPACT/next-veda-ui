@@ -1,0 +1,4 @@
+.card-badge {
+  /* Using z-index: 1 is sufficient when parent has isolation: isolate */
+  z-index: 1;
+} 

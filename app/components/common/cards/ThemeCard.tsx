@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Card, Icon } from '@trussworks/react-uswds';
+import { Card } from '@trussworks/react-uswds';
 import Link from 'next/link';
 import type { Theme } from 'app/types';
+import CardBadge from './CardBadge';
 import './ThemeCard.scss';
 
 export const ThemeCard: React.FC<{ theme: Theme }> = ({ theme }) => {
@@ -22,12 +23,7 @@ export const ThemeCard: React.FC<{ theme: Theme }> = ({ theme }) => {
           borderRadius: 'inherit',
         }}
       >
-        <div className='position-absolute top-0 left-0 padding-2 z-top'>
-          <div className='bg-white padding-x-1 display-flex flex-align-center radius-md text-base-dark'>
-            <Icon.Lightbulb className='margin-right-1' aria-hidden='true' />
-            <span>Theme</span>
-          </div>
-        </div>
+        <CardBadge label='Theme' icon='Language' />
         <h2 className='position-absolute bottom-0 width-full padding-2 bg-white-90 margin-0 text-white'>
           {theme.title}
         </h2>

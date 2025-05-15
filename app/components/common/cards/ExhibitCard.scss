@@ -1,0 +1,12 @@
+.exhibit-card {
+  position: relative;
+  isolation: isolate;
+
+  .usa-card__container {
+    position: relative;
+  }
+
+  .usa-card__media {
+    position: relative;
+  }
+} 

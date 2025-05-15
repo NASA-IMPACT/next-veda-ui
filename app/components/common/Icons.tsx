@@ -10,3 +10,5 @@ import { Icon } from '@trussworks/react-uswds';
  * client-only components are required.
  */
 export const ArrowBackIcon = (props) => <Icon.ArrowBack {...props} />;
+export const LanguageIcon = (props) => <Icon.Language {...props} />;
+export const AccountBalanceIcon = (props) => <Icon.AccountBalance {...props} />;

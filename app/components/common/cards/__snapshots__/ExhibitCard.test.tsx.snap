@@ -2,7 +2,7 @@
 
 exports[`Exhibit Card > matches the snapshot 1`] = `
 <li
-  class="usa-card tablet:grid-col-6 desktop:grid-col-4 padding-bottom-4 padding-x-2"
+  class="usa-card tablet:grid-col-6 desktop:grid-col-4 padding-bottom-4 padding-x-2 exhibit-card"
   data-testid="Card"
 >
   <div
@@ -20,7 +20,7 @@ exports[`Exhibit Card > matches the snapshot 1`] = `
         class="usa-card__img"
       >
         <div
-          class="position-absolute top-0 left-0 padding-2 z-top"
+          class="position-absolute top-0 left-0 padding-2 card-badge"
         >
           <div
             class="bg-white padding-x-1 display-flex flex-align-center radius-md text-base-dark"

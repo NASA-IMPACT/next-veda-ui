@@ -1,9 +1,16 @@
 .theme-card {
   --theme-card-height: 400px;
   height: var(--theme-card-height);
+  position: relative;
+  isolation: isolate;
 
   .usa-card__container {
     border: 0;
     background-color: transparent;
+    position: relative;
+  }
+
+  .card-badge {
+    z-index: 2;
   }
 } 
