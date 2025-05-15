@@ -1,0 +1,26 @@
+{
+  "nasa-hq": {
+    "intro": [
+      { "img": "/images/visit/hq-1.jpg", "alt": "NASA Image" }
+    ],
+    "hyperwall": [
+      { "img": "/images/visit/hq-2.png", "alt": "NASA Image" }
+    ]
+  },
+  "kennedy-space-center": {
+    "intro": [
+      { "img": "/images/visit/hq-1.jpg", "alt": "NASA Image" }
+    ],
+    "hyperwall": [
+      { "img": "/images/visit/hq-2.png", "alt": "NASA Image" }
+    ]
+  },
+  "smithsonian-museum": {
+    "intro": [
+      { "img": "/images/visit/hq-1.jpg", "alt": "NASA Image" }
+    ],
+    "hyperwall": [
+      { "img": "/images/visit/hq-2.png", "alt": "NASA Image" }
+    ]
+  }
+}

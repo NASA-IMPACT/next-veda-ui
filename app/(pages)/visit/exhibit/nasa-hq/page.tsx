@@ -4,9 +4,13 @@ import { Grid, GridContainer, Table } from '@trussworks/react-uswds';
 import { Paragraph } from 'app/components/common/Paragraph';
 import Separator from 'app/components/common/Separator';
 import Carousel from 'app/components/common/Carousel';
-import { slidesIntro, slidesHyperwall } from './slides';
+import { createImageSlides } from 'app/utils/slides';
+import images from 'app/content/images.json';
 
 const NasaHqPage: React.FC = () => {
+  const slidesIntro = createImageSlides(images['nasa-hq'].intro);
+  const slidesHyperwall = createImageSlides(images['nasa-hq'].hyperwall);
+
   return (
     <>
       <GridContainer
