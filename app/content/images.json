@@ -1,11 +1,19 @@
 {
   "nasa-hq": {
     "intro": [
-      { "img": "/images/visit/hq-1.jpg", "alt": "NASA Image" }
+      { "img": "/images/visit/hq-1.jpg", "alt": "NASA Image" },
+      { "img": "/images/visit/hq-3.png", "alt": "NASA Image" }
     ],
     "hyperwall": [
       { "img": "/images/visit/hq-2.png", "alt": "NASA Image" },
-      { "img": "/images/visit/hq-1.jpg", "alt": "NASA Image" }
+      { "img": "/images/visit/hq-1.jpg", "alt": "NASA Image" },
+      { "img": "/images/visit/hq-4.png", "alt": "NASA Image" }
+    ],
+    "space-for-earth": [
+      { "img": "/images/visit/hq-3.png", "alt": "NASA Image" }
+    ],
+    "earth-pulse": [
+      { "img": "/images/visit/hq-4.png", "alt": "NASA Image" }
     ]
   },
   "kennedy-space-center": {

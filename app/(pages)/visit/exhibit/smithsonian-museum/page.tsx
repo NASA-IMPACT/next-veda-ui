@@ -10,8 +10,10 @@ import images from 'app/content/images.json';
 import { ArrowBackIcon } from 'app/components/common/Icons';
 
 const SmithsonianMuseumPage: React.FC = () => {
-  const slidesIntro = createImageSlides(images['nasa-hq'].intro);
-  const slidesHyperwall = createImageSlides(images['nasa-hq'].hyperwall);
+  const slidesIntro = createImageSlides(images['smithsonian-museum'].intro);
+  const slidesHyperwall = createImageSlides(
+    images['smithsonian-museum'].hyperwall,
+  );
 
   return (
     <>

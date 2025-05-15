@@ -12,6 +12,9 @@ import { ArrowBackIcon } from 'app/components/common/Icons';
 const NasaHqPage: React.FC = () => {
   const slidesIntro = createImageSlides(images['nasa-hq'].intro);
   const slidesHyperwall = createImageSlides(images['nasa-hq'].hyperwall);
+  // TODO: For use after adding tabs
+  // const slidesSpace = createImageSlides(images['nasa-hq']['space-for-earth']);
+  // const slidesEarthPulse = createImageSlides(images['nasa-hq']['earth-pulse']);
 
   return (
     <>
