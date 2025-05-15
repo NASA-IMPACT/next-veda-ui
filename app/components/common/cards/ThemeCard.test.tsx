@@ -19,15 +19,14 @@ describe('Theme Card', () => {
     expect(screen.getByText(testTheme.title)).toBeInTheDocument();
   });
 
-  it('should render the theme card with the correct image', () => {
+  it('should render the theme card with the correct background image', () => {
     render(<ThemeCard theme={testTheme} />);
-    const imageElement = screen.getByRole('img');
-    const encodedImgSrc = encodeURIComponent(testTheme.cardImage);
-    expect(imageElement.getAttribute('src')).toContain(encodedImgSrc);
-    expect(imageElement).toHaveAttribute(
-      'alt',
-      `${testTheme.title} theme cover image`,
-    );
+    const backgroundContainer = screen
+      .getByTestId('Card')
+      .querySelector('.position-relative.height-full');
+    expect(backgroundContainer).toHaveStyle({
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${testTheme.cardImage})`,
+    });
   });
 
   it('should render the theme card with the correct link', () => {

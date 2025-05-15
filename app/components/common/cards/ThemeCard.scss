@@ -1,0 +1,9 @@
+.theme-card {
+  --theme-card-height: 400px;
+  height: var(--theme-card-height);
+
+  .usa-card__container {
+    border: 0;
+    background-color: transparent;
+  }
+} 
