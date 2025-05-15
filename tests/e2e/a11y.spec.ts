@@ -85,7 +85,7 @@ test.describe('Visit page', () => {
   ];
 
   for (const { path, heading } of visitPages) {
-    test(`should not have any automatically detectable accessibility issues on ${path}`, async ({
+    test(`${path} should not have any automatically detectable accessibility issues`, async ({
       page,
     }, testInfo) => {
       await page.goto(path);

@@ -142,23 +142,25 @@ const Carousel: React.FC<PropType> = ({
         </div>
       </div>
 
-      <div className='carousel__controls display-flex flex-justify-center margin-top-2'>
-        <PrevButton
-          className='usa-button--unstyled margin-right-2'
-          onClick={onPrevButtonClick}
-          disabled={prevBtnDisabled}
-        />
+      {scrollSnapsLength > 1 && (
+        <div className='carousel__controls display-flex flex-justify-center margin-top-2'>
+          <PrevButton
+            className='usa-button--unstyled margin-right-2'
+            onClick={onPrevButtonClick}
+            disabled={prevBtnDisabled}
+          />
 
-        <div className='carousel__counter'>
-          {selectedIndex + 1} / {scrollSnapsLength}
+          <div className='carousel__counter'>
+            {selectedIndex + 1} / {scrollSnapsLength}
+          </div>
+
+          <NextButton
+            className='usa-button--unstyled margin-left-2'
+            onClick={onNextButtonClick}
+            disabled={nextBtnDisabled}
+          />
         </div>
-
-        <NextButton
-          className='usa-button--unstyled margin-left-2'
-          onClick={onNextButtonClick}
-          disabled={nextBtnDisabled}
-        />
-      </div>
+      )}
     </section>
   );
 };

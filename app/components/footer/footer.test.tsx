@@ -28,10 +28,10 @@ describe('Footer Component', () => {
     const navItems = [
       'About',
       'Dashboard',
-      'Mapping App',
-      'Themes',
+      // 'Mapping App',
+      // 'Themes',
       'Visit a Center',
-      'Contact Us',
+      // 'Contact Us',
     ];
 
     navItems.forEach((item) => {

@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { waitFor } from '@testing-library/react';
 
-import Carousel from './Carousel';
+import Carousel from '.';
 
 const scrollTo = vi.fn();
 
@@ -86,5 +86,13 @@ describe('Carousel', () => {
     slide?.click();
 
     expect(emblaApi.scrollTo).toHaveBeenCalledWith(1);
+  });
+
+  it('should hide the controls when there is only one slide', () => {
+    const { container } = render(
+      <Carousel slides={[<div key='1'>Slide 1</div>]} />,
+    );
+    const controls = container.querySelector('.carousel__controls');
+    expect(controls).toBeNull();
   });
 });

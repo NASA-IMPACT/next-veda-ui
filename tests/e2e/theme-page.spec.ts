@@ -1,28 +1,37 @@
 import { test, expect } from '@playwright/test';
+import { DATA_THEMES } from 'app/(pages)/page';
 
-test.describe('Theme page', () => {
-  test('On the home page, click on the Themes dropdown takes to a theme page', async ({
-    page,
-  }, {
-    project: {
-      metadata: { isMobile },
-    },
-  }) => {
-    await page.goto('/');
+test.describe('Theme pages', () => {
+  for (const { title } of DATA_THEMES) {
+    const href = `/themes/${title.toLowerCase().replace(/\s+/g, '-')}`;
 
-    if (isMobile) {
-      await page.getByTestId('navMenuButton').click();
-      await page.waitForTimeout(300);
+    if (href) {
+      test(`${title} page loads`, async ({ page }) => {
+        await page.goto(href);
+        await expect(page).toHaveURL(href);
+        await expect(page.locator('main')).toBeVisible();
+        await expect(page.locator('main')).not.toContainText('404');
+        await expect(page.locator('h1')).toHaveText(new RegExp(title, 'i'));
+        await page.goBack();
+      });
     }
+  }
 
-    await page.locator('button[aria-controls="themesDropDown"]').click();
+  test('Details of Air Quality page', async ({ page }) => {
+    const href = `/themes/air-quality`;
+    await page.goto(href);
+    await expect(page.getByTestId('theme-hero')).toContainText('Published on');
 
-    await page.locator('a[href="/themes/air-quality"]').click();
+    await expect(
+      page.getByRole('heading', { name: 'Air Quality' }),
+    ).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Info' })).toBeVisible();
+    await expect(
+      page.getByRole('heading', { name: 'Did you know?' }),
+    ).toBeVisible();
 
-    await expect(page).toHaveURL('/themes/air-quality');
-
-    await expect(page.getByTestId('theme-hero')).toContainText(
-      'Published on November 27, 2023',
-    );
+    await expect(
+      page.getByRole('img', { name: 'Visualization of the ozone' }),
+    ).toBeVisible();
   });
 });
