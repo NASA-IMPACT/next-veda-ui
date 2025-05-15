@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Grid, GridContainer, Table } from '@trussworks/react-uswds';
 
 import { Paragraph } from 'app/components/common/Paragraph';
@@ -6,6 +7,7 @@ import Separator from 'app/components/common/Separator';
 import Carousel from 'app/components/common/Carousel';
 import { createImageSlides } from 'app/utils/slides';
 import images from 'app/content/images.json';
+import { ArrowBackIcon } from 'app/components/common/Icons';
 
 const KennedySpaceCenterPage: React.FC = () => {
   const slidesIntro = createImageSlides(images['nasa-hq'].intro);
@@ -17,6 +19,23 @@ const KennedySpaceCenterPage: React.FC = () => {
         containerSize='desktop-lg'
         className='desktop:padding-top-10'
       >
+        <Grid
+          row
+          className='mobile:margin-top-2 desktop:margin-top-0 desktop:margin-bottom-4'
+        >
+          <Link
+            href='/visit'
+            className='usa-link cursor-pointer display-inline-flex flex-align-center
+'
+          >
+            <ArrowBackIcon
+              size={3}
+              className='margin-right-1'
+              aria-hidden='true'
+            />
+            Back
+          </Link>
+        </Grid>
         <Grid row className='margin-bottom-4 measure-4'>
           <h1 className='text-uppercase'>KENNEDY SPACE CENTER</h1>
           <Paragraph>
