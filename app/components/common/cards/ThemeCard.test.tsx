@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 
-import ThemeCard from './index';
+import ThemeCard from './ThemeCard';
 import { DATA_THEMES } from 'app/constants';
 
 describe('Theme Card', () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 
-import ExhibitCard from './exhibit-card';
+import ExhibitCard from './ExhibitCard';
 import { DATA_EXHIBITS as exhibits } from 'app/constants';
 
 describe('Exhibit Card', () => {

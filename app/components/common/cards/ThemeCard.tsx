@@ -1,7 +1,8 @@
 'use client';
+
 import React from 'react';
 import { Icon } from '@trussworks/react-uswds';
-import SmallCard from '../index';
+import SmallCard from './SmallCard';
 import type { Theme } from 'app/types';
 
 export const ThemeCard: React.FC<{ theme: Theme }> = ({ theme }) => {

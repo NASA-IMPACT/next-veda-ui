@@ -1,0 +1,55 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SmallCard > matches the snapshot 1`] = `
+<li
+  class="usa-card tablet:grid-col-6 desktop:grid-col-4 padding-x-2 "
+  data-testid="Card"
+>
+  <div
+    class="usa-card__container"
+  >
+    <div
+      class="usa-card__header"
+      data-testid="CardHeader"
+    />
+    <div
+      class="usa-card__media usa-card__media--exdent position-relative"
+      data-testid="CardMedia"
+    >
+      <div
+        class="usa-card__img"
+      >
+        <div
+          class="height-card-lg"
+        >
+          <img
+            alt="Test Image"
+            class="width-full"
+            data-nimg="1"
+            decoding="async"
+            height="400"
+            loading="lazy"
+            src="/_next/image?url=%2Ftest-image.jpg&w=828&q=75"
+            srcset="/_next/image?url=%2Ftest-image.jpg&w=640&q=75 1x, /_next/image?url=%2Ftest-image.jpg&w=828&q=75 2x"
+            style="color: transparent;"
+            width="400"
+          />
+          <div
+            style="position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; background-color: rgba(0, 0, 0, 0.4);"
+          />
+        </div>
+        <h2
+          class="position-absolute bottom-0 width-full padding-2 bg-white-90 margin-0 text-white"
+        >
+          Test Heading
+        </h2>
+      </div>
+    </div>
+    <a
+      aria-label="Test Link"
+      class="position-absolute top-0 left-0 width-full height-full"
+      href="/test-link"
+    />
+  </div>
+</li>
+`;
