@@ -1,13 +1,7 @@
 'use client';
 
 import React from 'react';
-import {
-  Card,
-  CardMedia,
-  CardHeader,
-  CardBody,
-  Icon,
-} from '@trussworks/react-uswds';
+import { Card, CardMedia, CardBody, Icon } from '@trussworks/react-uswds';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -55,7 +49,6 @@ export const SmallCard: React.FC<SmallCardProps> = ({
       gridLayout={gridLayout}
       className={`padding-x-2 ${children ? 'padding-bottom-4' : ''}`}
     >
-      <CardHeader />
       <CardMedia exdent className='position-relative'>
         {badge && (
           <div className='position-absolute top-0 left-0 padding-2 z-top'>
