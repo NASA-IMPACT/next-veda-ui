@@ -9,10 +9,16 @@
   }
 }
 
+.slide {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .slide--transitional {
-    opacity: 0.2;
-    transform: scale(0.90);
-    transition: all 0.3s ease-in-out;
+  opacity: 0.2;
+  transform: scale(0.90);
+  transition: all 0.3s ease-in-out;
 }
 
 .slide--is-visible {
