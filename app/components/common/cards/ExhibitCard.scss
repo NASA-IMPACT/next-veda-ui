@@ -1,0 +1,8 @@
+/**
+ * ExhibitCard styles
+ * Creates an isolated stacking context for proper badge and overlay positioning
+ */
+
+.exhibit-card {
+  isolation: isolate;
+} 

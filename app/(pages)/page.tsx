@@ -1,18 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { Grid, GridContainer, Icon, Link } from '@trussworks/react-uswds';
-
-export const DATA_THEMES = [
-  { title: 'Agriculture' },
-  { title: 'Air Quality' },
-  { title: 'Biodiversity' },
-  { title: 'Disasters' },
-  { title: 'Energy' },
-  { title: 'Greenhouse Gases' },
-  { title: 'Sea Level Rise' },
-  { title: 'Wildfires' },
-  { title: 'Water Resources' },
-];
+import { DATA_THEMES } from 'app/constants';
 
 const FADE_DURATION = 3000;
 
@@ -38,8 +27,14 @@ export default function HomePage() {
   return (
     <div className='hero minh-viewport display-flex'>
       <GridContainer className='flex-fill flex-align-self-center text-uppercase'>
-        <Grid row className='font-ui-lg mobile:font-ui-sm tablet:font-ui-xl desktop:font-ui-2xl'>
-          <Grid tablet={{ col: 12 }} style={{ 'overflow': 'hidden', 'whiteSpace': 'nowrap'}}>
+        <Grid
+          row
+          className='font-ui-lg mobile:font-ui-sm tablet:font-ui-xl desktop:font-ui-2xl'
+        >
+          <Grid
+            tablet={{ col: 12 }}
+            style={{ overflow: 'hidden', whiteSpace: 'nowrap' }}
+          >
             <h1>
               Data for
               <br />

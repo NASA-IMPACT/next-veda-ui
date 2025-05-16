@@ -1,14 +1,10 @@
 'use client';
 import React from 'react';
-import {
-  Card,
-  CardMedia,
-  CardHeader,
-  CardBody,
-  Icon,
-} from '@trussworks/react-uswds';
+import { Card, CardMedia, CardHeader, CardBody } from '@trussworks/react-uswds';
 import Image from 'next/image';
 import Link from 'next/link';
+import CardBadge from './CardBadge';
+import './ExhibitCard.scss';
 
 export interface Exhibit {
   id: string;
@@ -54,19 +50,11 @@ export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
     <Card
       key={exhibit.id}
       gridLayout={{ desktop: { col: 4 }, tablet: { col: 6 } }}
-      className='padding-bottom-4 padding-x-2'
+      className='padding-bottom-4 padding-x-2 exhibit-card'
     >
       <CardHeader />
       <CardMedia exdent className='position-relative'>
-        <div className='position-absolute top-0 left-0 padding-2 z-top'>
-          <div className='bg-white padding-x-1 display-flex flex-align-center radius-md text-base-dark'>
-            <Icon.AccountBalance
-              className='margin-right-1'
-              aria-hidden='true'
-            />
-            <span>Exhibit</span>
-          </div>
-        </div>
+        <CardBadge label='Exhibit' icon='AccountBalance' />
         <div className='height-card-lg'>
           <Image
             width={400}
