@@ -9,4 +9,12 @@
     background-color: transparent;
     position: relative;
   }
+
+  .custom-card-media.usa-card__media {
+    height: 100%;
+    
+    > .usa-card__img {
+      height: 100%;
+    }
+  }
 } 
