@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { CardMedia } from '@trussworks/react-uswds';
+import { CardMedia, Icon } from '@trussworks/react-uswds';
 import Image from 'next/image';
 import type { Theme } from 'app/types';
 import CardBadge from './CardBadge';
@@ -26,20 +26,11 @@ const CustomCardMedia: React.FC<CustomCardMediaProps> = ({
   );
 };
 
-const overlayStyle: React.CSSProperties = {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  backgroundColor: 'rgba(0, 0, 0, 0.4)',
-};
-
 export const ThemeCard: React.FC<{ theme: Theme }> = ({ theme }) => {
   return (
     <SmallCard key={theme.id} className='theme-card'>
       <CustomCardMedia className='position-relative'>
-        <CardBadge label='Theme' icon='Language' />
+        <CardBadge label='Earth Theme' icon='Language' />
         <div className='height-full'>
           <Image
             width={400}
@@ -48,10 +39,15 @@ export const ThemeCard: React.FC<{ theme: Theme }> = ({ theme }) => {
             alt={`${theme.title} theme image`}
             className='width-full height-full object-cover'
           />
-          <div style={overlayStyle} />
+          <div className='card-overlay' />
         </div>
-        <h2 className='position-absolute bottom-0 width-full padding-2 bg-white-90 margin-0 text-white'>
-          {theme.title}
+        <h2 className='card-title'>
+          <span>{theme.title}</span>
+          <Icon.ArrowForward
+            className='arrow-icon'
+            size={3}
+            aria-label={`View ${theme.title} theme details`}
+          />
         </h2>
       </CustomCardMedia>
       <Link
