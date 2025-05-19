@@ -1,8 +1,10 @@
 .theme-card {
-  --theme-card-height: 400px;
-  height: var(--theme-card-height);
   position: relative;
   isolation: isolate;
+  
+  // Height matches the combined height of card media and card body components 
+  // from USWDS Card used in exhibit cards, which is 400px.
+  height: 400px; 
 
   .usa-card__container {
     border: 0;
