@@ -15,7 +15,7 @@ export const SmallCard: React.FC<SmallCardProps> = ({
   return (
     <Card
       gridLayout={{ desktop: { col: 4 }, tablet: { col: 6 } }}
-      className={`${className} maxw-small-card`}
+      className={className}
       {...props}
     >
       {children}
