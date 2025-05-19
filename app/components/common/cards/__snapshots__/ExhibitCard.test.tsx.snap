@@ -2,7 +2,7 @@
 
 exports[`Exhibit Card > matches the snapshot 1`] = `
 <li
-  class="usa-card tablet:grid-col-6 desktop:grid-col-4 exhibit-card maxw-small-card"
+  class="usa-card tablet:grid-col-6 desktop:grid-col-4 small-card exhibit-card"
   data-testid="Card"
 >
   <div
@@ -60,7 +60,7 @@ exports[`Exhibit Card > matches the snapshot 1`] = `
             width="400"
           />
           <div
-            style="position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; background-color: rgba(0, 0, 0, 0.4);"
+            class="card-overlay"
           />
         </div>
         <h2
