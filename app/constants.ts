@@ -12,47 +12,47 @@ export const DATA_THEMES: Theme[] = [
   {
     id: 'agriculture',
     title: 'Agriculture',
-    cardImage: '/images/themes/agriculture/agriculture-banner.png',
+    cardImage: '/images/themes/agriculture/card.png',
   },
   {
     id: 'air-quality',
     title: 'Air Quality',
-    cardImage: '/images/themes/air-quality/air-quality-banner.png',
+    cardImage: '/images/themes/air-quality/card.png',
   },
   {
     id: 'biodiversity',
     title: 'Biodiversity',
-    cardImage: '/images/themes/biodiversity/biodiversity-banner.png',
+    cardImage: '/images/themes/biodiversity/card.png',
   },
   {
     id: 'disasters',
     title: 'Disasters',
-    cardImage: '/images/themes/disasters/disasters-banner.png',
+    cardImage: '/images/themes/disasters/card.png',
   },
   {
     id: 'energy',
     title: 'Energy',
-    cardImage: '/images/themes/energy/energy-banner.png',
+    cardImage: '/images/themes/energy/card.png',
   },
   {
     id: 'greenhouse-gases',
     title: 'Greenhouse Gases',
-    cardImage: '/images/themes/greenhouse-gases/greenhouse-gases-banner.png',
+    cardImage: '/images/themes/greenhouse-gases/card.png',
   },
   {
     id: 'sea-level-rise',
     title: 'Sea Level Rise',
-    cardImage: '/images/themes/sea-level-rise/sea-level-rise-banner.png',
+    cardImage: '/images/themes/sea-level-rise/card.png',
   },
   {
     id: 'wildfires',
     title: 'Wildfires',
-    cardImage: '/images/themes/wildfires/wildfires-banner.png',
+    cardImage: '/images/themes/wildfires/card.png',
   },
   {
     id: 'water-resources',
     title: 'Water Resources',
-    cardImage: '/images/themes/water-resources/water-resources-banner.png',
+    cardImage: '/images/themes/water-resources/card.png',
   },
 ];
 
