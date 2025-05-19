@@ -38,15 +38,6 @@ const FormattedSection: React.FC<FormattedSectionProps> = ({
 };
 
 export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
-  const overlayStyle: React.CSSProperties = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
-  };
-
   return (
     <SmallCard key={exhibit.id} className='exhibit-card'>
       <CardHeader />
@@ -60,7 +51,7 @@ export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
             alt={exhibit.imgAlt}
             className='width-full'
           />
-          <div style={overlayStyle} />
+          <div className='card-overlay' />
         </div>
         <h2 className='position-absolute bottom-0 width-full padding-2 bg-white-90 margin-0 text-white'>
           {exhibit.heading}
