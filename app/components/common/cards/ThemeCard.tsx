@@ -1,19 +1,15 @@
 'use client';
 
 import React from 'react';
-import { Card } from '@trussworks/react-uswds';
 import Link from 'next/link';
 import type { Theme } from 'app/types';
 import CardBadge from './CardBadge';
+import SmallCard from './SmallCard';
 import './ThemeCard.scss';
 
 export const ThemeCard: React.FC<{ theme: Theme }> = ({ theme }) => {
   return (
-    <Card
-      key={theme.id}
-      gridLayout={{ desktop: { col: 4 }, tablet: { col: 6 } }}
-      className='theme-card'
-    >
+    <SmallCard key={theme.id} className='theme-card'>
       <div
         className='position-relative height-full'
         style={{
@@ -33,7 +29,7 @@ export const ThemeCard: React.FC<{ theme: Theme }> = ({ theme }) => {
           aria-label={`View ${theme.title} theme details.`}
         />
       </div>
-    </Card>
+    </SmallCard>
   );
 };
 

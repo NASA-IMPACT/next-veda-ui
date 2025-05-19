@@ -1,9 +1,10 @@
 'use client';
 import React from 'react';
-import { Card, CardMedia, CardHeader, CardBody } from '@trussworks/react-uswds';
+import { CardMedia, CardHeader, CardBody } from '@trussworks/react-uswds';
 import Image from 'next/image';
 import Link from 'next/link';
 import CardBadge from './CardBadge';
+import SmallCard from './SmallCard';
 import './ExhibitCard.scss';
 
 export interface Exhibit {
@@ -47,11 +48,7 @@ export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
   };
 
   return (
-    <Card
-      key={exhibit.id}
-      gridLayout={{ desktop: { col: 4 }, tablet: { col: 6 } }}
-      className='padding-bottom-4 padding-x-2 exhibit-card'
-    >
+    <SmallCard key={exhibit.id} className='exhibit-card'>
       <CardHeader />
       <CardMedia exdent className='position-relative'>
         <CardBadge label='Exhibit' icon='AccountBalance' />
@@ -78,7 +75,7 @@ export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
         href={`/visit/exhibit/${exhibit.id}`}
         aria-label={`View details for ${exhibit.heading} exhibit.`}
       />
-    </Card>
+    </SmallCard>
   );
 };
 

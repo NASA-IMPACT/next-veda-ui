@@ -2,7 +2,7 @@
 
 exports[`Theme Card > matches the snapshot 1`] = `
 <li
-  class="usa-card tablet:grid-col-6 desktop:grid-col-4 theme-card"
+  class="usa-card tablet:grid-col-6 desktop:grid-col-4 theme-card maxw-small-card"
   data-testid="Card"
 >
   <div
