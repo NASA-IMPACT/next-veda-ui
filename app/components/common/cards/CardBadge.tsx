@@ -28,8 +28,8 @@ export const CardBadge: React.FC<CardBadgeProps> = ({ label, icon }) => {
 
   return (
     <div className='position-absolute top-0 left-0 padding-2 card-badge'>
-      <div className='bg-white padding-x-1 display-flex flex-align-center radius-md text-base-dark'>
-        <IconComponent className='margin-right-1' aria-hidden={true} />
+      <div className='bg-white padding-x-1 display-flex flex-align-center radius-md text-base-dark font-body-3xs'>
+        <IconComponent className='margin-right-05' aria-hidden={true} />
         <span>{label}</span>
       </div>
     </div>
