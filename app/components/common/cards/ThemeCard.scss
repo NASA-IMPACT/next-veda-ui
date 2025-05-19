@@ -8,10 +8,13 @@
     border: 0;
     background-color: transparent;
     position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden;
   }
 
   .custom-card-media.usa-card__media {
     height: 100%;
+    border-radius: inherit;
     
     > .usa-card__img {
       height: 100%;
