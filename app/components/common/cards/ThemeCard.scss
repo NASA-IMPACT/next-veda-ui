@@ -86,11 +86,7 @@
     }
   }
   
-  &:hover {
-    .usa-card__container {
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    }
-    
+  &:hover {    
     .card-overlay {
       opacity: 0.3;
     }
