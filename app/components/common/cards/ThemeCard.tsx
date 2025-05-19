@@ -41,7 +41,7 @@ export const ThemeCard: React.FC<{ theme: Theme }> = ({ theme }) => {
           />
           <div className='card-overlay' />
         </div>
-        <h2 className='card-title'>
+        <h2 className='card-title text-uppercase'>
           <span>{theme.title}</span>
           <Icon.ArrowForward
             className='arrow-icon'

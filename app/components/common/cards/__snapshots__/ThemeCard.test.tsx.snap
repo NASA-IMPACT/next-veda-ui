@@ -60,7 +60,7 @@ exports[`Theme Card > matches the snapshot 1`] = `
           />
         </div>
         <h2
-          class="card-title"
+          class="card-title text-uppercase"
         >
           <span>
             Agriculture
