@@ -2,9 +2,10 @@ import React from 'react';
 import type { Metadata } from 'next';
 
 import 'app/styles/index.scss';
-import Header from 'app/components/header';
-import Footer from 'app/components/footer';
 import { baseUrl } from 'app/sitemap';
+import Header from './components/header';
+import Footer from './components/footer';
+import Banner from './components/common/Banner';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl ?? ''),
@@ -43,6 +44,7 @@ export default function RootLayout({
     <html lang='en'>
       <body>
         <div className='minh-viewport display-flex flex-column'>
+          <Banner />
           <Header />
           <main className='flex-fill outline-0'>{children}</main>
           <Footer />
