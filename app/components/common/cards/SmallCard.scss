@@ -1,0 +1,8 @@
+/**
+ * SmallCard styles
+ * Creates an isolated stacking context for proper badge and overlay positioning
+ */
+
+.small-card {
+  isolation: isolate;
+} 

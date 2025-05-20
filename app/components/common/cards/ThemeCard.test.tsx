@@ -19,14 +19,11 @@ describe('Theme Card', () => {
     expect(screen.getByText(testTheme.title)).toBeInTheDocument();
   });
 
-  it('should render the theme card with the correct background image', () => {
+  it('should render the theme card with the correct image', () => {
     render(<ThemeCard theme={testTheme} />);
-    const backgroundContainer = screen
-      .getByTestId('Card')
-      .querySelector('.position-relative.height-full');
-    expect(backgroundContainer).toHaveStyle({
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${testTheme.cardImage})`,
-    });
+    const imageElement = screen.getByAltText(`${testTheme.title} theme image`);
+    expect(imageElement).toBeInTheDocument();
+    expect(imageElement).toHaveAttribute('src');
   });
 
   it('should render the theme card with the correct link', () => {

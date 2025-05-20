@@ -1,9 +1,10 @@
 'use client';
 import React from 'react';
-import { Card, CardMedia, CardHeader, CardBody } from '@trussworks/react-uswds';
+import { CardMedia, CardHeader, CardBody } from '@trussworks/react-uswds';
 import Image from 'next/image';
 import Link from 'next/link';
 import CardBadge from './CardBadge';
+import SmallCard from './SmallCard';
 import './ExhibitCard.scss';
 
 export interface Exhibit {
@@ -37,21 +38,8 @@ const FormattedSection: React.FC<FormattedSectionProps> = ({
 };
 
 export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
-  const overlayStyle: React.CSSProperties = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
-  };
-
   return (
-    <Card
-      key={exhibit.id}
-      gridLayout={{ desktop: { col: 4 }, tablet: { col: 6 } }}
-      className='padding-bottom-4 padding-x-2 exhibit-card'
-    >
+    <SmallCard key={exhibit.id} className='exhibit-card'>
       <CardHeader />
       <CardMedia exdent className='position-relative'>
         <CardBadge label='Exhibit' icon='AccountBalance' />
@@ -63,7 +51,7 @@ export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
             alt={exhibit.imgAlt}
             className='width-full'
           />
-          <div style={overlayStyle} />
+          <div className='card-overlay' />
         </div>
         <h2 className='position-absolute bottom-0 width-full padding-2 bg-white-90 margin-0 text-white'>
           {exhibit.heading}
@@ -78,7 +66,7 @@ export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
         href={`/visit/exhibit/${exhibit.id}`}
         aria-label={`View details for ${exhibit.heading} exhibit.`}
       />
-    </Card>
+    </SmallCard>
   );
 };
 
