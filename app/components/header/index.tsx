@@ -139,11 +139,7 @@ export default function Header() {
 
   return (
     <div ref={headerRef} className={backgroundStyle}>
-      <button
-        type='button'
-        onClick={skipNav}
-        className='usa-skipnav z-200 margin-2'
-      >
+      <button type='button' onClick={skipNav} className='usa-skipnav margin-1'>
         Skip to main content
       </button>
       <USWDSHeader basic={true} showMobileOverlay={isMobileExpanded}>
