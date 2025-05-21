@@ -12,11 +12,6 @@ import {
   Icon,
 } from '@trussworks/react-uswds';
 
-// assets
-import flagImg from '@uswds/uswds/img/us_flag_small.png';
-import dotGovIcon from '@uswds/uswds/img/icon-dot-gov.svg';
-import httpsIcon from '@uswds/uswds/img/icon-https.svg';
-
 export default function BannerComponent() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -24,7 +19,9 @@ export default function BannerComponent() {
     <Banner aria-label='Official website of the state department of something specific'>
       <BannerHeader
         isOpen={isOpen}
-        flagImg={<BannerFlag src={flagImg} aria-hidden alt='' />}
+        flagImg={
+          <BannerFlag src='images/uswds/us_flag_small.png' aria-hidden alt='' />
+        }
         headerText='This is an official website of the state department of something specific'
         headerActionText="Here's how you know"
       >
@@ -41,7 +38,7 @@ export default function BannerComponent() {
       <BannerContent id='custom-banner' isOpen={isOpen}>
         <div className='grid-row grid-gap-lg'>
           <BannerGuidance className='tablet:grid-col-6'>
-            <BannerIcon src={dotGovIcon} alt='' />
+            <BannerIcon src='images/uswds/icon-dot-gov.svg' alt='' />
             <MediaBlockBody>
               <p>
                 <strong>Official websites use .gov</strong>
@@ -51,7 +48,7 @@ export default function BannerComponent() {
             </MediaBlockBody>
           </BannerGuidance>
           <BannerGuidance className='tablet:grid-col-6'>
-            <BannerIcon src={httpsIcon} alt='' />
+            <BannerIcon src='images/uswds/icon-https.svg' alt='' />
             <MediaBlockBody>
               <p>
                 <strong>Secure .gov websites use HTTPS</strong>
