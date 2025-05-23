@@ -2240,6 +2240,11 @@
   resolved "http://verdaccio.ds.io:4873/@tootallnate%2fonce/-/once-2.0.0.tgz#f544a148d3ab35801c1f633a7441fd87c2e484bf"
   integrity sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==
 
+"@trussworks/react-uswds@^10.0.1":
+  version "10.0.1"
+  resolved "https://registry.npmjs.org/@trussworks/react-uswds/-/react-uswds-10.0.1.tgz#1768c70fbfa86a51b1e57ee1bab081e0ad21fbc7"
+  integrity sha512-i7Je59Xl0UQ/npytlxSAdUCK9dlI+LB11SNUjrcWQ5DktO8JPM1UyTp+TqQ3+COWJk6dUnDTypZpmXNrFl7K7Q==
+
 "@trussworks/react-uswds@^9.0.0":
   version "9.1.0"
   resolved "http://verdaccio.ds.io:4873/@trussworks%2freact-uswds/-/react-uswds-9.1.0.tgz#6a60156fd7b7ee90484ccbe2d898784d34f7cb36"
@@ -5215,10 +5220,25 @@ focus-trap-react@^10.2.3:
     focus-trap "^7.6.1"
     tabbable "^6.2.0"
 
+focus-trap-react@^11.0.3:
+  version "11.0.3"
+  resolved "https://registry.npmjs.org/focus-trap-react/-/focus-trap-react-11.0.3.tgz#fe46bbe2a024379b3783cad73187197bafbadb88"
+  integrity sha512-tS1+enWS/gwCHk2WIF3KpM2oz7Y3HsnRImzHZNRgCBLWXzNG4XQVlJgbqdLr4lBKRXGdDBjQYitSh1bf2xe4Ag==
+  dependencies:
+    focus-trap "^7.6.4"
+    tabbable "^6.2.0"
+
 focus-trap@^7.6.1:
   version "7.6.2"
   resolved "http://verdaccio.ds.io:4873/focus-trap/-/focus-trap-7.6.2.tgz#a501988821ca23d0150a7229eb7a20a3695bdf0e"
   integrity sha512-9FhUxK1hVju2+AiQIDJ5Dd//9R2n2RAfJ0qfhF4IHGHgcoEUTMpbTeG/zbEuwaiYXfuAH6XE0/aCyxDdRM+W5w==
+  dependencies:
+    tabbable "^6.2.0"
+
+focus-trap@^7.6.4:
+  version "7.6.4"
+  resolved "https://registry.npmjs.org/focus-trap/-/focus-trap-7.6.4.tgz#455ec5c51fee5ae99604ca15142409ffbbf84db9"
+  integrity sha512-xx560wGBk7seZ6y933idtjJQc1l+ck+pI3sKvhKozdBV1dRZoKhkW5xoCaFv9tQiX5RH1xfSxjuNu6g+lmN/gw==
   dependencies:
     tabbable "^6.2.0"
 
