@@ -6,6 +6,7 @@ import { NavItem } from '@lib';
 import NasaLogoColor from 'app/components/nasa-logo-color.js';
 import {
   DATASET_CATALOG_PATH,
+  EVENTS_PATH,
   EXPLORATION_PATH,
   STORY_HUB_PATH,
 } from 'app/config';
@@ -28,6 +29,12 @@ export const navItems: NavItem[] = [
     id: 'stories',
     title: 'Stories',
     to: `/${STORY_HUB_PATH}`,
+    type: 'internalLink',
+  },
+  {
+    id: 'events',
+    title: 'Events',
+    to: `/${EVENTS_PATH}`,
     type: 'internalLink',
   },
 ];

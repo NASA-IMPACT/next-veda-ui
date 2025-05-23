@@ -12,7 +12,7 @@ export default function Footer() {
       version: 'BETA VERSION',
       title: 'NASA Official',
       name: 'Manil Maskey',
-      to: 'test@example.com',
+      to: 'manil.maskey@nasa.gov',
       type: 'email',
     },
     returnToTop: true,
