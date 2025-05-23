@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import './styles/index.scss';
 import '@teamimpact/veda-ui/lib/main.css';
 
+import BannerComponent from './components/banner';
 // @NOTE: Dynamically load to ensure only CSR since these depends on VedaUI ContextProvider for routing...
 const Header = dynamic(() => import('./components/header'), {
   ssr: false,
@@ -53,6 +54,7 @@ export default function RootLayout({
     <html lang='en'>
       <body>
         <div className='minh-viewport display-flex flex-column'>
+          <BannerComponent />
           <Header />
           <main id='pagebody' className='flex-fill' tabIndex={-1}>
             {children}
