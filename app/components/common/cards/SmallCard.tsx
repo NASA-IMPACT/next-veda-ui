@@ -14,11 +14,7 @@ export const SmallCard: React.FC<SmallCardProps> = ({
   ...props
 }) => {
   return (
-    <Card
-      gridLayout={{ desktop: { col: 4 }, tablet: { col: 6 } }}
-      className={`small-card ${className}`}
-      {...props}
-    >
+    <Card className={`small-card ${className}`} {...props}>
       {children}
     </Card>
   );
