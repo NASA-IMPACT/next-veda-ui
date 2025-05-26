@@ -15,48 +15,48 @@ export default function JonahChat() {
     }
   ]);
   const [inputValue, setInputValue] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const responses = {
-    'fire': 'The fire moved so fast. One minute we were having a normal Tuesday, the next the sky was orange and roads were closing. The wind was unlike anything I had experienced - over 60 mph gusts that just would not stop.',
-    'search': 'Walking through Lahaina afterwards was surreal. Everything was ash and twisted metal. I kept calling Mia\'s name, checking every shelter, every group of people. The not knowing was the hardest part.',
-    'daughter': 'Mia is my everything. She is 16, smart, independent - which made it even scarier when I could not reach her. She was at her friend Leila\'s house when it all started.',
-    'prepare': 'Have multiple ways to communicate - not just cell phones. Make sure your family knows meeting points. Keep emergency supplies ready. And trust me, when they say evacuate, do not wait.',
-    'data': 'The satellite images show how fast it spread - you can see the thermal signatures from space. The drought data explains why it was so devastating. When the land is that dry, fire becomes unstoppable.',
-    'reunion': 'Finding Mia after two days... I cannot describe that relief. She was safe with Leila\'s family, but her phone was dead and there was no way to reach me. We just held each other and cried.',
-    'mia': 'Mia is my everything. She is 16, smart, independent - which made it even scarier when I could not reach her. She was at her friend Leila\'s house when it all started.',
-    'wind': 'The wind was incredible - over 60 mph gusts that just would not stop. It was like nature was determined to spread that fire as far and fast as possible.',
-    'evacuation': 'When they say evacuate, do not hesitate. Do not wait to grab more things. The fire moved faster than anyone expected. Lives are more important than possessions.',
-    'communication': 'Cell towers went down so fast. That is why you need multiple ways to reach family - landlines, social media, even old-fashioned meeting spots. We learned that the hard way.',
-    'default': 'That is a good question. The whole experience taught me that disasters do not wait for convenient times. Every family should have an emergency plan and practice it. What specific aspect would you like to know more about?'
-  };
-
-  const getResponse = (input: string): string => {
-    const lowerInput = input.toLowerCase();
-    for (const [key, response] of Object.entries(responses)) {
-      if (lowerInput.includes(key)) {
-        return response;
-      }
-    }
-    return responses.default;
-  };
-
-  const handleSend = () => {
-    if (!inputValue.trim()) return;
+  const handleSend = async () => {
+    if (!inputValue.trim() || isLoading) return;
 
     const userMessage: Message = { text: inputValue, isUser: true };
     setMessages(prev => [...prev, userMessage]);
+    const currentInput = inputValue;
     setInputValue('');
+    setIsLoading(true);
 
-    // Simulate typing delay
-    setTimeout(() => {
-      const response = getResponse(inputValue);
-      const jonahMessage: Message = { text: response, isUser: false };
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: currentInput }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to get response');
+      }
+
+      const data = await response.json();
+      const jonahMessage: Message = { text: data.response, isUser: false };
       setMessages(prev => [...prev, jonahMessage]);
-    }, 500);
+    } catch (error) {
+      console.error('Error getting AI response:', error);
+      // Fallback to a default response if API fails
+      const fallbackMessage: Message = {
+        text: "I'm sorry, I'm having trouble connecting right now. The experience of searching for Mia during the fire taught me that communication can fail when we need it most. That's why it's so important to have backup plans.",
+        isUser: false
+      };
+      setMessages(prev => [...prev, fallbackMessage]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && !isLoading) {
       handleSend();
     }
   };
@@ -146,6 +146,21 @@ export default function JonahChat() {
               {message.text}
             </div>
           ))}
+          {isLoading && (
+            <div style={{
+              background: '#ffebee',
+              padding: '12px 16px',
+              borderRadius: '18px 18px 18px 4px',
+              marginBottom: '12px',
+              maxWidth: '80%',
+              fontSize: '15px',
+              lineHeight: '1.4',
+              color: '#c62828',
+              fontStyle: 'italic'
+            }}>
+              Jonah is typing...
+            </div>
+          )}
         </div>
         
         <div style={{ display: 'flex', gap: '12px' }}>
@@ -155,6 +170,7 @@ export default function JonahChat() {
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Ask Jonah about the search, the fire, or family emergency preparedness..."
+            disabled={isLoading}
             style={{
               flex: 1,
               padding: '12px 16px',
@@ -162,29 +178,32 @@ export default function JonahChat() {
               borderRadius: '24px',
               fontSize: '14px',
               outline: 'none',
-              background: 'white'
+              background: isLoading ? '#f8f9fa' : 'white',
+              opacity: isLoading ? 0.7 : 1
             }}
           />
           <button 
             onClick={handleSend}
+            disabled={isLoading || !inputValue.trim()}
             style={{
               padding: '12px 24px',
-              backgroundColor: '#e74c3c',
+              backgroundColor: isLoading ? '#95a5a6' : '#e74c3c',
               color: 'white',
               border: 'none',
               borderRadius: '24px',
               fontSize: '14px',
               fontWeight: '500',
-              cursor: 'pointer'
+              cursor: isLoading ? 'not-allowed' : 'pointer',
+              opacity: isLoading || !inputValue.trim() ? 0.7 : 1
             }}
           >
-            Send
+            {isLoading ? 'Sending...' : 'Send'}
           </button>
         </div>
       </div>
       
       <div style={{ fontSize: '12px', color: '#868e96', marginTop: '12px', textAlign: 'center' }}>
-        ⚡ Interactive React component with hardcoded responses
+        ⚡ Powered by OpenAI - Real AI responses as Jonah
       </div>
     </div>
   );
