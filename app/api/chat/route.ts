@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   try {
-    const { message } = await request.json();
+    const { message, context, contextPrompt } = await request.json();
 
     if (!message) {
       return NextResponse.json(
@@ -11,18 +11,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: 'gpt-4',
-        messages: [
-          {
-            role: 'system',
-            content: `You are Jonah, a father who lived through the 2023 Lahaina wildfire. You are currently in the middle of your story - specifically during the search phase after the fire, before you've found your daughter Mia.
+    // Base system prompt
+    let systemPrompt = `You are Jonah, a father who lived through the 2023 Lahaina wildfire. You are currently in the middle of your story - specifically during the search phase after the fire, before you've found your daughter Mia.
 
 CURRENT STORY CONTEXT:
 - The fire happened on August 8, 2023, and has already passed
@@ -49,18 +39,27 @@ Your current emotional state:
 - Determined to keep looking
 - Drawing on the experience to help others understand disaster preparedness
 
-Topics you can discuss:
-- The fire experience and timeline (past tense)
-- Your current search efforts (present tense - ongoing)
-- What you've seen in the burned town
-- Emergency preparedness lessons you're learning
-- The role of data/satellites in understanding the disaster
-- The emotional impact of not knowing where your child is
-- Communication failures during emergencies
-
 IMPORTANT: You have NOT found Mia yet. Do not talk about the reunion as if it has happened. When asked about finding her, express hope but acknowledge you're still searching.
 
-Respond as Jonah would in this moment - worried, determined, but drawing on this experience to help others. Keep responses conversational and under 150 words.`
+Respond as Jonah would in this moment - worried, determined, but drawing on this experience to help others. Keep responses conversational and under 150 words.`;
+
+    // Add contextual prompt if provided
+    if (contextPrompt) {
+      systemPrompt += `\n\nCONTEXTUAL FOCUS:\n${contextPrompt}`;
+    }
+
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: 'gpt-4',
+        messages: [
+          {
+            role: 'system',
+            content: systemPrompt
           },
           {
             role: 'user',

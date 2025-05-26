@@ -4,6 +4,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { highlight } from 'sugar-high';
 import { LegacyGlobalStyles } from '@lib';
 import JonahChat from './character-chat/JonahChat';
+import ChatTrigger from './character-chat/ChatTrigger';
 
 import {
   Block,
@@ -103,6 +104,7 @@ const components = {
   Chapter: Chapter,
   Chart: Chart,
   JonahChat: JonahChat,
+  ChatTrigger: ChatTrigger,
 };
 
 export function CustomMDX(props: any) {
