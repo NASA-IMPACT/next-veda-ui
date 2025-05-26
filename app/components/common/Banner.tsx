@@ -16,13 +16,13 @@ export default function BannerComponent() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Banner aria-label='Official website of the state department of something specific'>
+    <Banner aria-label='An official website of the United States government'>
       <BannerHeader
         isOpen={isOpen}
         flagImg={
           <BannerFlag src='images/uswds/us_flag_small.png' aria-hidden alt='' />
         }
-        headerText='This is an official website of the state department of something specific'
+        headerText='An official website of the United States government'
         headerActionText="Here's how you know"
       >
         <BannerButton
