@@ -4,7 +4,6 @@ import { Grid, GridContainer } from '@trussworks/react-uswds';
 import Separator from 'app/components/common/Separator';
 import ThemeCard from 'app/components/common/cards/ThemeCard';
 import { DATA_THEMES } from 'app/constants';
-import CardCarousel from 'app/components/common/CardCarousel';
 import Carousel from 'app/components/common/Carousel';
 
 const DashboardPage: React.FC = () => {
