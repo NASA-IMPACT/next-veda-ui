@@ -4,6 +4,7 @@ import { CardGroup, Grid, GridContainer } from '@trussworks/react-uswds';
 import { Paragraph } from 'app/components/common/Paragraph';
 import ExhibitCard from 'app/components/common/cards/ExhibitCard';
 import { DATA_EXHIBITS as exhibits } from 'app/constants';
+import './visit.css';
 
 const VisitPage: React.FC = () => {
   return (
@@ -17,14 +18,10 @@ const VisitPage: React.FC = () => {
           Florida). All exhibits are open to the public.
         </Paragraph>
       </Grid>
-      <CardGroup>
-        <Grid row gap>
-          {exhibits.map((exhibit) => (
-            <Grid key={exhibit.id} col={12} desktop={{ col: 4 }}>
-              <ExhibitCard exhibit={exhibit} />
-            </Grid>
-          ))}
-        </Grid>
+      <CardGroup className='exhibit-card-group'>
+        {exhibits.map((exhibit) => (
+          <ExhibitCard key={exhibit.id} exhibit={exhibit} />
+        ))}
       </CardGroup>
     </GridContainer>
   );
