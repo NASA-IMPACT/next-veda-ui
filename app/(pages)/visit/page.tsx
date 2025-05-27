@@ -18,9 +18,13 @@ const VisitPage: React.FC = () => {
         </Paragraph>
       </Grid>
       <CardGroup>
-        {exhibits.map((exhibit) => (
-          <ExhibitCard key={exhibit.id} exhibit={exhibit} />
-        ))}
+        <Grid row gap>
+          {exhibits.map((exhibit) => (
+            <Grid key={exhibit.id} col={12} desktop={{ col: 4 }}>
+              <ExhibitCard exhibit={exhibit} />
+            </Grid>
+          ))}
+        </Grid>
       </CardGroup>
     </GridContainer>
   );
