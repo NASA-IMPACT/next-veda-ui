@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import MiniMap from './MiniMap';
 
 // Hook to detect screen size
@@ -41,7 +41,15 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
   const [isLoading, setIsLoading] = useState(false);
   const [typingMessage, setTypingMessage] = useState('');
   const [isTypingPaused, setIsTypingPaused] = useState(false);
+  const chatAreaRef = useRef<HTMLDivElement>(null);
   const isDesktop = useIsDesktop();
+
+  // Auto-scroll to bottom when messages change
+  useEffect(() => {
+    if (chatAreaRef.current) {
+      chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
+    }
+  }, [messages, isLoading, typingMessage]);
 
   // Initialize with contextual greeting when modal opens
   useEffect(() => {
@@ -708,15 +716,19 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
           padding: '24px',
           display: 'flex',
           flexDirection: 'column',
-          background: 'transparent'
+          background: 'transparent',
+          minHeight: 0 // Allow flexbox to shrink
         }}>
-          <div style={{
-            flex: 1,
-            overflowY: 'auto',
-            marginBottom: '20px',
-            padding: '16px',
-            background: 'transparent'
-          }}>
+          <div 
+            ref={chatAreaRef}
+            style={{
+              flex: 1,
+              overflowY: 'auto',
+              marginBottom: '20px',
+              padding: '16px',
+              background: 'transparent',
+              minHeight: 0 // Allow flexbox to shrink
+            }}>
             {messages.map((message, index) => (
               <div
                 key={index}
@@ -762,7 +774,11 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
           </div>
 
           {/* Input Area */}
-          <div style={{ display: 'flex', gap: '12px' }}>
+          <div style={{ 
+            display: 'flex', 
+            gap: '12px',
+            flexShrink: 0 // Prevent input area from shrinking
+          }}>
             <input
               type="text"
               value={inputValue}
@@ -811,7 +827,8 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
           borderTop: '1px solid rgba(222, 226, 230, 0.5)',
           textAlign: 'center',
           fontSize: '12px',
-          color: '#868e96'
+          color: '#868e96',
+          flexShrink: 0 // Prevent footer from shrinking
         }}>
           ⚡ Powered by OpenAI | Press ESC or click outside to return to story
         </div>
