@@ -5,6 +5,8 @@ import { highlight } from 'sugar-high';
 import { LegacyGlobalStyles } from '@lib';
 import JonahChat from './character-chat/JonahChat';
 import ChatTrigger from './character-chat/ChatTrigger';
+import StoryCharacterChat from './character-chat/StoryCharacterChat';
+import { lahaineFireConfig } from '../story-configs/lahaina-fire-config';
 
 import {
   Block,
@@ -105,6 +107,7 @@ const components = {
   Chart: Chart,
   JonahChat: JonahChat,
   ChatTrigger: ChatTrigger,
+  StoryCharacterChat: (props: any) => <StoryCharacterChat config={lahaineFireConfig} {...props} />,
 };
 
 export function CustomMDX(props: any) {

@@ -23,6 +23,18 @@ function useIsDesktop() {
   return isDesktop;
 }
 
+// Helper function to adjust color brightness
+function adjustColorBrightness(hex: string, percent: number): string {
+  const num = parseInt(hex.replace('#', ''), 16);
+  const amt = Math.round(2.55 * percent);
+  const R = (num >> 16) + amt;
+  const G = (num >> 8 & 0x00FF) + amt;
+  const B = (num & 0x0000FF) + amt;
+  return '#' + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
+    (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
+    (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1);
+}
+
 interface Message {
   text: string;
   isUser: boolean;
@@ -33,9 +45,22 @@ interface FullScreenChatProps {
   onClose: () => void;
   context: string;
   contextPrompt: string;
+  config: {
+    character: {
+      name: string;
+      avatar: string;
+      description: string;
+      colorTheme: string;
+    };
+    contexts: Record<string, {
+      timing: 'before' | 'during' | 'after';
+      perspective: string;
+      initialGreeting: string[];
+    }>;
+  };
 }
 
-export default function FullScreenChat({ isOpen, onClose, context, contextPrompt }: FullScreenChatProps) {
+export default function FullScreenChat({ isOpen, onClose, context, contextPrompt, config }: FullScreenChatProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -389,62 +414,34 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
   }, [isOpen]);
 
   const getContextualGreeting = (context: string): string[] => {
-    switch (context) {
-      case 'drought':
-        return [
-          "I'm looking at this drought data right now...",
-          "You can see how dry everything was - that's exactly what made the fire spread so fast.",
-          "What would you like to know about the conditions that day?"
-        ];
-      case 'fire':
-        return [
-          "Those wind gusts... 67 miles per hour.",
-          "I'd never felt anything like it. The fire just exploded across the landscape.",
-          "One minute we thought it was under control, the next it was everywhere. What do you want to know about that moment?"
-        ];
-      case 'search':
-        return [
-          "I'm walking through what's left of Lahaina right now, calling Mia's name.",
-          "Every step, every corner, hoping to find her...",
-          "The devastation is beyond anything I could have imagined. What questions do you have about the search?"
-        ];
-      case 'communication':
-        return [
-          "The cell towers went down so fast.",
-          "One minute I was trying to call Mia, the next - nothing. Complete silence when we needed communication most.",
-          "That's when the real panic set in. What would you like to know about that?"
-        ];
-      case 'preparedness':
-        return [
-          "After finding Mia and holding her again...",
-          "I keep thinking about what we could have done differently. No family should go through what we did.",
-          "There are lessons here that could save lives. What would you like to know about emergency preparedness?"
-        ];
-      default:
-        return [
-          "I'm in the middle of searching for Mia right now.",
-          "The uncertainty is overwhelming, but I have to keep going.",
-          "What would you like to know about what I'm experiencing?"
-        ];
+    const contextInfo = config.contexts[context];
+    if (contextInfo && contextInfo.initialGreeting) {
+      return contextInfo.initialGreeting;
     }
+    
+    // Fallback to default if context not found
+    return [
+      `I'm here with you right now.`,
+      `What would you like to know about what I'm experiencing?`
+    ];
   };
 
   const getTypingMessage = (context: string): string => {
     const messages = [
-      "Jonah pauses to think...",
-      "Jonah takes a deep breath...",
-      "Jonah is finding the words...",
-      "Jonah hesitates for a moment..."
+      `${config.character.name} pauses to think...`,
+      `${config.character.name} takes a deep breath...`,
+      `${config.character.name} is finding the words...`,
+      `${config.character.name} hesitates for a moment...`
     ];
     
     // Context-specific typing messages
     switch (context) {
       case 'search':
-        return Math.random() > 0.5 ? "Jonah stops walking, remembering..." : "Jonah looks around, then continues...";
+        return Math.random() > 0.5 ? `${config.character.name} stops walking, remembering...` : `${config.character.name} looks around, then continues...`;
       case 'fire':
-        return Math.random() > 0.5 ? "Jonah feels the heat again..." : "Jonah remembers the wind...";
+        return Math.random() > 0.5 ? `${config.character.name} feels the heat again...` : `${config.character.name} remembers the wind...`;
       case 'communication':
-        return Math.random() > 0.5 ? "Jonah checks his phone instinctively..." : "Jonah thinks about that silence...";
+        return Math.random() > 0.5 ? `${config.character.name} checks his phone instinctively...` : `${config.character.name} thinks about that silence...`;
       default:
         return messages[Math.floor(Math.random() * messages.length)];
     }
@@ -656,7 +653,7 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
               height: '50px',
               borderRadius: '50%',
               marginRight: '16px',
-              background: 'linear-gradient(135deg, #e74c3c, #c0392b)',
+              background: `linear-gradient(135deg, ${config.character.colorTheme}, ${adjustColorBrightness(config.character.colorTheme, -20)})`,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -664,14 +661,14 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
               fontSize: '20px',
               fontWeight: 'bold'
             }}>
-              JH
+              {config.character.avatar}
             </div>
             <div>
               <h2 style={{ margin: 0, fontSize: '24px', fontWeight: '600', color: '#2c3e50' }}>
-                Jonah
+                {config.character.name}
               </h2>
               <p style={{ margin: '4px 0 0 0', fontSize: '14px', color: '#6c757d', fontStyle: 'italic' }}>
-                Father & Lahaina Fire Survivor
+                {config.character.description}
               </p>
             </div>
           </div>
@@ -768,7 +765,7 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
                 boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
                 opacity: isTypingPaused ? 0.6 : 1
               }}>
-                {typingMessage || 'Jonah is typing...'}
+                {typingMessage || `${config.character.name} is typing...`}
               </div>
             )}
           </div>
@@ -784,7 +781,7 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Ask Jonah about his experience..."
+              placeholder={`Ask ${config.character.name} about his experience...`}
               disabled={isLoading || typingMessage !== ''}
               style={{
                 flex: 1,
@@ -803,7 +800,7 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
               disabled={isLoading || !inputValue.trim()}
               style={{
                 padding: '14px 28px',
-                backgroundColor: isLoading ? '#95a5a6' : '#e74c3c',
+                backgroundColor: isLoading ? '#95a5a6' : config.character.colorTheme,
                 color: 'white',
                 border: 'none',
                 borderRadius: '24px',
@@ -811,7 +808,7 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
                 fontWeight: '500',
                 cursor: isLoading ? 'not-allowed' : 'pointer',
                 opacity: isLoading || !inputValue.trim() ? 0.7 : 1,
-                boxShadow: '0 4px 12px rgba(231, 76, 60, 0.3)'
+                boxShadow: `0 4px 12px ${config.character.colorTheme}50`
               }}
             >
               {isLoading ? 'Sending...' : 'Send'}
