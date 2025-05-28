@@ -128,6 +128,13 @@ const Carousel: React.FC<PropType> = ({
               <ul
                 key={index}
                 className={`padding-x-1 ${classNames}`}
+                data-testid={
+                  isTransitional
+                    ? 'carousel-slide-transitional'
+                    : isCurrentlyVisible
+                      ? 'carousel-slide-visible'
+                      : 'carousel-slide-hidden'
+                }
                 onClick={() => {
                   if (emblaApi && !visibleSlides.includes(index)) {
                     const groupIndex = Math.floor(index / slidesPerView);
