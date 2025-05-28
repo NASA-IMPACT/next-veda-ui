@@ -100,7 +100,7 @@ test.describe('Footer Navigation', () => {
 
     const footer = page.getByTestId('footer');
     const nav = footer.getByRole('navigation');
-    const visitLink = nav.getByRole('link', { name: 'Visit a center' });
+    const visitLink = nav.getByRole('link', { name: 'Visit an Exhibit' });
 
     await visitLink.click();
 

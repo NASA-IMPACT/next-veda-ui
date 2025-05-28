@@ -30,7 +30,7 @@ describe('Footer Component', () => {
       'Dashboard',
       // 'Mapping App',
       // 'Themes',
-      'Visit a Center',
+      'Visit an Exhibit',
       // 'Contact Us',
     ];
 

@@ -8,7 +8,7 @@ const PrimarySection = () => {
     { label: 'Dashboard', href: '/dashboard' },
     // { label: 'Mapping App', href: '/mapping' },
     // { label: 'Themes', href: '/themes' },
-    { label: 'Visit a Center', href: '/visit' },
+    { label: 'Visit an Exhibit', href: '/visit' },
     // { label: 'Contact Us', href: '/contact' }, //TODO: Add form!
   ];
 
