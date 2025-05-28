@@ -1,6 +1,27 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import MiniMap from './MiniMap';
+
+// Hook to detect screen size
+function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = useState(false);
+  
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsDesktop(window.innerWidth > 768);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => {
+      window.removeEventListener('resize', checkScreenSize);
+    };
+  }, []);
+  
+  return isDesktop;
+}
 
 interface Message {
   text: string;
@@ -20,6 +41,7 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
   const [isLoading, setIsLoading] = useState(false);
   const [typingMessage, setTypingMessage] = useState('');
   const [isTypingPaused, setIsTypingPaused] = useState(false);
+  const isDesktop = useIsDesktop();
 
   // Initialize with contextual greeting when modal opens
   useEffect(() => {
@@ -616,8 +638,9 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
           backdropFilter: 'blur(10px)',
           borderBottom: '1px solid rgba(222, 226, 230, 0.5)',
           display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between'
+          alignItems: 'flex-start',
+          justifyContent: 'space-between',
+          position: 'relative'
         }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <div style={{
@@ -644,6 +667,19 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
               </p>
             </div>
           </div>
+          
+          {/* Mini Map - Hidden on mobile */}
+          {isDesktop && (
+            <div style={{
+              position: 'absolute',
+              top: '24px',
+              right: '80px',
+              width: '300px'
+            }}>
+              <MiniMap context={context} />
+            </div>
+          )}
+          
           <button
             onClick={onClose}
             style={{
@@ -658,7 +694,8 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
               height: '40px',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              zIndex: 10
             }}
           >
             ×

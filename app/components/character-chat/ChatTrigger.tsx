@@ -10,44 +10,95 @@ interface ChatTriggerProps {
   description?: string;
 }
 
+// Geographic context data for location-aware prompting
+const locationData = {
+  'drought': {
+    coordinates: [-156.6747, 20.8738],
+    area: 'Lahaina Resort Area',
+    conditions: 'Severe drought conditions, dry vegetation',
+    windSpeed: 'Light winds initially',
+    visibility: 'Clear, dry air'
+  },
+  'fire': {
+    coordinates: [-156.6789, 20.8751],
+    area: 'Front Street Historic District',
+    conditions: 'Extreme fire danger, 67 mph winds',
+    windSpeed: '67 mph sustained gusts',
+    visibility: 'Thick smoke, near-zero visibility'
+  },
+  'search': {
+    coordinates: [-156.6723, 20.8729],
+    area: 'Residential neighborhoods',
+    conditions: 'Post-fire devastation, ash and debris',
+    windSpeed: 'Calm winds',
+    visibility: 'Smoke haze, reduced visibility'
+  },
+  'communication': {
+    coordinates: [-156.6756, 20.8745],
+    area: 'Central Lahaina',
+    conditions: 'Infrastructure failure, cell towers down',
+    windSpeed: 'Variable winds',
+    visibility: 'Smoke and chaos'
+  },
+  'preparedness': {
+    coordinates: [-156.6734, 20.8742],
+    area: 'Safe meeting point',
+    conditions: 'Clear area, emergency staging',
+    windSpeed: 'Light winds',
+    visibility: 'Good visibility for reunion'
+  }
+};
+
 export default function ChatTrigger({ topic, label, context, description }: ChatTriggerProps) {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   const getContextPrompt = (topic: string): string => {
+    const location = locationData[topic] || {};
+    
     switch (topic) {
       case 'drought':
-        return `The user is looking at drought data and conditions that contributed to the Lahaina fire. They want to understand how the drought made the fire so devastating. Focus on:
-        - The specific drought conditions you witnessed
-        - How dry vegetation and land contributed to fire spread
-        - Your observations about the environment leading up to the fire
-        - The connection between data and real-world impact`;
+        return `You are Jonah at ${location.area} (coordinates: ${location.coordinates?.join(', ')}). Environmental conditions: ${location.conditions}. Current weather: ${location.windSpeed}, ${location.visibility}.
+        
+        The user is looking at drought data and conditions that contributed to the Lahaina fire. They want to understand how the drought made the fire so devastating. Focus on:
+        - The specific drought conditions you witnessed at this exact location
+        - How dry vegetation and land around the resort area contributed to fire spread
+        - Your observations about the environment leading up to the fire from this vantage point
+        - The connection between data and the real-world impact you experienced here`;
       case 'fire':
-        return `The user wants to understand the fire conditions and wind that made it so deadly. Focus on:
-        - The 67 mph wind gusts and how they felt
-        - How quickly the fire spread due to the wind
-        - The moment you realized this wasn't a normal fire
-        - The environmental conditions that made it unstoppable`;
+        return `You are Jonah at ${location.area} (coordinates: ${location.coordinates?.join(', ')}). Environmental conditions: ${location.conditions}. Current weather: ${location.windSpeed}, ${location.visibility}.
+        
+        The user wants to understand the fire conditions and wind that made it so deadly. Focus on:
+        - The 67 mph wind gusts and how they felt at this specific location on Front Street
+        - How quickly the fire spread due to the wind through this historic area
+        - The moment you realized this wasn't a normal fire while standing here
+        - The environmental conditions that made it unstoppable from this vantage point`;
       case 'search':
-        return `The user wants to understand your search process and experience looking for Mia. Focus on:
-        - Your search strategy and route through Lahaina
-        - What you saw in the burned areas
-        - The emotional experience of not knowing
-        - Practical aspects of searching in a disaster zone`;
+        return `You are Jonah in ${location.area} (coordinates: ${location.coordinates?.join(', ')}). Environmental conditions: ${location.conditions}. Current weather: ${location.windSpeed}, ${location.visibility}.
+        
+        The user wants to understand your search process and experience looking for Mia. Focus on:
+        - Your search strategy and route through these specific residential neighborhoods
+        - What you saw in the burned areas around this location
+        - The emotional experience of not knowing while walking these exact streets
+        - Practical aspects of searching in a disaster zone with these visibility conditions`;
       case 'communication':
-        return `The user is interested in the communication failures during the fire. Focus on:
-        - How cell towers and communications failed
-        - The impact of losing contact with Mia
-        - Alternative communication methods that might have helped
-        - Lessons about emergency communication planning`;
+        return `You are Jonah in ${location.area} (coordinates: ${location.coordinates?.join(', ')}). Environmental conditions: ${location.conditions}. Current weather: ${location.windSpeed}, ${location.visibility}.
+        
+        The user is interested in the communication failures during the fire. Focus on:
+        - How cell towers and communications failed specifically in this central Lahaina area
+        - The impact of losing contact with Mia while experiencing these conditions
+        - Alternative communication methods that might have helped in this location
+        - Lessons about emergency communication planning from this geographic perspective`;
       case 'preparedness':
-        return `The user wants to learn emergency preparedness lessons from your experience. Focus on:
-        - What you wish you had done differently
-        - Family emergency planning essentials
-        - Communication backup plans
-        - Evacuation decision-making
-        - How to prepare for when disasters strike unexpectedly`;
+        return `You are Jonah at ${location.area} (coordinates: ${location.coordinates?.join(', ')}). Environmental conditions: ${location.conditions}. Current weather: ${location.windSpeed}, ${location.visibility}.
+        
+        The user wants to learn emergency preparedness lessons from your experience. Focus on:
+        - What you wish you had done differently from this safe vantage point
+        - Family emergency planning essentials that would have helped in this specific geographic context
+        - Communication backup plans suitable for this area and conditions
+        - Evacuation decision-making based on your experience moving through Lahaina
+        - How to prepare for when disasters strike unexpectedly in communities like this`;
       default:
-        return `The user has questions about your experience during the Lahaina fire search phase.`;
+        return `You are Jonah in Lahaina during the fire emergency. The user has questions about your experience during the Lahaina fire search phase. Reference your specific location and environmental conditions when responding.`;
     }
   };
 
