@@ -3,7 +3,8 @@ import { Grid, GridContainer } from '@trussworks/react-uswds';
 
 import Separator from 'app/components/common/Separator';
 import ThemeCard from 'app/components/common/cards/ThemeCard';
-import { DATA_THEMES } from 'app/constants';
+import InteractiveCard from 'app/components/common/cards/InteractiveCard';
+import { DATA_THEMES, DATA_INTERACTIVES } from 'app/constants';
 import Carousel from 'app/components/common/Carousel';
 
 const DashboardPage: React.FC = () => {
@@ -28,6 +29,24 @@ const DashboardPage: React.FC = () => {
           slideWidth='third'
           slides={DATA_THEMES.map((theme) => (
             <ThemeCard key={theme.id} theme={theme} />
+          ))}
+        />
+      </GridContainer>
+
+      <GridContainer containerSize='desktop-lg'>
+        <Grid row className='margin-bottom-4'>
+          <h2 className='text-uppercase'>Interactive Tools</h2>
+        </Grid>
+        <Carousel
+          slideWidth='full'
+          slides={DATA_INTERACTIVES.map((interactive) => (
+            <InteractiveCard
+              key={interactive.id}
+              id={interactive.id}
+              url={interactive.url}
+              title={interactive.title}
+              description={interactive.description}
+            />
           ))}
         />
       </GridContainer>

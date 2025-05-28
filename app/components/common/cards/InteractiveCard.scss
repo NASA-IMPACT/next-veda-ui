@@ -1,0 +1,54 @@
+.interactive-card {
+  isolation: isolate; // Required for CardBadge positioning
+  list-style-type: none;
+  width: 100%;
+  height: 323px;
+  position: relative;
+  overflow: hidden;
+  padding: 0 !important;
+  margin: 0;
+  border: none;
+  background: none !important;
+  border-radius: 0.25rem;
+
+  // Override USWDS Card styles
+  &.usa-card {
+    border: none !important;
+    background: none !important;
+    box-shadow: none !important;
+    border-radius: 0.25rem;
+  }
+
+  .usa-card__container {
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: none !important;
+    box-shadow: none !important;
+    border-radius: 0.25rem;
+  }
+
+  .card-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.25rem;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 0.25rem;
+  }
+} 

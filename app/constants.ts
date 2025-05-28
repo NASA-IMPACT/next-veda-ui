@@ -1,7 +1,7 @@
 export const USWDS_DESKTOP_BREAKPOINT = 1024;
 // no magic numbers! Use value from theme?
 
-import { Theme, Exhibit } from './types';
+import { Theme, Exhibit, Interactive } from './types';
 
 /**
  * Theme data that must be manually kept in sync with MDX files in app/content/themes/.
@@ -92,5 +92,29 @@ export const DATA_EXHIBITS: Exhibit[] = [
     ],
     imgSrc: '/images/visit/kennedy-space-center.png',
     imgAlt: 'Kennedy Space Center exterior view',
+  },
+];
+
+export const DATA_INTERACTIVES: Interactive[] = [
+  {
+    id: 'mobile-climate-mapper',
+    url: 'https://earth.gov/mobile-climate-mapper',
+    title: 'Mobile Climate Mapper',
+    description:
+      'The Mobile Climate Mapper is an extension of NASA’s Earth Information Center exhibit at the Smithsonian National Museum of Natural History. Use this tool to explore how climate change may affect temperatures in any geographic area in the world.',
+  },
+  {
+    id: 'hometown-dashboard',
+    title: 'Hometown Dashboard',
+    url: 'https://earth.gov/hometown-dashboard',
+    description:
+      'Hometown Dashboard invites users to learn how temperature and precipitation in their home region are projected to change from 1950 to 2100. Select your hometown from a global map, adjust time scales, and interact with visual charts that show historical and predicted climate changes based on different emission scenarios.',
+  },
+  {
+    id: 'nasa-eyes-on-earth',
+    url: 'https://eyes.nasa.gov/apps/earth',
+    title: 'NASA Eyes on Earth',
+    description:
+      'NASA Eyes on Earth is a way for you to learn about your home planet, our solar system, the universe beyond and the spacecraft exploring them.',
   },
 ];
