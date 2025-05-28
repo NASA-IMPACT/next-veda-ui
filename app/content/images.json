@@ -1,35 +1,60 @@
 {
   "nasa-hq": {
     "intro": [
-      { "img": "/images/visit/hq-1.jpg", "alt": "NASA Image" },
-      { "img": "/images/visit/hq-3.png", "alt": "NASA Image" }
+      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-1.jpg", "alt": "NASA Image" },
+      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-2.jpg", "alt": "NASA Image" },
+      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-3.jpg", "alt": "NASA Image" },
+      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-4.jpg", "alt": "NASA Image" }
     ],
     "hyperwall": [
-      { "img": "/images/visit/hq-2.png", "alt": "NASA Image" },
-      { "img": "/images/visit/hq-1.jpg", "alt": "NASA Image" },
-      { "img": "/images/visit/hq-4.png", "alt": "NASA Image" }
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-1.jpg", "alt": "NASA Image" },
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-2.jpg", "alt": "NASA Image" },
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-3.jpg", "alt": "NASA Image" }
     ],
     "space-for-earth": [
-      { "img": "/images/visit/hq-3.png", "alt": "NASA Image" }
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-1.jpg", "alt": "NASA Image" },
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-2.jpg", "alt": "NASA Image" },
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-3.jpg", "alt": "NASA Image" }
     ],
     "earth-pulse": [
-      { "img": "/images/visit/hq-4.png", "alt": "NASA Image" }
+      { "img": "public/images/visit/nasa-hq/nasa-hq-features-earth-pulse-1.jpeg", "alt": "NASA Image" },
+      { "img": "public/images/visit/nasa-hq/nasa-hq-features-earth-pulse-2.jpeg", "alt": "NASA Image" }
     ]
   },
   "kennedy-space-center": {
     "intro": [
-      { "img": "/images/visit/hq-1.jpg", "alt": "NASA Image" }
+      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-1.jpg", "alt": "NASA Image" }
     ],
     "hyperwall": [
-      { "img": "/images/visit/hq-2.png", "alt": "NASA Image" }
+      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-1.jpg", "alt": "NASA Image" }
     ]
   },
-  "smithsonian-museum": {
+  "smithsonian-museum-nmnh": {
     "intro": [
-      { "img": "/images/visit/hq-1.jpg", "alt": "NASA Image" }
+      { "img": "/images/visit/nmnh/nasa-nmnh-gallery-1.jpg", "alt": "NASA Image" },
+      { "img": "/images/visit/nmnh/nasa-nmnh-gallery-2.jpg", "alt": "NASA Image" },
+      { "img": "/images/visit/nmnh/nasa-nmnh-gallery-3.jpg", "alt": "NASA Image" }
     ],
     "hyperwall": [
-      { "img": "/images/visit/hq-2.png", "alt": "NASA Image" }
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-hyperwall-1.png", "alt": "NASA Image" },
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-hyperwall-2.jpg", "alt": "NASA Image" },
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-hyperwall-3.jpg", "alt": "NASA Image" }
+    ],
+    "time-unveiled": [
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-time-unveiled-1.jpg", "alt": "NASA Image" },
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-time-unveiled-2.jpg", "alt": "NASA Image" }
+    ],
+    "hometown-dashboard": [
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-hometown-dashboard-1.jpg", "alt": "NASA Image" },
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-hometown-dashboard-2.jpg", "alt": "NASA Image" }
+    ],
+    "eyes-on-earth": [
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-eyes-on-earth-1.jpg", "alt": "NASA Image" },
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-eyes-on-earth-2.jpg", "alt": "NASA Image" },
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-eyes-on-earth-3.jpg", "alt": "NASA Image" }
+    ],
+    "mobile-climate-mapper": [
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-mcm-1.jpg", "alt": "NASA Image" }
     ]
   }
 }
