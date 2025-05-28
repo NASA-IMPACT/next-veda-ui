@@ -132,6 +132,13 @@ export default function MiniMap({ context, className }: MiniMapProps) {
           attributionControl: true // Show attribution in fullscreen
         });
 
+        // Add navigation controls (zoom in/out buttons) to fullscreen map
+        const nav = new mapboxgl.NavigationControl({
+          showCompass: false, // Hide compass, keep only zoom buttons
+          showZoom: true
+        });
+        fullscreenMap.current.addControl(nav, 'top-right');
+
         // Add marker to fullscreen map
         fullscreenMarker.current = new mapboxgl.Marker({
           color: '#e74c3c',
@@ -185,8 +192,8 @@ export default function MiniMap({ context, className }: MiniMapProps) {
               width: '100%', 
               height: '200px',
               borderRadius: '8px',
-              border: '2px solid rgba(255, 255, 255, 0.2)',
-              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+              border: '2px solid rgba(255, 255, 255, 0.3)',
+              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2)',
               cursor: 'pointer'
             }} 
           />
