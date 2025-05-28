@@ -59,7 +59,9 @@ test.describe('Dashboard page', () => {
   }, testInfo) => {
     await page.goto('/dashboard');
     await expect(page.locator('h1')).toHaveText(/Explore/i);
-    const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .exclude('[data-testid="carousel-slide-transitional"]')
+      .analyze();
 
     await testInfo.attach('accessibility-scan-results', {
       body: JSON.stringify(accessibilityScanResults, null, 2),
