@@ -56,7 +56,7 @@ const SmithsonianMuseumPage: React.FC = () => {
       <Separator />
 
       <GridContainer containerSize='desktop-lg'>
-        <Grid row>
+        <Grid row gap={6}>
           <Grid col desktop={{ col: 6 }}>
             <Table bordered={false}>
               <tbody>
