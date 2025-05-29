@@ -128,7 +128,7 @@ Respond naturally as this character would, using first person ("I", "me", "my").
         initialGreeting: [
           `Hi, I'm ${name}.`,
           `${context.split('.')[0]}.`, // First sentence of context
-          "What would you like to know?"
+          'What would you like to know?'
         ]
       }
     }
@@ -188,7 +188,7 @@ Respond naturally as this character would, using first person ("I", "me", "my").
           )}
         </div>
         <div style={{ fontSize: '20px' }}>
-          →
+        →
         </div>
       </div>
 

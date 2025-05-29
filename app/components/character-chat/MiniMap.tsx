@@ -199,7 +199,7 @@ export default function MiniMap({
             onMouseLeave={(e) => {
               e.currentTarget.style.background = 'rgba(0, 0, 0, 0.7)';
             }}
-            title="Expand map to fullscreen"
+            title='Expand map to fullscreen'
           >
             ⛶ Expand
           </button>
@@ -296,7 +296,7 @@ export default function MiniMap({
                 e.currentTarget.style.background = 'rgba(108, 117, 125, 0.1)';
                 e.currentTarget.style.borderColor = 'rgba(108, 117, 125, 0.3)';
               }}
-              title="Minimize map (ESC)"
+              title='Minimize map (ESC)'
             >
               ⇱ Minimize
             </button>
@@ -324,7 +324,7 @@ export default function MiniMap({
             fontSize: '12px',
             color: '#868e96'
           }}>
-            🗺️ Interactive map - Zoom, pan, and explore {characterName}'s location | Press ESC or click X to close
+            🗺️ Interactive map - Zoom, pan, and explore {characterName}&apos;s location | Press ESC or click X to close
           </div>
         </div>,
         document.body

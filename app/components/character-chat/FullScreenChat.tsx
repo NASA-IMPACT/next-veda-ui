@@ -473,7 +473,7 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
       const hasVeryDifficultContent = /(worst|most difficult|hardest|devastating|lost her|couldn't find|thought she was dead)/i.test(data.response);
       const shouldHesitate = hasVeryDifficultContent && Math.random() > 0.7; // Only 30% chance
       
-      let responseMessages: string[] = [];
+      const responseMessages: string[] = [];
       
       if (shouldHesitate) {
         const hesitations = [
@@ -637,7 +637,7 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
               zIndex: 10
             }}
           >
-            ×
+          ×
           </button>
         </div>
 
