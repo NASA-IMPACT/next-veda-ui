@@ -45,12 +45,17 @@ interface FullScreenChatProps {
   onClose: () => void;
   context: string;
   contextPrompt: string;
+  environment?: string; // New environment prop
   config: {
     character: {
       name: string;
       avatar: string;
       description: string;
       colorTheme: string;
+      coordinates?: [number, number];
+      area?: string;
+      locationDescription?: string;
+      environment?: string;
     };
     contexts: Record<string, {
       timing: 'before' | 'during' | 'after';
@@ -60,7 +65,7 @@ interface FullScreenChatProps {
   };
 }
 
-export default function FullScreenChat({ isOpen, onClose, context, contextPrompt, config }: FullScreenChatProps) {
+export default function FullScreenChat({ isOpen, onClose, context, contextPrompt, environment, config }: FullScreenChatProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -96,8 +101,11 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
     return () => document.removeEventListener('keydown', handleEsc);
   }, [isOpen, onClose]);
 
-  const getContextualBackground = (context: string): string => {
-    switch (context) {
+  const getContextualBackground = (envType: string): string => {
+    // Use environment prop from config or fallback to context for backwards compatibility
+    const environmentType = config.character.environment || envType || 'clear';
+    
+    switch (environmentType) {
       case 'search':
         return [
           'radial-gradient(circle at 30% 70%, rgba(80, 80, 80, 0.8) 0%, transparent 50%)',
@@ -135,6 +143,98 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
           'linear-gradient(135deg, rgba(30, 40, 70, 0.6) 0%, rgba(60, 70, 90, 0.7) 100%)'
         ].join(', ');
       case 'preparedness':
+        return {
+          background: [
+            // Light clearing particles
+            'radial-gradient(2px 2px at 50px 30px, rgba(200, 220, 200, 0.5), transparent)',
+            'radial-gradient(1px 1px at 90px 70px, rgba(180, 200, 180, 0.4), transparent)',
+            'radial-gradient(3px 3px at 130px 45px, rgba(220, 240, 220, 0.3), transparent)',
+            // Gentle light rays
+            'radial-gradient(8px 3px at 70px 20px, rgba(240, 250, 240, 0.2), transparent)',
+            'radial-gradient(6px 4px at 120px 80px, rgba(220, 230, 220, 0.3), transparent)'
+          ].join(', '),
+          backgroundRepeat: 'repeat',
+          backgroundSize: '200px 100px',
+          animation: 'smokeClearing 15s infinite ease-out, gentleFloat 10s infinite ease-in-out'
+        };
+      case 'ash':
+        return {
+          background: [
+            // Heavy ash particles
+            'radial-gradient(4px 4px at 30px 50px, rgba(160, 160, 160, 0.8), transparent)',
+            'radial-gradient(3px 3px at 80px 30px, rgba(140, 140, 140, 0.7), transparent)',
+            'radial-gradient(5px 5px at 120px 80px, rgba(180, 180, 180, 0.6), transparent)',
+            'radial-gradient(2px 2px at 160px 40px, rgba(120, 120, 120, 0.9), transparent)',
+            // Swirling ash clouds
+            'radial-gradient(12px 6px at 60px 60px, rgba(100, 100, 100, 0.5), transparent)',
+            'radial-gradient(8px 8px at 140px 20px, rgba(90, 90, 90, 0.6), transparent)'
+          ].join(', '),
+          backgroundRepeat: 'repeat',
+          backgroundSize: '180px 120px',
+          animation: 'ashFall 6s infinite ease-in-out, ashSwirl 12s infinite linear'
+        };
+      case 'wind':
+        return {
+          background: [
+            // Wind-blown debris
+            'radial-gradient(6px 2px at 40px 60px, rgba(150, 140, 130, 0.6), transparent)',
+            'radial-gradient(4px 1px at 100px 20px, rgba(170, 160, 150, 0.5), transparent)',
+            'radial-gradient(8px 3px at 160px 90px, rgba(130, 120, 110, 0.7), transparent)',
+            // Wind streaks
+            'radial-gradient(20px 1px at 80px 40px, rgba(200, 190, 180, 0.3), transparent)',
+            'radial-gradient(15px 2px at 140px 70px, rgba(180, 170, 160, 0.4), transparent)'
+          ].join(', '),
+          backgroundRepeat: 'repeat',
+          backgroundSize: '200px 110px',
+          animation: 'windGusts 4s infinite ease-in-out, debrisBlown 8s infinite linear'
+        };
+      case 'smoke':
+        return {
+          background: [
+            // Dense smoke particles
+            'radial-gradient(8px 8px at 35px 45px, rgba(80, 75, 70, 0.7), transparent)',
+            'radial-gradient(6px 6px at 90px 75px, rgba(60, 55, 50, 0.8), transparent)',
+            'radial-gradient(10px 10px at 140px 25px, rgba(100, 95, 90, 0.6), transparent)',
+            'radial-gradient(4px 4px at 170px 85px, rgba(40, 35, 30, 0.9), transparent)',
+            // Smoke billows
+            'radial-gradient(15px 8px at 70px 50px, rgba(50, 45, 40, 0.5), transparent)',
+            'radial-gradient(12px 10px at 120px 30px, rgba(70, 65, 60, 0.6), transparent)'
+          ].join(', '),
+          backgroundRepeat: 'repeat',
+          backgroundSize: '200px 130px',
+          animation: 'smokeDrift 8s infinite ease-in-out, smokeBillows 15s infinite linear'
+        };
+      case 'clear':
+        return [
+          'radial-gradient(circle at 30% 70%, rgba(100, 120, 100, 0.4) 0%, transparent 70%)',
+          'radial-gradient(circle at 70% 30%, rgba(80, 100, 80, 0.5) 0%, transparent 65%)',
+          'radial-gradient(circle at 50% 50%, rgba(120, 140, 120, 0.3) 0%, transparent 75%)',
+          'linear-gradient(135deg, rgba(60, 80, 60, 0.3) 0%, rgba(100, 120, 100, 0.4) 100%)'
+        ].join(', ');
+      case 'ash':
+        return [
+          'radial-gradient(circle at 25% 75%, rgba(90, 85, 80, 0.7) 0%, transparent 55%)',
+          'radial-gradient(circle at 75% 25%, rgba(110, 105, 100, 0.6) 0%, transparent 60%)',
+          'radial-gradient(circle at 40% 40%, rgba(70, 65, 60, 0.8) 0%, transparent 45%)',
+          'radial-gradient(circle at 60% 80%, rgba(130, 125, 120, 0.5) 0%, transparent 70%)',
+          'linear-gradient(135deg, rgba(50, 45, 40, 0.6) 0%, rgba(90, 85, 80, 0.7) 100%)'
+        ].join(', ');
+      case 'wind':
+        return [
+          'radial-gradient(circle at 20% 60%, rgba(120, 130, 140, 0.5) 0%, transparent 65%)',
+          'radial-gradient(circle at 80% 40%, rgba(100, 110, 120, 0.6) 0%, transparent 55%)',
+          'radial-gradient(circle at 50% 20%, rgba(140, 150, 160, 0.4) 0%, transparent 75%)',
+          'linear-gradient(45deg, rgba(90, 100, 110, 0.3) 0%, rgba(120, 130, 140, 0.5) 100%)'
+        ].join(', ');
+      case 'smoke':
+        return [
+          'radial-gradient(circle at 30% 70%, rgba(60, 55, 50, 0.8) 0%, transparent 60%)',
+          'radial-gradient(circle at 70% 30%, rgba(80, 75, 70, 0.7) 0%, transparent 50%)',
+          'radial-gradient(circle at 15% 15%, rgba(40, 35, 30, 0.9) 0%, transparent 40%)',
+          'radial-gradient(circle at 85% 85%, rgba(100, 95, 90, 0.6) 0%, transparent 65%)',
+          'linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(70, 65, 60, 0.8) 100%)'
+        ].join(', ');
+      case 'clear':
         return [
           'radial-gradient(circle at 30% 70%, rgba(100, 120, 100, 0.4) 0%, transparent 70%)',
           'radial-gradient(circle at 70% 30%, rgba(80, 100, 80, 0.5) 0%, transparent 65%)',
@@ -152,8 +252,11 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
     }
   };
 
-  const getContextualAnimation = (context: string): React.CSSProperties => {
-    switch (context) {
+  const getContextualAnimation = (envType: string): React.CSSProperties => {
+    // Use environment prop from config or fallback to context for backwards compatibility
+    const environmentType = config.character.environment || envType || 'clear';
+    
+    switch (environmentType) {
       case 'search':
         return {
           background: [
@@ -383,6 +486,115 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
           }
         }
         
+        /* Ash Context Animations */
+        @keyframes ashFall {
+          0% {
+            transform: translateY(-40px) translateX(0);
+            opacity: 0.8;
+          }
+          25% {
+            transform: translateY(-20px) translateX(8px);
+            opacity: 0.9;
+          }
+          50% {
+            transform: translateY(0) translateX(-4px);
+            opacity: 0.6;
+          }
+          75% {
+            transform: translateY(20px) translateX(12px);
+            opacity: 0.7;
+          }
+          100% {
+            transform: translateY(40px) translateX(-8px);
+            opacity: 0.4;
+          }
+        }
+        
+        @keyframes ashSwirl {
+          0% {
+            transform: rotate(0deg) translateX(0);
+            opacity: 0.6;
+          }
+          50% {
+            transform: rotate(180deg) translateX(20px);
+            opacity: 0.4;
+          }
+          100% {
+            transform: rotate(360deg) translateX(0);
+            opacity: 0.6;
+          }
+        }
+        
+        /* Wind Context Animations */
+        @keyframes windGusts {
+          0%, 100% {
+            transform: translateX(0) scaleX(1);
+            opacity: 0.5;
+          }
+          25% {
+            transform: translateX(30px) scaleX(1.3);
+            opacity: 0.7;
+          }
+          50% {
+            transform: translateX(-10px) scaleX(0.8);
+            opacity: 0.3;
+          }
+          75% {
+            transform: translateX(20px) scaleX(1.1);
+            opacity: 0.6;
+          }
+        }
+        
+        @keyframes debrisBlown {
+          0% {
+            transform: translateX(0) translateY(0);
+            opacity: 0.7;
+          }
+          100% {
+            transform: translateX(-120px) translateY(-30px);
+            opacity: 0.2;
+          }
+        }
+        
+        /* Smoke Context Animations */
+        @keyframes smokeDrift {
+          0% {
+            transform: translateX(0) translateY(0) scale(1);
+            opacity: 0.8;
+          }
+          50% {
+            transform: translateX(-30px) translateY(-15px) scale(1.2);
+            opacity: 0.5;
+          }
+          100% {
+            transform: translateX(-60px) translateY(-30px) scale(0.9);
+            opacity: 0.3;
+          }
+        }
+        
+        @keyframes smokeBillows {
+          0% {
+            transform: scale(0.8) translateY(0);
+            opacity: 0.6;
+          }
+          25% {
+            transform: scale(1.1) translateY(-10px);
+            opacity: 0.8;
+          }
+          50% {
+            transform: scale(0.9) translateY(-5px);
+            opacity: 0.4;
+          }
+          75% {
+            transform: scale(1.2) translateY(-15px);
+            opacity: 0.7;
+          }
+          100% {
+            transform: scale(0.8) translateY(0);
+            opacity: 0.6;
+          }
+        }
+        
         /* Preparedness Context Animations */
         @keyframes smokeClearing {
           0% {
@@ -608,7 +820,7 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
         right: 0,
         bottom: 0,
         backgroundColor: '#1a1a1a',
-        backgroundImage: getContextualBackground(context),
+        backgroundImage: getContextualBackground(environment || context),
         border: 'none', // Removed debug border
         zIndex: 9999,
         display: 'flex',
@@ -625,7 +837,7 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
           right: 0,
           bottom: 0,
           pointerEvents: 'none',
-          ...getContextualAnimation(context)
+          ...getContextualAnimation(environment || context)
         }}
       />
       <div
@@ -681,7 +893,13 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
               right: '80px',
               width: '300px'
             }}>
-              <MiniMap context={context} />
+              <MiniMap 
+                coordinates={config.character.coordinates}
+                area={config.character.area}
+                description={config.character.locationDescription}
+                characterName={config.character.name}
+                colorTheme={config.character.colorTheme}
+              />
             </div>
           )}
           

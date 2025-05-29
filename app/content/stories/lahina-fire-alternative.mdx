@@ -39,11 +39,24 @@ taxonomy:
 
 <Block>
   <Prose>
-    <StoryCharacterChat 
+    <CharacterChat 
+      name="Jonah"
+      avatar="JH"
+      description="Father & Lahaina Fire Survivor"
+      colorTheme="#e74c3c"
+      timing="before"
       topic="drought"
       label="💬 Ask Jonah about the drought conditions"
-      context="drought"
-      description="Learn how the severe drought contributed to the fire's rapid spread"
+      context="Jonah is experiencing severe drought conditions in Lahaina before the devastating fire. He can feel how dry everything is but doesn't yet know about the coming disaster. He's concerned about fire risk but maintains hope that any fires will be controlled like usual."
+      coordinates={[-156.6747, 20.8738]}
+      area="Lahaina Resort Area"
+      conditions="Severe drought conditions, dry vegetation"
+      windSpeed="Light winds initially"
+      visibility="Clear, dry air"
+      droughtIndex="D3 (Extreme Drought)"
+      soilMoisture="15% below normal"
+      precipitationDeficit="8 inches below average"
+      vegetationDryness="87% critically dry"
     />
   </Prose>
 </Block>
@@ -71,11 +84,24 @@ taxonomy:
     <Prose>
         But by early afternoon on August 8, the wind returned—and this time, so did the fire.
         
-        <StoryCharacterChat 
+        <CharacterChat 
+          name="Jonah"
+          avatar="JH"
+          description="Father & Lahaina Fire Survivor"
+          colorTheme="#e74c3c"
+          timing="during"
           topic="fire"
           label="💨 Ask Jonah about the wind and fire conditions"
-          context="fire"
-          description="Learn how the 67 mph winds fueled the fire's deadly spread"
+          context="Jonah is experiencing the moment when the fire returns with 67 mph winds. This isn't a normal fire - the wind speeds and fire intensity are happening right now. He's shocked by watching something unprecedented unfold."
+          coordinates={[-156.6789, 20.8751]}
+          area="Front Street Historic District"
+          conditions="Extreme fire danger, 67 mph winds"
+          windSpeed="67 mph sustained gusts"
+          visibility="Thick smoke, near-zero visibility"
+          windSpeed_actual="67 mph sustained, gusts to 85 mph"
+          fireIntensity="8,500 kW/m (extreme)"
+          spreadRate="1.2 miles in 15 minutes"
+          temperatureAnomaly="+12°F above normal"
         />
     </Prose>
 </Block>
@@ -86,11 +112,24 @@ taxonomy:
 
         She was on the other side of the fire line. He had no idea if she got out.
         
-        <StoryCharacterChat 
+        <CharacterChat 
+          name="Jonah"
+          avatar="JH"
+          description="Father & Lahaina Fire Survivor"
+          colorTheme="#e74c3c"
+          timing="during"
           topic="communication"
           label="📵 Ask Jonah about the communication breakdown"
-          context="communication"
-          description="Understand how cell towers failed when families needed them most"
+          context="Jonah is trying to reach Mia as communication systems fail around him. Cell towers are going down, emergency calls aren't connecting, and he's experiencing the panic of being cut off from his daughter in real-time."
+          coordinates={[-156.6756, 20.8745]}
+          area="Central Lahaina"
+          conditions="Infrastructure failure, cell towers down"
+          windSpeed="Variable winds"
+          visibility="Smoke and chaos"
+          cellTowerStatus="3 of 4 towers offline"
+          powerOutage="95% of grid down"
+          emergencyFreq="82% call failure rate"
+          smokeOpticalDepth="4.2 (extremely dense)"
         />
   </Prose>
 </Block>
@@ -119,20 +158,48 @@ taxonomy:
 
         Even a day later, the air was thick with smoke. Jonah's lungs burned as he searched, wearing a mask handed to him by a volunteer. At a shelter, someone mentioned seeing Mia, but she had already left. The uncertainty was suffocating.
         
-        <StoryCharacterChat 
+        <CharacterChat 
+          name="Jonah"
+          avatar="JH"
+          description="Father & Lahaina Fire Survivor"
+          colorTheme="#e74c3c"
+          timing="during"
+          environment="search"
           topic="search"
           label="🔍 Ask Jonah about searching through the aftermath"
-          context="search"
-          description="Experience the desperate search through Lahaina's burned remains"
+          context="Jonah is walking through the devastation the day after the fire, actively searching for Mia. He's experiencing the burn severity, air quality, and destruction in real-time. Every step is filled with hope and dread."
+          coordinates={[-156.6723, 20.8729]}
+          area="Residential neighborhoods"
+          conditions="Post-fire devastation, ash and debris"
+          windSpeed="Calm winds"
+          visibility="Smoke haze, reduced visibility"
+          burnSeverity="Class 4 (Complete destruction)"
+          structureLoss="89% of buildings destroyed"
+          debrisDepth="2-4 inches ash coverage"
+          airQuality="AQI 312 (Hazardous)"
         />
         
         Two days later, Jonah found Mia with Leila's family. She had no phone, no charger, and no way to contact him. They embraced, the weight of the past days finally lifting. Amid the ashes, they found each other.
         
-        <StoryCharacterChat 
+        <CharacterChat 
+          name="Jonah"
+          avatar="JH"
+          description="Father & Lahaina Fire Survivor"
+          colorTheme="#e74c3c"
+          timing="after"
+          environment="preparedness"
           topic="preparedness"
           label="🏠 Ask Jonah about emergency preparedness lessons"
-          context="preparedness"
-          description="Learn from Jonah's experience about family emergency planning"
+          context="Jonah is reflecting after finding Mia and reuniting. He's thinking about what they could have done differently and wants to share lessons that could save lives. This is his chance to speak about the experience and offer wisdom from having lived through the ordeal."
+          coordinates={[-156.6734, 20.8742]}
+          area="Safe meeting point"
+          conditions="Clear area, emergency staging"
+          windSpeed="Light winds"
+          visibility="Good visibility for reunion"
+          evacuationRadius="2.1 miles from fire perimeter"
+          airQuality="AQI 89 (Moderate)"
+          refugeeCount="847 people at this staging area"
+          windDirection="Southwest, away from fire"
         />
   </Prose>
 </Block>

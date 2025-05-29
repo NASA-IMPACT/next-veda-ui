@@ -15,6 +15,18 @@ interface StoryCharacterChatProps {
 export default function StoryCharacterChat({ config, topic, label, context, description }: StoryCharacterChatProps) {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
+  // Adapt old config format to new format expected by FullScreenChat
+  const adaptedConfig = {
+    character: {
+      ...config.character,
+      // Get location data from the current topic
+      coordinates: config.locations[topic]?.coordinates,
+      area: config.locations[topic]?.area,
+      locationDescription: config.locations[topic]?.conditions
+    },
+    contexts: config.contexts
+  };
+
   const getContextPrompt = (topic: string): string => {
     const location = config.locations[topic] || {};
     const contextInfo = config.contexts[topic] || { timing: 'during', perspective: 'experiencing events' };
@@ -115,7 +127,7 @@ The user is asking about ${topic}. Reference the specific environmental data mea
         onClose={() => setIsChatOpen(false)}
         context={context}
         contextPrompt={getContextPrompt(topic)}
-        config={config}
+        config={adaptedConfig}
       />
     </>
   );

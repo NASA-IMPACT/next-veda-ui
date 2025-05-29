@@ -5,47 +5,23 @@ import { createPortal } from 'react-dom';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-interface LocationContext {
-  coords: [number, number];
-  label: string;
-  description?: string;
-}
-
 interface MiniMapProps {
-  context: string;
+  coordinates?: [number, number];
+  area?: string;
+  description?: string;
+  characterName?: string;
+  colorTheme?: string;
   className?: string;
 }
 
-// Location contexts for Jonah's story
-const locationContexts: Record<string, LocationContext> = {
-  'drought': { 
-    coords: [-156.6747, 20.8738], 
-    label: 'Lahaina Resort Area',
-    description: 'Where Jonah worked when drought conditions were building'
-  },
-  'fire': { 
-    coords: [-156.6789, 20.8751], 
-    label: 'Front Street',
-    description: 'Historic downtown where the fire spread rapidly'
-  },
-  'search': { 
-    coords: [-156.6723, 20.8729], 
-    label: 'Residential Area',
-    description: 'Neighborhoods where Jonah searched for Mia'
-  },
-  'communication': { 
-    coords: [-156.6756, 20.8745], 
-    label: 'Central Lahaina',
-    description: 'Where cell towers failed during the emergency'
-  },
-  'preparedness': { 
-    coords: [-156.6734, 20.8742], 
-    label: 'Safe Meeting Point',
-    description: 'Where Jonah and Mia eventually reunited'
-  }
-};
-
-export default function MiniMap({ context, className }: MiniMapProps) {
+export default function MiniMap({ 
+  coordinates = [-118.1041, 34.1966], // Default to LA fires location
+  area = "Story Location", 
+  description,
+  characterName = "Character",
+  colorTheme = "#e74c3c",
+  className 
+}: MiniMapProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const fullscreenMapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
@@ -53,8 +29,6 @@ export default function MiniMap({ context, className }: MiniMapProps) {
   const marker = useRef<mapboxgl.Marker | null>(null);
   const fullscreenMarker = useRef<mapboxgl.Marker | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
-
-  const locationContext = locationContexts[context] || locationContexts['search'];
 
   useEffect(() => {
     if (!mapContainer.current || map.current) return;
@@ -72,18 +46,18 @@ export default function MiniMap({ context, className }: MiniMapProps) {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/satellite-v9',
-      center: locationContext.coords,
+      center: coordinates,
       zoom: 13,
-      interactive: true, // Now interactive!
+      interactive: true,
       attributionControl: false
     });
 
-    // Add a marker for Jonah's location
+    // Add a marker for the character's location
     marker.current = new mapboxgl.Marker({
-      color: '#e74c3c',
+      color: colorTheme,
       scale: 0.8
     })
-      .setLngLat(locationContext.coords)
+      .setLngLat(coordinates)
       .addTo(map.current);
 
     // Clean up on unmount
@@ -97,17 +71,17 @@ export default function MiniMap({ context, className }: MiniMapProps) {
     };
   }, []);
 
-  // Update marker position when context changes
+  // Update marker position when coordinates change
   useEffect(() => {
     if (map.current && marker.current) {
-      marker.current.setLngLat(locationContext.coords);
-      map.current.setCenter(locationContext.coords);
+      marker.current.setLngLat(coordinates);
+      map.current.setCenter(coordinates);
     }
     if (fullscreenMap.current && fullscreenMarker.current) {
-      fullscreenMarker.current.setLngLat(locationContext.coords);
-      fullscreenMap.current.setCenter(locationContext.coords);
+      fullscreenMarker.current.setLngLat(coordinates);
+      fullscreenMap.current.setCenter(coordinates);
     }
-  }, [context, locationContext.coords]);
+  }, [coordinates]);
 
   // Initialize fullscreen map when entering fullscreen mode
   useEffect(() => {
@@ -120,7 +94,7 @@ export default function MiniMap({ context, className }: MiniMapProps) {
         mapboxgl.accessToken = mapboxToken;
         
         // Get current state from mini map if available
-        const currentCenter = map.current ? map.current.getCenter() : locationContext.coords;
+        const currentCenter = map.current ? map.current.getCenter() : coordinates;
         const currentZoom = map.current ? map.current.getZoom() : 13;
         
         fullscreenMap.current = new mapboxgl.Map({
@@ -141,10 +115,10 @@ export default function MiniMap({ context, className }: MiniMapProps) {
 
         // Add marker to fullscreen map
         fullscreenMarker.current = new mapboxgl.Marker({
-          color: '#e74c3c',
+          color: colorTheme,
           scale: 1.2 // Slightly larger in fullscreen
         })
-          .setLngLat(locationContext.coords)
+          .setLngLat(coordinates)
           .addTo(fullscreenMap.current);
       }, 100);
     }
@@ -158,7 +132,7 @@ export default function MiniMap({ context, className }: MiniMapProps) {
       fullscreenMap.current.remove();
       fullscreenMap.current = null;
     }
-  }, [isFullscreen, locationContext.coords]);
+  }, [isFullscreen, coordinates, colorTheme]);
 
   // Handle ESC key to exit fullscreen
   useEffect(() => {
@@ -238,9 +212,9 @@ export default function MiniMap({ context, className }: MiniMapProps) {
           color: 'rgba(255, 255, 255, 0.9)',
           textAlign: 'center'
         }}>
-          📍 {locationContext.label}
+          📍 {area}
         </div>
-        {locationContext.description && (
+        {description && (
           <div style={{
             fontSize: '12px',
             color: 'rgba(255, 255, 255, 0.7)',
@@ -248,7 +222,7 @@ export default function MiniMap({ context, className }: MiniMapProps) {
             marginTop: '4px',
             fontStyle: 'italic'
           }}>
-            {locationContext.description}
+            {description}
           </div>
         )}
       </div>
@@ -288,11 +262,11 @@ export default function MiniMap({ context, className }: MiniMapProps) {
           }}>
             <div>
               <h3 style={{ margin: 0, fontSize: '20px', fontWeight: '600', color: '#2c3e50' }}>
-                📍 {locationContext.label}
+                📍 {area}
               </h3>
-              {locationContext.description && (
+              {description && (
                 <p style={{ margin: '4px 0 0 0', fontSize: '14px', color: '#6c757d', fontStyle: 'italic' }}>
-                  {locationContext.description}
+                  {description}
                 </p>
               )}
             </div>
@@ -350,7 +324,7 @@ export default function MiniMap({ context, className }: MiniMapProps) {
             fontSize: '12px',
             color: '#868e96'
           }}>
-            🗺️ Interactive map - Zoom, pan, and explore Jonah's location | Press ESC or click X to close
+            🗺️ Interactive map - Zoom, pan, and explore {characterName}'s location | Press ESC or click X to close
           </div>
         </div>,
         document.body

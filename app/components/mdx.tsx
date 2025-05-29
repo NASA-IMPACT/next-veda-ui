@@ -3,10 +3,7 @@ import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { highlight } from 'sugar-high';
 import { LegacyGlobalStyles } from '@lib';
-import JonahChat from './character-chat/JonahChat';
-import ChatTrigger from './character-chat/ChatTrigger';
-import StoryCharacterChat from './character-chat/StoryCharacterChat';
-import { lahaineFireConfig } from '../story-configs/lahaina-fire-config';
+import CharacterChat from './character-chat/CharacterChat';
 
 import {
   Block,
@@ -105,9 +102,7 @@ const components = {
   Link: Link,
   Chapter: Chapter,
   Chart: Chart,
-  JonahChat: JonahChat,
-  ChatTrigger: ChatTrigger,
-  StoryCharacterChat: (props: any) => <StoryCharacterChat config={lahaineFireConfig} {...props} />,
+  CharacterChat: CharacterChat,
 };
 
 export function CustomMDX(props: any) {
