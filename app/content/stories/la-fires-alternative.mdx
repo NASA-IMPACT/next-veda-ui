@@ -1,0 +1,270 @@
+---
+id: 'la-fireline-story'
+name: The Line Between Burned and Spared
+description: A land steward's journey through fire-torn landscapes, where data meets devastation and nature's resilience confronts human loss.
+media:
+  src: /images/story/la-fires-010825_NO_cali-fires_feat.png
+  alt: A single home untouched while everything around it burned.
+  author:
+    name: Maxar Technologies
+pubDate: 2025-05-25T00:00
+taxonomy:
+  - name: Topics
+    values:
+      - Wildfire
+      - Biodiversity
+  - name: Subtopics
+    values:
+      - Biomass Loss
+      - Climate Resilience
+---
+
+<Block>
+  <Prose>
+    The call came at 3:17 AM. "James, you need to see this." My neighbor Alan's voice cracked through the phone. "The whole canyon's burning."
+    
+    I stepped outside my Altadena home and saw the orange glow painting the San Gabriel Mountains. As a volunteer land steward for the Upper Arroyo Reserve, I'd spent countless mornings on those trails, cataloging native plants, monitoring wildlife corridors, watching the slow dance of ecological recovery. Now the mountains looked like the edge of the world was on fire.
+    
+    Three days later, I would return after the evacuation order. But that morning, watching the flames crown through century-old oaks, I couldn't imagine any of us would be spared.
+  </Prose>
+</Block>
+
+<Block type='wide'>
+<Figure>
+  <Map
+    datasetId='la-fires-parcels'
+    layerId='la-fires-parcels'
+    dateTime='2025-01-09'
+    zoom={14.5}
+    center={[-118.1041, 34.1966]}
+    compareDateTime='2025-01-08'
+  />
+  <Caption attrAuthor='NASA' attrUrl='https://nasa.gov/'>
+    Parcel-level damage from the 2025 Eaton Fire, showing the sharp boundaries between destruction and survival.
+  </Caption>
+</Figure>
+</Block>
+
+<Block>
+  <Prose>
+    ## Day One: The Arbitrary Line
+    
+    When the evacuation order lifted, I drove back through neighborhoods that looked like a war zone. House after house reduced to concrete foundations and chimney stacks. But then, inexplicably, a cluster of homes would stand untouched, their lawns still green, mail still waiting in boxes.
+    
+    The fire hadn't followed any logic I understood. It jumped streets, skipped blocks, carved impossible boundaries through communities that had lived side by side for decades. Alan's house: gone. Mine: intact, down to the potted succulents on my porch.
+    
+    "I just don't get it," Alan said when I found him sifting through debris. "Same wind. Same drought. Same everything." He held up a twisted piece of metal that might have been part of his daughter's bike. "Why you and not me?"
+    
+    I didn't have an answer. But I knew where to look for one.
+  </Prose>
+</Block>
+
+<ScrollytellingBlock>
+  <Chapter
+    center={[-118.0897, 34.207]}
+    zoom={12}
+    datasetId='la-fires-gedi'
+    layerId='la-fires-gedi'
+    datetime='2025-01-07'
+  >
+  ## Day Two: Reading the Landscape
+  
+  <p>
+    Before the fire, the reserve I stewarded was a complex tapestry of life. Chaparral scrub dominated the slopes—hardy manzanita and ceanothus that had evolved with fire for millennia. Higher up, oak woodlands provided crucial habitat for everything from acorn woodpeckers to black bears passing through the corridor.
+  </p>
+  <p>
+    The GEDI satellite data showed what I'd measured on foot: biomass densities exceeding 80 megagrams per hectare in the mature oak stands. Each megagram represented decades of carbon storage, wildlife habitat, and ecological relationships built over generations.
+  </p>
+  <p>
+    All of it was gone.
+  </p>
+  </Chapter>
+</ScrollytellingBlock>
+
+<Block>
+<Figure>
+  <Map
+    datasetId='la-fires-frp'
+    layerId='la-fires-frp'
+    dateTime='2025-01-08'
+    zoom={12}
+    center={[-118.0897, 34.207]}
+  />
+  <Caption attrAuthor='NASA' attrUrl='https://nasa.gov/'>
+    Fire radiative power on January 8th revealed the fire's intensity as it tore through the Upper Arroyo Reserve.
+  </Caption>
+</Figure>
+<Prose>
+  ## Day Three: The Heat Signature of Loss
+  
+  I hiked what remained of the Gabrielino Trail, following GPS coordinates to study plots I'd monitored for five years. The fire radiative power data showed this area had burned at maximum intensity—over 100 watts per square meter. That meant temperatures hot enough to sterilize soil, crack granite boulders, and reduce 200-year-old oaks to ash in minutes.
+  
+  Where I used to count endangered California gnatcatchers building nests in the sage scrub, I found only blackened earth. The seasonal creek that supported mountain lions during drought years had been scoured clean, its riparian willows vaporized. Even the root systems that held these slopes together were gone.
+  
+  I knelt by a massive boulder where I'd often seen families of California towhees foraging in the leaf litter. The rock was split in half from thermal shock. No birds. No insects. No signs that life had ever existed here at all.
+</Prose>
+</Block>
+
+<Block>
+  <Figure>
+    <Image
+      src='/images/story/la-fires-hrrr_wind.gif'
+      alt='Modeled wind patterns during the Eaton Fire ignition.'
+      attrAuthor='Andrew Blackford'
+    />
+    <Caption>
+      High-resolution wind data revealed the exact moment the fire changed direction, sparing some neighborhoods while consuming others.
+    </Caption>
+  </Figure>
+  <Prose>
+    ## Day Four: The Wind's Decision
+    
+    Back home, I pored over weather data, trying to understand the arbitrary line that had saved me and doomed Alan. The HRRR model showed a sharp wind shift at 2:15 PM on January 8th—a sudden gust from the northeast that pushed the fire across the ravine and into the residential area just south of mine.
+    
+    Sixty-seven miles per hour. That was the difference between Alan's family photos and ash, between my neighbor's forty-year oak tree and empty air. A single gust of wind, lasting maybe three minutes, had rewritten the entire geography of loss in our community.
+    
+    I thought about the California scrub jays I'd been tracking in that oak—a mated pair that had nested there for seven seasons. Their territory had encompassed both Alan's yard and mine, connecting our lots through invisible corridors of foraging and flight. Now half their world was gone, and I wondered if they'd survive the disruption.
+    
+    {/* Chat component - Wind Decision */}
+    <CharacterChat 
+      name="James Rivera"
+      avatar="JR"
+      description="Land Steward & Fire Survivor"
+      colorTheme="#228B22"
+      timing="after"
+      environment="ash"
+      label="🌪️ Ask James about the wind that changed everything"
+      context="James has just discovered the 67 mph wind gust that saved his neighborhood while destroying Alan's. He's grappling with the arbitrary nature of wildfire survival and the guilt of being spared."
+      coordinates={[-118.1041, 34.1966]}
+      area="Upper Arroyo Reserve"
+      conditions="Post-fire, 67 mph wind event"
+      windSpeed="67 mph sustained gusts"
+      visibility="Clear after wind shift"
+      windDirection="Northeast to southeast shift"
+      temperatureAnomaly="Extreme fire weather conditions"
+    />
+  </Prose>
+</Block>
+
+<Block type='wide'>
+  <Figure>
+    <Map
+      datasetId='la-fires-HLS'
+      layerId='la-fires-HLS'
+      dateTime='2025-01-14'
+      compareDateTime='2025-01-06'
+      center={[-118.0897, 34.207]}
+      zoom={12}
+    />
+    <Caption>
+    Before-and-after satellite imagery capturing the transformation of a living landscape into burn scar.
+    </Caption>
+  </Figure>
+</Block>
+
+<Block>
+<Prose>
+  ## Day Five: The Silence
+  
+  The satellite images were stark—false-color composites that showed the burn area as deep red against the surviving green. But they couldn't capture what I noticed most: the absence of sound.
+  
+  No dawn chorus of house finches and mockingbirds. No rustle of squirrels in the remaining oaks. No buzz of native bees working the ceanothus blooms that should have been emerging this time of year. The fire had created not just a visual scar, but an acoustic void that stretched across 14,000 acres.
+  
+  I started keeping a species log, noting what had returned and what hadn't. Turkey vultures were among the first—drawn by the carcasses of rabbits, deer, and smaller animals that hadn't escaped the flames. Ravens followed, their intelligence adapted to finding opportunity in disaster.
+  
+  {/* Chat component - Ecological Loss */}
+  <CharacterChat 
+    name="James Rivera"
+    avatar="JR"
+    description="Land Steward & Fire Survivor"
+    colorTheme="#228B22"
+    timing="after"
+    environment="smoke"
+    label="🦎 Ask James about the missing wildlife"
+    context="James is documenting which species have returned after the fire and which haven't. As a land steward, he understands the invisible web of ecological relationships that were severed."
+    coordinates={[-118.0897, 34.207]}
+    area="Upper Arroyo Reserve Trail System"
+    conditions="Post-fire ecological assessment"
+    visibility="Clear, no smoke"
+    biomassDensity="Previously 80+ megagrams per hectare"
+    burnSeverity="Complete biomass loss in oak woodlands"
+    speciesImpact="Specialist species missing, generalists returning"
+  />
+  
+  But the specialists—the birds and mammals adapted to specific chaparral plant communities—were nowhere to be found.
+  
+  Their absence hit me harder than the human losses I could see. Houses could be rebuilt. But the intricate web of relationships between native plants and their pollinating insects, between seed-dispersing birds and the next generation of oak woodlands, between predators and prey in the complex food webs I'd spent years documenting—all of that would take decades to restore, if it could be restored at all.
+</Prose>
+</Block>
+
+<Block>
+  <Prose>
+    ## Day Seven: What Data Can't Measure
+    
+    I sat with Alan in his driveway, sharing coffee from a thermos while he sorted through debris. We didn't talk much. The wind data, the biomass measurements, the fire intensity readings—none of it could explain why survival felt so much like guilt.
+    
+    "I keep thinking about that mountain lion," I told him. We'd both seen it occasionally, a young female that used the wildlife corridor through our neighborhood to access the reserve. "She probably tried to run uphill when the fire hit. That's what they do—seek higher ground."
+    
+    Alan nodded. "Think she made it?"
+    
+    I looked up at the blackened ridgeline where she used to den. "I don't know. Mountain lions need 50 to 370 square miles of territory. This fire burned through most of hers."
+    
+    That afternoon, I planted native seedlings along what remained of the trail—coast live oak, toyon, and California lilac. Small gestures against massive loss. The soil was still warm, still full of ash that would fertilize whatever grew next. Nature had evolved with fire, I reminded myself. Recovery was possible.
+    
+    {/* Chat component - Restoration Hope */}
+    <CharacterChat 
+      name="James Rivera"
+      avatar="JR"
+      description="Land Steward & Fire Survivor"
+      colorTheme="#228B22"
+      timing="after"
+      environment="clear"
+      label="🌱 Ask James about restoring burned landscapes"
+      context="James is planting native seedlings in ash-enriched soil, thinking about 50-year recovery timelines and the ecological relationships that take generations to rebuild."
+      coordinates={[-118.0897, 34.207]}
+      area="Gabrielino Trail Restoration Site"
+      conditions="Ash-enriched soil, moderate temperatures"
+      visibility="Clear conditions for planting"
+      soilCondition="Warm, ash-fertilized, sterilized by fire"
+      recoveryTimeline="50+ years for oak maturity"
+      plantingSpecies="Coast live oak, toyon, California lilac"
+    />
+    
+    But as I watered the seedlings with precious bottled water, I thought about all the relationships that fire had severed. The oak seedlings I was planting wouldn't reach maturity for fifty years. The scrub jay pairs that might nest in them wouldn't exist for generations. The entire ecological community that had taken centuries to develop was gone, replaced by a moonscape where I could see clear across valleys that used to be hidden by forests.
+  </Prose>
+</Block>
+
+<Block>
+  <Prose>
+    ## Day Ten: The New Landscape
+    
+    Today I hiked to the highest point in the reserve that was still accessible. From there, I could see the full extent of what we'd lost—not just the 4.7 million tons of stored carbon now released into the atmosphere, not just the 7,000 homes destroyed, but the invisible infrastructure of wildness that had connected our human community to something larger than ourselves.
+    
+    The fire had drawn its arbitrary line not just between Alan's house and mine, but between the world we'd known and whatever comes next. I still check the satellite maps every morning, looking for signs of green returning to the burn scar. I still maintain my species observation logs, noting the slow return of generalist birds and the continued absence of specialists.
+    
+    And I still don't fully understand why I was spared while so much else was taken. But I'm beginning to understand that survival carries its own obligations. To remember what was lost. To tend what remains. To plant seeds for forests we'll never see, for creatures that haven't been born yet, for a future that exists somewhere beyond the arbitrary lines fire draws between what burns and what is saved.
+    
+    Alan decided to rebuild. The mountain lion hasn't returned. And every morning, I water the seedlings and wonder what kind of world they'll grow into.
+  </Prose>
+</Block>
+
+<Block>
+  <Prose>
+     ### Data Sources
+     * [Global Ecosystem Dynamics Investigation Lidar (GEDI)](https://www.earthdata.nasa.gov/data/instruments/gedi-lidar) - Biomass density measurements
+     * [Fire Radiative Power (FRP)](https://www.earthdata.nasa.gov/learn/toolkits/fire/toolkit-fires-faqs/frp) - Fire intensity mapping
+     * [High Resolution Rapid Refresh (HRRR)](https://rapidrefresh.noaa.gov/) - Wind pattern analysis
+     * [Harmonized Landsat and Sentinel-2 (HLS)](https://www.earthdata.nasa.gov/learn/articles/harmonized-landsat-sentinel-2) - Before-and-after imagery
+     * [Parcel Damage Assessment via LA County](https://assessor.lacounty.gov/) - Property impact data
+     
+     **Editor**: Brian Freitag  
+     **Developer**: Andrew Blackford  
+     **Story Contributor**: Anthony Boyd
+
+     **Questions / Feedback**: veda@uah.edu
+
+     <p style={{ fontSize: '0.9em', fontStyle: 'italic' }}>
+     This work explores the intersection of personal experience and scientific data in understanding wildfire impacts on both human and natural communities.
+     </p>
+  </Prose>
+</Block>
