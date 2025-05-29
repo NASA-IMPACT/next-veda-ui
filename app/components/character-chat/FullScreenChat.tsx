@@ -66,6 +66,7 @@ interface FullScreenChatProps {
 }
 
 export default function FullScreenChat({ isOpen, onClose, context, contextPrompt, environment, config }: FullScreenChatProps) {
+  // Fixed getContextualAnimation error - 2024
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -101,9 +102,9 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
     return () => document.removeEventListener('keydown', handleEsc);
   }, [isOpen, onClose]);
 
-  const getContextualBackground = (envType: string): string => {
-    // Use environment prop from config or fallback to context for backwards compatibility
-    const environmentType = config.character.environment || envType || 'clear';
+  const getContextualBackground = (): string => {
+    // Use environment prop from config first, then fallback to environment prop, then context, then default
+    const environmentType = config.character.environment || environment || context || 'clear';
     
     switch (environmentType) {
       case 'search':
@@ -143,68 +144,6 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
           'linear-gradient(135deg, rgba(30, 40, 70, 0.6) 0%, rgba(60, 70, 90, 0.7) 100%)'
         ].join(', ');
       case 'preparedness':
-        return {
-          background: [
-            // Light clearing particles
-            'radial-gradient(2px 2px at 50px 30px, rgba(200, 220, 200, 0.5), transparent)',
-            'radial-gradient(1px 1px at 90px 70px, rgba(180, 200, 180, 0.4), transparent)',
-            'radial-gradient(3px 3px at 130px 45px, rgba(220, 240, 220, 0.3), transparent)',
-            // Gentle light rays
-            'radial-gradient(8px 3px at 70px 20px, rgba(240, 250, 240, 0.2), transparent)',
-            'radial-gradient(6px 4px at 120px 80px, rgba(220, 230, 220, 0.3), transparent)'
-          ].join(', '),
-          backgroundRepeat: 'repeat',
-          backgroundSize: '200px 100px',
-          animation: 'smokeClearing 15s infinite ease-out, gentleFloat 10s infinite ease-in-out'
-        };
-      case 'ash':
-        return {
-          background: [
-            // Heavy ash particles
-            'radial-gradient(4px 4px at 30px 50px, rgba(160, 160, 160, 0.8), transparent)',
-            'radial-gradient(3px 3px at 80px 30px, rgba(140, 140, 140, 0.7), transparent)',
-            'radial-gradient(5px 5px at 120px 80px, rgba(180, 180, 180, 0.6), transparent)',
-            'radial-gradient(2px 2px at 160px 40px, rgba(120, 120, 120, 0.9), transparent)',
-            // Swirling ash clouds
-            'radial-gradient(12px 6px at 60px 60px, rgba(100, 100, 100, 0.5), transparent)',
-            'radial-gradient(8px 8px at 140px 20px, rgba(90, 90, 90, 0.6), transparent)'
-          ].join(', '),
-          backgroundRepeat: 'repeat',
-          backgroundSize: '180px 120px',
-          animation: 'ashFall 6s infinite ease-in-out, ashSwirl 12s infinite linear'
-        };
-      case 'wind':
-        return {
-          background: [
-            // Wind-blown debris
-            'radial-gradient(6px 2px at 40px 60px, rgba(150, 140, 130, 0.6), transparent)',
-            'radial-gradient(4px 1px at 100px 20px, rgba(170, 160, 150, 0.5), transparent)',
-            'radial-gradient(8px 3px at 160px 90px, rgba(130, 120, 110, 0.7), transparent)',
-            // Wind streaks
-            'radial-gradient(20px 1px at 80px 40px, rgba(200, 190, 180, 0.3), transparent)',
-            'radial-gradient(15px 2px at 140px 70px, rgba(180, 170, 160, 0.4), transparent)'
-          ].join(', '),
-          backgroundRepeat: 'repeat',
-          backgroundSize: '200px 110px',
-          animation: 'windGusts 4s infinite ease-in-out, debrisBlown 8s infinite linear'
-        };
-      case 'smoke':
-        return {
-          background: [
-            // Dense smoke particles
-            'radial-gradient(8px 8px at 35px 45px, rgba(80, 75, 70, 0.7), transparent)',
-            'radial-gradient(6px 6px at 90px 75px, rgba(60, 55, 50, 0.8), transparent)',
-            'radial-gradient(10px 10px at 140px 25px, rgba(100, 95, 90, 0.6), transparent)',
-            'radial-gradient(4px 4px at 170px 85px, rgba(40, 35, 30, 0.9), transparent)',
-            // Smoke billows
-            'radial-gradient(15px 8px at 70px 50px, rgba(50, 45, 40, 0.5), transparent)',
-            'radial-gradient(12px 10px at 120px 30px, rgba(70, 65, 60, 0.6), transparent)'
-          ].join(', '),
-          backgroundRepeat: 'repeat',
-          backgroundSize: '200px 130px',
-          animation: 'smokeDrift 8s infinite ease-in-out, smokeBillows 15s infinite linear'
-        };
-      case 'clear':
         return [
           'radial-gradient(circle at 30% 70%, rgba(100, 120, 100, 0.4) 0%, transparent 70%)',
           'radial-gradient(circle at 70% 30%, rgba(80, 100, 80, 0.5) 0%, transparent 65%)',
@@ -213,11 +152,20 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
         ].join(', ');
       case 'ash':
         return [
+          // Base ash background
           'radial-gradient(circle at 25% 75%, rgba(90, 85, 80, 0.7) 0%, transparent 55%)',
           'radial-gradient(circle at 75% 25%, rgba(110, 105, 100, 0.6) 0%, transparent 60%)',
           'radial-gradient(circle at 40% 40%, rgba(70, 65, 60, 0.8) 0%, transparent 45%)',
           'radial-gradient(circle at 60% 80%, rgba(130, 125, 120, 0.5) 0%, transparent 70%)',
-          'linear-gradient(135deg, rgba(50, 45, 40, 0.6) 0%, rgba(90, 85, 80, 0.7) 100%)'
+          'linear-gradient(135deg, rgba(50, 45, 40, 0.6) 0%, rgba(90, 85, 80, 0.7) 100%)',
+          // Animated ash particles
+          'radial-gradient(4px 4px at 30px 50px, rgba(160, 160, 160, 0.8), transparent)',
+          'radial-gradient(3px 3px at 80px 30px, rgba(140, 140, 140, 0.7), transparent)',
+          'radial-gradient(5px 5px at 120px 80px, rgba(180, 180, 180, 0.6), transparent)',
+          'radial-gradient(2px 2px at 160px 40px, rgba(120, 120, 120, 0.9), transparent)',
+          // Swirling ash clouds
+          'radial-gradient(12px 6px at 60px 60px, rgba(100, 100, 100, 0.5), transparent)',
+          'radial-gradient(8px 8px at 140px 20px, rgba(90, 90, 90, 0.6), transparent)'
         ].join(', ');
       case 'wind':
         return [
@@ -252,369 +200,131 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
     }
   };
 
-  const getContextualAnimation = (envType: string): React.CSSProperties => {
-    // Use environment prop from config or fallback to context for backwards compatibility
-    const environmentType = config.character.environment || envType || 'clear';
+  const getAnimatedParticles = (): string => {
+    const environmentType = config.character.environment || environment || context || 'clear';
     
     switch (environmentType) {
-      case 'search':
-        return {
-          background: [
-            // Ash particles - realistic sizes and movement
-            'radial-gradient(3px 3px at 25px 35px, rgba(200, 200, 200, 0.7), transparent)',
-            'radial-gradient(2px 2px at 45px 75px, rgba(180, 180, 180, 0.6), transparent)',
-            'radial-gradient(4px 4px at 95px 45px, rgba(220, 220, 220, 0.8), transparent)',
-            'radial-gradient(2px 2px at 135px 85px, rgba(160, 160, 160, 0.5), transparent)',
-            'radial-gradient(3px 3px at 165px 35px, rgba(190, 190, 190, 0.6), transparent)',
-            // Floating smoke wisps - horizontal drifting
-            'radial-gradient(6px 3px at 60px 20px, rgba(120, 120, 120, 0.4), transparent)',
-            'radial-gradient(8px 2px at 120px 60px, rgba(100, 100, 100, 0.5), transparent)',
-            'radial-gradient(5px 4px at 180px 90px, rgba(140, 140, 140, 0.3), transparent)',
-            // Small embers - very subtle
-            'radial-gradient(1px 1px at 80px 50px, rgba(255, 120, 80, 0.6), transparent)',
-            'radial-gradient(1px 1px at 140px 30px, rgba(255, 100, 60, 0.5), transparent)'
-          ].join(', '),
-          backgroundRepeat: 'repeat',
-          backgroundSize: '200px 120px',
-          animation: 'searchSmokeDrift 10s infinite linear, searchAshFall 8s infinite ease-in-out'
-        };
+      case 'ash':
+        return [
+          // Small ash particles
+          'radial-gradient(2px 2px at 30px 50px, rgba(160, 160, 160, 0.6), transparent)',
+          'radial-gradient(1px 1px at 80px 30px, rgba(140, 140, 140, 0.4), transparent)',
+          'radial-gradient(3px 3px at 120px 80px, rgba(180, 180, 180, 0.5), transparent)',
+          'radial-gradient(1px 1px at 160px 40px, rgba(120, 120, 120, 0.3), transparent)',
+        ].join(', ');
+      case 'smoke':
+        return [
+          // Wispy smoke particles
+          'radial-gradient(3px 3px at 35px 45px, rgba(80, 75, 70, 0.4), transparent)',
+          'radial-gradient(2px 2px at 90px 75px, rgba(60, 55, 50, 0.5), transparent)',
+          'radial-gradient(4px 4px at 140px 25px, rgba(100, 95, 90, 0.3), transparent)',
+        ].join(', ');
+      case 'wind':
+        return [
+          // Wind streaks
+          'radial-gradient(8px 1px at 40px 60px, rgba(150, 140, 130, 0.3), transparent)',
+          'radial-gradient(6px 1px at 100px 20px, rgba(170, 160, 150, 0.2), transparent)',
+          'radial-gradient(10px 1px at 160px 90px, rgba(130, 120, 110, 0.4), transparent)',
+        ].join(', ');
       case 'fire':
-        return {
-          background: [
-            // Flickering embers
-            'radial-gradient(2px 2px at 30px 40px, rgba(255, 150, 80, 0.8), transparent)',
-            'radial-gradient(3px 3px at 70px 20px, rgba(255, 120, 60, 0.9), transparent)',
-            'radial-gradient(1px 1px at 120px 80px, rgba(255, 180, 100, 0.7), transparent)',
-            'radial-gradient(2px 2px at 160px 50px, rgba(255, 140, 70, 0.8), transparent)',
-            // Heat shimmer effect
-            'radial-gradient(8px 1px at 50px 30px, rgba(255, 200, 150, 0.3), transparent)',
-            'radial-gradient(6px 2px at 100px 70px, rgba(255, 180, 120, 0.4), transparent)',
-            'radial-gradient(10px 1px at 150px 40px, rgba(255, 160, 100, 0.2), transparent)'
-          ].join(', '),
-          backgroundRepeat: 'repeat',
-          backgroundSize: '180px 100px',
-          animation: 'fireFlicker 2s infinite ease-in-out, fireGlow 4s infinite alternate'
-        };
-      case 'drought':
-        return {
-          background: [
-            // Dust particles
-            'radial-gradient(2px 2px at 40px 60px, rgba(200, 180, 140, 0.6), transparent)',
-            'radial-gradient(1px 1px at 80px 30px, rgba(220, 200, 160, 0.5), transparent)',
-            'radial-gradient(3px 3px at 130px 90px, rgba(180, 160, 120, 0.7), transparent)',
-            'radial-gradient(2px 2px at 170px 40px, rgba(240, 220, 180, 0.4), transparent)',
-            // Heat haze
-            'radial-gradient(12px 2px at 60px 50px, rgba(250, 230, 190, 0.2), transparent)',
-            'radial-gradient(8px 3px at 140px 20px, rgba(230, 210, 170, 0.3), transparent)'
-          ].join(', '),
-          backgroundRepeat: 'repeat',
-          backgroundSize: '200px 110px',
-          animation: 'droughtShimmer 12s infinite linear, dustFloat 8s infinite ease-in-out'
-        };
-      case 'communication':
-        return {
-          background: [
-            // Static interference particles
-            'radial-gradient(1px 1px at 25px 35px, rgba(180, 190, 220, 0.7), transparent)',
-            'radial-gradient(1px 1px at 60px 70px, rgba(160, 170, 200, 0.6), transparent)',
-            'radial-gradient(1px 1px at 100px 25px, rgba(200, 210, 240, 0.8), transparent)',
-            'radial-gradient(1px 1px at 140px 85px, rgba(140, 150, 180, 0.5), transparent)',
-            // Signal fade lines
-            'radial-gradient(15px 1px at 80px 40px, rgba(120, 140, 180, 0.3), transparent)',
-            'radial-gradient(10px 2px at 150px 60px, rgba(100, 120, 160, 0.4), transparent)'
-          ].join(', '),
-          backgroundRepeat: 'repeat',
-          backgroundSize: '180px 110px',
-          animation: 'signalStatic 3s infinite linear, signalFade 6s infinite ease-in-out'
-        };
-      case 'preparedness':
-        return {
-          background: [
-            // Light clearing particles
-            'radial-gradient(2px 2px at 50px 30px, rgba(200, 220, 200, 0.5), transparent)',
-            'radial-gradient(1px 1px at 90px 70px, rgba(180, 200, 180, 0.4), transparent)',
-            'radial-gradient(3px 3px at 130px 45px, rgba(220, 240, 220, 0.3), transparent)',
-            // Gentle light rays
-            'radial-gradient(8px 3px at 70px 20px, rgba(240, 250, 240, 0.2), transparent)',
-            'radial-gradient(6px 4px at 120px 80px, rgba(220, 230, 220, 0.3), transparent)'
-          ].join(', '),
-          backgroundRepeat: 'repeat',
-          backgroundSize: '200px 100px',
-          animation: 'smokeClearing 15s infinite ease-out, gentleFloat 10s infinite ease-in-out'
-        };
+        return [
+          // Subtle embers
+          'radial-gradient(1px 1px at 30px 40px, rgba(255, 150, 80, 0.5), transparent)',
+          'radial-gradient(2px 2px at 70px 20px, rgba(255, 120, 60, 0.4), transparent)',
+          'radial-gradient(1px 1px at 120px 80px, rgba(255, 180, 100, 0.3), transparent)',
+        ].join(', ');
       default:
-        return {};
+        return 'none';
     }
   };
 
+  const getBackgroundSize = (): string => {
+    const environmentType = config.character.environment || environment || context || 'clear';
+    
+    switch (environmentType) {
+      case 'ash':
+        return '200px 150px';
+      case 'smoke':
+        return '250px 180px';
+      case 'wind':
+        return '300px 100px';
+      case 'fire':
+        return '180px 120px';
+      default:
+        return 'auto';
+    }
+  };
+  const getEnvironmentAnimation = (): string => {
+    const environmentType = config.character.environment || environment || context || 'clear';
+    
+    switch (environmentType) {
+      case 'ash':
+        return 'gentleDrift 8s infinite linear';
+      case 'smoke':
+        return 'gentleFloat 10s infinite ease-in-out';
+      case 'wind':
+        return 'windSway 6s infinite ease-in-out';
+      case 'fire':
+        return 'subtleFlicker 4s infinite ease-in-out';
+      default:
+        return 'none';
+    }
+  };
   // Add CSS keyframes to document head
   useEffect(() => {
     if (isOpen) {
       const style = document.createElement('style');
       style.textContent = `
-        /* Search Context Animations */
-        @keyframes searchSmokeDrift {
+        /* Subtle realistic animations */
+        @keyframes gentleDrift {
           0% {
             transform: translateX(0) translateY(0);
             opacity: 0.6;
           }
           50% {
-            transform: translateX(-40px) translateY(-20px);
+            transform: translateX(-10px) translateY(-5px);
             opacity: 0.4;
           }
           100% {
-            transform: translateX(-80px) translateY(-40px);
+            transform: translateX(-20px) translateY(-10px);
             opacity: 0.6;
-          }
-        }
-        
-        @keyframes searchAshFall {
-          0% {
-            transform: translateY(-30px) translateX(0);
-            opacity: 0.7;
-          }
-          25% {
-            transform: translateY(-15px) translateX(10px);
-            opacity: 0.8;
-          }
-          50% {
-            transform: translateY(0) translateX(-5px);
-            opacity: 0.5;
-          }
-          75% {
-            transform: translateY(15px) translateX(15px);
-            opacity: 0.6;
-          }
-          100% {
-            transform: translateY(30px) translateX(-10px);
-            opacity: 0.3;
-          }
-        }
-        
-        /* Fire Context Animations */
-        @keyframes fireFlicker {
-          0%, 100% {
-            opacity: 0.7;
-            transform: scale(1);
-          }
-          25% {
-            opacity: 0.9;
-            transform: scale(1.1);
-          }
-          50% {
-            opacity: 0.5;
-            transform: scale(0.9);
-          }
-          75% {
-            opacity: 0.8;
-            transform: scale(1.05);
-          }
-        }
-        
-        @keyframes fireGlow {
-          0% {
-            filter: brightness(1) contrast(1);
-          }
-          100% {
-            filter: brightness(1.2) contrast(1.1);
-          }
-        }
-        
-        /* Drought Context Animations */
-        @keyframes droughtShimmer {
-          0% {
-            transform: translateX(0) translateY(0) scaleY(1);
-            opacity: 0.3;
-          }
-          50% {
-            transform: translateX(-20px) translateY(-5px) scaleY(1.2);
-            opacity: 0.5;
-          }
-          100% {
-            transform: translateX(-40px) translateY(-10px) scaleY(0.8);
-            opacity: 0.3;
-          }
-        }
-        
-        @keyframes dustFloat {
-          0% {
-            transform: translateY(0) translateX(0);
-            opacity: 0.6;
-          }
-          50% {
-            transform: translateY(-20px) translateX(15px);
-            opacity: 0.4;
-          }
-          100% {
-            transform: translateY(-40px) translateX(-10px);
-            opacity: 0.2;
-          }
-        }
-        
-        /* Communication Context Animations */
-        @keyframes signalStatic {
-          0%, 100% {
-            opacity: 0.3;
-            transform: translateX(0);
-          }
-          25% {
-            opacity: 0.7;
-            transform: translateX(2px);
-          }
-          50% {
-            opacity: 0.1;
-            transform: translateX(-1px);
-          }
-          75% {
-            opacity: 0.5;
-            transform: translateX(1px);
-          }
-        }
-        
-        @keyframes signalFade {
-          0% {
-            opacity: 0.6;
-            transform: scaleX(1);
-          }
-          50% {
-            opacity: 0.2;
-            transform: scaleX(0.8);
-          }
-          100% {
-            opacity: 0.6;
-            transform: scaleX(1);
-          }
-        }
-        
-        /* Ash Context Animations */
-        @keyframes ashFall {
-          0% {
-            transform: translateY(-40px) translateX(0);
-            opacity: 0.8;
-          }
-          25% {
-            transform: translateY(-20px) translateX(8px);
-            opacity: 0.9;
-          }
-          50% {
-            transform: translateY(0) translateX(-4px);
-            opacity: 0.6;
-          }
-          75% {
-            transform: translateY(20px) translateX(12px);
-            opacity: 0.7;
-          }
-          100% {
-            transform: translateY(40px) translateX(-8px);
-            opacity: 0.4;
-          }
-        }
-        
-        @keyframes ashSwirl {
-          0% {
-            transform: rotate(0deg) translateX(0);
-            opacity: 0.6;
-          }
-          50% {
-            transform: rotate(180deg) translateX(20px);
-            opacity: 0.4;
-          }
-          100% {
-            transform: rotate(360deg) translateX(0);
-            opacity: 0.6;
-          }
-        }
-        
-        /* Wind Context Animations */
-        @keyframes windGusts {
-          0%, 100% {
-            transform: translateX(0) scaleX(1);
-            opacity: 0.5;
-          }
-          25% {
-            transform: translateX(30px) scaleX(1.3);
-            opacity: 0.7;
-          }
-          50% {
-            transform: translateX(-10px) scaleX(0.8);
-            opacity: 0.3;
-          }
-          75% {
-            transform: translateX(20px) scaleX(1.1);
-            opacity: 0.6;
-          }
-        }
-        
-        @keyframes debrisBlown {
-          0% {
-            transform: translateX(0) translateY(0);
-            opacity: 0.7;
-          }
-          100% {
-            transform: translateX(-120px) translateY(-30px);
-            opacity: 0.2;
-          }
-        }
-        
-        /* Smoke Context Animations */
-        @keyframes smokeDrift {
-          0% {
-            transform: translateX(0) translateY(0) scale(1);
-            opacity: 0.8;
-          }
-          50% {
-            transform: translateX(-30px) translateY(-15px) scale(1.2);
-            opacity: 0.5;
-          }
-          100% {
-            transform: translateX(-60px) translateY(-30px) scale(0.9);
-            opacity: 0.3;
-          }
-        }
-        
-        @keyframes smokeBillows {
-          0% {
-            transform: scale(0.8) translateY(0);
-            opacity: 0.6;
-          }
-          25% {
-            transform: scale(1.1) translateY(-10px);
-            opacity: 0.8;
-          }
-          50% {
-            transform: scale(0.9) translateY(-5px);
-            opacity: 0.4;
-          }
-          75% {
-            transform: scale(1.2) translateY(-15px);
-            opacity: 0.7;
-          }
-          100% {
-            transform: scale(0.8) translateY(0);
-            opacity: 0.6;
-          }
-        }
-        
-        /* Preparedness Context Animations */
-        @keyframes smokeClearing {
-          0% {
-            opacity: 0.5;
-            transform: translateY(0);
-          }
-          100% {
-            opacity: 0.1;
-            transform: translateY(-60px);
           }
         }
         
         @keyframes gentleFloat {
           0%, 100% {
             transform: translateY(0) translateX(0);
+            opacity: 0.5;
+          }
+          50% {
+            transform: translateY(-8px) translateX(3px);
+            opacity: 0.3;
+          }
+        }
+        
+        @keyframes windSway {
+          0%, 100% {
+            transform: translateX(0) scaleX(1);
             opacity: 0.4;
           }
           50% {
-            transform: translateY(-10px) translateX(5px);
-            opacity: 0.2;
+            transform: translateX(8px) scaleX(1.1);
+            opacity: 0.6;
+          }
+        }
+        
+        @keyframes subtleFlicker {
+          0%, 100% {
+            opacity: 0.4;
+            transform: scale(1);
+          }
+          25% {
+            opacity: 0.6;
+            transform: scale(1.05);
+          }
+          75% {
+            opacity: 0.3;
+            transform: scale(0.95);
           }
         }
       `;
@@ -820,7 +530,7 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
         right: 0,
         bottom: 0,
         backgroundColor: '#1a1a1a',
-        backgroundImage: getContextualBackground(environment || context),
+        backgroundImage: getContextualBackground(),
         border: 'none', // Removed debug border
         zIndex: 9999,
         display: 'flex',
@@ -828,7 +538,7 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
         overflow: 'hidden'
       }}
     >
-      {/* Animated particles overlay */}
+      {/* Static background particles */}
       <div
         style={{
           position: 'absolute',
@@ -836,8 +546,12 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
           left: 0,
           right: 0,
           bottom: 0,
+          backgroundImage: getAnimatedParticles(),
+          backgroundRepeat: 'repeat',
+          backgroundSize: getBackgroundSize(),
+          animation: getEnvironmentAnimation(),
           pointerEvents: 'none',
-          ...getContextualAnimation(environment || context)
+          zIndex: 1
         }}
       />
       <div
@@ -845,7 +559,9 @@ export default function FullScreenChat({ isOpen, onClose, context, contextPrompt
           width: '100%',
           height: '100vh',
           display: 'flex',
-          flexDirection: 'column'
+          flexDirection: 'column',
+          position: 'relative',
+          zIndex: 2
         }}
       >
         {/* Header */}
