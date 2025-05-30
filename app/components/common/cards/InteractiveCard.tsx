@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Card } from '@trussworks/react-uswds';
+import { Card, Icon } from '@trussworks/react-uswds';
 import './InteractiveCard.scss';
 import Image from 'next/image';
 import CardBadge from './CardBadge';
@@ -51,7 +51,12 @@ export const InteractiveCard: React.FC<InteractiveCardProps> = ({
           <div className='content-block'>
             <CardBadge label='Interactive' icon='Lightbulb' />
             <h3 className='card-title text-uppercase font-body font-weight-bold font-body-xl line-height-sans-1'>
-              {title}
+              <span>{title}</span>
+              <Icon.ArrowForward
+                className='arrow-icon'
+                size={3}
+                aria-label={`View ${title} interactive tool.`}
+              />
             </h3>
             <p className='card-description font-body-3xs line-height-sans-4'>
               {description}
