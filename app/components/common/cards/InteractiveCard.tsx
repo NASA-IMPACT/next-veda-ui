@@ -16,14 +16,6 @@ interface InteractiveCardProps {
   imageAlt: string;
 }
 
-/**
- * InteractiveCard Component
- *
- * A card component that displays an image covering the full card area.
- *
- * @param {InteractiveCardProps} props - Component props
- * @returns {React.ReactElement} An interactive card with a full-cover image
- */
 export const InteractiveCard: React.FC<InteractiveCardProps> = ({
   id,
   url,
