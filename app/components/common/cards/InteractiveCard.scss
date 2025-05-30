@@ -9,14 +9,14 @@
   margin: 0;
   border: none;
   background: none !important;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
 
   // Override USWDS Card styles
   &.usa-card {
     border: none !important;
     background: none !important;
     box-shadow: none !important;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
   }
 
   .usa-card__container {
@@ -25,7 +25,7 @@
     border: none !important;
     background: none !important;
     box-shadow: none !important;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
   }
 
   .card-image-container {
