@@ -6,6 +6,7 @@ import { NavItem } from '@lib';
 import NasaLogoColor from 'app/components/nasa-logo-color.js';
 import {
   DATASET_CATALOG_PATH,
+  EVENTS_PATH,
   EXPLORATION_PATH,
   STORY_HUB_PATH,
 } from 'app/config';
@@ -25,8 +26,8 @@ export const navItems: NavItem[] = [
     type: 'internalLink',
   },
   {
-    id: 'stories',
-    title: 'Stories',
+    id: 'events',
+    title: 'Events',
     to: `/${STORY_HUB_PATH}`,
     type: 'internalLink',
   },
@@ -51,7 +52,7 @@ export default function Header() {
   return (
     <VedaUIConfigProvider>
       <PageHeader
-        title={'Earthdata VEDA Dashboard'}
+        title={'Disasters Mapping Dashboard'}
         mainNavItems={navItems}
         subNavItems={subNavItems}
         logoSvg={

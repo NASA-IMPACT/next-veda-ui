@@ -11,7 +11,7 @@ export function BlogPosts({
   postType: string;
   posts?: any[];
 }) {
-  const prefix = postType === 'dataset' ? 'datasets' : 'stories';
+  const prefix = postType === 'dataset' ? 'datasets' : 'events';
   return (
     <div>
       {posts.map((post) => (

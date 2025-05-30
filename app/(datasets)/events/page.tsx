@@ -9,21 +9,21 @@ const StoriesHub = dynamic(() => import('./hub'), {
 });
 
 export default function Page() {
-  const stories = getStoriesMetadata().map((d) => ({
+  const events = getStoriesMetadata().map((d) => ({
     ...d.metadata,
-    path: `stories/${d.slug}`,
+    path: `events/${d.slug}`,
   }));
 
   return (
     <div className='grid-container'>
       <div className='margin-top-8 margin-bottom-3'>
-        <h1 className='font-sans-xl'>Stories</h1>
+        <h1 className='font-sans-xl'>Events</h1>
         <p className='font-sans-md margin-top-1'>
           This dashboard explores key indicators to track and compare changes
           over time.
         </p>
       </div>
-      <StoriesHub stories={stories} />
+      <StoriesHub stories={events} />
     </div>
   );
 }

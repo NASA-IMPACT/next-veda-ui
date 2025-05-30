@@ -19,7 +19,7 @@ export function useDataStore() {
 
 // @TODO: Decided how to handle function as mapLabel from VEDA UI
 // https://github.com/NASA-IMPACT/veda-ui/issues/1377
-function updateMapLabels(data) {
+function updateMapLabels(data) { 
   return data.map((dataset) => {
     if (dataset.metadata && dataset.metadata.layers) {
       dataset.metadata.layers.forEach((layer) => {

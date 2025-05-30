@@ -15,7 +15,7 @@ The project follows the modern Next.js file structure as documented in the [Next
 - Stores reusable React components for the app
 
 ### `content/`
-- Holds structured content, such as datasets, stories, or other resources used by the app
+- Holds structured content, such as datasets, events, or other resources used by the app
 
 ### `lib/`
 - Serves as a centralized module for importing and exporting components, hooks, and utilities from `@teamimpact/veda-ui` that are used across the application

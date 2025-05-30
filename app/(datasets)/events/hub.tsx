@@ -12,8 +12,8 @@ export default function Hub({ stories: allStories }: { stories: any }) {
         allStories={allStories}
         onFilterchanges={() => controlVars}
         storiesString={{
-          one: 'story',
-          other: 'stories',
+          one: 'event',
+          other: 'events',
         }}
       />
     </Providers>
