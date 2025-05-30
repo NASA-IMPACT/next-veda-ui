@@ -13,6 +13,7 @@ const BADGE_ICONS = {
 interface CardBadgeProps {
   label: string;
   icon: keyof typeof BADGE_ICONS;
+  className?: string;
 }
 
 /**
@@ -24,11 +25,15 @@ interface CardBadgeProps {
  * @param {CardBadgeProps} props - Component props
  * @returns {React.ReactElement} A badge with an icon and label
  */
-export const CardBadge: React.FC<CardBadgeProps> = ({ label, icon }) => {
+export const CardBadge: React.FC<CardBadgeProps> = ({
+  label,
+  icon,
+  className = '',
+}) => {
   const IconComponent = BADGE_ICONS[icon];
 
   return (
-    <div className='position-absolute top-0 left-0 padding-2 card-badge'>
+    <div className={`position-absolute top-0 left-0 card-badge ${className}`}>
       <div className='bg-white padding-x-1 display-flex flex-align-center radius-md text-base-dark font-body-3xs'>
         <IconComponent className='margin-right-05' aria-hidden={true} />
         <span>{label}</span>
