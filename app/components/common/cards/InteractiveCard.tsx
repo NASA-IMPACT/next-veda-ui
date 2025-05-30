@@ -49,7 +49,11 @@ export const InteractiveCard: React.FC<InteractiveCardProps> = ({
         */}
         <div className='card-content'>
           <div className='content-block'>
-            <CardBadge label='Interactive' icon='Lightbulb' />
+            <CardBadge
+              label='Interactive'
+              icon='Lightbulb'
+              className='font-body-2xs'
+            />
             <h3 className='card-title text-uppercase font-body font-weight-bold font-body-xl line-height-sans-1'>
               <span>{title}</span>
               <Icon.ArrowForward
