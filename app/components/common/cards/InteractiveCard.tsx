@@ -5,9 +5,11 @@ import { Card } from '@trussworks/react-uswds';
 import './InteractiveCard.scss';
 import Image from 'next/image';
 import CardBadge from './CardBadge';
+import Link from 'next/link';
 
 interface InteractiveCardProps {
   id: string;
+  url: string;
   title: string;
   description: string;
   className?: string;
@@ -24,6 +26,7 @@ interface InteractiveCardProps {
  */
 export const InteractiveCard: React.FC<InteractiveCardProps> = ({
   id,
+  url,
   title,
   description,
   className = '',
@@ -37,9 +40,8 @@ export const InteractiveCard: React.FC<InteractiveCardProps> = ({
           src={`/public/images/interactives/${id}/card.png`}
           alt={imageAlt}
           className='object-cover'
-          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
         />
-        <div className='card-overlay' />
+        <div className='card-image-overlay' />
         {/* 
           Two-layer content structure:
           - Outer layer (card-content): Full-card overlay with flex centering
@@ -57,6 +59,13 @@ export const InteractiveCard: React.FC<InteractiveCardProps> = ({
           </div>
         </div>
       </div>
+      <Link
+        className='position-absolute top-0 left-0 width-full height-full overlay-link'
+        href={url}
+        aria-label={`View ${title} interactive tool.`}
+        target='_blank'
+        rel='noopener noreferrer'
+      />
     </Card>
   );
 };

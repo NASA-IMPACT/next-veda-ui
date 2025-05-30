@@ -43,7 +43,7 @@
     }
   }
 
-  .card-overlay {
+  .card-image-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -88,5 +88,9 @@
     margin: 0;
     color: white;
     opacity: 0.9;
+  }
+
+  .overlay-link {
+    z-index: 4;
   }
 } 
