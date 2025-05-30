@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { DATA_THEMES } from '../../app/constants';
+import { DATA_THEMES, DATA_INTERACTIVES } from '../../app/constants';
 
 test.describe('Dashboard Page', () => {
   test('should be accessible and display content correctly', async ({
@@ -38,5 +38,42 @@ test.describe('Dashboard Page', () => {
         .getByTestId('theme-hero')
         .getByRole('heading', { name: theme.title }),
     ).toBeVisible();
+  });
+
+  test('should navigate to interactives correctly', async ({ page }) => {
+    await page.goto('/dashboard');
+
+    const interactiveHeading = page.getByRole('heading', {
+      name: /interactive tools/i,
+      level: 2,
+    });
+    await expect(interactiveHeading).toBeVisible();
+
+    const carousels = page.locator('section.carousel');
+    const carousel = carousels.nth(1);
+    await expect(carousel).toBeVisible();
+
+    const nextButton = carousel.getByRole('button', { name: /next/i });
+    await nextButton.click();
+
+    await page.waitForTimeout(500);
+
+    const secondInteractive = DATA_INTERACTIVES[1]; // Hometown Dashboard
+    const card = carousel.getByRole('link', {
+      name: new RegExp(secondInteractive.title, 'i'),
+    });
+    await expect(card).toBeVisible();
+    await expect(card).toHaveAttribute('href', secondInteractive.url);
+
+    const [newPage] = await Promise.all([
+      page.context().waitForEvent('page'),
+      card.click(),
+    ]);
+
+    await newPage.waitForLoadState();
+
+    expect(newPage.url()).toBe(secondInteractive.url);
+
+    await newPage.close();
   });
 });
