@@ -46,6 +46,7 @@ const DashboardPage: React.FC = () => {
               url={interactive.url}
               title={interactive.title}
               description={interactive.description}
+              imageAlt={interactive.cardImageAlt}
             />
           ))}
         />

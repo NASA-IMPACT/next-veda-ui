@@ -18,4 +18,5 @@ export type Interactive = {
   url: string;
   title: string;
   description: string;
+  cardImageAlt: string;
 };
