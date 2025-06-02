@@ -29,7 +29,7 @@ export const InteractiveCard: React.FC<InteractiveCardProps> = ({
       <div className='card-image-container'>
         <Image
           fill
-          src={`/public/images/interactives/${id}/card.png`}
+          src={`/images/interactives/${id}/card.png`}
           alt={imageAlt}
           className='object-cover'
         />
