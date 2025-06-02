@@ -21,7 +21,7 @@ const DashboardPage: React.FC = () => {
 
       <Separator />
 
-      <GridContainer containerSize='desktop-lg'>
+      <GridContainer containerSize='desktop-lg' className='margin-bottom-4'>
         <Grid row className='margin-bottom-4'>
           <h2 className='text-uppercase'>Learn about earth themes</h2>
         </Grid>
