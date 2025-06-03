@@ -79,7 +79,7 @@ const Tabs: React.FC<TabsProps> = ({
               'usa-button--unstyled',
               'padding-x-205',
               'padding-y-105',
-              selectedIndex === idx ? 'text-white' : 'text-base',
+              selectedIndex === idx ? 'text-white' : 'text-base-light',
               'font-ui-2xs',
               'text-no-underline',
               'border-1px',
