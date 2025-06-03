@@ -12,3 +12,11 @@ export interface Exhibit {
   imgSrc: string;
   imgAlt: string;
 }
+
+export type Interactive = {
+  id: string;
+  url: string;
+  title: string;
+  description: string;
+  cardImageAlt: string;
+};

@@ -1,0 +1,129 @@
+@use 'uswds-core' as *;
+// Reusable transition timing function
+$card-transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+// Base card container setup
+@mixin card-container-reset {
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0.5rem;
+}
+
+// Card overlay with gradient
+@mixin card-overlay($opacity-start: 0.4, $opacity-hover: 0.3) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, $opacity-start);
+  transition: opacity 0.4s $card-transition-ease;
+  
+  .parent:hover & {
+    opacity: $opacity-hover;
+  }
+}
+
+// Gradient overlay variations
+@mixin gradient-overlay($direction: 'to bottom') {
+  @if $direction == 'to bottom' {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+  } @else if $direction == 'to top' {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      transparent 100%
+    );
+  }
+}
+
+// Animated underline effect (fade-in)
+@mixin animated-underline($color: white) {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: $color;
+    opacity: 0;
+    transition: opacity 0.5s $card-transition-ease;
+  }
+}
+
+// Animated arrow icon
+@mixin animated-arrow-icon($bg-color: var(--color-primary-theme-color-primary-vivid, #0050D8)) {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s $card-transition-ease;
+  margin-left: -0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: $bg-color;
+  color: white;
+  @include at-media("mobile-lg") {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+@mixin card-with-effects-parents {
+  &:hover {
+    .card-image-overlay {
+      opacity: 0.3;
+    }
+    
+    .card-title {
+      span::after {
+        opacity: 1;
+      }
+      .arrow-icon {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+}
+
+// Card title with animations
+@mixin card-title-with-effects($color: white) {
+  margin: 0;
+  color: $color;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+  span {
+    transition: all 0.3s $card-transition-ease;
+    @include animated-underline($color);
+  }
+  
+  .arrow-icon {
+    @include animated-arrow-icon();
+  }
+}
+
+// Absolute positioning for overlays
+@mixin absolute-overlay($z-index: 0) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $z-index;
+}

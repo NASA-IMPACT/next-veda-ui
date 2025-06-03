@@ -1,17 +1,16 @@
+@import './mixins';
+
 .theme-card {
   position: relative;
-  
-  // Height matches the combined height of card media and card body components 
+    // Height matches the combined height of card media and card body components 
   // from USWDS Card used in exhibit cards, which is 400px.
-  height: 400px; 
+  height: 400px;
 
   .usa-card__container {
-    border: 0;
-    background-color: transparent;
+    @include card-container-reset;
     position: relative;
-    border-radius: 0.5rem;
     overflow: hidden;
-    transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 0.3s $card-transition-ease;
   }
 
   .custom-card-media.usa-card__media {
@@ -24,83 +23,20 @@
   }
   
   .card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.4) 50%,
-      rgba(0, 0, 0, 0.6) 100%
-    );
-    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    @include absolute-overlay();
+    @include gradient-overlay('to bottom');
+    transition: opacity 0.4s $card-transition-ease;
   }
   
   .card-title {
+    @include card-title-with-effects(white);
     position: absolute;
     bottom: 0;
     width: 100%;
     padding: 1rem;
-    margin: 0;
-    color: white;
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0.4) 50%,
-      transparent 100%
-    );
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    
-    span {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background-color: white;
-        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-    }
-    
-    .arrow-icon {
-      opacity: 0;
-      transform: translateX(-10px);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      margin-left: -0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 2rem;
-      height: 2rem;
-      border-radius: 50%;
-      background: var(--color-primary-theme-color-primary-vivid, #0050D8);
-      color: white;
-    }
+    @include gradient-overlay('to top');
   }
   
-  &:hover {    
-    .card-overlay {
-      opacity: 0.3;
-    }
-    
-    .card-title {
-      span::after {
-        width: 100%;
-      }
-      
-      .arrow-icon {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-  }
-} 
+  // Parent class for hover effects
+  @include card-with-effects-parents;
+}

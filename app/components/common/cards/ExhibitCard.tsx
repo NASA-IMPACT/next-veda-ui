@@ -42,7 +42,11 @@ export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
     <SmallCard key={exhibit.id} className='exhibit-card'>
       <CardHeader />
       <CardMedia exdent className='position-relative'>
-        <CardBadge label='Exhibit' icon='AccountBalance' />
+        <CardBadge
+          label='Exhibit'
+          icon='AccountBalance'
+          className='padding-2'
+        />
         <div className='height-card-lg'>
           <Image
             width={400}

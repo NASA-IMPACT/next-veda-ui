@@ -19,9 +19,16 @@ describe('CardBadge', () => {
       'position-absolute',
       'top-0',
       'left-0',
-      'padding-2',
       'card-badge',
     );
+  });
+
+  it('applies additional classes from className prop', () => {
+    render(
+      <CardBadge label='Test Badge' icon='Language' className='padding-2' />,
+    );
+    const badge = screen.getByText('Test Badge').closest('.card-badge');
+    expect(badge).toHaveClass('padding-2');
   });
 
   it('renders with different icons', () => {
