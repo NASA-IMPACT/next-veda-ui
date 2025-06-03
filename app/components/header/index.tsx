@@ -145,7 +145,7 @@ export default function Header() {
       <USWDSHeader basic={true} showMobileOverlay={isMobileExpanded}>
         <div className='usa-nav-container desktop:padding-y-2'>
           <div
-            className='usa-navbar position-relative z-100 mobile:bg-ink desktop:bg-transparent'
+            className='usa-navbar position-relative z-100 mobile:bg-black desktop:bg-transparent'
             ref={mobileMenuRef}
           >
             <Title>
