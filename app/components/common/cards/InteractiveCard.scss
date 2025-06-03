@@ -1,30 +1,22 @@
+@import './mixins';
+
 .interactive-card {
-  isolation: isolate; // Required for CardBadge positioning
-  list-style-type: none; // USWDS are li elements
+  isolation: isolate;// Required for CardBadge positioning
+  list-style-type: none;// USWDS are li elements
   width: 100%;
   height: 323px;
   position: relative;
   overflow: hidden;
   padding: 0 !important;
   margin: 0;
-  border: none;
-  background: none !important;
   border-radius: 0.5rem;
 
   &.usa-card {
-    border: none !important;
-    background: none !important;
-    box-shadow: none !important;
-    border-radius: 0.5rem;
+    @include card-container-reset;
   }
 
   .usa-card__container {
-    padding: 0 !important;
-    margin: 0 !important;
-    border: none !important;
-    background: none !important;
-    box-shadow: none !important;
-    border-radius: 0.5rem;
+    @include card-container-reset;
   }
 
   .card-image-container {
@@ -43,24 +35,14 @@
   }
 
   .card-image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    @include absolute-overlay();
     background: rgba(0, 0, 0, 0.4);
-    z-index: 2;
     border-radius: 0.25rem;
-    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.5s $card-transition-ease;
   }
 
   .card-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 3;
+    @include absolute-overlay(3);
     pointer-events: none;
     display: flex;
     align-items: center;
@@ -80,42 +62,22 @@
   }
 
   .card-title {
-    margin: 0;
-    color: white;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    @include card-title-with-effects(white);
     
+    // Override transition timing for this component
     span {
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
+      transition: all 0.5s $card-transition-ease;
       
+      // Different underline behavior
       &::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
         width: 100%;
-        height: 2px;
-        background-color: white;
         opacity: 0;
-        transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: opacity 0.5s $card-transition-ease;
       }
     }
 
     .arrow-icon {
-      opacity: 0;
-      transform: translateX(-10px);
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      margin-left: -0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 2rem;
-      height: 2rem;
-      border-radius: 50%;
-      background: var(--color-primary-theme-color-primary-vivid, #0050D8);
-      color: white;
+      transition: all 0.5s $card-transition-ease;
     }
   }
 
@@ -128,19 +90,5 @@
   .overlay-link {
     z-index: 4;
   }
-
-  &:hover {
-    .card-title {
-      span::after {
-        opacity: 1;
-      }
-      .arrow-icon {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-    .card-image-overlay {
-      opacity: 0.3;
-    }
-  }
-} 
+  @include card-with-effects-parents;
+}
