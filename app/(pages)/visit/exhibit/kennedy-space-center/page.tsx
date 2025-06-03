@@ -10,8 +10,10 @@ import images from 'app/content/images.json';
 import { ArrowBackIcon } from 'app/components/common/Icons';
 
 const KennedySpaceCenterPage: React.FC = () => {
-  const slidesIntro = createImageSlides(images['nasa-hq'].intro);
-  const slidesHyperwall = createImageSlides(images['nasa-hq'].hyperwall);
+  const slidesIntro = createImageSlides(images['kennedy-space-center'].intro);
+  const slidesHyperwall = createImageSlides(
+    images['kennedy-space-center'].hyperwall,
+  );
 
   return (
     <>
@@ -50,7 +52,7 @@ const KennedySpaceCenterPage: React.FC = () => {
       <Separator />
 
       <GridContainer containerSize='desktop-lg'>
-        <Grid row>
+        <Grid row gap={6}>
           <Grid col desktop={{ col: 6 }}>
             <Table bordered={false}>
               <tbody>

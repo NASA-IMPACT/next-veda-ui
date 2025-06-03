@@ -10,8 +10,12 @@ import images from 'app/content/images.json';
 import { ArrowBackIcon } from 'app/components/common/Icons';
 
 const SmithsonianMuseumPage: React.FC = () => {
-  const slidesIntro = createImageSlides(images['nasa-hq'].intro);
-  const slidesHyperwall = createImageSlides(images['nasa-hq'].hyperwall);
+  const slidesIntro = createImageSlides(
+    images['smithsonian-museum-nmnh'].intro,
+  );
+  const slidesHyperwall = createImageSlides(
+    images['smithsonian-museum-nmnh'].hyperwall,
+  );
 
   return (
     <>
@@ -54,7 +58,7 @@ const SmithsonianMuseumPage: React.FC = () => {
       <Separator />
 
       <GridContainer containerSize='desktop-lg'>
-        <Grid row>
+        <Grid row gap={6}>
           <Grid col desktop={{ col: 6 }}>
             <Table bordered={false}>
               <tbody>
