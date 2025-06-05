@@ -15,9 +15,6 @@ const SmithsonianMuseumPage: React.FC = () => {
   const slidesIntro = createImageSlides(
     images['smithsonian-museum-nmnh'].intro,
   );
-  const slidesHyperwall = createImageSlides(
-    images['smithsonian-museum-nmnh'].hyperwall,
-  );
 
   return (
     <>

@@ -13,9 +13,6 @@ import { tabs } from './tabs';
 
 const KennedySpaceCenterPage: React.FC = () => {
   const slidesIntro = createImageSlides(images['kennedy-space-center'].intro);
-  const slidesHyperwall = createImageSlides(
-    images['kennedy-space-center'].hyperwall,
-  );
 
   return (
     <>

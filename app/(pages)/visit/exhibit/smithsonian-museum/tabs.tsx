@@ -45,11 +45,11 @@ export const tabs = [
         <Grid desktop={{ col: 6 }}>
           <Paragraph className='measure-4 desktop:measure-2'>
             Spanning periods from days to decades, satellite imagery reveals
-            changes in Earth's landscape over time. At the exhibit, visitors use
-            their silhouette and movement to uncover images from before and
-            after a range of events, including flooding, urbanization, fires,
-            and more. This interactive experience demonstrates some of the human
-            impact on our planet.
+            changes in Earth&apos;s landscape over time. At the exhibit,
+            visitors use their silhouette and movement to uncover images from
+            before and after a range of events, including flooding,
+            urbanization, fires, and more. This interactive experience
+            demonstrates some of the human impact on our planet.
           </Paragraph>
         </Grid>
         <Grid desktop={{ col: 6 }}>
@@ -96,13 +96,13 @@ export const tabs = [
       <Grid row gap={6}>
         <Grid desktop={{ col: 6 }}>
           <Paragraph className='measure-4 desktop:measure-2'>
-            This interactive tool allows users to fly along with NASA's Earth
-            observing missions in real-time, view satellite imagery of recent
-            weather events, and monitor some of Earth's vital signs, including
-            temperature, carbon dioxide, atmospheric ozone, and sea level. The
-            kiosk has a touch screen for users to scroll to their location of
-            interest, select a satellite to learn more about a mission, and
-            interact with the 3D globe.
+            This interactive tool allows users to fly along with NASA&apos;s
+            Earth observing missions in real-time, view satellite imagery of
+            recent weather events, and monitor some of Earth&apos;s vital signs,
+            including temperature, carbon dioxide, atmospheric ozone, and sea
+            level. The kiosk has a touch screen for users to scroll to their
+            location of interest, select a satellite to learn more about a
+            mission, and interact with the 3D globe.
           </Paragraph>
         </Grid>
         <Grid desktop={{ col: 6 }}>
