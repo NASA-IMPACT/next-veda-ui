@@ -1,0 +1,234 @@
+---
+id: burma-eq
+name: "2025 Burma Earthquake"
+pubDate: 2025-05-06
+description: "Magnitude 7.7 Rocks Burma and Thailand"
+media:
+  src: /images/story/burma-eq-background.jpg
+  alt: Collapsed building in Mandalay, Burma.
+  author:
+    name: Cai Yang/AP
+taxonomy:
+  - name: Topics
+    values:
+      - Disasters
+
+---
+
+<style>{`
+  .data-table {
+    display: flex;
+    gap: 2rem;
+    justify-content: center; 
+    margin: 0 auto; 
+  }
+  .data-table thead th,
+  .data-table tbody td {
+    text-align: center;
+    white-space: nowrap;
+    padding: 0 1rem;
+  }
+  .data-table thead th {
+    font-size: 1.2rem; 
+  }
+  .fat {
+    background: #F6251F; 
+  }
+  .inj {
+    background: #F6DC1F; 
+  }
+  .miss {
+    background: #28DFF3; 
+  }
+  .total {
+    background: #EEEEEE; 
+  }
+  .bold {
+    font-weight: bold; 
+  }
+  @media only screen and (max-width: 544px) {
+    .data-table {
+      flex-flow: column;
+    }
+  }
+`}</style>
+
+<Block>
+  <Prose>
+  ### Overview  
+  On March 28, 2025, a powerful 7.7 magnitude earthquake struck central Burma near Mandalay, causing widespread devastation and loss of life. The tremor resulted in over 3,300 fatalities (and counting), thousands of injuries, and significant damage to infrastructure and cultural heritage sites. The impact was also felt in neighboring countries, including Thailand, where buildings collapsed, leading to additional casualties. This earthquake highlights the devastating effects such natural disasters can have on communities and the importance of understanding seismic events.
+  </Prose>
+  <Figure>
+        <iframe width="750" height="423" src="https://www.youtube.com/embed/4fzN_-sayOs?si=tDzNYoQoVq_cESET" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <figcaption>Damage in Burma from the major earthquake on March 28, 2025.</figcaption>
+  </Figure>
+
+</Block>
+
+<Block>
+  <Prose>
+  ### Fault Lines
+
+  ##### USGS Fault Lines
+  According to the U.S. Geological Survey (USGS), the earthquake's epicenter was near Mandalay, with a magnitude of 7.7. The event was associated with the Sagaing Fault, a major right-lateral strike-slip fault that accommodates significant tectonic movement between the Indo-Australian and Eurasian plates. This fault has a history of generating large earthquakes due to the ongoing tectonic convergence in the region. 
+
+  </Prose>
+</Block>
+
+<Block type='wide' style={{ maxWidth: '70%', margin: '0 auto' }}>
+  <Figure>
+    <CompareImage 
+      leftImageSrc='/images/story/burma-eq-shake-intensity.jpg'
+      leftImageAlt='USGS Shake Intensity (March 28, 2025).'
+      leftImageLabel='Shake Intensity'
+      rightImageSrc='/images/story/burma-eq-fault-lines.jpg'
+      rightImageAlt='USGS Fault Lines.'
+      rightImageLabel='Fault Lines'
+    />
+    <Caption>
+    USGS observed shake intensity from the March 28, 2025 earthquake compared to the known fault lines in Burma and surrounding regions. 
+    </Caption>
+  </Figure>
+</Block>
+
+<Block>
+  <Prose>
+  ### Visual Damage Assessment Using PlanetScope Commercial Satellite Imagery
+
+  Satellite imagery from PlanetScope provided clear before-and-after visuals of the affected areas. These images revealed extensive structural damage, with numerous buildings reduced to rubble, particularly in Mandalay and surrounding regions.​
+
+  </Prose>
+
+  <Figure>
+  <Map
+    datasetId='burma-eq'
+    layerId='burma-eq-planet-pre'
+    dateTime='2025-03-28'
+    zoom={14}
+    center={[95.99,21.86880]}
+    compareDateTime='2025-03-29'
+  />
+  <Caption
+    attrAuthor='NASA'
+    attrUrl='https://nasa.gov/'
+  >
+  Commercial satellite imagery provided by Planet Labs shows widespread damage caused by the 7.7 earthquake in Burma, including this collapsed bridge and disrupted waterway in Mandalay.
+  </Caption>
+</Figure>
+</Block>
+
+<Block>
+  <Figure>
+  <Map
+    datasetId='burma-eq'
+    layerId='burma-eq-night-lights'
+    dateTime='2025-03-23'
+    zoom={10}
+    center={[96.08820,21.96433]}
+    compareDateTime='2025-03-29'
+  />
+  <Caption
+    attrAuthor='NASA'
+    attrUrl='https://nasa.gov/'
+  >
+  NASA's Black Marble Night Lights product shows widespread power outages in the Mandalay, Burma area following the destructive 7.7 earthquake on March 28, 2025.
+  </Caption>
+  </Figure>
+
+  <Prose>
+  ### Black Marble Night Lights Analysis
+
+  NASA's Black Marble project utilizes satellite data to monitor nighttime lights, providing insights into human settlements and infrastructure. Post-earthquake analyses indicated significant reductions in nighttime light intensity in the affected areas, reflecting power outages and disruptions to daily life. Such data is valuable for assessing the extent of impact and directing aid efforts.
+
+  </Prose>
+
+</Block>
+
+<Block>
+  <Prose>
+  ### Synthetic Aperature Radar Ground Deformation
+
+  The European Space Agency's Sentinel-2 satellites captured imagery revealing ground deformation resulting from the earthquake. Interferometric analysis showed significant surface displacement along the Sagaing Fault, with some areas experiencing shifts of up to six meters. This data is crucial for understanding the earthquake's mechanics and for future hazard assessments.
+
+  </Prose>
+</Block>
+
+<Block type = 'wide'>
+  <Figure>
+  <Map
+    datasetId='burma-eq'
+    layerId='burma-eq-s2-deformation-ew'
+    dateTime='2025-04-01'
+    zoom={9}
+    center={[95.96,21.96433]}
+    compareDateTime='2025-04-01'
+  />
+  <Caption
+    attrAuthor='NASA'
+    attrUrl='https://nasa.gov/'
+  >
+  The Sentinel-2 ground deformation product shows large shifts of up to 5 meters along the strike-slip fault through the center of Burma. 
+  </Caption>
+</Figure>
+</Block>
+
+<Block>
+  <Prose>
+  ### Conclusion
+
+  The earthquake resulted in over 3,300 deaths and more than 4,800 injuries (and counting). Hundreds remained missing in the aftermath. The disaster severely damaged infrastructure, including hospitals and schools, complicating rescue and relief operations. International aid was mobilized, with contributions from over 18 countries and organizations like the United Nations providing support. Recovery efforts faced challenges due to the extensive damage and the region's complex political situation. ​
+
+  </Prose>
+</Block>
+
+<Block>
+<Figure style={{ display: 'block' }}>
+  <div className='data-table'>
+    <table>
+      <thead>
+        <tr>
+          <th>   Country   </th>
+          <th>   Fatalities   </th>
+          <th>   Injuries   </th>
+          <th>   Missing   </th>
+          <th>   Total Casualties </th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>Burma</td>
+          <td class='fat'>5,352</td>
+          <td class='inj'>11,366</td>
+          <td class='miss'>538</td>
+          <td class='total bold'>17,256</td>
+        </tr>
+        <tr>
+          <td>Thailand</td>
+          <td class='fat'>54</td>
+          <td class='inj'>34</td>
+          <td class='miss'>47</td>
+          <td class='total bold'>135</td>
+        </tr>
+        <tr>
+          <td>China</td>
+          <td class='fat'>0</td>
+          <td class='inj'>2</td>
+          <td class='miss'>0</td>
+          <td class='total bold'>2</td>
+        </tr>
+        <tr>
+          <td>Vietnam</td>
+          <td class='fat'>1</td>
+          <td class='inj'>0</td>
+          <td class='miss'>0</td>
+          <td class='total bold'>1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<Caption>
+  Table 1: Official casualty count of the March 28, 2025 Burma earthquake, as of April 21, 2025.
+</Caption>  
+</Figure>
+</Block>

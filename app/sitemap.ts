@@ -15,7 +15,7 @@ export default async function sitemap() {
     url: `${baseUrl}/${DATASET_CATALOG_PATH}/${post.slug}`,
   }));
 
-  const stories = getStoriesMetadata().map((post) => ({
+  const events = getStoriesMetadata().map((post) => ({
     url: `${baseUrl}/${STORY_HUB_PATH}/${post.slug}`,
     lastModified: post.metadata.pubDate,
   }));
@@ -31,5 +31,5 @@ export default async function sitemap() {
     lastModified: new Date().toISOString().split('T')[0],
   }));
 
-  return [...routes, ...datasets, ...stories];
+  return [...routes, ...datasets, ...events];
 }

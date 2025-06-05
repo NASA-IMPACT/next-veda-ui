@@ -1,0 +1,383 @@
+---
+id: ca-wildfires-2025
+name: California Wildfires January 2025
+description: Unprecedented flames reshape Southern California’s landscape, economy, and future.
+media:
+  src: /images/event/california-wildfire-aviris.png
+  alt: False Color Composite satellite imagery of the burned area from the Palisades Fire.
+  author:
+    name:  NASA
+taxonomy:
+  - name: Topics
+    values:
+      - Disasters
+  - name: Source
+    values:
+      - NASA
+  - name: Event
+    values:
+      - CA Wildfire      
+infoDescription: |
+  ::markdown
+    - Temporal Extent: January 6, 2025 - January 15, 2025
+    - Temporal Resolution: Daily
+    - Spatial Extent: Alaska
+    - Spatial Resolution: 0.03° x 0.03°
+    - Data Units: Relative soil moisture (RSM) is a ratio of the volumetric soil moisture between the wilting and saturation points for a given soil type.
+    - Data Type: Research
+    - Data Latency: Updated daily
+    - Data Access: [NASA Disasters Map Server](https://maps.disasters.nasa.gov/ags03/rest/services/california_wildfires_202501/aviris_dnbr/MapServer)
+layers:
+  - id: aviris3_burn_ratio_Jan2025_wildfire
+    stacCol: aviris3_burn_ratio_Jan2025_wildfire
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    name: AVIRIS
+    type: wms
+    description: Relative soil moisture (RSM) is a ratio of the volumetric soil moisture between the wilting and saturation points for a given soil type.
+    initialDatetime: newest
+    projection:
+      id: 'equirectangular'
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      layers: AVIRIS_QUICKLOOKS
+      version: 1.3.0
+      crs: EPSG:3857
+    legend:
+      unit:
+        label: uW nm-1 cm-2 sr-1
+      min: 0
+      max: 255
+    analysis:
+      exclude: true
+    info:
+      source: NASA
+      spatialExtent: Southern California
+      temporalResolution: Daily
+      unit: uW nm-1 cm-2 sr-1
+    media:
+      src: /images/dataset/ca-fires-aviris3-br.png
+      alt: AVIRIS3 Normalized Burn Ratio for the January 2025 California Wildfires.
+
+  - id: opera_dist_S1_Jan2025_wildfire
+    stacCol: opera_dist_S1_Jan2025_wildfire
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    name: OPERA DIST S1
+    type: wms
+    description: OPERA DIST S1 for the Southern California Wildfires
+    initialDatetime: newest
+    projection:
+      id: 'equirectangular'
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      layers: OPERA_DIST_S1
+      version: 1.3.0
+      crs: EPSG:3857
+      nodata: 0
+    legend:
+      unit:
+        label: Disturbance Category
+      type: categorical 
+      min: 0
+      max: 2
+      stops:
+        - color: rgb(255,255,255)
+          label: "No disturbance"
+        - color: rgb(255,204,203)
+          label: "Moderate Disturbance"
+        - color: rgb(255,0,0)
+          label: "High Disturbance"
+    analysis:
+      exclude: true
+    info:
+      source: NASA
+      spatialExtent: Southern California
+      temporalResolution: Daily
+      unit: Disturbance Category
+    media:
+      src: /images/dataset/ca-fires-opera-sfc-dist.png
+      alt: S1 OPERA Surface Disturbance for the January 2025 California Wildfires.
+ 
+  - id: opera_dist_alert_Jan2025_wildfire
+    stacCol: opera_dist_alert_Jan2025_wildfire
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    name: OPERA DIST ALERT - VEG_ANOM_MAX
+    type: wms
+    description: OPERA DIST ALERT for the Southern California Wildfires
+    initialDatetime: newest
+    projection:
+      id: 'equirectangular'
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      layers: OPERA_DISTALERT:VEG_ANOM_MAX
+      version: 1.3.0
+      crs: EPSG:3857
+      nodata: 255
+      resampling: bilinear
+      rescale:
+        - 0
+        - 100
+    legend:
+      unit:
+        label: Percent vegetation loss
+      type: gradient
+      colormap_name: "reds"
+      min: 0
+      max: 100
+      stops:
+        - "#ffffe5" # White
+        - "#ff6666" # Red
+    info:
+      source: NASA
+      spatialExtent: Southern California
+      temporalResolution: Daily
+      unit: Vegetation disturbance status
+    media:
+      src: /images/dataset/ca-fires-opera-dist.png
+      alt: HLS OPERA Disturbance Alert for the January 2025 California Wildfires.
+
+  - id: opera_dist_alert_Jan2025_wildfire1
+    stacCol: opera_dist_alert_Jan2025_wildfire
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    name: OPERA DIST ALERT - VEG_DIST_STATUS_2
+    type: wms
+    description: OPERA DIST ALERT for the Southern California Wildfires
+    initialDatetime: newest
+    projection:
+      id: 'equirectangular'
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      layers: OPERA_DISTALERT:VEG_DIST_STATUS_2
+      version: 1.3.0
+      crs: EPSG:3857
+      nodata: 255
+      rescale:
+        - 0
+        - 8
+    legend:
+      unit:
+        label: Vegetation disturbance status
+      type: categorical
+      min: "0"
+      max: "8"
+      stops:
+        - color: "#121212" 
+          label: "0"
+        - color: "#005555"
+          label: "1"
+        - color: "#897f4e"
+          label: "2"
+        - color: "#dee043"
+          label: "3"
+        - color: "#008888"
+          label: "4"
+        - color: "#e48727"
+          label: "5"
+        - color: "#e01b07"
+          label: "6"
+        - color: "#777777"
+          label: "7"
+        - color: "#dddddd"
+          label: "8"
+    analysis:
+      exclude: true
+    info:
+      source: NASA
+      spatialExtent: Southern California
+      temporalResolution: Daily
+      unit: Vegetation disturbance status
+    media:
+      src: /images/dataset/ca-fires-opera-dist.png
+      alt: HLS OPERA Disturbance Alert (Status 2) for the January 2025 California Wildfires.
+ 
+  - id: landsat9_Jan2025_wildfire1
+    stacCol: landsat9_Jan2025_wildfire
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    name: LANDSAT 9 - NBR
+    type: wms
+    description: LANDSAT 9 for the Southern California Wildfires
+    initialDatetime: newest
+    projection:
+      id: 'equirectangular'
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      layers: LANDSAT:NBR
+      version: 1.3.0
+      crs: EPSG:3857
+    legend:
+      unit:
+        label: Normalized Burn Ratio
+      type: gradient
+      min: 0
+      max: 100
+      stops:
+        - rgb(60,40,180)
+        - rgb(111,96,219)
+        - rgb(160,139,255)
+        - rgb(149,209,251)
+        - rgb(79,165,245)
+        - rgb(40,129,240)
+        - rgb(19,100,209)
+        - rgb(29,180,30)
+        - rgb(79,240,79)
+        - rgb(149,245,139)
+        - rgb(255,231,121)
+        - rgb(255,191,60)
+        - rgb(255,160,1)
+        - rgb(255,96,0)
+        - rgb(255,50,1)
+        - rgb(226,18,0)
+        - rgb(165,0,0)
+        - rgb(225,190,180)
+        - rgb(180,139,130)
+        - rgb(139,100,89)
+    analysis:
+      exclude: true
+    info:
+      source: NASA
+      spatialExtent: Southern California
+      temporalResolution: Daily
+      unit: Percentage %
+    media:
+      src: /images/dataset/ca-fires-landsat9.png
+      alt: Landsat 9 NBR for the January 2025 California Wildfires.
+
+  - id: landsat9_Jan2025_wildfire
+    stacCol: landsat9_Jan2025_wildfire
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    name: LANDSAT 9 Color Infrared
+    type: wms
+    description: LANDSAT 9 for the Southern California Wildfires
+    initialDatetime: newest
+    projection:
+      id: 'equirectangular'
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      layers: LANDSAT
+      version: 1.3.0
+      crs: EPSG:3857
+    analysis:
+      exclude: true
+    info:
+      source: NASA
+      spatialExtent: Southern California
+      temporalResolution: Daily
+      unit: 
+    media:
+      src: /images/dataset/ca-fires-landsat9.png
+      alt: Landsat 9 Color Infrared for the January 2025 California Wildfires.
+
+  - id: optisar_Jan2025_wildfire_EATON
+    stacCol: optisar_Jan2025_wildfire
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    name: OPTISAR - Eaton
+    type: wms
+    description: OPTISAR for the Eaton California Wildfire
+    initialDatetime: newest
+    projection:
+      id: 'equirectangular'
+    zoomExtent:
+      - 10
+      - 20
+    sourceParams:
+      layers: "1"
+      version: 1.3.0
+      crs: EPSG:3857
+    legend:
+      unit:
+        label: "Severity"
+      type: categorical
+      min: "0"
+      max: "4"
+      stops:
+        - color: rgb(77, 230, 0)
+          label: "Unburnt" 
+        - color: rgb(255, 255, 0)
+          label: "Low Severity"
+        - color: rgb(230, 75, 0)
+          label: "Medium Severity" 
+        - color: rgb(230, 0, 1)
+          label: "High Severity" 
+        - color: rgb(0, 0, 0)
+          label: "Extreme Severity" 
+    analysis:
+      exclude: true
+    info:
+      source: NASA
+      spatialExtent: Southern California
+      temporalResolution: Daily
+      unit: "Severity"
+    media:
+      src: /images/dataset/ca-fires-optisar.png
+      alt: Optisar fire severity classification for the January 2025 California Wildfires.
+
+  - id: optisar_Jan2025_wildfire_PALISADES
+    stacCol: optisar_Jan2025_wildfire
+    stacApiEndpoint: https://dev.openveda.cloud/api/stac
+    name: OPTISAR - Palisades
+    type: wms
+    description: OPTISAR for the Palisades California Wildfire
+    initialDatetime: newest
+    projection:
+      id: 'equirectangular'
+    zoomExtent:
+      - 10
+      - 20
+    sourceParams:
+      layers: "0"
+      version: 1.3.0
+      crs: EPSG:3857
+    legend:
+      unit:
+        label: "Severity"
+      type: categorical
+      min: 0
+      max: 4
+      stops:
+        - color: rgb(77, 230, 0)
+          label: "Unburnt" 
+        - color: rgb(255, 255, 0)
+          label: "Low Severity"
+        - color: rgb(230, 75, 0)
+          label: "Medium Severity" 
+        - color: rgb(230, 0, 1)
+          label: "High Severity" 
+        - color: rgb(0, 0, 0)
+          label: "Extreme Severity" 
+    analysis:
+      exclude: true
+    info:
+      source: NASA
+      spatialExtent: Southern California
+      temporalResolution: Daily
+      unit: "Severity"
+    media:
+      src: /images/dataset/ca-fires-optisar.png
+      alt: Optisar fire severity classification for the January 2025 California Wildfires.
+---
+<Block>
+   <Prose>
+   ## About
+   In January 2025, Southern California experienced a devastating series of wildfires that scorched over 57,000 acres across Los Angeles, Orange, Riverside, San Bernardino, San Diego, and Ventura counties. The most destructive were the Eaton Fire in Altadena and the Palisades Fire in Pacific Palisades, driven by hurricane-force Santa Ana winds and prolonged drought conditions. These fires resulted in at least 30 fatalities, displaced more than 200,000 residents, and destroyed or damaged over 18,000 structures, marking them among the most catastrophic in California's history .
+   </Prose>
+ </Block>
+
+
+<Block>
+  <Prose>
+  ## Impact
+  The impacts of these wildfires were profound and multifaceted. Economically, the region faced estimated property and capital losses ranging from $76 billion to $131 billion, with insured losses up to $45 billion . The fires also led to a 0.48% decline in Los Angeles County's GDP and a total wage loss of approximately $297 million. Environmentally, the fires degraded air quality and posed long-term threats to coastal and ocean health due to runoff and debris . Recovery efforts were further hampered by federal budget cuts, which strained disaster relief operations and delayed aid distribution . Innovations like the deployment of Heli-Hydrants offered some hope, enabling quicker water access for firefighting helicopters and improving response times .
+  </Prose>
+</Block>
+---

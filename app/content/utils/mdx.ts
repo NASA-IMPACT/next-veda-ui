@@ -15,7 +15,7 @@ const STORY_CONTENT_PATH = path.join(
   process.cwd(),
   'app',
   'content',
-  'stories',
+  'events',
 );
 const DATASET_CONTENT_PATH = path.join(
   process.cwd(),

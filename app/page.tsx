@@ -23,7 +23,7 @@ const mainTopSectionData = [
 const featuredStories = getStoriesMetadata()
   .map((d) => ({
     ...d.metadata,
-    path: `stories/${d.slug}`,
+    path: `events/${d.slug}`,
   }))
   .filter((_d, idx) => idx < 3);
 
@@ -35,10 +35,9 @@ export default function HomePage() {
     <section>
       <div className='grid-container'>
         <div className='grid-row margin-top-5'>
-          <h2>
-            VEDA Template is here to help scientists to engage with wider
-            audience
-          </h2>
+          <h4>
+          A powerful interface for viewing, analyzing, and downloading the latest near real-time and disaster specific data products in Geographic Information Systems (GIS) format. The Disasters Mapping Portal supports NASA’s Earth Applied Sciences Disasters program area in its mission to use Earth-observing data and applied research to improve the prediction of, preparation for, response to and recovery from hazards and disasters around the world.
+          </h4>
         </div>
         <div className='grid-row grid-gap-lg card--homepage-main margin-top-2'>
           {mainTopSectionData.map((d) => {
@@ -63,7 +62,7 @@ export default function HomePage() {
         </div>
 
         <div className='grid-row margin-top-5'>
-          <h2>Featured Data Stories</h2>
+          <h2>Featured Events</h2>
         </div>
         <div className='grid-row grid-gap-md  margin-top-2'>
           <div className='tablet:grid-col-6'>
