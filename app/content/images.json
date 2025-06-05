@@ -17,8 +17,8 @@
       { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-3.jpg", "alt": "NASA Image" }
     ],
     "earth-pulse": [
-      { "img": "public/images/visit/nasa-hq/nasa-hq-features-earth-pulse-1.jpeg", "alt": "NASA Image" },
-      { "img": "public/images/visit/nasa-hq/nasa-hq-features-earth-pulse-2.jpeg", "alt": "NASA Image" }
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-earth-pulse-1.jpeg", "alt": "NASA Image" },
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-earth-pulse-2.jpeg", "alt": "NASA Image" }
     ]
   },
   "kennedy-space-center": {
