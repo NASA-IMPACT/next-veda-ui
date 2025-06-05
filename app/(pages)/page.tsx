@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, GridContainer, Icon, Link } from '@trussworks/react-uswds';
 import { DATA_THEMES } from 'app/constants';
-import './page.scss';
 const FADE_DURATION = 3000;
 
 export default function HomePage() {
@@ -45,7 +44,7 @@ export default function HomePage() {
           </Grid>
         </Grid>
         <Grid row>
-          <Link className='usa-button get-started-button mobile:font-ui-sm' href='/dashboard'>
+          <Link className='usa-button bg-primary-vivid mobile:font-ui-sm' href='/dashboard'>
             Get Started
             <Icon.ArrowForward
               size={3}
