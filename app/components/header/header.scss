@@ -20,7 +20,7 @@
 }
 
 .solid {
-  background-color: utils.color('ink');
+  background-color: utils.color('black');
   top: 0;
   z-index: 100;
 }
@@ -125,11 +125,11 @@ header {
     }
 
     .usa-menu-btn {
-      background-color: utils.color('ink') !important;
+      background-color: utils.color('black') !important;
       cursor: pointer;
     }
     .usa-menu-btn:hover{
-      background-color: utils.color('base-darkest') !important;
+      background-color: utils.color('ink') !important;
     }
   }
 }
