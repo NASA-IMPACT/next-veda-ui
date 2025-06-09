@@ -12,15 +12,20 @@ const CentersSection: React.FC = () => {
         <h2 className='text-uppercase'>Explore our centers</h2>
       </Grid>
 
-      <Grid row className='margin-bottom-4'>
+      <Grid row>
         <Grid col={12}>
           <CenterCard center={firstCenter} isFirst={true} />
         </Grid>
       </Grid>
 
-      <Grid row gap={4}>
+      <Grid row>
         {remainingCenters.map((center) => (
-          <Grid key={center.id} tablet={{ col: 6 }} desktop={{ col: 6 }}>
+          <Grid
+            key={center.id}
+            col={12}
+            tablet={{ col: 6 }}
+            desktop={{ col: 6 }}
+          >
             <CenterCard center={center} isFirst={false} />
           </Grid>
         ))}

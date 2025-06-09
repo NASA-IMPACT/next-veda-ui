@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import { Center } from 'app/types';
-import CardBadge from './CardBadge';
 import './CenterCard.scss';
+import { Grid } from '@trussworks/react-uswds';
 
 interface CenterCardProps {
   center: Center;
@@ -17,8 +17,8 @@ export const CenterCard: React.FC<CenterCardProps> = ({
   const imageHeight = isFirst ? 192 : 167;
 
   return (
-    <div className=''>
-      <div className=''>
+    <Grid row>
+      <Grid col='auto'>
         <Image
           width={imageWidth}
           height={imageHeight}
@@ -26,14 +26,13 @@ export const CenterCard: React.FC<CenterCardProps> = ({
           alt={center.imageAlt}
           className='object-cover'
         />
-        <div className=''>
-          <CardBadge label='Center' icon='AccountBalance' />
-          <h3 className='text-uppercase'>
-            <span>{center.title}</span>
-          </h3>
-          <p className=''>{center.description}</p>
-        </div>
-      </div>
-    </div>
+      </Grid>
+      <Grid col={6}>
+        <h3 className='text-uppercase'>
+          <span>{center.title}</span>
+        </h3>
+        <p className=''>{center.description}</p>
+      </Grid>
+    </Grid>
   );
 };
