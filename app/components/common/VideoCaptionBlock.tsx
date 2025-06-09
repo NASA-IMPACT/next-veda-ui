@@ -14,7 +14,10 @@ export function VideoCaptionBlock({
   captionText,
 }: VideoCaptionBlockProps) {
   return (
-    <div className='width-full'>
+    <li
+      className='width-full'
+      style={{ listStyle: 'none', margin: 0, padding: 0 }}
+    >
       <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
         <iframe
           src={src}
@@ -36,6 +39,6 @@ export function VideoCaptionBlock({
       <p className='font-body-sm line-height-body-4 text-base-light margin-0'>
         {captionText}
       </p>
-    </div>
+    </li>
   );
 }
