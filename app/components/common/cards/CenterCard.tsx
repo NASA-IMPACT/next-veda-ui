@@ -9,22 +9,16 @@ interface CenterCardProps {
   isFirst?: boolean;
 }
 
-export const CenterCard: React.FC<CenterCardProps> = ({
-  center,
-  isFirst = false,
-}) => {
-  const imageWidth = isFirst ? 330 : 110;
-  const imageHeight = isFirst ? 192 : 167;
-
+export const CenterCard: React.FC<CenterCardProps> = ({ center }) => {
   return (
-    <Grid row>
+    <Grid row className='center-card'>
       <Grid col='auto'>
         <Image
-          width={imageWidth}
-          height={imageHeight}
+          width={400}
+          height={400}
           src={center.image}
           alt={center.imageAlt}
-          className='object-cover'
+          className='width-full height-full object-cover'
         />
       </Grid>
       <Grid col={6}>
