@@ -1,7 +1,7 @@
 export const USWDS_DESKTOP_BREAKPOINT = 1024;
 // no magic numbers! Use value from theme?
 
-import { Theme, Exhibit, Interactive } from './types';
+import { Theme, Exhibit, Interactive, Center } from './types';
 
 /**
  * Theme data that must be manually kept in sync with MDX files in app/content/themes/.
@@ -119,5 +119,40 @@ export const DATA_INTERACTIVES: Interactive[] = [
     cardImageAlt: 'NASA Eyes on Earth',
     description:
       'NASA Eyes on Earth is a way for you to learn about your home planet, our solar system, the universe beyond and the spacecraft exploring them.',
+  },
+];
+
+export const DATA_CENTERS: Center[] = [
+  {
+    id: 'earth-information-center',
+    title: 'Earth Information Center',
+    description:
+      'The Earth Information Center consolidates data on Earth science from across the US federal government. Earth.gov is also the gateway to other interagency cooperative efforts for our planet.',
+    image: '/images/centers/earth-information-center.png',
+    imageAlt: 'Earth Information Center',
+  },
+  {
+    id: 'greenhouse-gas-center',
+    title: 'Greenhouse Gas Center',
+    description:
+      'The U.S. Greenhouse Gas Center (US GHG Center) is a multi-agency effort consolidating greenhouse gas information from observations and models.',
+    image: '/images/centers/greenhouse-gas-center.png',
+    imageAlt: 'Greenhouse Gas Center',
+  },
+  {
+    id: 'global-sea-level-change-portal',
+    title: 'Global Sea Level Change Portal',
+    description:
+      'The Global Sea Level Change Portal is an international collaboration that offers essential information on current and projected sea level change to inform coastal communities across the globe.',
+    image: '/images/centers/global-sea-level-change-portal.png',
+    imageAlt: 'Global Sea Level Change Portal',
+  },
+  {
+    id: 'national-sea-level-rise-center',
+    title: 'National Sea Level Rise Center',
+    description:
+      'The National Sea Level Rise Center is a multi-agency effort pairing data visualizations with accessible explanations and science eduction to help communities prepare for challenges that are impacting communities across the coastlines of the United States.',
+    image: '/images/centers/national-sea-level-rise-center.png',
+    imageAlt: 'Sea Level Rise Center',
   },
 ];
