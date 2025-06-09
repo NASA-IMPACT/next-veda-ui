@@ -1,10 +1,10 @@
 import React from 'react';
 import { Grid, GridContainer } from '@trussworks/react-uswds';
-
 import Separator from 'app/components/common/Separator';
 import ThemeCard from 'app/components/common/cards/ThemeCard';
 import InteractiveCard from 'app/components/common/cards/InteractiveCard';
 import { DATA_THEMES, DATA_INTERACTIVES } from 'app/constants';
+import StoryCard from 'app/components/common/cards/StoryCard';
 import Carousel from 'app/components/common/Carousel';
 import CentersSection from './CentersSection';
 
@@ -51,6 +51,13 @@ const DashboardPage: React.FC = () => {
             />
           ))}
         />
+
+      </GridContainer>
+      <GridContainer containerSize='desktop-lg'>
+        <Grid row className='margin-bottom-4'>
+          <StoryCard />
+          <StoryCard />
+        </Grid>
       </GridContainer>
 
       <CentersSection />

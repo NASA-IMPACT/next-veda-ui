@@ -1,0 +1,32 @@
+@import './_mixins';
+
+.story-card {
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+
+  .usa-card__img {
+    border-radius: 0 !important;
+    margin: 0 !important;
+    min-width: 150px;
+  }
+
+  .usa-card--flag .usa-card__media {
+    width: 10rem;
+  }
+  .usa-card__body {
+    margin-left: 10rem;
+    position: relative;
+    background-color: transparent;
+    color: white;
+  }
+  // Parent class for hover effects
+  @include card-with-effects-parents;
+  .card-title {
+    @include card-title-with-effects(white);
+  }
+
+  .card-overlay {
+    @include absolute-overlay();
+  }
+} 
