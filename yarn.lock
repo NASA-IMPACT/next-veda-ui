@@ -2087,10 +2087,10 @@
   resolved "http://verdaccio.ds.io:4873/@tanstack%2ftable-core/-/table-core-8.20.5.tgz#3974f0b090bed11243d4107283824167a395cf1d"
   integrity sha512-P9dF7XbibHph2PFRz8gfBKEXEY/HJPOhym8CHmjF8y3q5mWpKx9xtZapXQUWCgkqvsK0R46Azuz+VaxD4Xl+Tg==
 
-"@teamimpact/veda-ui@^6.1.1":
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/@teamimpact/veda-ui/-/veda-ui-6.1.1.tgz#ba224244f1b69cb412e55635e04825ec1f49c5bf"
-  integrity sha512-OE9jhatPJkwnfBk8lLOtXnMg8Fp8hSuRS26oo2tb3S4FFT5ivR/a1ywEnnuy/9iS7kXOtzE7uUAtJ5XXUiPXZA==
+"@teamimpact/veda-ui@6.6.2":
+  version "6.6.2"
+  resolved "https://registry.yarnpkg.com/@teamimpact/veda-ui/-/veda-ui-6.6.2.tgz#85234dbc31e98df4066ad607f4b5b96d046362ff"
+  integrity sha512-bqy60C6O5+enC4oDIRz032iTHPzSa0723AF0QSwEZpA3NldOwA/XhOQ5aghWGXspAdeWYBN0Or5iwFMWl40fdw==
   dependencies:
     "@codemirror/lang-markdown" "^6.1.1"
     "@codemirror/state" "^6.2.1"
