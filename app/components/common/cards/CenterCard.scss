@@ -1,12 +1,17 @@
+$card-height-default: 167px;
+$card-height-first: 192px;
+$image-width-default: 110px;
+$image-width-first: 330px;
+
 .center-card {
   isolation: isolate;
-  height: 192px;
+  height: $card-height-default;
 
   &__image {
     height: 100%;
     
     img {
-      width: 110px;
+      width: $image-width-default;
       height: 100%;
       object-fit: cover;
       border-radius: 0.5rem;
@@ -14,10 +19,10 @@
   }
 
   &.is-first {
-    height: 167px;
+    height: $card-height-first;
 
     .center-card__image img {
-      width: 330px;
+      width: $image-width-first;
     }
   }
 } 
