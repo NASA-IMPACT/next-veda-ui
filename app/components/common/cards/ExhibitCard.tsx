@@ -21,6 +21,12 @@ interface FormattedSectionProps {
   lines: string[];
 }
 
+interface ExhibitCardProps {
+  exhibit: Exhibit;
+  variant?: 'default' | 'filled';
+  containerProps?: { className?: string };
+}
+
 const FormattedSection: React.FC<FormattedSectionProps> = ({
   heading,
   lines,
@@ -37,10 +43,20 @@ const FormattedSection: React.FC<FormattedSectionProps> = ({
   );
 };
 
-export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
+export const ExhibitCard: React.FC<ExhibitCardProps> = ({
+  exhibit,
+  variant = 'default',
+  containerProps,
+}) => {
+  const isFilled = variant === 'filled';
+
   return (
-    <SmallCard key={exhibit.id} className='exhibit-card'>
-      <CardHeader />
+    <SmallCard
+      key={exhibit.id}
+      className='exhibit-card'
+      containerProps={containerProps}
+    >
+      <CardHeader className={isFilled ? 'bg-base-lightest' : ''} />
       <CardMedia exdent className='position-relative'>
         <CardBadge
           label='Exhibit'
