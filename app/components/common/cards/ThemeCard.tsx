@@ -30,7 +30,11 @@ export const ThemeCard: React.FC<{ theme: Theme }> = ({ theme }) => {
   return (
     <SmallCard key={theme.id} className='theme-card'>
       <CustomCardMedia className='position-relative'>
-        <CardBadge label='Earth Theme' icon='Language' className='padding-2' />
+        <CardBadge
+          label='Earth Theme'
+          icon='Language'
+          className='position-absolute top-0 left-0 padding-2'
+        />
         <div className='height-full'>
           <Image
             width={400}

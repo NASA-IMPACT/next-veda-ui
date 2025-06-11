@@ -33,9 +33,7 @@ export const CardBadge: React.FC<CardBadgeProps> = ({
   const IconComponent = BADGE_ICONS[icon];
 
   return (
-    <div
-      className={`position-absolute top-0 left-0 card-badge font-body-3xs ${className}`}
-    >
+    <div className={`card-badge font-body-3xs ${className}`}>
       <div className='bg-white padding-x-1 display-flex flex-align-center radius-md text-base-dark'>
         <IconComponent className='margin-right-05' aria-hidden={true} />
         <span>{label}</span>

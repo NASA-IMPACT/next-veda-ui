@@ -45,7 +45,7 @@ export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
         <CardBadge
           label='Exhibit'
           icon='AccountBalance'
-          className='padding-2'
+          className='position-absolute top-0 left-0 padding-2'
         />
         <div className='height-card-lg'>
           <Image
