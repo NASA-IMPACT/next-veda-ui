@@ -11,9 +11,7 @@ interface CenterCardProps {
 
 export const CenterCard: React.FC<CenterCardProps> = ({ center, isFirst }) => {
   return (
-    <div
-      className={`center-card ${isFirst && 'is-first'} display-flex flex-row flex-align-start gap-4`}
-    >
+    <div className={`center-card ${isFirst && 'is-first'}`}>
       <div className='center-card__image'>
         <Image
           width={400}
@@ -22,12 +20,18 @@ export const CenterCard: React.FC<CenterCardProps> = ({ center, isFirst }) => {
           alt={center.imageAlt}
         />
       </div>
-      <div className='flex-fill display-flex flex-column flex-justify-start gap-2'>
-        <CardBadge label='Center' icon='AccountBalance' />
-        <h3 className='text-uppercase'>
-          <span>{center.title}</span>
+      <div className='center-card__body'>
+        <CardBadge
+          label='Center'
+          icon='AccountBalance'
+          className='width-fit-content margin-y-2'
+        />
+        <h3 className='text-uppercase margin-y-05 font-sans-xs'>
+          <span className='font-weight-semibold line-height-tight'>
+            {center.title}
+          </span>
         </h3>
-        <p>{center.description}</p>
+        <p className='font-body-3xs margin-y-05'>{center.description}</p>
       </div>
     </div>
   );

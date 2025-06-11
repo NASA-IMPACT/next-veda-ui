@@ -6,6 +6,10 @@ $image-width-first: 330px;
 .center-card {
   isolation: isolate;
   height: $card-height-default;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
 
   &__image {
     height: 100%;
@@ -16,6 +20,16 @@ $image-width-first: 330px;
       object-fit: cover;
       border-radius: 0.5rem;
     }
+  }
+
+  &__body {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   &.is-first {
