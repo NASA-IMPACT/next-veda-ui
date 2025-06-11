@@ -1,13 +1,14 @@
 'use client';
 
 import React from 'react';
-import { LanguageIcon, AccountBalanceIcon, LightbulbIcon } from '../Icons';
+import { LanguageIcon, AccountBalanceIcon, LightbulbIcon, LinkIcon } from '../Icons';
 import './CardBadge.scss';
 
 const BADGE_ICONS = {
   Language: LanguageIcon,
   AccountBalance: AccountBalanceIcon,
   Lightbulb: LightbulbIcon,
+  Link: LinkIcon
 } as const;
 
 interface CardBadgeProps {
