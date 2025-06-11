@@ -1,3 +1,23 @@
 .center-card {
   isolation: isolate;
+  height: 192px;
+
+  &__image {
+    height: 100%;
+    
+    img {
+      width: 110px;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0.5rem;
+    }
+  }
+
+  &.is-first {
+    height: 167px;
+
+    .center-card__image img {
+      width: 330px;
+    }
+  }
 } 
