@@ -2,13 +2,19 @@
 import React from 'react';
 import Link from 'next/link';
 import { CardBadgeContent } from './CardBadge';
-import { Icon, Card, CardMedia, CardBody } from "@trussworks/react-uswds"
+import { Grid, GridContainer, Icon, Card, CardMedia, CardBody } from "@trussworks/react-uswds"
 import './StoryCard.scss';
 
-const plaecholderImage = 'https://placehold.co/150x200';
+type ExternalResource = {
+  title: string;
+  description: string;
+  linkURL: string;
+  imgSrc: string;
+  imgAlt: string;
+}
 
-export default function StoryCard() {
-  return    <Card layout='flagDefault' className='usa-list--unstyled'
+export function StoryCard({title, description, linkURL, imgSrc, imgAlt}:ExternalResource) {
+  return <Card layout='flagDefault' className='usa-list--unstyled'
    gridLayout={{
     tablet: {
       col: 6
@@ -16,7 +22,7 @@ export default function StoryCard() {
     containerProps = {{ "className": 'story-card'}}
   >
       <CardMedia>
-        <img src={plaecholderImage} alt='' />
+        <img src={imgSrc} alt={imgAlt} />
       </CardMedia>
       <CardBody>
           <div>
@@ -24,7 +30,7 @@ export default function StoryCard() {
           </div>
           <div className='margin-top-2'>
             <h2 className='card-title text-uppercase margin-bottom-1 font-sans-md'>
-              <span>External Resources</span>
+              <span>{title}</span>
               <Icon.ArrowForward
                 className='arrow-icon'
                 size={3}
@@ -32,16 +38,24 @@ export default function StoryCard() {
               />
             </h2>
             <p className='font-sans-3xs'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla efficitur non elit non pulvinar.
+            {description}
             </p>
           </div>
           <Link
             className='position-absolute top-0 left-0 width-full height-full'
-            href={`#`}
-            aria-label={`View 
-              eme details.`}
+            href={linkURL}
+            aria-label={`Link to the external resource.`}
           />
       </CardBody>
-
     </Card>
 }
+
+export function StoryGroup ({stories}: {stories: ExternalResource[]}) {
+  return <GridContainer containerSize='desktop-lg' className='margin-top-8'>
+        <Grid row className='margin-bottom-4'>
+        {stories.map(story => <StoryCard key={story.title} {...story}/> )}
+        </Grid>
+      </GridContainer>
+}
+
+

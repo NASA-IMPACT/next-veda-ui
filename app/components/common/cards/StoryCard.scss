@@ -12,14 +12,14 @@ $card-image-width: 110px;
     background-color: transparent;
     @include u-radius('md');
     max-height: 200px;
-    @include at-media("desktop") {
+    @include at-media("tablet") {
       margin: 0 !important;
       max-width: $card-image-width;
     }
   }
 
   .usa-card--flag .usa-card__media {
-    @include at-media("desktop") {
+    @include at-media("tablet") {
       width: $card-image-width;
     }
   }
@@ -27,7 +27,7 @@ $card-image-width: 110px;
     background-color: transparent;
     color: white;
     @include u-padding(1);
-    @include at-media("desktop") {
+    @include at-media("tablet") {
       margin-left: $card-image-width + 20px;
     }
   }
