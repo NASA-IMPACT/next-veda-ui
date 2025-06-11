@@ -29,9 +29,9 @@ const ExhibitSection: React.FC<ExhibitSectionProps> = ({
       )}
 
       {otherExhibits.length > 0 && (
-        <div className='grid-row grid-gap margin-top-1'>
+        <li className='grid-row grid-gap margin-top-1'>
           {otherExhibits.map((exhibit) => (
-            <div className='grid-col-12 tablet:grid-col-6' key={exhibit.id}>
+            <ul className='grid-col-12 tablet:grid-col-6' key={exhibit.id}>
               <ExhibitCard
                 exhibit={exhibit}
                 variant='filled'
@@ -39,9 +39,9 @@ const ExhibitSection: React.FC<ExhibitSectionProps> = ({
                   className: 'border-base-lightest bg-base-lightest',
                 }}
               />
-            </div>
+            </ul>
           ))}
-        </div>
+        </li>
       )}
     </CardGroup>
   );
