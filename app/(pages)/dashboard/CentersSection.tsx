@@ -7,12 +7,12 @@ const CentersSection: React.FC = () => {
   const [firstCenter, ...remainingCenters] = DATA_CENTERS;
 
   return (
-    <GridContainer containerSize='desktop-lg' className='margin-bottom-4'>
-      <Grid row className='margin-bottom-4'>
+    <GridContainer containerSize='desktop-lg'>
+      <Grid row>
         <h2 className='text-uppercase'>Explore our centers</h2>
       </Grid>
 
-      <Grid row>
+      <Grid row className='margin-y-2'>
         <Grid col={12}>
           <CenterCard center={firstCenter} isFirst={true} />
         </Grid>
@@ -25,6 +25,7 @@ const CentersSection: React.FC = () => {
             col={12}
             tablet={{ col: 6 }}
             desktop={{ col: 6 }}
+            className='margin-y-2'
           >
             <CenterCard center={center} isFirst={false} />
           </Grid>
