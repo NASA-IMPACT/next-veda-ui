@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { CardBadgeContent } from './CardBadge';
 import { Grid, GridContainer, Icon, Card, CardMedia, CardBody } from "@trussworks/react-uswds"
-import './StoryCard.scss';
+import './ExternalResource.scss';
 
 type ExternalResource = {
   title: string;
@@ -50,10 +50,12 @@ export function StoryCard({title, description, linkURL, imgSrc, imgAlt}:External
     </Card>
 }
 
-export function StoryGroup ({stories}: {stories: ExternalResource[]}) {
+export function ExternalResources ({resources}: {resources: ExternalResource[]}) {
   return <GridContainer containerSize='desktop-lg' className='margin-top-8'>
         <Grid row className='margin-bottom-4'>
-        {stories.map(story => <StoryCard key={story.title} {...story}/> )}
+          <ul className='usa-card-group'>
+          {resources.map(story => <StoryCard key={story.title} {...story}/> )}
+        </ul>
         </Grid>
       </GridContainer>
 }

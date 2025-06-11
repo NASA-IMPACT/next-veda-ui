@@ -10,7 +10,7 @@ import { Section } from 'app/components/common/Section';
 import { VideoCaptionBlock } from 'app/components/common/VideoCaptionBlock';
 import { ImageCaptionBlock } from 'app/components/common/ImageCaptionBlock';
 import { Title } from 'app/components/common/Title';
-import { StoryGroup } from 'app/components/common/cards/StoryCard';
+import { ExternalResources } from 'app/components/common/cards/ExternalResource';
 import Carousel from 'app/components/common/Carousel';
 import dynamic from 'next/dynamic';
 
@@ -144,7 +144,7 @@ export async function getThemeContent(slug: string) {
       Paragraph,
       Title,
       Carousel,
-      StoryGroup
+      ExternalResources
     },
     options: { parseFrontmatter: false },
   });
