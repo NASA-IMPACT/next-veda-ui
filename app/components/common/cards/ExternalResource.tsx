@@ -52,12 +52,12 @@ export function StoryCard({title, description, linkURL, imgSrc, imgAlt}:External
 
 export function ExternalResources ({resources}: {resources: ExternalResource[]}) {
   return <GridContainer containerSize='desktop-lg' className='margin-top-8'>
-        <Grid row className='margin-bottom-4'>
-          <ul className='usa-card-group'>
-          {resources.map(story => <StoryCard key={story.title} {...story}/> )}
-        </ul>
-        </Grid>
-      </GridContainer>
+    <Grid row className='margin-bottom-4'>
+      <ul className='usa-card-group'>
+      {resources.map(story => <StoryCard key={story.title} {...story}/> )}
+    </ul>
+    </Grid>
+  </GridContainer>
 }
 
 
