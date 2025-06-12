@@ -23,7 +23,7 @@ const CentersSection: React.FC = () => {
           <Grid
             key={center.id}
             col={12}
-            tablet={{ col: 6 }}
+            tabletLg={{ col: 6 }}
             desktop={{ col: 6 }}
             className='margin-y-2'
           >

@@ -1,5 +1,8 @@
+@use 'uswds-core/src/styles/functions/units' as spacing;
+
 $card-height-default: 167px;
 $card-height-first: 192px;
+$card-height-mobile: 148px;
 $image-width-default: 110px;
 $image-width-first: 330px;
 
@@ -10,7 +13,7 @@ $image-width-first: 330px;
   flex-direction: row;
   align-items: flex-start;
   gap: 1rem;
-
+  
   &__image {
     height: 100%;
     
@@ -28,8 +31,7 @@ $image-width-first: 330px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding: 0 1.25rem;
   }
 
   &.is-first {
@@ -37,6 +39,27 @@ $image-width-first: 330px;
 
     .center-card__image img {
       width: $image-width-first;
+    }
+  }
+
+
+  // Mobile layout
+  @media (width <= spacing.units('tablet-lg')) {
+    flex-direction: column;
+    width: 100%;
+    height: auto !important;
+    
+    .center-card__image {
+      height: $card-height-mobile;
+      width: 100%;
+
+      img {
+        width: 100% !important;
+      }
+    }
+
+    &__body {
+      padding: 0;
     }
   }
 } 
