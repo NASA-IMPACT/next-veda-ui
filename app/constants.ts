@@ -63,6 +63,8 @@ export const DATA_EXHIBITS: Exhibit[] = [
   {
     id: 'nasa-hq',
     heading: 'NASA HQ',
+    description:
+      'The Earth Information Center at HQ is a physical and virtual experience at NASA Headquarters, where visitors can see how our planet is changing in areas that affect lives and livelihoods– from temperatures in our cities to sea level rise, greenhouse gas emissions to agricultural productivity.',
     openingHours: ['Monday - Friday', '8:30am - 5:30pm'],
     address: [
       'NASA Headquarters (East Lobby)',
@@ -74,6 +76,8 @@ export const DATA_EXHIBITS: Exhibit[] = [
   {
     id: 'smithsonian-museum',
     heading: 'Smithsonian National Museum of Natural History',
+    description:
+      'The Earth Information Center exhibit at the Smithsonian’s National Museum of Natural History includes a video wall displaying Earth science data visualizations and videos, an interpretive panel showing Earth’s connected systems, information on our changing world, and an overview of how NASA and the Smithsonian study our home planet.',
     openingHours: ['Every day (closed on Christmas)', '10am - 5:30pm'],
     address: [
       'Smithsonian National Museum of Natural History',
@@ -85,6 +89,8 @@ export const DATA_EXHIBITS: Exhibit[] = [
   {
     id: 'kennedy-space-center',
     heading: 'Kennedy Space Center',
+    description:
+      'The Earth Information Center exhibit at the Kennedy Space Center Visitor Complex reimagines the observation gantry at Launch Complex 39 and includes a data hub featuring a theater show, a Hyperwall display, and an interactive exhibit gallery.',
     openingHours: ['Every day (closed on Christmas)', '9am - 5pm'],
     address: [
       'KSC Visitor Complex (The Gantry at LC-39)',

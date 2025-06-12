@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { CardMedia, CardHeader, CardBody } from '@trussworks/react-uswds';
+import { CardMedia, CardBody } from '@trussworks/react-uswds';
 import Image from 'next/image';
 import Link from 'next/link';
 import CardBadge from './CardBadge';
@@ -14,11 +14,18 @@ export interface Exhibit {
   address: string[];
   imgSrc: string;
   imgAlt: string;
+  description?: string;
 }
 
 interface FormattedSectionProps {
   heading: string;
   lines: string[];
+}
+
+interface ExhibitCardProps {
+  exhibit: Exhibit;
+  showDescription?: boolean;
+  containerProps?: { className?: string };
 }
 
 const FormattedSection: React.FC<FormattedSectionProps> = ({
@@ -37,10 +44,17 @@ const FormattedSection: React.FC<FormattedSectionProps> = ({
   );
 };
 
-export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
+export const ExhibitCard: React.FC<ExhibitCardProps> = ({
+  exhibit,
+  showDescription,
+  containerProps,
+}) => {
   return (
-    <SmallCard key={exhibit.id} className='exhibit-card'>
-      <CardHeader />
+    <SmallCard
+      key={exhibit.id}
+      className='exhibit-card'
+      containerProps={containerProps}
+    >
       <CardMedia exdent className='position-relative'>
         <CardBadge
           label='Exhibit'
@@ -61,10 +75,17 @@ export const ExhibitCard: React.FC<{ exhibit: Exhibit }> = ({ exhibit }) => {
           {exhibit.heading}
         </h2>
       </CardMedia>
-      <CardBody className='font-body-2xs height-card'>
-        <FormattedSection heading='Hours' lines={exhibit.openingHours} />
-        <FormattedSection heading='Address' lines={exhibit.address} />
+      <CardBody className='font-body-2xs height-card margin-top-2'>
+        {showDescription ? (
+          <p>{exhibit.description}</p>
+        ) : (
+          <>
+            <FormattedSection heading='Hours' lines={exhibit.openingHours} />
+            <FormattedSection heading='Address' lines={exhibit.address} />
+          </>
+        )}
       </CardBody>
+
       <Link
         className='position-absolute top-0 left-0 width-full height-full'
         href={`/visit/exhibit/${exhibit.id}`}
