@@ -24,7 +24,7 @@ export const CenterCard: React.FC<CenterCardProps> = ({ center, isFirst }) => {
         <CardBadge
           label='Center'
           icon='AccountBalance'
-          className='width-fit-content margin-y-2'
+          className='margin-y-2'
         />
         <h3 className='text-uppercase margin-y-05 font-sans-xs'>
           <span className='font-weight-semibold line-height-tight'>

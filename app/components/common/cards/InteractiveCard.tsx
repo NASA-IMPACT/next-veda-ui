@@ -44,7 +44,7 @@ export const InteractiveCard: React.FC<InteractiveCardProps> = ({
             <CardBadge
               label='Interactive'
               icon='Lightbulb'
-              className='position-absolute top-0 left-0 font-body-2xs'
+              className='position-absolute top-0 left-0'
             />
             <h3 className='card-title text-uppercase font-body font-weight-bold font-body-xl line-height-sans-1'>
               <span>{title}</span>
