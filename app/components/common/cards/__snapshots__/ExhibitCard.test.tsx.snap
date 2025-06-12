@@ -20,10 +20,10 @@ exports[`Exhibit Card > matches the snapshot 1`] = `
         class="usa-card__img"
       >
         <div
-          class="card-badge font-body-3xs position-absolute top-0 left-0 padding-2"
+          class="card-badge font-body-2xs line-height-sans-3 position-absolute top-0 left-0 padding-2"
         >
           <div
-            class="bg-white padding-x-1 display-flex flex-align-center radius-md text-base-dark"
+            class="bg-white padding-x-1 padding-y-05 display-flex flex-align-center radius-md text-base-dark"
           >
             <svg
               aria-hidden="true"
