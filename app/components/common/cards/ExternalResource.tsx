@@ -29,7 +29,7 @@ export function StoryCard({title, description, linkURL, imgSrc, imgAlt}:External
             <CardBadgeContent label='External Link' icon='Link' />
           </div>
           <div className='margin-top-2'>
-            <h2 className='card-title text-uppercase margin-bottom-1 font-sans-md'>
+            <h2 className='card-title text-uppercase text-medium font-sans-md'>
               <span>{title}</span>
               <Icon.ArrowForward
                 className='arrow-icon'
@@ -37,7 +37,7 @@ export function StoryCard({title, description, linkURL, imgSrc, imgAlt}:External
                 aria-label={`View story`}
               />
             </h2>
-            <p className='font-sans-3xs'>
+            <p className='font-sans-3xs margin-top-0'>
             {description}
             </p>
           </div>
