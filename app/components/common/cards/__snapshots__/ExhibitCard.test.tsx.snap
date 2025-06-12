@@ -9,10 +9,6 @@ exports[`Exhibit Card > matches the snapshot 1`] = `
     class="usa-card__container"
   >
     <div
-      class="usa-card__header"
-      data-testid="CardHeader"
-    />
-    <div
       class="usa-card__media usa-card__media--exdent position-relative"
       data-testid="CardMedia"
     >
@@ -71,7 +67,7 @@ exports[`Exhibit Card > matches the snapshot 1`] = `
       </div>
     </div>
     <div
-      class="usa-card__body font-body-2xs height-card"
+      class="usa-card__body font-body-2xs height-card margin-top-2"
       data-testid="CardBody"
     >
       <h3
