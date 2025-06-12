@@ -11,6 +11,7 @@ export interface Exhibit {
   address: string[];
   imgSrc: string;
   imgAlt: string;
+  description?: string;
 }
 
 export type Interactive = {

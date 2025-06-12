@@ -21,7 +21,7 @@ const ExhibitSection: React.FC<ExhibitSectionProps> = ({
       {featuredExhibit && (
         <ExhibitCard
           exhibit={featuredExhibit}
-          variant='filled'
+          showDescription
           containerProps={{
             className: 'border-base-lightest bg-base-lightest',
           }}
@@ -34,7 +34,7 @@ const ExhibitSection: React.FC<ExhibitSectionProps> = ({
             <ul className='grid-col-12 tablet:grid-col-6' key={exhibit.id}>
               <ExhibitCard
                 exhibit={exhibit}
-                variant='filled'
+                showDescription
                 containerProps={{
                   className: 'border-base-lightest bg-base-lightest',
                 }}

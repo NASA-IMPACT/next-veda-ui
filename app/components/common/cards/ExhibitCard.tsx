@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { CardMedia, CardHeader, CardBody } from '@trussworks/react-uswds';
+import { CardMedia, CardBody } from '@trussworks/react-uswds';
 import Image from 'next/image';
 import Link from 'next/link';
 import CardBadge from './CardBadge';
@@ -14,6 +14,7 @@ export interface Exhibit {
   address: string[];
   imgSrc: string;
   imgAlt: string;
+  description?: string;
 }
 
 interface FormattedSectionProps {
@@ -23,7 +24,7 @@ interface FormattedSectionProps {
 
 interface ExhibitCardProps {
   exhibit: Exhibit;
-  variant?: 'default' | 'filled';
+  showDescription?: boolean;
   containerProps?: { className?: string };
 }
 
@@ -45,18 +46,15 @@ const FormattedSection: React.FC<FormattedSectionProps> = ({
 
 export const ExhibitCard: React.FC<ExhibitCardProps> = ({
   exhibit,
-  variant = 'default',
+  showDescription,
   containerProps,
 }) => {
-  const isFilled = variant === 'filled';
-
   return (
     <SmallCard
       key={exhibit.id}
       className='exhibit-card'
       containerProps={containerProps}
     >
-      <CardHeader className={isFilled ? 'bg-base-lightest' : ''} />
       <CardMedia exdent className='position-relative'>
         <CardBadge
           label='Exhibit'
@@ -77,10 +75,17 @@ export const ExhibitCard: React.FC<ExhibitCardProps> = ({
           {exhibit.heading}
         </h2>
       </CardMedia>
-      <CardBody className='font-body-2xs height-card'>
-        <FormattedSection heading='Hours' lines={exhibit.openingHours} />
-        <FormattedSection heading='Address' lines={exhibit.address} />
+      <CardBody className='font-body-2xs height-card margin-top-2'>
+        {showDescription ? (
+          <p>{exhibit.description}</p>
+        ) : (
+          <>
+            <FormattedSection heading='Hours' lines={exhibit.openingHours} />
+            <FormattedSection heading='Address' lines={exhibit.address} />
+          </>
+        )}
       </CardBody>
+
       <Link
         className='position-absolute top-0 left-0 width-full height-full'
         href={`/visit/exhibit/${exhibit.id}`}
