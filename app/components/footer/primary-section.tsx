@@ -6,10 +6,11 @@ const PrimarySection = () => {
   const primaryNavItems = [
     { label: 'About', href: '/about' },
     { label: 'Dashboard', href: '/dashboard' },
-    // { label: 'Mapping App', href: '/mapping' },
-    // { label: 'Themes', href: '/themes' },
     { label: 'Visit an Exhibit', href: '/visit' },
-    // { label: 'Contact Us', href: '/contact' }, //TODO: Add form!
+    {
+      label: 'Contact Us',
+      href: 'https://docs.google.com/forms/d/e/1FAIpQLSeusBLtTKXDgWveqRW0FYSCJtdvm-JUwQuSG_PcJwCY97OqOQ/viewform',
+    },
   ];
 
   return (
