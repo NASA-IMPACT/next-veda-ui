@@ -31,7 +31,7 @@ export const CardBadgeContent: React.FC<CardBadgeProps> = ({ label, icon }) => {
   const IconComponent = BADGE_ICONS[icon];
 
   return (
-    <div className='card-badge display-inline-block'>
+    <div className='display-inline-block'>
       <div className='bg-white padding-x-1 display-flex flex-align-center radius-md text-base-dark font-body-3xs'>
         <IconComponent className='margin-right-05' aria-hidden={true} />
         <span>{label}</span>
