@@ -12,7 +12,7 @@ $image-width-first: 330px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 1rem;
+  gap: spacing.units(2);
   
   &__image {
     height: 100%;
