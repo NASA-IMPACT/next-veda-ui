@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Center } from 'app/types';
 import './CenterCard.scss';
 import CardBadge from './CardBadge';
+import Link from 'next/link';
 
 interface CenterCardProps {
   center: Center;
@@ -33,6 +34,11 @@ export const CenterCard: React.FC<CenterCardProps> = ({ center, isFirst }) => {
         </h3>
         <p className='font-body-3xs margin-y-05'>{center.description}</p>
       </div>
+      <Link
+        className='position-absolute top-0 left-0 width-full height-full'
+        href={`/visit/center/${center.id}`}
+        aria-label={`Visit ${center.title} center.`}
+      />
     </div>
   );
 };
