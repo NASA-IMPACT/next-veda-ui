@@ -21,3 +21,11 @@ export type Interactive = {
   description: string;
   cardImageAlt: string;
 };
+
+export type Center = {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+};

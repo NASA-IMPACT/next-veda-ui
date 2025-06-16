@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { DATA_THEMES, DATA_INTERACTIVES } from '../../app/constants';
+import { DATA_CENTERS } from '../../app/constants';
 
 test.describe('Dashboard Page', () => {
   test('should be accessible and display content correctly', async ({
@@ -19,7 +20,7 @@ test.describe('Dashboard Page', () => {
 
     for (const theme of DATA_THEMES) {
       const card = page.getByRole('link', {
-        name: new RegExp(theme.title, 'i'),
+        name: `View ${theme.title} theme details.`,
       });
       await expect(card).toBeVisible();
       await expect(card).toHaveAttribute('href', `/themes/${theme.id}`);
@@ -29,7 +30,9 @@ test.describe('Dashboard Page', () => {
   test('should navigate to theme pages correctly', async ({ page }) => {
     await page.goto('/dashboard');
     const theme = DATA_THEMES[0];
-    const card = page.getByRole('link', { name: new RegExp(theme.title, 'i') });
+    const card = page.getByRole('link', {
+      name: `View ${theme.title} theme details.`,
+    });
 
     await card.click();
     await expect(page).toHaveURL(`/themes/${theme.id}`);
@@ -75,5 +78,49 @@ test.describe('Dashboard Page', () => {
     expect(newPage.url()).toBe(secondInteractive.url);
 
     await newPage.close();
+  });
+
+  test('should display all center cards with correct info and links', async ({
+    page,
+  }) => {
+    await page.goto('/dashboard');
+    const h2 = page.getByRole('heading', {
+      name: /explore our centers/i,
+      level: 2,
+    });
+    await expect(h2).toBeVisible();
+
+    for (const center of DATA_CENTERS) {
+      // Check title
+      const title = await page.getByRole('heading', {
+        name: center.title,
+        level: 3,
+      });
+      await expect(title).toBeVisible();
+      // Check description
+      await expect(page.getByText(center.description)).toBeVisible();
+      // Check link
+      const link = page.getByRole('link', {
+        name: `Visit ${center.title} center.`,
+      });
+      await expect(link).toBeVisible();
+      await expect(link).toHaveAttribute('href', `/visit/center/${center.id}`);
+    }
+  });
+
+  test('should navigate to center pages when center card is clicked', async ({
+    page,
+  }) => {
+    await page.goto('/dashboard');
+    for (const center of DATA_CENTERS) {
+      const link = page.getByRole('link', {
+        name: `Visit ${center.title} center.`,
+      });
+      // Open in same tab
+      await link.click();
+      await expect(page).toHaveURL(`/visit/center/${center.id}`);
+      // Go back to dashboard for next center
+      await page.goto('/dashboard');
+    }
   });
 });

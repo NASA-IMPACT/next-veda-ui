@@ -1,0 +1,65 @@
+@use 'uswds-core/src/styles/functions/units' as spacing;
+
+$card-height-default: 167px;
+$card-height-first: 192px;
+$card-height-mobile: 148px;
+$image-width-default: 110px;
+$image-width-first: 330px;
+
+.center-card {
+  isolation: isolate;
+  height: $card-height-default;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: spacing.units(2);
+  
+  &__image {
+    height: 100%;
+    
+    img {
+      width: $image-width-default;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0.25rem;
+    }
+  }
+
+  &__body {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 spacing.units('205');
+  }
+
+  &.is-first {
+    height: $card-height-first;
+
+    .center-card__image img {
+      width: $image-width-first;
+    }
+  }
+
+
+  // Mobile layout
+  @media (width <= spacing.units('tablet-lg')) {
+    flex-direction: column;
+    width: 100%;
+    height: auto !important;
+    
+    .center-card__image {
+      height: $card-height-mobile;
+      width: 100%;
+
+      img {
+        width: 100% !important;
+      }
+    }
+
+    &__body {
+      padding: 0;
+    }
+  }
+} 

@@ -11,8 +11,14 @@ describe('CardBadge', () => {
     expect(screen.getByRole('img', { hidden: true })).toBeInTheDocument();
   });
 
-  it('applies correct positioning classes', () => {
-    render(<CardBadge label='Test Badge' icon='Language' />);
+  it('applies positioning classes when provided via className prop', () => {
+    render(
+      <CardBadge
+        label='Test Badge'
+        icon='Language'
+        className='position-absolute top-0 left-0'
+      />,
+    );
 
     const badge = screen.getByText('Test Badge').closest('.card-badge');
     expect(badge).toHaveClass(
