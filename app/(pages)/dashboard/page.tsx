@@ -9,6 +9,25 @@ import Carousel from 'app/components/common/Carousel';
 import CentersSection from './CentersSection';
 import { SectionHeader } from 'app/components/common/Section';
 
+interface DashboardSectionProps {
+  title: string;
+  children: React.ReactNode;
+}
+
+const DashboardSection: React.FC<DashboardSectionProps> = ({
+  title,
+  children,
+}) => {
+  return (
+    <GridContainer containerSize='desktop-lg'>
+      <Grid row>
+        <SectionHeader title={title} />
+      </Grid>
+      {children}
+    </GridContainer>
+  );
+};
+
 const DashboardPage: React.FC = () => {
   return (
     <>
@@ -23,22 +42,16 @@ const DashboardPage: React.FC = () => {
 
       <Separator />
 
-      <GridContainer containerSize='desktop-lg' className='margin-bottom-4'>
-        <Grid row className='margin-bottom-4'>
-          <SectionHeader title='Learn about earth themes' />
-        </Grid>
+      <DashboardSection title='Learn about Earth Themes'>
         <Carousel
           slideWidth='third'
           slides={DATA_THEMES.map((theme) => (
             <ThemeCard key={theme.id} theme={theme} />
           ))}
         />
-      </GridContainer>
+      </DashboardSection>
 
-      <GridContainer containerSize='desktop-lg'>
-        <Grid row className='margin-bottom-4'>
-          <SectionHeader title='Interactive Tools' />
-        </Grid>
+      <DashboardSection title='Interactives'>
         <Carousel
           slideWidth='full'
           slides={DATA_INTERACTIVES.map((interactive) => (
@@ -52,9 +65,11 @@ const DashboardPage: React.FC = () => {
             />
           ))}
         />
-      </GridContainer>
+      </DashboardSection>
 
-      <CentersSection />
+      <DashboardSection title='Explore our centers'>
+        <CentersSection />
+      </DashboardSection>
     </>
   );
 };
