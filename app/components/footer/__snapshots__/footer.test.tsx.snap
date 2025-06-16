@@ -69,6 +69,14 @@ exports[`Footer Component > matches the snapshot (no unintended side-effects) 1`
             >
               Visit an Exhibit
             </a>
+            <a
+              class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeusBLtTKXDgWveqRW0FYSCJtdvm-JUwQuSG_PcJwCY97OqOQ/viewform"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Contact Us
+            </a>
           </nav>
         </div>
       </div>

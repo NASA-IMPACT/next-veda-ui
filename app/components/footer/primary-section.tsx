@@ -6,10 +6,12 @@ const PrimarySection = () => {
   const primaryNavItems = [
     { label: 'About', href: '/about' },
     { label: 'Dashboard', href: '/dashboard' },
-    // { label: 'Mapping App', href: '/mapping' },
-    // { label: 'Themes', href: '/themes' },
     { label: 'Visit an Exhibit', href: '/visit' },
-    // { label: 'Contact Us', href: '/contact' }, //TODO: Add form!
+    {
+      label: 'Contact Us',
+      href: 'https://docs.google.com/forms/d/e/1FAIpQLSeusBLtTKXDgWveqRW0FYSCJtdvm-JUwQuSG_PcJwCY97OqOQ/viewform',
+      isExternal: true,
+    },
   ];
 
   return (
@@ -36,11 +38,14 @@ const PrimarySection = () => {
             aria-label='Footer navigation'
             className='display-flex flex-column desktop:flex-row'
           >
-            {primaryNavItems.map(({ label, href }) => (
+            {primaryNavItems.map(({ label, href, isExternal }) => (
               <Link
                 className='usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs'
                 href={href}
                 key={href}
+                {...(isExternal
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
               >
                 {label}
               </Link>
