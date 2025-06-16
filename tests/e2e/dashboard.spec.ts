@@ -47,7 +47,7 @@ test.describe('Dashboard Page', () => {
     await page.goto('/dashboard');
 
     const interactiveHeading = page.getByRole('heading', {
-      name: /interactive tools/i,
+      name: /interactives/i,
       level: 2,
     });
     await expect(interactiveHeading).toBeVisible();
