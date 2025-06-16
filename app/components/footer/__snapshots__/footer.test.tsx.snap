@@ -41,7 +41,7 @@ exports[`Footer Component > matches the snapshot (no unintended side-effects) 1`
           <p
             class="margin-0 text-base-light font-body-2xs measure-1"
           >
-            The EIC was created by NASA and is enabled by contributions across EPA, FEMA, NASA, NOAA, USAID, USDA and USGS.
+            The EIC was created by NASA and is enabled by contributions across EPA, FEMA, NASA, NOAA, USDA and USGS.
           </p>
         </div>
         <div
