@@ -9,25 +9,6 @@ import Carousel from 'app/components/common/Carousel';
 import CentersSection from './CentersSection';
 import { SectionHeader } from 'app/components/common/Section';
 
-interface DashboardSectionProps {
-  title: string;
-  children: React.ReactNode;
-}
-
-const DashboardSection: React.FC<DashboardSectionProps> = ({
-  title,
-  children,
-}) => {
-  return (
-    <GridContainer containerSize='desktop-lg'>
-      <Grid row>
-        <SectionHeader title={title} />
-      </Grid>
-      {children}
-    </GridContainer>
-  );
-};
-
 const DashboardPage: React.FC = () => {
   return (
     <>
@@ -50,6 +31,8 @@ const DashboardPage: React.FC = () => {
           ))}
         />
       </DashboardSection>
+
+      <Separator />
 
       <DashboardSection title='Interactives'>
         <Carousel
@@ -75,3 +58,22 @@ const DashboardPage: React.FC = () => {
 };
 
 export default DashboardPage;
+
+const DashboardSectionHeader: React.FC<{ title: string }> = ({ title }) => (
+  <SectionHeader title={title} className='margin-y-1' />
+);
+
+const DashboardSection: React.FC<{
+  title: string;
+  children: React.ReactNode;
+}> = ({ title, children }) => {
+  return (
+    <GridContainer
+      containerSize='desktop-lg'
+      className='dashboard-section padding-y-8'
+    >
+      <DashboardSectionHeader title={title} />
+      {children}
+    </GridContainer>
+  );
+};

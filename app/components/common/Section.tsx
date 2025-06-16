@@ -1,7 +1,15 @@
 import React from 'react';
 
-export const SectionHeader = ({ title }: { title: string }) => {
-  return <h2 className='text-uppercase font-body-lg'>{title}</h2>;
+export const SectionHeader = ({
+  title,
+  className = '',
+}: {
+  title: string;
+  className?: string;
+}) => {
+  return (
+    <h2 className={`text-uppercase font-body-lg ${className}`}>{title}</h2>
+  );
 };
 
 export function Section({
