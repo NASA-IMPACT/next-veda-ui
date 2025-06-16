@@ -7,6 +7,7 @@ import InteractiveCard from 'app/components/common/cards/InteractiveCard';
 import { DATA_THEMES, DATA_INTERACTIVES } from 'app/constants';
 import Carousel from 'app/components/common/Carousel';
 import CentersSection from './CentersSection';
+import { SectionHeader } from 'app/components/common/Section';
 
 const DashboardPage: React.FC = () => {
   return (
@@ -24,7 +25,7 @@ const DashboardPage: React.FC = () => {
 
       <GridContainer containerSize='desktop-lg' className='margin-bottom-4'>
         <Grid row className='margin-bottom-4'>
-          <h2 className='text-uppercase'>Learn about earth themes</h2>
+          <SectionHeader title='Learn about earth themes' />
         </Grid>
         <Carousel
           slideWidth='third'
@@ -36,7 +37,7 @@ const DashboardPage: React.FC = () => {
 
       <GridContainer containerSize='desktop-lg'>
         <Grid row className='margin-bottom-4'>
-          <h2 className='text-uppercase'>Interactive Tools</h2>
+          <SectionHeader title='Interactive Tools' />
         </Grid>
         <Carousel
           slideWidth='full'

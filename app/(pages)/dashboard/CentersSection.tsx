@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, GridContainer } from '@trussworks/react-uswds';
 import { CenterCard } from 'app/components/common/cards/CenterCard';
 import { DATA_CENTERS } from 'app/constants';
+import { SectionHeader } from 'app/components/common/Section';
 
 const CentersSection: React.FC = () => {
   const [firstCenter, ...remainingCenters] = DATA_CENTERS;
@@ -9,7 +10,7 @@ const CentersSection: React.FC = () => {
   return (
     <GridContainer containerSize='desktop-lg'>
       <Grid row>
-        <h2 className='text-uppercase'>Explore our centers</h2>
+        <SectionHeader title='Explore our centers' />
       </Grid>
 
       <Grid row className='margin-y-2'>
