@@ -5,6 +5,7 @@ import ThemeCard from 'app/components/common/cards/ThemeCard';
 import InteractiveCard from 'app/components/common/cards/InteractiveCard';
 import { DATA_THEMES, DATA_INTERACTIVES } from 'app/constants';
 import Carousel from 'app/components/common/Carousel';
+import CentersSection from './CentersSection';
 
 const DashboardPage: React.FC = () => {
   return (
@@ -49,8 +50,9 @@ const DashboardPage: React.FC = () => {
             />
           ))}
         />
-
       </GridContainer>
+
+      <CentersSection />
     </>
   );
 };
