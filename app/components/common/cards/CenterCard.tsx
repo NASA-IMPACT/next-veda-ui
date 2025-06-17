@@ -12,15 +12,18 @@ interface CenterCardProps {
 
 export const CenterCard: React.FC<CenterCardProps> = ({ center, isFirst }) => {
   return (
-    <div className={`center-card ${isFirst && 'is-first'}`}>
-      <div className='center-card__image'>
-        <Image
-          width={400}
-          height={400}
-          src={center.image}
-          alt={center.imageAlt}
-        />
-      </div>
+    <div className={`center-card ${isFirst ? 'is-first' : 'is-secondary'}`}>
+      {isFirst && (
+        <div className='center-card__image'>
+          <Image
+            width={400}
+            height={400}
+            src={center.image}
+            alt={center.imageAlt}
+            className='width-full height-full object-cover'
+          />
+        </div>
+      )}
       <div className='center-card__body'>
         <CardBadge
           label='Center'

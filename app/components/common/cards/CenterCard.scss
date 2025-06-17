@@ -1,18 +1,15 @@
 @use 'uswds-core/src/styles/functions/units' as spacing;
 
-$card-height-default: 167px;
-$card-height-first: 192px;
-$card-height-mobile: 148px;
 $image-width-default: 110px;
 $image-width-first: 330px;
 
 .center-card {
   isolation: isolate;
-  height: $card-height-default;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   gap: spacing.units(2);
+  min-height: 9rem; // ~144px for cards without images
   
   &__image {
     height: 100%;
@@ -35,22 +32,21 @@ $image-width-first: 330px;
   }
 
   &.is-first {
-    height: $card-height-first;
+    min-height: 12rem; // ~192px equivalent to previous 192px
 
     .center-card__image img {
       width: $image-width-first;
     }
   }
 
-
   // Mobile layout
   @media (width <= spacing.units('tablet-lg')) {
     flex-direction: column;
     width: 100%;
-    height: auto !important;
+    min-height: 9rem !important; // ~144px for mobile
     
     .center-card__image {
-      height: $card-height-mobile;
+      height: 9rem; // ~144px equivalent to previous 148px
       width: 100%;
 
       img {
