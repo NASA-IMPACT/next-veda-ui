@@ -12,7 +12,9 @@ interface CenterCardProps {
 
 export const CenterCard: React.FC<CenterCardProps> = ({ center, isFirst }) => {
   return (
-    <div className={`center-card ${isFirst ? 'is-first' : 'is-secondary'}`}>
+    <div
+      className={`center-card bg-ink border-1px border-base-darkest ${isFirst ? 'is-first' : 'is-secondary'}`}
+    >
       {isFirst && (
         <div className='center-card__image'>
           <Image
