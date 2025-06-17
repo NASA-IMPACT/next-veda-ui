@@ -9,7 +9,8 @@ $image-width-first: 330px;
   flex-direction: row;
   align-items: flex-start;
   gap: spacing.units(2);
-  min-height: 9rem; // ~144px for cards without images
+  min-height: 9rem; 
+  height: 323px; 
   
   &__image {
     height: 100%;
@@ -32,10 +33,12 @@ $image-width-first: 330px;
   }
 
   &.is-first {
-    min-height: 12rem; // ~192px equivalent to previous 192px
+    min-height: 12rem; 
+    height: auto; 
+    padding: 20px; 
 
     .center-card__image img {
-      width: $image-width-first;
+      height: 200px;
     }
   }
 
@@ -43,10 +46,10 @@ $image-width-first: 330px;
   @media (width <= spacing.units('tablet-lg')) {
     flex-direction: column;
     width: 100%;
-    min-height: 9rem !important; // ~144px for mobile
+    min-height: 9rem !important; 
     
     .center-card__image {
-      height: 9rem; // ~144px equivalent to previous 148px
+      height: 9rem; 
       width: 100%;
 
       img {
