@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { highlight } from 'sugar-high';
 import { LegacyGlobalStyles } from '@lib';
+import CharacterChat from './character-chat/CharacterChat';
 
 import {
   Block,
@@ -101,6 +102,7 @@ const components = {
   Link: Link,
   Chapter: Chapter,
   Chart: Chart,
+  CharacterChat: CharacterChat,
 };
 
 export function CustomMDX(props: any) {
