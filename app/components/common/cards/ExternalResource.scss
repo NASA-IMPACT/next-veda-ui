@@ -1,0 +1,48 @@
+@use 'uswds-core' as *;
+@import './_mixins';
+
+
+$card-image-width: 110px;
+
+.story-card {
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  .usa-card__img {
+    background-color: transparent;
+    @include u-radius('md');
+    max-height: 200px;
+    @include at-media("tablet") {
+      margin: 0 !important;
+      max-width: $card-image-width;
+    }
+  }
+
+  .usa-card--flag .usa-card__media {
+    @include at-media("tablet") {
+      width: $card-image-width;
+    }
+  }
+  .usa-card__body {
+    background-color: transparent;
+    color: white;
+    @include u-padding(1);
+    @include at-media("tablet") {
+      margin-left: $card-image-width + 20px;
+    }
+  }
+  // Parent class for hover effects
+  @include card-with-effects-parents;
+  .card-title {
+    @include card-title-with-effects(white);
+    .arrow-icon {
+      // Override the size
+      width: auto !important;
+      height: auto !important;
+    }
+  }
+  
+  .card-overlay {
+    @include absolute-overlay();
+  }
+} 

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid, GridContainer } from '@trussworks/react-uswds';
-
 import Separator from 'app/components/common/Separator';
 import ThemeCard from 'app/components/common/cards/ThemeCard';
 import InteractiveCard from 'app/components/common/cards/InteractiveCard';
