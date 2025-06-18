@@ -6,6 +6,7 @@ import InteractiveCard from 'app/components/common/cards/InteractiveCard';
 import { DATA_THEMES, DATA_INTERACTIVES } from 'app/constants';
 import Carousel from 'app/components/common/Carousel';
 import CentersSection from './CentersSection';
+import { SectionHeader } from 'app/components/common/Section';
 
 const DashboardPage: React.FC = () => {
   return (
@@ -21,22 +22,18 @@ const DashboardPage: React.FC = () => {
 
       <Separator />
 
-      <GridContainer containerSize='desktop-lg' className='margin-bottom-4'>
-        <Grid row className='margin-bottom-4'>
-          <h2 className='text-uppercase'>Learn about earth themes</h2>
-        </Grid>
+      <DashboardSection title='Learn about Earth Themes'>
         <Carousel
           slideWidth='third'
           slides={DATA_THEMES.map((theme) => (
             <ThemeCard key={theme.id} theme={theme} />
           ))}
         />
-      </GridContainer>
+      </DashboardSection>
 
-      <GridContainer containerSize='desktop-lg'>
-        <Grid row className='margin-bottom-4'>
-          <h2 className='text-uppercase'>Interactive Tools</h2>
-        </Grid>
+      <Separator />
+
+      <DashboardSection title='Interactives'>
         <Carousel
           slideWidth='full'
           slides={DATA_INTERACTIVES.map((interactive) => (
@@ -50,11 +47,32 @@ const DashboardPage: React.FC = () => {
             />
           ))}
         />
-      </GridContainer>
+      </DashboardSection>
 
-      <CentersSection />
+      <DashboardSection title='Explore our centers'>
+        <CentersSection />
+      </DashboardSection>
     </>
   );
 };
 
 export default DashboardPage;
+
+const DashboardSectionHeader: React.FC<{ title: string }> = ({ title }) => (
+  <SectionHeader title={title} className='margin-y-1' />
+);
+
+const DashboardSection: React.FC<{
+  title: string;
+  children: React.ReactNode;
+}> = ({ title, children }) => {
+  return (
+    <GridContainer
+      containerSize='desktop-lg'
+      className='dashboard-section padding-y-8'
+    >
+      <DashboardSectionHeader title={title} />
+      {children}
+    </GridContainer>
+  );
+};
