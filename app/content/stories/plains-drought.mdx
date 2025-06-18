@@ -47,3 +47,26 @@ taxonomy:
     </Caption> 
   </Figure>
 </Block>
+
+<Block>
+  <Figure>
+    <Chart
+      dataPath="/public/charts/story/plains-drought-evapotranspiration.csv"
+      dateFormat="%m/%d"
+      xTickFormat="%b %d"            
+      idKey='Year' 
+      xKey='DateTime' 
+      yKey='ET' 
+      yAxisLabel='Evapotranspiration (Standardized Anomalies)'
+      highlightStart = '05/01'
+      highlightEnd = '06/15'
+      highlightLabel = 'Drought'
+    />
+    <Caption 
+      attrAuthor='NASA' 
+      attrUrl='https://nasa.gov/'
+    >
+    Depletion of evapotranspirtation anomalies during the 2017 drought, compared to 2016's anomalies. 
+    </Caption> 
+  </Figure>
+</Block>
