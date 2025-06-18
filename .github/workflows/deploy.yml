@@ -64,7 +64,7 @@ jobs:
         uses: actions/cache@v4
         id: cache-dist
         with:
-          path: .next
+          path: out
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.workflow }}-${{ github.sha }}
 
       - name: Install
@@ -101,7 +101,7 @@ jobs:
         uses: actions/cache@v4
         id: cache-dist
         with:
-          path: .next
+          path: out
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.workflow }}-${{ github.sha }}
 
       - name: Use Node.js ${{ env.NODE }}
@@ -118,7 +118,7 @@ jobs:
 
       - name: Deploy to S3 Production
         run: |
-          aws s3 sync .next s3://${{ secrets.S3_BUCKET }} --cache-control max-age=30,must-revalidate,s-maxage=604800 --delete
+          aws s3 sync out s3://${{ secrets.S3_BUCKET }} --cache-control max-age=30,must-revalidate,s-maxage=604800 --delete
 
       - name: Request Invalidation to AWS Cloudfront
         uses: oneyedev/aws-cloudfront-invalidation@v1

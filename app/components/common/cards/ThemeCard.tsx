@@ -42,6 +42,7 @@ export const ThemeCard: React.FC<{ theme: Theme }> = ({ theme }) => {
             src={theme.cardImage}
             alt={`${theme.title} theme image`}
             className='width-full height-full object-cover'
+            unoptimized
           />
           <div className='card-overlay' />
         </div>

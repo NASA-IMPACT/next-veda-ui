@@ -19,6 +19,7 @@ export const CenterCard: React.FC<CenterCardProps> = ({ center, isFirst }) => {
           height={400}
           src={center.image}
           alt={center.imageAlt}
+          unoptimized
         />
       </div>
       <div className='center-card__body'>
