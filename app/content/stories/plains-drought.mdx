@@ -27,7 +27,11 @@ taxonomy:
 
 <Block>
     <Prose>
-    The Northern Great Plains region is increasingly experiencing **flash droughts** - those with more rapid onset and intensification. Here we compare two such flash droughts by incorporating remote sensing observations from GPM, MODIS, SMAP, and AMSR2 within the Land Information System (LIS) framework.
+    ### Introduction
+
+    The Northern Great Plains region is increasingly experiencing **flash droughts** - those with more rapid onset and intensification. 
+    
+    Here we compare two such flash droughts by incorporating remote sensing observations from GPM, MODIS, SMAP, and AMSR2 within the Land Information System (LIS) framework.
     </Prose>
 
     <Figure>
@@ -82,7 +86,7 @@ taxonomy:
 
 <Block>
     <Prose>
-    ### Drought Mechanism
+    ### Drought Mechanisms
 
     The onset and evolution of a flash drought typically follows this sequence of events:
     </Prose>
@@ -102,6 +106,112 @@ taxonomy:
 </Block>
 
 <Block>
+    <Prose>
+    ### Evolution of the Droughts
+    </Prose>
+</Block>
+
+<Block>
+    <Prose>
+    ##### What Triggered the Two Droughts?
+    
+    In 2017, the unusually low precipitation during the normally rainy season resulted in a very rapid onset of drought conditions. 
+    </Prose>
+
+  <Figure>
+     <video style={{ width: '100%', aspectRatio: "16/9" }} controls>
+      <source
+        src={'/public/images/story/plains-drought/plains-drought-pcp-anomaly.mp4'}
+      />
+      Your browser does not support the video tag.
+    </video>
+
+    <Caption>
+    Precipitation standardized anomalies.
+    </Caption>
+  </Figure>
+
+</Block>
+
+
+<Block>
+
+  <Figure>
+    <Image
+        src={'/public/images/story/plains-drought/plains-drought-pcp-anomaly-ts.png'}
+        alt='Precipitation anomaly time series.'
+        align='left'
+    />
+    <Caption>
+    Standardized anomalies for GPM precipitation over Northern Great Plains, 2017 highlighting large negative anomalies during May-July.
+    </Caption>
+  </Figure>
+  
+    <Prose>
+    GPM captured the large negative anomalies in precipitation over the region for May-July, 2017.
+    </Prose>
+
+</Block>
+
+
+<Block>
+    <Prose>
+    ### Extreme Heat Triggered the 2016 Drought 
+    In contrast, the 2016 flash drought was mainly a consequence of an **extreme heat-wave** that started in early March.
+    </Prose>
+
+  <Figure>
+     <video style={{ width: '100%', aspectRatio: "16/9" }} controls>
+      <source
+        src={'/public/images/story/plains-drought/plains-drought-tmp-anomaly.mp4'}
+      />
+      Your browser does not support the video tag.
+    </video>
+
+    <Caption>
+    Temperature standardized anomalies.
+    </Caption>
+  </Figure>
+
+</Block>
+
+<Block type='wide'>
+
+  <Figure>
+    <Image
+        src={'/public/images/story/plains-drought/plains-drought-tmp-anomaly-ts.png'}
+        alt='Temperature anomaly time series.'
+        align='left'
+    />
+    <Caption>
+    Standardized anomalies for temperature showing the early March heat-wave, while precipitation was above normal in March-April.
+    </Caption>
+  </Figure>
+</Block>
+
+<Block>
+  <Figure>
+     <video style={{ width: '100%', aspectRatio: "16/9" }} controls>
+      <source
+        src={'/public/images/story/plains-drought/plains-drought-smoi.mp4'}
+      />
+      Your browser does not support the video tag.
+    </video>
+
+    <Caption>
+    Depletion of root zone soil moisture during the 2017 drought.
+    </Caption>
+  </Figure>
+
+  <Prose>
+  ### Unusually Dry Soils in 2017
+
+  Below-average precipitation during May-July of 2017 led to **rapid depletion of soil moisture**, causing an exceptional _**precipitation-deficit-driven**_ flash drought in the region.
+
+  </Prose>
+</Block>
+
+<Block type='wide'>
   <Figure>
     <Chart
       dataPath="/public/charts/story/plains-drought-root-zone-soil-moisture.csv"
@@ -123,6 +233,9 @@ taxonomy:
     </Caption> 
   </Figure>
 </Block>
+
+
+
 
 <Block>
   <Figure>
