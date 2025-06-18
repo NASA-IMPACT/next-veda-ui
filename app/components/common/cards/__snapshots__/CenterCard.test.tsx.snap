@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Center Card > matches the snapshot 1`] = `
+<a
+  aria-label="Visit Earth Information Center center."
+  class="position-absolute top-0 left-0 width-full height-full"
+  href="/visit/center/earth-information-center"
+/>
+`;
