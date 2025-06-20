@@ -25,3 +25,129 @@ taxonomy:
   </Prose>
 </Block>
 
+<Block>
+    <Prose>
+    ### Timeline
+    </Prose>
+</Block>
+
+<Block type='wide'>
+    <Figure>
+        <Image
+            src={'/public/images/story/flood-2019/flood-2019-timeline.png'}
+            alt='Flooding timeline.'
+            align='left'
+        />
+        <Caption>
+            2019 Flooding timeline.
+        </Caption>
+    </Figure>
+</Block>
+
+<Block>
+    <Prose>
+    This case study is powered by incorporating Earth observations of precipitation from GPM, soil moisture from SMAP, snow depth from AMSR2, and leaf area index from MODIS, and MERRA-2 reanalysis within the Land Information System (LIS) framework.
+    </Prose>
+
+    <Figure>
+        <Image
+            src={'/public/images/story/flood-2019/flood-2019-farm.png'}
+            alt='Flooded farm in the Midwest.'
+            align='left'
+        />
+        <Caption>
+            Aerial view of a flooded farm as a result of the expansive flooding in 2019.
+        </Caption>
+    </Figure>
+</Block>
+
+<Block>
+    <Prose>
+    ### Pre-Flood Conditions
+    </Prose>
+</Block>
+
+<Block>
+    <Prose>
+    ##### Soggy Soils, Frozen Soils
+
+    Across much of the Midwest and Northern Plains, soils were saturated throughout the fall and winter, especially in the Corn Belt.
+
+    !! ADD DATA VIS HERE !!
+
+    Standardized anomalies for root zone soil moisture for August-October 2018
+
+    </Prose>
+</Block>
+
+<Block>
+    <Prose>
+    ##### Huge Blizzard
+
+    GPM IMERG captures a huge blizzard in mid-March that blanketed the region in deep snow.
+
+    !! ADD DATA VIS HERE !!
+
+    GPM IMERG precipitation for March 12-14, 2019 
+
+    </Prose>
+</Block>
+
+
+<Block>
+    <Prose>
+    ##### Spring Flooding
+
+    The extent of 2019 flooding can be seen over the Missouri River near Omaha, NE when compared with another MODIS-captured scene from 2015.
+
+    !! ADD DATA VIS HERE !!
+
+    SLIDER - MODIS Corrected Reflectance from NASA GIBS (Bands 7-2-1) Left: Mar 2015, Right: Mar 2019 
+    </Prose>
+</Block>
+
+<Block>
+    <Prose>
+    Flood inundation is captured by Sentinel-1 imagery, hosted by the NASA Disasters Mapping Portal.
+
+    !! ADD DATA VIS HERE !!
+
+    Flood water (red pixels) and permanent water (blue pixels) mapped with Sentinel-1. [Data hosted on NASA Disasters Mapping Portal]
+    </Prose>
+</Block>
+
+<Block>
+    <Prose>
+    ##### Rapid Snowmelt
+
+    The rain-on-snow event on the unusually deep snowpack caused rapid snowmelt which intensified spring flooding.
+
+    !! ADD DATA VIS HERE !!
+
+    SLIDER - Snow depth on March 10 (left) before the rain-on-snow event and on March 29, 2019 (right) after the rain-on-snow event
+    </Prose>
+</Block>
+
+<Block>
+    <Prose>
+    The rapid melting of the deep snowpack in mid-March was captured by assimilating snow depth observations from AMSR2 within the LIS framework.
+    </Prose>
+
+  <Figure>
+    <Chart
+      dataPath="/public/charts/story/flood-2019-snow-depth.csv"
+      dateFormat="%m/%d/%y"
+      idKey='Source' 
+      xKey='DateTime' 
+      yKey='Snow Depth (m)' 
+      yAxisLabel='Snow Depth (m)'
+    />
+    <Caption 
+      attrAuthor='NASA' 
+      attrUrl='https://nasa.gov/'
+    >
+    Average Snow Depth in the Missouri River Basin during water year 2019 compared to climatology.  
+    </Caption> 
+  </Figure>
+
+</Block>
