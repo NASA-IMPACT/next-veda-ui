@@ -16,14 +16,6 @@ module.exports = withMDX({
     // !! WARN !!
     ignoreBuildErrors: true,
   },
-  async rewrites() {
-    return [
-      {
-        source: '/public/:path*',
-        destination: '/:path*',
-      },
-    ];
-  },
   reactStrictMode: false,
   webpack: (config) => {
     config.resolve.alias = {
