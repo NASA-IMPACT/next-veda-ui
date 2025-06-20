@@ -33,19 +33,15 @@ $image-width-first: 330px;
 
   &.is-first {
     min-height: 12rem; 
-    height: auto; 
-    padding: 20px; 
-
-    .center-card__image img {
-      height: 200px;
-    }
+    padding: 20px;
   }
 
   // Mobile layout
   @media (width <= spacing.units('tablet-lg')) {
     flex-direction: column;
     width: 100%;
-    min-height: 9rem !important; 
+    min-height: 9rem !important;
+    height: auto; 
     
     .center-card__image {
       height: 9rem; 
