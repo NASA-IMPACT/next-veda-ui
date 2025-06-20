@@ -21,7 +21,9 @@ export function Section({
 }) {
   return (
     <section className='usa-section'>
-      <div className={full ? '' : 'grid-container'}>{children}</div>
+      <div className={full ? 'grid-container-widescreen' : 'grid-container'}>
+        {children}
+      </div>
     </section>
   );
 }
