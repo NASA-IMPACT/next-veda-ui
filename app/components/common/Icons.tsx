@@ -13,4 +13,5 @@ export const ArrowBackIcon = (props) => <Icon.ArrowBack {...props} />;
 export const LanguageIcon = (props) => <Icon.Language {...props} />;
 export const AccountBalanceIcon = (props) => <Icon.AccountBalance {...props} />;
 export const LightbulbIcon = (props) => <Icon.Lightbulb {...props} />;
+export const LaunchIcon = (props) => <Icon.Launch {...props} />;
 export const LinkIcon = (props) => <Icon.Link {...props} />;

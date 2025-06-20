@@ -8,13 +8,12 @@ import Carousel from 'app/components/common/Carousel';
 import CentersSection from './CentersSection';
 import { SectionHeader } from 'app/components/common/Section';
 
+import './page.scss';
+
 const DashboardPage: React.FC = () => {
   return (
     <>
-      <GridContainer
-        containerSize='desktop-lg'
-        className='desktop:padding-top-10'
-      >
+      <GridContainer className='desktop:padding-top-10'>
         <Grid row>
           <h1 className='text-uppercase'>Explore</h1>
         </Grid>
@@ -49,7 +48,11 @@ const DashboardPage: React.FC = () => {
         />
       </DashboardSection>
 
-      <DashboardSection title='Explore our centers'>
+      <DashboardSection
+        title='Explore our centers'
+        className='center-section'
+        fullWidth={true}
+      >
         <CentersSection />
       </DashboardSection>
     </>
@@ -58,19 +61,39 @@ const DashboardPage: React.FC = () => {
 
 export default DashboardPage;
 
+interface DashboardSectionProps {
+  title: string;
+  className?: string;
+  children: React.ReactNode;
+  fullWidth?: boolean;
+}
+
 const DashboardSectionHeader: React.FC<{ title: string }> = ({ title }) => (
   <SectionHeader title={title} className='margin-y-1' />
 );
 
-const DashboardSection: React.FC<{
-  title: string;
-  children: React.ReactNode;
-}> = ({ title, children }) => {
+const DashboardSection: React.FC<DashboardSectionProps> = ({
+  title,
+  className = '',
+  children,
+  fullWidth = false,
+}) => {
+  const baseClasses =
+    `dashboard-section padding-y-8 width-full ${className}`.trim();
+
+  if (fullWidth) {
+    return (
+      <div className={baseClasses}>
+        <GridContainer>
+          <DashboardSectionHeader title={title} />
+        </GridContainer>
+        <GridContainer>{children}</GridContainer>
+      </div>
+    );
+  }
+
   return (
-    <GridContainer
-      containerSize='desktop-lg'
-      className='dashboard-section padding-y-8'
-    >
+    <GridContainer className={baseClasses}>
       <DashboardSectionHeader title={title} />
       {children}
     </GridContainer>

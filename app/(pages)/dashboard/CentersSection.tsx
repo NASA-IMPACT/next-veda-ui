@@ -14,13 +14,13 @@ const CentersSection: React.FC = () => {
         </Grid>
       </Grid>
 
-      <Grid row>
+      <Grid row gap={5}>
         {remainingCenters.map((center) => (
           <Grid
             key={center.id}
             col={12}
-            tabletLg={{ col: 6 }}
-            desktop={{ col: 6 }}
+            tabletLg={{ col: 12 }}
+            desktop={{ col: 4 }}
             className='margin-y-2'
           >
             <CenterCard center={center} isFirst={false} />
