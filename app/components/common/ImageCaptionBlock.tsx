@@ -20,6 +20,7 @@ export function ImageCaptionBlock({
         width={800}
         height={600}
         style={{ width: '100%', height: 'auto' }}
+        unoptimized
       />
       <p className='font-body-sm line-height-body-4 margin-top-1 text-base-light'>
         {caption}

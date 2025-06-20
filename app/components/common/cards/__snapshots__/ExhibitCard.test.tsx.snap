@@ -50,8 +50,7 @@ exports[`Exhibit Card > matches the snapshot 1`] = `
             decoding="async"
             height="400"
             loading="lazy"
-            src="/_next/image?url=%2Fimages%2Fvisit%2Fnasa-hq.png&w=828&q=75"
-            srcset="/_next/image?url=%2Fimages%2Fvisit%2Fnasa-hq.png&w=640&q=75 1x, /_next/image?url=%2Fimages%2Fvisit%2Fnasa-hq.png&w=828&q=75 2x"
+            src="/images/visit/nasa-hq.png"
             style="color: transparent;"
             width="400"
           />

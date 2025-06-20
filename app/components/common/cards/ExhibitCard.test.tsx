@@ -23,7 +23,7 @@ describe('Exhibit Card', () => {
   it('should render the exhibit card with the correct image', () => {
     render(<ExhibitCard exhibit={exhibits[0]} />);
     const imageElement = screen.getByRole('img');
-    const encodedImgSrc = encodeURIComponent(exhibits[0].imgSrc);
+    const encodedImgSrc = exhibits[0].imgSrc;
     expect(imageElement.getAttribute('src')).toContain(encodedImgSrc);
     expect(imageElement).toHaveAttribute('alt', exhibits[0].imgAlt);
   });
