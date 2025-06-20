@@ -23,6 +23,13 @@ type ThemeFrontmatter = {
   description: string;
   image: string;
   pubDate?: string;
+  resources?: {
+    title: string;
+    description: string;
+    linkURL: string;
+    imgSrc: string;
+    imgAlt: string;
+  }[];
 };
 
 const THEME_CONTENT_PATH = path.join(process.cwd(), 'app', 'content', 'themes');
@@ -144,9 +151,18 @@ export async function getThemeContent(slug: string) {
       Paragraph,
       Title,
       Carousel,
-      ExternalResources
+      ExternalResources,
     },
-    options: { parseFrontmatter: false },
+    options: {
+      parseFrontmatter: false,
+      scope: {
+        resources: frontmatter.resources || [],
+        title: frontmatter.title,
+        description: frontmatter.description,
+        image: frontmatter.image,
+        pubDate: frontmatter.pubDate,
+      },
+    },
   });
 
   return { frontmatter, content };
