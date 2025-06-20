@@ -3,7 +3,7 @@ import { DATA_THEMES } from 'app/constants';
 
 test.describe('Theme pages', () => {
   for (const { title } of DATA_THEMES) {
-    const href = `/themes/${title.toLowerCase().replace(/\s+/g, '-')}`;
+    const href = `/themes/${title.toLowerCase().replace(/\s+/g, '-')}/`;
 
     if (href) {
       test(`${title} page loads`, async ({ page }) => {
@@ -18,7 +18,7 @@ test.describe('Theme pages', () => {
   }
 
   test('Details of Air Quality page', async ({ page }) => {
-    const href = `/themes/air-quality`;
+    const href = `/themes/air-quality/`;
     await page.goto(href);
     await expect(page.getByTestId('theme-hero')).toContainText('Published on');
 
