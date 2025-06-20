@@ -30,7 +30,7 @@ export const CenterCard: React.FC<CenterCardProps> = ({ center, isFirst }) => {
       )}
       <div className='center-card__body'>
         <div className='center-card__content'>
-          <CardBadge label='Center' icon='AccountBalance' />
+          <CardBadge label='Center' icon='Network' />
           <h3 className='font-body-lg'>{center.title}</h3>
           <p className='font-body-3xs text-base-light line-height-mono-4'>
             {center.description}

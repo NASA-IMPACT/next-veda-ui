@@ -1,14 +1,21 @@
 'use client';
 
 import React from 'react';
-import { LanguageIcon, AccountBalanceIcon, LightbulbIcon, LinkIcon } from '../Icons';
+import {
+  LanguageIcon,
+  AccountBalanceIcon,
+  LightbulbIcon,
+  LinkIcon,
+  NetworkIcon,
+} from '../Icons';
 import './CardBadge.scss';
 
 const BADGE_ICONS = {
   Language: LanguageIcon,
   AccountBalance: AccountBalanceIcon,
   Lightbulb: LightbulbIcon,
-  Link: LinkIcon
+  Link: LinkIcon,
+  Network: NetworkIcon,
 } as const;
 
 interface CardBadgeProps {
@@ -38,10 +45,14 @@ export const CardBadgeContent: React.FC<CardBadgeProps> = ({ label, icon }) => {
       </div>
     </div>
   );
-}
+};
 
-export const CardBadge: React.FC<CardBadgeProps> = ({ label, icon, className }) => {
-    const IconComponent = BADGE_ICONS[icon];
+export const CardBadge: React.FC<CardBadgeProps> = ({
+  label,
+  icon,
+  className,
+}) => {
+  const IconComponent = BADGE_ICONS[icon];
   return (
     <div className={`card-badge font-body-2xs line-height-sans-3 ${className}`}>
       <div className='bg-white padding-x-1 padding-y-05 display-flex flex-align-center radius-md text-base-dark'>
