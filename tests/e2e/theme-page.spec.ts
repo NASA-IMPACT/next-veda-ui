@@ -23,8 +23,11 @@ test.describe('Theme pages', () => {
     await expect(page.getByTestId('theme-hero')).toContainText('Published on');
 
     await expect(
-      page.getByRole('heading', { name: 'Air Quality' }),
+      page
+        .getByTestId('theme-hero')
+        .getByRole('heading', { name: 'Air Quality' }),
     ).toBeVisible();
+
     await expect(page.getByRole('heading', { name: 'Info' })).toBeVisible();
     await expect(
       page.getByRole('heading', { name: 'Did you know?' }),
