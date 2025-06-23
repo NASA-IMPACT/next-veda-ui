@@ -24,6 +24,7 @@
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^15.3.3",
+    "@next/third-parties": "^15.3.4",
     "@trussworks/react-uswds": "^9.1.0",
     "@uswds/uswds": "^3.13.0",
     "embla-carousel-fade": "^8.6.0",
