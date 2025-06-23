@@ -10,6 +10,7 @@ import images from 'app/content/images.json';
 import { ArrowBackIcon } from 'app/components/common/Icons';
 import Tabs from 'app/components/common/Tabs';
 import { tabs } from './tabs';
+import ScrollToTop from 'app/components/ScrollToTop';
 
 const SmithsonianMuseumPage: React.FC = () => {
   const slidesIntro = createImageSlides(
@@ -18,6 +19,8 @@ const SmithsonianMuseumPage: React.FC = () => {
 
   return (
     <>
+      <ScrollToTop />
+
       <GridContainer
         containerSize='desktop-lg'
         className='desktop:padding-top-10'
