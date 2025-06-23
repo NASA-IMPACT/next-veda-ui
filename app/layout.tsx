@@ -7,6 +7,8 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Banner from './components/common/Banner';
 
+import { GoogleTagManager } from '@next/third-parties/google';
+
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl ?? ''),
   title: {
@@ -42,6 +44,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+      {process.env.NODE_ENV === 'production' &&
+        process.env.NEXT_PUBLIC_GTM_ID && (
+          <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+        )}
+
       <body>
         <div className='minh-viewport display-flex flex-column'>
           <Banner />
