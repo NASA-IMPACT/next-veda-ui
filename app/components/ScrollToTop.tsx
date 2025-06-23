@@ -11,7 +11,7 @@ import { usePathname } from 'next/navigation';
  * - removing sticky elements (e.g. sticky header)
  * - explicitly setting `scroll={true}` to `<Link>` components
  *
- * This double `requestAnimationFrame` waits until the page has fully rendered
+ * This `requestAnimationFrame` waits until the page has fully rendered
  * before forcing scroll to top. It’s a workaround, but the only reliable one for now.
  *
  * See: https://github.com/vercel/next.js/discussions/69993, https://github.com/vercel/next.js/discussions/45715
@@ -21,9 +21,7 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        window.scrollTo({ top: 0, behavior: 'auto' });
-      });
+      window.scrollTo({ top: 0, behavior: 'auto' });
     });
   }, [pathname]);
 
