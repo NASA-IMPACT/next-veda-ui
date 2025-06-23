@@ -30,6 +30,11 @@ $card-image-width: 110px;
     @include at-media("tablet") {
       margin-left: $card-image-width + 20px;
     }
+
+    @include at-media("mobile") {
+      @include u-padding-y(1);
+      @include u-padding-x(0);
+    }
   }
   // Parent class for hover effects
   @include card-with-effects-parents;
@@ -41,8 +46,8 @@ $card-image-width: 110px;
       height: auto !important;
     }
   }
-  
+
   .card-overlay {
     @include absolute-overlay();
   }
-} 
+}
