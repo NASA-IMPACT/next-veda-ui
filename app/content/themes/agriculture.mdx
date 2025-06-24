@@ -46,41 +46,55 @@ image: "/images/themes/agriculture/agriculture-banner.png"
   <Title>Related Data Visualizations</Title>
   <Carousel
     slides={[
-      <VideoCaptionBlock
+      <VideoEmbed
         src="https://www.youtube.com/embed/w3rtYM0HtIM"
         title="A 3D View of an Atmospheric River from an Earth System Model"
-        captionTitle="A 3D View of an Atmospheric River from an Earth System Model"
-        captionText="Water vapor moves around the world as ‘atmospheric rivers.’ Like regular rivers, they are long and narrow and transport water. In this visualization, the blue color shows a 3-D view of water vapor leaving the tropics and traveling to the U.S. West Coast. These atmospheric rivers that begin in Hawai’i are named “pineapple express.”"
       />,
-      <VideoCaptionBlock
+      <VideoEmbed
         src="https://www.youtube.com/embed/uKfB7kjowh0"
         title="A 3D View of an Atmospheric River from an Earth System Model"
-        captionTitle="A 3D View of an Atmospheric River from an Earth System Model"
-        captionText="This global view of forest-height is data collected by the GEDI (short for Global Ecosystems Dynamics Investigation) instrument aboard the International Space Station. Bright green and white show taller plants like trees while brown is shorter plants. In this visualization height is exaggerated to depict variation at this scale and it shows a combined year of tree and plant growth from April 2019 to April 2020. Forest managers, weather forecasters, and snowpack monitors use GEDI data for their work and to create more accurate models of elevation around the world."
       />,
-      <VideoCaptionBlock
+      <VideoEmbed
         src="https://www.youtube.com/embed/12npc-rtlI8"
         title="Water Cycle Extremes"
-        captionTitle="Water Cycle Extremes"
-        captionText="This shows the extremes of the water cycle — droughts and intense rainfall — over a 20-year period (2002-2021). Based on observations from two NASA satellites, GRACE (Gravity Recovery and Climate Experiment) and GRACE-Follow On, droughts are shown as red spheres, extreme rainfall as blue spheres. To show the changes over a 20-year period (2002-2021) earlier years are spheres of a lighter shade, later years are darker. The size of the sphere shows the intensity of the events with exceptional events appearing as larger spheres. There are 1,056 extreme events shown, and the plots at the bottom show the connection to warmer global temperatures. The most intense event was a 2019 excessive and persistent rain in central Africa."
       />,
-      <VideoCaptionBlock
+      <VideoEmbed
         src="https://www.youtube.com/embed/TtnhSc1rU4I"
         title="Global Carbon Dioxide 2020-2021"
-        captionTitle="Global Carbon Dioxide 2020-2021"
-        captionText="This 3-D view of our atmosphere shows the rise of carbon dioxide levels from 2020 to 2021. The world’s vegetation and oceans absorb about half of human carbon dioxide emissions. However data stretching as far back as the 1950s, taken from sensors on the ground, show a steady upward march in carbon dioxide concentrations."
       />,
-      <VideoCaptionBlock
+      <VideoEmbed
         src="https://www.youtube.com/embed/SPHtB88ra6c"
         title="Relative Wetness Root Zone Versus Groundwater Comparison"
-        captionTitle="Relative Wetness Root Zone Versus Groundwater Comparison"
-        captionText="These maps combine satellite and ground-based measurements to model the relative amount of water stored at two different depths: plant root level and underground. The brown regions represent dry conditions. The blue regions represent wet areas. The maps do not attempt to represent human consumption of water; but rather, they show changes in water storage related to weather, climate, and seasonal patterns. NASA researchers developed these maps with data incorporated data from the joint NASA-German Gravity Recovery and Climate Experiment (GRACE) and GRACE Follow-On (GRACE-FO) missions in partnership with the National Drought Mitigation Center."
       />,
-      <VideoCaptionBlock
+      <VideoEmbed
         src="https://www.youtube.com/embed/6z58cOh_1TA"
         title="Increasingly Dangerous Climate for Agricultural Workers"
-        captionTitle="Increasingly Dangerous Climate for Agricultural Workers"
-        captionText="A warming climate will create challenges for agricultural workers as well as the crops which they grow. This visualization shows the increased number of days per year that are expected to have a NOAA Heat Index greater than 103 degrees Fahrenheit, a threshold that NOAA labels \u2018dangerous\u2019 given that people struggle to regulate their body temperatures at this level of heat and humidity. These results are from an ensemble of 22 global climate models from the Sixth Coupled Model Intercomparison Project (CMIP6) bias-adjusted by the NASA Earth Exchange (NEX GDDP). Two projections are visualized, one for a moderate emissions climate scenerio (SSP2-4.5) and one for a high emmissions climate scenerio (SSP5-8.5).\nVisualizations by: Mark SubbaRao, Scientific consulting by: Alex C. Ruane\nFor more information or to download this public domain video, go to https://svs.gsfc.nasa.gov/4972"
+      />
+    ]}
+    captions={[
+      <VideoCaption
+        title="A 3D View of an Atmospheric River from an Earth System Model"
+        text="Water vapor moves around the world as 'atmospheric rivers.' Like regular rivers, they are long and narrow and transport water. In this visualization, the blue color shows a 3-D view of water vapor leaving the tropics and traveling to the U.S. West Coast. These atmospheric rivers that begin in Hawai'i are named 'pineapple express.'"
+      />,
+      <VideoCaption
+        title="A 3D View of an Atmospheric River from an Earth System Model"
+        text="This global view of forest-height is data collected by the GEDI (short for Global Ecosystems Dynamics Investigation) instrument aboard the International Space Station. Bright green and white show taller plants like trees while brown is shorter plants. In this visualization height is exaggerated to depict variation at this scale and it shows a combined year of tree and plant growth from April 2019 to April 2020. Forest managers, weather forecasters, and snowpack monitors use GEDI data for their work and to create more accurate models of elevation around the world."
+      />,
+      <VideoCaption
+        title="Water Cycle Extremes"
+        text="This shows the extremes of the water cycle — droughts and intense rainfall — over a 20-year period (2002-2021). Based on observations from two NASA satellites, GRACE (Gravity Recovery and Climate Experiment) and GRACE-Follow On, droughts are shown as red spheres, extreme rainfall as blue spheres. To show the changes over a 20-year period (2002-2021) earlier years are spheres of a lighter shade, later years are darker. The size of the sphere shows the intensity of the events with exceptional events appearing as larger spheres. There are 1,056 extreme events shown, and the plots at the bottom show the connection to warmer global temperatures. The most intense event was a 2019 excessive and persistent rain in central Africa."
+      />,
+      <VideoCaption
+        title="Global Carbon Dioxide 2020-2021"
+        text="This 3-D view of our atmosphere shows the rise of carbon dioxide levels from 2020 to 2021. The world's vegetation and oceans absorb about half of human carbon dioxide emissions. However data stretching as far back as the 1950s, taken from sensors on the ground, show a steady upward march in carbon dioxide concentrations."
+      />,
+      <VideoCaption
+        title="Relative Wetness Root Zone Versus Groundwater Comparison"
+        text="These maps combine satellite and ground-based measurements to model the relative amount of water stored at two different depths: plant root level and underground. The brown regions represent dry conditions. The blue regions represent wet areas. The maps do not attempt to represent human consumption of water; but rather, they show changes in water storage related to weather, climate, and seasonal patterns. NASA researchers developed these maps with data incorporated data from the joint NASA-German Gravity Recovery and Climate Experiment (GRACE) and GRACE Follow-On (GRACE-FO) missions in partnership with the National Drought Mitigation Center."
+      />,
+      <VideoCaption
+        title="Increasingly Dangerous Climate for Agricultural Workers"
+        text="A warming climate will create challenges for agricultural workers as well as the crops which they grow. This visualization shows the increased number of days per year that are expected to have a NOAA Heat Index greater than 103 degrees Fahrenheit, a threshold that NOAA labels 'dangerous' given that people struggle to regulate their body temperatures at this level of heat and humidity. These results are from an ensemble of 22 global climate models from the Sixth Coupled Model Intercomparison Project (CMIP6) bias-adjusted by the NASA Earth Exchange (NEX GDDP). Two projections are visualized, one for a moderate emissions climate scenerio (SSP2-4.5) and one for a high emmissions climate scenerio (SSP5-8.5).\nVisualizations by: Mark SubbaRao, Scientific consulting by: Alex C. Ruane\nFor more information or to download this public domain video, go to https://svs.gsfc.nasa.gov/4972"
       />
     ]}
   />
