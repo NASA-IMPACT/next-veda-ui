@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { waitFor } from '@testing-library/react';
 
@@ -41,7 +41,7 @@ describe('Carousel', () => {
 
   it('renders all slides', () => {
     render(<Carousel slides={slides} />);
-    const items = screen.getAllByRole('list');
+    const items = document.querySelectorAll('.slide--full, .slide--third');
     expect(items.length).toBe(6);
   });
 
@@ -82,8 +82,8 @@ describe('Carousel', () => {
       <Carousel slides={slides} slideWidth='third' />,
     );
 
-    const slide = container.querySelectorAll('ul')[3];
-    slide?.click();
+    const slide = container.querySelectorAll('.slide--third')[3];
+    (slide as HTMLElement)?.click();
 
     expect(emblaApi.scrollTo).toHaveBeenCalledWith(1);
   });

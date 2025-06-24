@@ -127,7 +127,7 @@ const Carousel: React.FC<PropType> = ({
               .join(' ');
 
             return (
-              <ul
+              <div
                 key={index}
                 className={`padding-x-1 ${classNames}`}
                 data-testid={
@@ -145,7 +145,7 @@ const Carousel: React.FC<PropType> = ({
                 }}
               >
                 {slide}
-              </ul>
+              </div>
             );
           })}
         </div>

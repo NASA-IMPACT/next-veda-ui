@@ -5,8 +5,8 @@ export const createImageSlides = (
 ) =>
   Array.isArray(slides)
     ? slides.map((imgObj, idx) => (
-        <li key={idx} className='slide'>
+        <div key={idx}>
           <img src={imgObj.img} alt={imgObj.alt} className='width-full' />
-        </li>
+        </div>
       ))
     : [];
