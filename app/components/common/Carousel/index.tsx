@@ -174,9 +174,7 @@ const Carousel: React.FC<PropType> = ({
       {captions &&
         captions.length > 0 &&
         selectedIndex < captions.length &&
-        captions[selectedIndex] && (
-          <div className='carousel__captions'>{captions[selectedIndex]}</div>
-        )}
+        captions[selectedIndex]}
     </section>
   );
 };
