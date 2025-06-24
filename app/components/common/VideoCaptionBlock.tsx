@@ -12,7 +12,7 @@ export function VideoEmbed({ src, title }: { src: string; title: string }) {
     <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
       <iframe
         src={src}
-        title={title}
+        aria-label={title}
         frameBorder='0'
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
         referrerPolicy='strict-origin-when-cross-origin'
