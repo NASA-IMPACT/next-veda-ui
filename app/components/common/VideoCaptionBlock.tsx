@@ -50,12 +50,9 @@ export function VideoCaptionBlock({
   captionText,
 }: VideoCaptionBlockProps) {
   return (
-    <li
-      className='width-full'
-      style={{ listStyle: 'none', margin: 0, padding: 0 }}
-    >
+    <div className='width-full'>
       <VideoEmbed src={src} title={title} />
       <VideoCaption title={captionTitle} text={captionText} />
-    </li>
+    </div>
   );
 }
