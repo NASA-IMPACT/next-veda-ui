@@ -1,0 +1,11 @@
+.video-caption-text {
+  overflow-y: auto;
+}
+
+/* Modern browsers: use scrollbar-gutter instead of padding */
+@supports (scrollbar-gutter: stable) {
+  .video-caption-text {
+    scrollbar-gutter: stable;
+    padding-right: 0 !important;
+  }
+}
