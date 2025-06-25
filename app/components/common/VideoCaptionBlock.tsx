@@ -55,7 +55,9 @@ export function VideoCaptionBlock({
   return (
     <div className='width-full'>
       <VideoEmbed src={src} title={title} />
-      <VideoCaption title={captionTitle} text={captionText} />
+      {captionTitle && captionText && (
+        <VideoCaption title={captionTitle} text={captionText} />
+      )}
     </div>
   );
 }
