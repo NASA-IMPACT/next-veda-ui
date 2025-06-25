@@ -50,7 +50,8 @@ exports[`Theme Card > matches the snapshot 1`] = `
             decoding="async"
             height="400"
             loading="lazy"
-            src="/images/themes/agriculture/card.png"
+            src="/_next/image?url=%2Fimages%2Fthemes%2Fagriculture%2Fcard.png&w=828&q=75"
+            srcset="/_next/image?url=%2Fimages%2Fthemes%2Fagriculture%2Fcard.png&w=640&q=75 1x, /_next/image?url=%2Fimages%2Fthemes%2Fagriculture%2Fcard.png&w=828&q=75 2x"
             style="color: transparent;"
             width="400"
           />

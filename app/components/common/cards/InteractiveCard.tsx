@@ -32,7 +32,6 @@ export const InteractiveCard: React.FC<InteractiveCardProps> = ({
           src={`/images/interactives/${id}/card.png`}
           alt={imageAlt}
           className='object-cover'
-          unoptimized
         />
         <div className='card-image-overlay' />
         {/* 

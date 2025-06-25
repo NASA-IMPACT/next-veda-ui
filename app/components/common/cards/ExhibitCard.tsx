@@ -68,7 +68,6 @@ export const ExhibitCard: React.FC<ExhibitCardProps> = ({
             src={exhibit.imgSrc}
             alt={exhibit.imgAlt}
             className='width-full'
-            unoptimized
           />
           <div className='card-overlay' />
         </div>

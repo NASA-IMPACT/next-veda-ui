@@ -5,8 +5,6 @@ const withMDX = require('@next/mdx')({
 });
 
 module.exports = withMDX({
-  output: 'export',
-  trailingSlash: true,
   basePath: process.env.NODE_ENV === 'production' ? process.env.BASE_PATH|| '' : '',
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   typescript: {

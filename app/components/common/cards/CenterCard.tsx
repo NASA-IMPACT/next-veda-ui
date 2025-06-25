@@ -24,7 +24,6 @@ export const CenterCard: React.FC<CenterCardProps> = ({ center, isFirst }) => {
             src={center.image}
             alt={center.imageAlt}
             className='width-full height-full object-cover'
-            unoptimized
           />
         </div>
       )}
