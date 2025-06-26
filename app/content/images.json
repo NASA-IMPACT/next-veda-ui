@@ -1,59 +1,59 @@
 {
   "nasa-hq": {
     "intro": [
-      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-1.jpg", "alt": "NASA Image" },
-      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-2.jpg", "alt": "NASA Image" },
-      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-3.jpg", "alt": "NASA Image" },
-      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-4.jpg", "alt": "NASA Image" }
+      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-1.jpg", "alt": "Visitors to NASA HQ enjoying a multi-wall display of satellite imagery." },
+      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-2.jpg", "alt": "Children interacting with a large panel display at NASA HQ." },
+      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-3.jpg", "alt": "In person displays of Earth generated with the help of NASA's satellite imagery." },
+      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-4.jpg", "alt": "Students on a tour at NASA HQ." }
     ],
     "hyperwall": [
-      { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-1.jpg", "alt": "NASA Image" },
-      { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-2.jpg", "alt": "NASA Image" },
-      { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-3.jpg", "alt": "NASA Image" }
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-1.jpg", "alt": "Bill Nye interacting with The Earth Information Center's Hyperwall at NASA HQ." },
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-2.jpg", "alt": "Children learning about Earth science through The Earth Information Center's display." },
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-3.jpg", "alt": "Guests to NASA HQ observing The Earth Information Center's Hyperwall." }
     ],
     "space-for-earth": [
-      { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-1.jpg", "alt": "NASA Image" },
-      { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-2.jpg", "alt": "NASA Image" },
-      { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-3.jpg", "alt": "NASA Image" }
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-1.jpg", "alt": "A globe image of Earth with neon trees." },
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-2.jpg", "alt": "Guests at NASA HQ exploring Space for Earth's immersive experience." },
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-3.jpg", "alt": "Guests at NASA HQ with their arms raised experiencing Space for Earth.s immersive display." }
     ],
     "earth-pulse": [
-      { "img": "/images/visit/nasa-hq/nasa-hq-features-earth-pulse-1.jpeg", "alt": "NASA Image" },
-      { "img": "/images/visit/nasa-hq/nasa-hq-features-earth-pulse-2.jpeg", "alt": "NASA Image" }
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-earth-pulse-1.jpeg", "alt": "NASA's Earth Pulse showing a live data stream from the U.S. Government's fleet of satellites." },
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-earth-pulse-2.jpeg", "alt": "A side-by-side image of Earth Pulse and a large, ground-based satellite dish." }
     ]
   },
   "kennedy-space-center": {
     "intro": [
-      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-1.jpg", "alt": "NASA Image" }
+      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-1.jpg", "alt": "Visitors to NASA HQ enjoying a multi-wall display of satellite imagery." }
     ],
     "hyperwall": [
-      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-2.jpg", "alt": "NASA Image" }
+      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-2.jpg", "alt": "Children interacting with a large panel display at NASA HQ." }
     ]
   },
   "smithsonian-museum-nmnh": {
     "intro": [
-      { "img": "/images/visit/nmnh/nasa-nmnh-gallery-1.jpg", "alt": "NASA Image" },
-      { "img": "/images/visit/nmnh/nasa-nmnh-gallery-2.jpg", "alt": "NASA Image" },
-      { "img": "/images/visit/nmnh/nasa-nmnh-gallery-3.jpg", "alt": "NASA Image" }
+      { "img": "/images/visit/nmnh/nasa-nmnh-gallery-1.jpg", "alt": "The Earth Information Center's display at the Smithsonion National Museum of Natural History." },
+      { "img": "/images/visit/nmnh/nasa-nmnh-gallery-2.jpg", "alt": "The entrance of The Earth Information Center's display at the Smithsonion National Museum of Natural History." },
+      { "img": "/images/visit/nmnh/nasa-nmnh-gallery-3.jpg", "alt": "Visitors to The Earth Information Center's display at the Smithsonion National Museum of Natural History viewing a large panel map of North America from space." }
     ],
     "hyperwall": [
-      { "img": "/images/visit/nmnh/nasa-nmnh-features-hyperwall-1.png", "alt": "NASA Image" },
-      { "img": "/images/visit/nmnh/nasa-nmnh-features-hyperwall-2.jpg", "alt": "NASA Image" },
-      { "img": "/images/visit/nmnh/nasa-nmnh-features-hyperwall-3.jpg", "alt": "NASA Image" }
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-hyperwall-1.png", "alt": "The curved Hyperwall on display at The Earth Information Center's display at the Smithsonion National Museum of Natural History." },
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-hyperwall-2.jpg", "alt": "Two visitors viewing the Hyperwall and discussing the information they are reading." },
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-hyperwall-3.jpg", "alt": "The Hyperwall with empty chairs, showing a data layer over a map of the world's oceans." }
     ],
     "time-unveiled": [
-      { "img": "/images/visit/nmnh/nasa-nmnh-features-time-unveiled-1.jpg", "alt": "NASA Image" },
-      { "img": "/images/visit/nmnh/nasa-nmnh-features-time-unveiled-2.jpg", "alt": "NASA Image" }
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-time-unveiled-1.jpg", "alt": "A 3-panel display of NASA's Time Unveiled exhibit." },
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-time-unveiled-2.jpg", "alt": "NASA's Time Unveiled exhibit from a high vantage point, showing a globe image on the floor." }
     ],
     "hometown-dashboard": [
-      { "img": "/images/visit/nmnh/nasa-nmnh-features-hometown-dashboard-1.jpg", "alt": "NASA Image" },
-      { "img": "/images/visit/nmnh/nasa-nmnh-features-hometown-dashboard-2.jpg", "alt": "NASA Image" }
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-hometown-dashboard-1.jpg", "alt": "NASA's Hometown Dashboard on display, ready for visitors." },
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-hometown-dashboard-2.jpg", "alt": "A reproduction of the map controls on display at NASA's Hometown Dashboard." }
     ],
     "eyes-on-earth": [
-      { "img": "/images/visit/nmnh/nasa-nmnh-features-eyes-on-earth-1.jpg", "alt": "NASA Image" },
-      { "img": "/images/visit/nmnh/nasa-nmnh-features-eyes-on-earth-2.jpg", "alt": "NASA Image" }
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-eyes-on-earth-1.jpg", "alt": "NASA's Eyes on Earth with an image of a globe with the paths of satellites orbiting the globe." },
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-eyes-on-earth-2.jpg", "alt": "Visitors exploring the live dispaly of Eyes on Earth with smiles on their faces." }
     ],
     "mobile-climate-mapper": [
-      { "img": "/images/visit/nmnh/nasa-nmnh-features-mcm-1.jpg", "alt": "NASA Image" }
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-mcm-1.jpg", "alt": "NASA's Mobile Climate Mapper, with an image of a globe showing climate change data and a line chart showing different climate scenarios." }
     ]
   }
 }
