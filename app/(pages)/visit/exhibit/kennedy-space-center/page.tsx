@@ -10,12 +10,15 @@ import images from 'app/content/images.json';
 import { ArrowBackIcon } from 'app/components/common/Icons';
 import Tabs from 'app/components/common/Tabs';
 import { tabs } from './tabs';
+import ScrollToTop from 'app/components/ScrollToTop';
 
 const KennedySpaceCenterPage: React.FC = () => {
   const slidesIntro = createImageSlides(images['kennedy-space-center'].intro);
 
   return (
     <>
+      <ScrollToTop />
+
       <GridContainer
         containerSize='desktop-lg'
         className='desktop:padding-top-10'
