@@ -16,7 +16,7 @@ interface CenterCardProps {
 export const CenterCard: React.FC<CenterCardProps> = ({ center, isWide }) => {
   return (
     <div
-      className={`center-card bg-ink border-1px border-base-darkest radius-md padding-y-5 padding-x-3`}
+      className={`center-card bg-ink border-1px border-base-darkest radius-md padding-y-5 padding-x-3 ${isWide ? 'is-wide' : 'is-not-wide'}`}
     >
       {isWide && (
         <div className='center-card__image'>

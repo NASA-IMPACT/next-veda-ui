@@ -12,6 +12,16 @@ $image-height-wide: 200px;
   gap: spacing.units(2);
   min-height: 9rem; 
   
+  &.is-not-wide {
+    min-height: 24rem;
+    align-items: stretch;
+    
+    &__body {
+      justify-content: space-between;
+      height: 100%;
+    }
+  }
+  
   &__image {
     height: $image-height-wide; 
     width: $image-width-wide;
