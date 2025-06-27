@@ -5,6 +5,7 @@ import markdownit from 'markdown-it';
 
 import { compileMDX } from 'next-mdx-remote/rsc';
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { Paragraph } from 'app/components/common/Paragraph';
 import { Section } from 'app/components/common/Section';
 import { VideoCaptionBlock } from 'app/components/common/VideoCaptionBlock';
@@ -13,7 +14,7 @@ import { CenterCardBlock } from '../components/common/cards/CenterCard';
 import { Title } from 'app/components/common/Title';
 import { ExternalResources } from 'app/components/common/cards/ExternalResource';
 import Carousel from 'app/components/common/Carousel';
-import dynamic from 'next/dynamic';
+import Separator from 'app/components/common/Separator';
 
 const ClientOnly = dynamic(() => import('app/components/common/ClientOnly'), {
   ssr: false,
@@ -151,6 +152,7 @@ export async function getThemeContent(slug: string) {
       VideoCaptionBlock,
       Section,
       Paragraph,
+      Separator,
       Title,
       Carousel,
       ExternalResources,
