@@ -35,10 +35,7 @@ describe('Center Card', () => {
   it('should render the center card with the correct link', () => {
     render(<CenterCard center={testCenter} />);
     const linkElement = screen.getByRole('link');
-    expect(linkElement).toHaveAttribute(
-      'href',
-      `/visit/center/${testCenter.id}`,
-    );
+    expect(linkElement).toHaveAttribute('href', testCenter.url);
   });
 
   it('should render the center card with badge', () => {

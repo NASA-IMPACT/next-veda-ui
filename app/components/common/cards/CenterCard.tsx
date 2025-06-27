@@ -44,11 +44,15 @@ export const CenterCard: React.FC<CenterCardProps> = ({ center, isWide }) => {
           </div>
         </div>
       </div>
-      <Link
-        className='position-absolute top-0 left-0 width-full height-full'
-        href={`/visit/center/${center.id}`}
-        aria-label={`Visit ${center.title} center.`}
-      />
+      {center.url && (
+        <Link
+          className='position-absolute top-0 left-0 width-full height-full'
+          href={center.url}
+          target='_blank'
+          rel='noopener noreferrer'
+          aria-label={`Visit ${center.title} center.`}
+        />
+      )}
     </div>
   );
 };

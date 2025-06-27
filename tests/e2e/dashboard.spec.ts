@@ -104,7 +104,9 @@ test.describe('Dashboard Page', () => {
         name: `Visit ${center.title} center.`,
       });
       await expect(link).toBeVisible();
-      await expect(link).toHaveAttribute('href', `/visit/center/${center.id}`);
+      if (center.url) {
+        await expect(link).toHaveAttribute('href', center.url);
+      }
     }
   });
 
@@ -113,14 +115,21 @@ test.describe('Dashboard Page', () => {
   }) => {
     await page.goto('/dashboard');
     for (const center of DATA_CENTERS) {
+      if (!center.url) continue;
+
       const link = page.getByRole('link', {
         name: `Visit ${center.title} center.`,
       });
-      // Open in same tab
-      await link.click();
-      await expect(page).toHaveURL(`/visit/center/${center.id}`);
-      // Go back to dashboard for next center
-      await page.goto('/dashboard');
+
+      // Click the link and verify it opens in a new tab with the external URL
+      const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        link.click(),
+      ]);
+
+      await newPage.waitForLoadState();
+      expect(newPage.url()).toBe(center.url);
+      await newPage.close();
     }
   });
 });
