@@ -10,7 +10,7 @@ const CentersSection: React.FC = () => {
     <>
       <Grid row className='margin-y-2'>
         <Grid col={12}>
-          <CenterCard center={firstCenter} isFirst={true} />
+          <CenterCard center={firstCenter} isWide={true} />
         </Grid>
       </Grid>
 
@@ -23,7 +23,7 @@ const CentersSection: React.FC = () => {
             desktop={{ col: 4 }}
             className='margin-y-2'
           >
-            <CenterCard center={center} isFirst={false} />
+            <CenterCard center={center} isWide={false} />
           </Grid>
         ))}
       </Grid>

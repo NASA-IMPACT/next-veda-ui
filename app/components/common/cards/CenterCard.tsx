@@ -10,15 +10,15 @@ import { Grid } from '@trussworks/react-uswds';
 
 interface CenterCardProps {
   center: Center;
-  isFirst?: boolean;
+  isWide?: boolean;
 }
 
-export const CenterCard: React.FC<CenterCardProps> = ({ center, isFirst }) => {
+export const CenterCard: React.FC<CenterCardProps> = ({ center, isWide }) => {
   return (
     <div
-      className={`center-card bg-ink border-1px border-base-darkest radius-md padding-y-5 padding-x-3 ${isFirst ? 'is-first' : 'is-secondary'}`}
+      className={`center-card bg-ink border-1px border-base-darkest radius-md padding-y-5 padding-x-3 ${isWide ? 'is-first' : 'is-secondary'}`}
     >
-      {isFirst && (
+      {isWide && (
         <div className='center-card__image'>
           <Image
             width={400}
@@ -63,7 +63,7 @@ export const CenterCardBlock: React.FC<{ centerIds: string }> = ({
   return (
     <Grid col={12}>
       {centers.map((center) => (
-        <CenterCard key={center.id} center={center} isFirst />
+        <CenterCard key={center.id} center={center} isWide />
       ))}
     </Grid>
   );
