@@ -5,6 +5,8 @@ import './CenterCard.scss';
 import CardBadge from './CardBadge';
 import Link from 'next/link';
 import { LaunchIcon } from '../Icons';
+import { DATA_CENTERS } from 'app/constants';
+import { Grid } from '@trussworks/react-uswds';
 
 interface CenterCardProps {
   center: Center;
@@ -48,5 +50,21 @@ export const CenterCard: React.FC<CenterCardProps> = ({ center, isFirst }) => {
         aria-label={`Visit ${center.title} center.`}
       />
     </div>
+  );
+};
+
+export const CenterCardBlock: React.FC<{ centerIds: string }> = ({
+  centerIds,
+}) => {
+  const centers = DATA_CENTERS.filter((center) =>
+    centerIds.includes(center.id),
+  );
+
+  return (
+    <Grid col={12}>
+      {centers.map((center) => (
+        <CenterCard key={center.id} center={center} isFirst />
+      ))}
+    </Grid>
   );
 };

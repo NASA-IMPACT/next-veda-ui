@@ -9,6 +9,7 @@ import { Paragraph } from 'app/components/common/Paragraph';
 import { Section } from 'app/components/common/Section';
 import { VideoCaptionBlock } from 'app/components/common/VideoCaptionBlock';
 import { ImageCaptionBlock } from 'app/components/common/ImageCaptionBlock';
+import { CenterCardBlock } from '../components/common/cards/CenterCard';
 import { Title } from 'app/components/common/Title';
 import { ExternalResources } from 'app/components/common/cards/ExternalResource';
 import Carousel from 'app/components/common/Carousel';
@@ -30,6 +31,7 @@ type ThemeFrontmatter = {
     imgSrc: string;
     imgAlt: string;
   }[];
+  centerIds?: string[];
 };
 
 const THEME_CONTENT_PATH = path.join(process.cwd(), 'app', 'content', 'themes');
@@ -152,6 +154,7 @@ export async function getThemeContent(slug: string) {
       Title,
       Carousel,
       ExternalResources,
+      CenterCardBlock,
     },
     options: {
       parseFrontmatter: false,
@@ -161,6 +164,7 @@ export async function getThemeContent(slug: string) {
         description: frontmatter.description,
         image: frontmatter.image,
         pubDate: frontmatter.pubDate,
+        centerIds: frontmatter.centerIds || [],
       },
     },
   });
