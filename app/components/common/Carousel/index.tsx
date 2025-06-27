@@ -27,6 +27,7 @@ import './carousel.scss';
 
 type PropType = {
   slides: React.ReactNode[];
+  captions?: React.ReactNode[];
   options?: EmblaOptionsType;
   slideWidth?: 'full' | 'third';
   fade?: boolean;
@@ -34,6 +35,7 @@ type PropType = {
 
 const Carousel: React.FC<PropType> = ({
   slides,
+  captions,
   options,
   slideWidth = 'full',
   fade = false,
@@ -125,7 +127,7 @@ const Carousel: React.FC<PropType> = ({
               .join(' ');
 
             return (
-              <ul
+              <div
                 key={index}
                 className={`padding-x-1 ${classNames}`}
                 data-testid={
@@ -143,7 +145,7 @@ const Carousel: React.FC<PropType> = ({
                 }}
               >
                 {slide}
-              </ul>
+              </div>
             );
           })}
         </div>
@@ -168,6 +170,11 @@ const Carousel: React.FC<PropType> = ({
           />
         </div>
       )}
+
+      {captions &&
+        captions.length > 0 &&
+        selectedIndex < captions.length &&
+        captions[selectedIndex]}
     </section>
   );
 };

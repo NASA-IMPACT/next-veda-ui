@@ -7,7 +7,11 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import React from 'react';
 import { Paragraph } from 'app/components/common/Paragraph';
 import { Section } from 'app/components/common/Section';
-import { VideoCaptionBlock } from 'app/components/common/VideoCaptionBlock';
+import {
+  VideoCaptionBlock,
+  VideoEmbed,
+  VideoCaption,
+} from 'app/components/common/VideoCaptionBlock';
 import { ImageCaptionBlock } from 'app/components/common/ImageCaptionBlock';
 import { Title } from 'app/components/common/Title';
 import { ExternalResources } from 'app/components/common/cards/ExternalResource';
@@ -147,6 +151,8 @@ export async function getThemeContent(slug: string) {
       },
       ImageCaptionBlock,
       VideoCaptionBlock,
+      VideoEmbed,
+      VideoCaption,
       Section,
       Paragraph,
       Title,
