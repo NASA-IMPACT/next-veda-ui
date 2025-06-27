@@ -63,7 +63,9 @@ export const CenterCardBlock: React.FC<{ centerIds: string }> = ({
   return (
     <Grid col={12}>
       {centers.map((center) => (
-        <CenterCard key={center.id} center={center} isWide />
+        <Grid key={center.id} row className='margin-y-2'>
+          <CenterCard key={center.id} center={center} isWide />
+        </Grid>
       ))}
     </Grid>
   );

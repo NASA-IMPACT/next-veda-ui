@@ -5,6 +5,7 @@ $image-height-wide: 200px;
 
 .center-card {
   isolation: isolate;
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
