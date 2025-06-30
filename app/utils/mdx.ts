@@ -5,6 +5,7 @@ import markdownit from 'markdown-it';
 
 import { compileMDX } from 'next-mdx-remote/rsc';
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { Paragraph } from 'app/components/common/Paragraph';
 import { Section } from 'app/components/common/Section';
 import {
@@ -13,10 +14,11 @@ import {
   VideoCaption,
 } from 'app/components/common/VideoCaptionBlock';
 import { ImageCaptionBlock } from 'app/components/common/ImageCaptionBlock';
+import { CenterCardBlock } from '../components/common/cards/CenterCard';
 import { Title } from 'app/components/common/Title';
 import { ExternalResources } from 'app/components/common/cards/ExternalResource';
 import Carousel from 'app/components/common/Carousel';
-import dynamic from 'next/dynamic';
+import Separator from 'app/components/common/Separator';
 
 const ClientOnly = dynamic(() => import('app/components/common/ClientOnly'), {
   ssr: false,
@@ -34,6 +36,7 @@ type ThemeFrontmatter = {
     imgSrc: string;
     imgAlt: string;
   }[];
+  centerIds?: string[];
 };
 
 const THEME_CONTENT_PATH = path.join(process.cwd(), 'app', 'content', 'themes');
@@ -155,9 +158,11 @@ export async function getThemeContent(slug: string) {
       VideoCaption,
       Section,
       Paragraph,
+      Separator,
       Title,
       Carousel,
       ExternalResources,
+      CenterCardBlock,
     },
     options: {
       parseFrontmatter: false,
@@ -167,6 +172,7 @@ export async function getThemeContent(slug: string) {
         description: frontmatter.description,
         image: frontmatter.image,
         pubDate: frontmatter.pubDate,
+        centerIds: frontmatter.centerIds || [],
       },
     },
   });

@@ -2,8 +2,10 @@
 
 exports[`Center Card > matches the snapshot 1`] = `
 <a
-  aria-label="Visit Earth Information Center center."
+  aria-label="Visit Greenhouse Gas Center center."
   class="position-absolute top-0 left-0 width-full height-full"
-  href="/visit/center/earth-information-center"
+  href="https://earth.gov/ghgcenter"
+  rel="noopener noreferrer"
+  target="_blank"
 />
 `;

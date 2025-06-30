@@ -5,18 +5,20 @@ import './CenterCard.scss';
 import CardBadge from './CardBadge';
 import Link from 'next/link';
 import { LaunchIcon } from '../Icons';
+import { DATA_CENTERS } from 'app/constants';
+import { Grid } from '@trussworks/react-uswds';
 
 interface CenterCardProps {
   center: Center;
-  isFirst?: boolean;
+  isWide?: boolean;
 }
 
-export const CenterCard: React.FC<CenterCardProps> = ({ center, isFirst }) => {
+export const CenterCard: React.FC<CenterCardProps> = ({ center, isWide }) => {
   return (
     <div
-      className={`center-card bg-ink border-1px border-base-darkest radius-md padding-y-5 padding-x-3 ${isFirst ? 'is-first' : 'is-secondary'}`}
+      className={`center-card bg-ink border-1px border-base-darkest radius-md padding-y-5 padding-x-3 ${isWide ? 'is-wide' : 'is-not-wide'}`}
     >
-      {isFirst && (
+      {isWide && (
         <div className='center-card__image'>
           <Image
             width={400}
@@ -42,11 +44,33 @@ export const CenterCard: React.FC<CenterCardProps> = ({ center, isFirst }) => {
           </div>
         </div>
       </div>
-      <Link
-        className='position-absolute top-0 left-0 width-full height-full'
-        href={`/visit/center/${center.id}`}
-        aria-label={`Visit ${center.title} center.`}
-      />
+      {center.url && (
+        <Link
+          className='position-absolute top-0 left-0 width-full height-full'
+          href={center.url}
+          target='_blank'
+          rel='noopener noreferrer'
+          aria-label={`Visit ${center.title} center.`}
+        />
+      )}
     </div>
+  );
+};
+
+export const CenterCardBlock: React.FC<{ centerIds: string }> = ({
+  centerIds,
+}) => {
+  const centers = DATA_CENTERS.filter((center) =>
+    centerIds.includes(center.id),
+  );
+
+  return (
+    <Grid col={12}>
+      {centers.map((center) => (
+        <Grid key={center.id} row className='margin-y-2'>
+          <CenterCard key={center.id} center={center} isWide />
+        </Grid>
+      ))}
+    </Grid>
   );
 };

@@ -26,6 +26,7 @@ export type Center = {
   id: string;
   title: string;
   description: string;
+  url?: string;
   image: string;
   imageAlt: string;
 };

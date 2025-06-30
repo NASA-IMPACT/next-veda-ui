@@ -1,22 +1,32 @@
 @use 'uswds-core/src/styles/functions/units' as spacing;
 
-$image-width-default: 110px;
-$image-width-first: 330px;
+$image-width-wide: 330px;
+$image-height-wide: 200px;
 
 .center-card {
   isolation: isolate;
+  position: relative;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   gap: spacing.units(2);
   min-height: 9rem; 
-  height: 23rem; 
+  
+  &.is-not-wide {
+    min-height: 24rem;
+    align-items: stretch;
+    
+    &__body {
+      justify-content: space-between;
+      height: 100%;
+    }
+  }
   
   &__image {
-    height: 100%;
-    
+    height: $image-height-wide; 
+    width: $image-width-wide;
+
     img {
-      width: $image-width-default;
       height: 100%;
       object-fit: cover;
       border-radius: 0.25rem;
@@ -24,16 +34,10 @@ $image-width-first: 330px;
   }
 
   &__body {
-    height: 100%;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  }
-
-  &.is-first {
-    min-height: 12rem; 
-    padding: 20px;
   }
 
   // Mobile layout

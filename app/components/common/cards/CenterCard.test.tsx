@@ -20,25 +20,22 @@ describe('Center Card', () => {
     expect(screen.getByText(testCenter.description)).toBeInTheDocument();
   });
 
-  it('should render the center card with image when isFirst is true', () => {
-    render(<CenterCard center={testCenter} isFirst={true} />);
+  it('should render the center card with image when isWide is true', () => {
+    render(<CenterCard center={testCenter} isWide={true} />);
     const imageElement = screen.getByAltText(testCenter.imageAlt);
     expect(imageElement).toBeInTheDocument();
     expect(imageElement).toHaveAttribute('src');
   });
 
-  it('should not render the center card image when isFirst is false', () => {
-    render(<CenterCard center={testCenter} isFirst={false} />);
+  it('should not render the center card image when isWide is false', () => {
+    render(<CenterCard center={testCenter} isWide={false} />);
     expect(screen.queryByAltText(testCenter.imageAlt)).not.toBeInTheDocument();
   });
 
   it('should render the center card with the correct link', () => {
     render(<CenterCard center={testCenter} />);
     const linkElement = screen.getByRole('link');
-    expect(linkElement).toHaveAttribute(
-      'href',
-      `/visit/center/${testCenter.id}`,
-    );
+    expect(linkElement).toHaveAttribute('href', testCenter.url);
   });
 
   it('should render the center card with badge', () => {
