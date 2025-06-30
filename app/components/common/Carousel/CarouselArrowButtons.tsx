@@ -43,12 +43,6 @@ export const NextButton: React.FC<ButtonProps> = ({
     aria-label='Next slide'
     {...props}
     className={`${className} ${props.disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
-    style={{
-      ...(props.disabled && {
-        opacity: 0.5,
-        cursor: 'not-allowed',
-      }),
-    }}
   >
     <svg
       width='16'
