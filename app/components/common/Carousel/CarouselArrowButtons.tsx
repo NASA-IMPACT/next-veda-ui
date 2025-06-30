@@ -4,8 +4,17 @@ import React, { ComponentPropsWithRef } from 'react';
 
 type ButtonProps = ComponentPropsWithRef<'button'>;
 
-export const PrevButton: React.FC<ButtonProps> = ({ children, ...props }) => (
-  <button type='button' aria-label='Prev slide' {...props}>
+export const PrevButton: React.FC<ButtonProps> = ({
+  children,
+  className,
+  ...props
+}) => (
+  <button
+    type='button'
+    aria-label='Previous slide'
+    {...props}
+    className={`${className} ${props.disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+  >
     <svg
       width='18'
       height='18'
@@ -24,8 +33,23 @@ export const PrevButton: React.FC<ButtonProps> = ({ children, ...props }) => (
   </button>
 );
 
-export const NextButton: React.FC<ButtonProps> = ({ children, ...props }) => (
-  <button type='button' aria-label='Next slide' {...props}>
+export const NextButton: React.FC<ButtonProps> = ({
+  children,
+  className,
+  ...props
+}) => (
+  <button
+    type='button'
+    aria-label='Next slide'
+    {...props}
+    className={`${className} ${props.disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+    style={{
+      ...(props.disabled && {
+        opacity: 0.5,
+        cursor: 'not-allowed',
+      }),
+    }}
+  >
     <svg
       width='16'
       height='16'

@@ -157,6 +157,8 @@ const Carousel: React.FC<PropType> = ({
             className='usa-button--unstyled margin-right-2'
             onClick={onPrevButtonClick}
             disabled={prevBtnDisabled}
+            aria-disabled={prevBtnDisabled}
+            tabIndex={0}
           />
 
           <div className='carousel__counter'>
@@ -167,6 +169,8 @@ const Carousel: React.FC<PropType> = ({
             className='usa-button--unstyled margin-left-2'
             onClick={onNextButtonClick}
             disabled={nextBtnDisabled}
+            aria-disabled={nextBtnDisabled}
+            tabIndex={0}
           />
         </div>
       )}
