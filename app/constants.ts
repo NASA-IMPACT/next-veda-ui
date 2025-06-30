@@ -143,7 +143,7 @@ export const DATA_CENTERS: Center[] = [
     title: 'Global Sea Level Change Portal',
     description:
       'The Global Sea Level Change Portal is an international collaboration that offers essential information on current and projected sea level change to inform coastal communities across the globe.',
-    url: 'https://earth.gov/global-sea-level-change-portal',
+    url: 'https://earth.gov/sealevel',
     image: '/images/centers/global-sea-level-change-portal.png',
     imageAlt: 'Global Sea Level Change Portal',
   },
