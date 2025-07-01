@@ -36,9 +36,9 @@ export default function SideNav() {
   return (
     <aside className='usa-in-page-nav'>
       <nav aria-label='On this page' className='usa-in-page-nav__nav'>
-        <h4 className='usa-in-page-nav__heading' tabIndex={0}>
+        <p className='usa-in-page-nav__heading' tabIndex={0}>
           On this page
-        </h4>
+        </p>
         <ul className='usa-in-page-nav__list'>
           {sectionIds.map((id, i) => (
             <li
