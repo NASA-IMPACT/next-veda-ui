@@ -162,24 +162,6 @@ exports[`Footer Component > matches the snapshot (no unintended side-effects) 1`
         data-testid="grid"
       >
         <div
-          class="desktop:display-flex desktop:order-first"
-        >
-          <p
-            class="margin-top-0 measure-1 desktop:measure-4"
-          >
-            Looking for U.S. government information and services?
-             
-            <a
-              class="usa-link"
-              href="https://www.usa.gov"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Visit USA.gov
-            </a>
-          </p>
-        </div>
-        <div
           class="desktop:display-flex desktop:flex-row desktop:order-last"
         >
           <div
@@ -211,6 +193,24 @@ exports[`Footer Component > matches the snapshot (no unintended side-effects) 1`
               </a>
             </p>
           </div>
+        </div>
+        <div
+          class="desktop:display-flex desktop:order-first"
+        >
+          <p
+            class="margin-top-0 measure-1 desktop:measure-4"
+          >
+            Looking for U.S. government information and services?
+             
+            <a
+              class="usa-link"
+              href="https://www.usa.gov"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Visit USA.gov
+            </a>
+          </p>
         </div>
       </div>
     </div>
