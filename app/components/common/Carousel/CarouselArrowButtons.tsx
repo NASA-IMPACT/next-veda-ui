@@ -6,7 +6,7 @@ type ButtonProps = ComponentPropsWithRef<'button'>;
 
 export const PrevButton: React.FC<ButtonProps> = ({
   children,
-  className,
+  className = '',
   ...props
 }) => (
   <button
@@ -35,7 +35,7 @@ export const PrevButton: React.FC<ButtonProps> = ({
 
 export const NextButton: React.FC<ButtonProps> = ({
   children,
-  className,
+  className = '',
   ...props
 }) => (
   <button
