@@ -1,15 +1,17 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { Link, SideNav as USWDSSideNav } from '@trussworks/react-uswds';
+import { Link } from '@trussworks/react-uswds';
 import useActiveSection from 'app/hooks/use-active-section';
+
+import './side-nav.scss';
 
 const SECTION_HEADING = 'h2';
 
 export default function SideNav() {
   const [sectionIds, setSectionIds] = useState<string[]>([]);
 
-  // On page mount, get the ids of h3 elements, which should be the topmost
-  // headers on the MDX page.
+  // On page mount, get the ids of all section headings, which should be the topmost
+  // elements on the MDX page for each section.
   useEffect(() => {
     const ids = Array.from(document.querySelectorAll(SECTION_HEADING))
       .map((heading) => heading.id)
@@ -19,24 +21,41 @@ export default function SideNav() {
 
   const activeSection = useActiveSection(sectionIds);
 
+  const formatSectionTitle = (id: string) => {
+    return id
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
+
+  const getDisplayTitle = (id: string) => {
+    const heading = document.getElementById(id);
+    return heading?.getAttribute('data-title') || formatSectionTitle(id);
+  };
+
   return (
-    <aside>
-      <p className='margin-top-0 margin-bottom-2 text-bold'>On this page</p>
-      <USWDSSideNav
-        items={sectionIds.map((id, i) => (
-          <Link
-            key={id}
-            href={`#${id}`}
-            className={`usa-side-nav__link text-capitalize text-primary ${
-              activeSection === id || (!activeSection && i == 0)
-                ? 'usa-current'
-                : ''
-            }`}
-          >
-            {id}
-          </Link>
-        ))}
-      />
+    <aside className='usa-in-page-nav'>
+      <nav aria-label='On this page' className='usa-in-page-nav__nav'>
+        <h4 className='usa-in-page-nav__heading' tabIndex={0}>
+          On this page
+        </h4>
+        <ul className='usa-in-page-nav__list'>
+          {sectionIds.map((id, i) => (
+            <li
+              key={id}
+              className={`usa-in-page-nav__item usa-in-page-nav__item--primary ${
+                activeSection === id || (!activeSection && i === 0)
+                  ? 'usa-current'
+                  : ''
+              }`}
+            >
+              <Link href={`#${id}`} className='usa-in-page-nav__link'>
+                {getDisplayTitle(id)}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </aside>
   );
 }

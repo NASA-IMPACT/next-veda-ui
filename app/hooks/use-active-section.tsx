@@ -33,8 +33,8 @@ export default function useActiveSection(sectionIds: string[]) {
         }
       },
       {
-        rootMargin: '-10% 0px -70% 0px',
-        threshold: [0, 0.25, 0.5, 0.75, 1],
+        rootMargin: '-100px 0px -66% 0px',
+        threshold: 0.01,
       },
     );
 

@@ -10,7 +10,7 @@ export default function AboutLayout({
   return (
     // The about page needs a full width white bg color, so we're adding a div wrapper
     // around the GridContainer to achieve that.
-    <div className='desktop:bg-white'>
+    <div className='about desktop:bg-white'>
       <GridContainer
         containerSize='desktop-lg'
         className='desktop:text-ink desktop:padding-y-10'
@@ -25,11 +25,6 @@ export default function AboutLayout({
             <div className='position-sticky top-2'>
               <SideNav />
             </div>
-          </Grid>
-
-          {/* Mobile Sidebar: visible only on mobile */}
-          <Grid col={12} className='display-block desktop:display-none'>
-            {/* TODO: <Accordion></Accordion> */}
           </Grid>
 
           <Grid col={'fill'} className='mdx margin-top-neg-2'>
