@@ -1,6 +1,8 @@
 import React from 'react';
-import SideNav from './side-nav';
+import InPageNav from './in-page-nav';
 import { Grid, GridContainer } from '@trussworks/react-uswds';
+
+import './layout.scss';
 
 export default function AboutLayout({
   children,
@@ -10,7 +12,7 @@ export default function AboutLayout({
   return (
     // The about page needs a full width white bg color, so we're adding a div wrapper
     // around the GridContainer to achieve that.
-    <div className='desktop:bg-white'>
+    <div className='about desktop:bg-white'>
       <GridContainer
         containerSize='desktop-lg'
         className='desktop:text-ink desktop:padding-y-10'
@@ -23,17 +25,13 @@ export default function AboutLayout({
           {/* Desktop Sidebar: visible only on desktop */}
           <Grid col={3} className='display-none desktop:display-block'>
             <div className='position-sticky top-2'>
-              <SideNav />
+              <InPageNav />
             </div>
-          </Grid>
-
-          {/* Mobile Sidebar: visible only on mobile */}
-          <Grid col={12} className='display-block desktop:display-none'>
-            {/* TODO: <Accordion></Accordion> */}
           </Grid>
 
           <Grid col={'fill'} className='mdx margin-top-neg-2'>
             {children}
+            <div className='scroll-observer-spacer' />
           </Grid>
         </Grid>
       </GridContainer>
