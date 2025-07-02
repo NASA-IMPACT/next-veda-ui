@@ -1,0 +1,8 @@
+@use 'uswds-core' as *;
+
+// Spacer element to ensure sufficient height for scroll observer
+.scroll-observer-spacer {
+  @include at-media('desktop') {
+    height: 33vh;
+  }
+}

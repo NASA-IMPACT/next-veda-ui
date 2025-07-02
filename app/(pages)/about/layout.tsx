@@ -1,6 +1,7 @@
 import React from 'react';
 import SideNav from './side-nav';
 import { Grid, GridContainer } from '@trussworks/react-uswds';
+import './layout.scss';
 
 export default function AboutLayout({
   children,
@@ -29,6 +30,7 @@ export default function AboutLayout({
 
           <Grid col={'fill'} className='mdx margin-top-neg-2'>
             {children}
+            <div className='scroll-observer-spacer' />
           </Grid>
         </Grid>
       </GridContainer>
