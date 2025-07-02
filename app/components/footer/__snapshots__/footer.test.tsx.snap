@@ -158,60 +158,46 @@ exports[`Footer Component > matches the snapshot (no unintended side-effects) 1`
         </div>
       </div>
       <div
-        class="grid-row border-top-1px border-base-darkest padding-top-2 desktop:display-flex flex-column desktop:flex-row text-base-light font-body-2xs"
+        class="grid-row border-top-1px border-base-darkest padding-top-2 text-base-light font-body-2xs flex-column desktop-lg:flex-row"
         data-testid="grid"
       >
-        <div
-          class="desktop:display-flex desktop:flex-row desktop:order-last"
+        <p
+          class="margin-y-05"
         >
-          <div
-            class="padding-right-4"
+          Looking for U.S. government information and services?
+           
+          <a
+            class="usa-link"
+            href="https://www.usa.gov"
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            <p
-              class="margin-top-0 measure-1 desktop:measure-4"
-            >
-              Page last updated:
-               
-              <span
-                class="text-white"
-              >
-                Mar 26, 2024
-              </span>
-            </p>
-          </div>
-          <div>
-            <p
-              class="margin-top-0 measure-1 desktop:measure-4"
-            >
-              U.S. Earth Information Center Responsible Official:
-               
-              <a
-                class="usa-link"
-                href="mailto:eleanor.stokes@nasa.gov"
-              >
-                Eleanor Stokes
-              </a>
-            </p>
-          </div>
-        </div>
-        <div
-          class="desktop:display-flex desktop:order-first"
+            Visit USA.gov
+          </a>
+        </p>
+        <p
+          class="margin-y-05"
         >
-          <p
-            class="margin-top-0 measure-1 desktop:measure-4"
+          Page last updated:
+           
+          <span
+            class="text-white"
           >
-            Looking for U.S. government information and services?
-             
-            <a
-              class="usa-link"
-              href="https://www.usa.gov"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Visit USA.gov
-            </a>
-          </p>
-        </div>
+            Mar 26, 2024
+          </span>
+        </p>
+        <p
+          class="margin-y-05"
+        >
+          U.S. Earth Information Center Responsible Official:
+           
+          <a
+            class="usa-link"
+            href="mailto:eleanor.stokes@nasa.gov"
+          >
+            Eleanor Stokes
+          </a>
+        </p>
       </div>
     </div>
   </div>
