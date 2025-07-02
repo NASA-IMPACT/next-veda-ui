@@ -1,6 +1,7 @@
 import React from 'react';
-import SideNav from './side-nav';
+import InPageNav from './in-page-nav';
 import { Grid, GridContainer } from '@trussworks/react-uswds';
+
 import './layout.scss';
 
 export default function AboutLayout({
@@ -24,7 +25,7 @@ export default function AboutLayout({
           {/* Desktop Sidebar: visible only on desktop */}
           <Grid col={3} className='display-none desktop:display-block'>
             <div className='position-sticky top-2'>
-              <SideNav />
+              <InPageNav />
             </div>
           </Grid>
 

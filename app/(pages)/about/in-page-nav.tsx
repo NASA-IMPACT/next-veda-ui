@@ -3,8 +3,6 @@ import React, { useEffect, useState } from 'react';
 import useActiveSection from 'app/hooks/use-active-section';
 import Link from 'next/link';
 
-import './side-nav.scss';
-
 const SECTION_HEADING = 'h2';
 
 export default function SideNav() {
