@@ -1,3 +1,4 @@
+@use 'uswds-core' as *;
 @use 'uswds-core/src/styles/functions/units' as spacing;
 
 .carousel__viewport {
@@ -30,4 +31,18 @@
 
 .slide--full {
   flex: 1 0 100%;
+}
+
+// Focus styles for interactive elements inside carousel slides
+.carousel__viewport *:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 0.25rem color('blue-40') !important;
+  border-radius: 0 !important;
+}
+// Ensure carousel navigation buttons remain focusable when disabled
+.carousel__controls button {
+  &:focus-visible {
+    outline: 0.25rem solid color('blue-40');
+    outline-offset: 0.25rem;
+  }
 }
