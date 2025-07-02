@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { Link } from '@trussworks/react-uswds';
 import useActiveSection from 'app/hooks/use-active-section';
+import Link from 'next/link';
 
 import './side-nav.scss';
 
@@ -33,6 +33,23 @@ export default function SideNav() {
     return heading?.getAttribute('data-title') || formatSectionTitle(id);
   };
 
+  const handleLinkClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    id: string,
+  ) => {
+    const targetElement = document.getElementById(id);
+    if (targetElement) {
+      event.preventDefault();
+      targetElement.scrollIntoView();
+
+      window.history.replaceState(null, '', `#${id}`);
+
+      // Keep focus on the clicked link to maintain USWDS-compliant behavior
+      // This allows users to continue navigating with keyboard after clicking
+      (event.currentTarget as HTMLAnchorElement).focus();
+    }
+  };
+
   return (
     <aside className='usa-in-page-nav'>
       <nav aria-label='On this page' className='usa-in-page-nav__nav'>
@@ -49,7 +66,11 @@ export default function SideNav() {
                   : ''
               }`}
             >
-              <Link href={`#${id}`} className='usa-in-page-nav__link'>
+              <Link
+                href={`#${id}`}
+                className='usa-in-page-nav__link'
+                onClick={(event) => handleLinkClick(event, id)}
+              >
                 {getDisplayTitle(id)}
               </Link>
             </li>
