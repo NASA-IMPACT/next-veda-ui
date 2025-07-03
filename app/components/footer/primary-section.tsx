@@ -40,7 +40,7 @@ const PrimarySection = () => {
           >
             {primaryNavItems.map(({ label, href, isExternal }) => (
               <Link
-                className='usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs'
+                className='usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:margin-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs'
                 href={href}
                 key={href}
                 {...(isExternal

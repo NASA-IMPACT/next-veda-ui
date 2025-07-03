@@ -38,7 +38,7 @@ const SecondarySection = () => {
               href={href}
               target='_blank'
               rel='noopener noreferrer'
-              className='text-base-light hover:text-base font-body-2xs padding-right-4'
+              className='text-base-light hover:text-base font-body-2xs margin-right-4'
             >
               {label}
             </Link>
