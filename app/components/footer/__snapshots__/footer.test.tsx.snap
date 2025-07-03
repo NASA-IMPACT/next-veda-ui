@@ -52,25 +52,25 @@ exports[`Footer Component > matches the snapshot (no unintended side-effects) 1`
             class="display-flex flex-column desktop:flex-row"
           >
             <a
-              class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
+              class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:margin-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
               href="/about"
             >
               About
             </a>
             <a
-              class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
+              class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:margin-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
               href="/dashboard"
             >
               Dashboard
             </a>
             <a
-              class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
+              class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:margin-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
               href="/visit"
             >
               Visit an Exhibit
             </a>
             <a
-              class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:padding-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
+              class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:margin-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
               href="https://docs.google.com/forms/d/e/1FAIpQLSeusBLtTKXDgWveqRW0FYSCJtdvm-JUwQuSG_PcJwCY97OqOQ/viewform"
               rel="noopener noreferrer"
               target="_blank"
@@ -97,7 +97,7 @@ exports[`Footer Component > matches the snapshot (no unintended side-effects) 1`
         >
           <div>
             <a
-              class="usa-link text-base-light hover:text-base font-body-2xs padding-right-4"
+              class="usa-link text-base-light hover:text-base font-body-2xs margin-right-4"
               href="https://www.nasa.gov/accessibility/"
               rel="noopener noreferrer"
               target="_blank"
@@ -107,7 +107,7 @@ exports[`Footer Component > matches the snapshot (no unintended side-effects) 1`
           </div>
           <div>
             <a
-              class="usa-link text-base-light hover:text-base font-body-2xs padding-right-4"
+              class="usa-link text-base-light hover:text-base font-body-2xs margin-right-4"
               href="https://www.nasa.gov/no-fear-act/"
               rel="noopener noreferrer"
               target="_blank"
@@ -117,7 +117,7 @@ exports[`Footer Component > matches the snapshot (no unintended side-effects) 1`
           </div>
           <div>
             <a
-              class="usa-link text-base-light hover:text-base font-body-2xs padding-right-4"
+              class="usa-link text-base-light hover:text-base font-body-2xs margin-right-4"
               href="http://oig.nasa.gov/"
               rel="noopener noreferrer"
               target="_blank"
@@ -127,7 +127,7 @@ exports[`Footer Component > matches the snapshot (no unintended side-effects) 1`
           </div>
           <div>
             <a
-              class="usa-link text-base-light hover:text-base font-body-2xs padding-right-4"
+              class="usa-link text-base-light hover:text-base font-body-2xs margin-right-4"
               href="https://www.nasa.gov/foia/"
               rel="noopener noreferrer"
               target="_blank"
@@ -137,7 +137,7 @@ exports[`Footer Component > matches the snapshot (no unintended side-effects) 1`
           </div>
           <div>
             <a
-              class="usa-link text-base-light hover:text-base font-body-2xs padding-right-4"
+              class="usa-link text-base-light hover:text-base font-body-2xs margin-right-4"
               href="https://www.nasa.gov/organizations/budget-annual-reports/agency-financial-reports/"
               rel="noopener noreferrer"
               target="_blank"
@@ -147,7 +147,7 @@ exports[`Footer Component > matches the snapshot (no unintended side-effects) 1`
           </div>
           <div>
             <a
-              class="usa-link text-base-light hover:text-base font-body-2xs padding-right-4"
+              class="usa-link text-base-light hover:text-base font-body-2xs margin-right-4"
               href="https://www.nasa.gov/nasa-web-privacy-policy-and-important-notices/"
               rel="noopener noreferrer"
               target="_blank"
@@ -158,60 +158,46 @@ exports[`Footer Component > matches the snapshot (no unintended side-effects) 1`
         </div>
       </div>
       <div
-        class="grid-row border-top-1px border-base-darkest padding-top-2 desktop:display-flex flex-column desktop:flex-row text-base-light font-body-2xs"
+        class="grid-row border-top-1px border-base-darkest padding-top-2 text-base-light font-body-2xs flex-column desktop-lg:flex-row"
         data-testid="grid"
       >
-        <div
-          class="desktop:display-flex desktop:flex-row desktop:order-last"
+        <p
+          class="margin-y-05"
         >
-          <div
-            class="padding-right-4"
+          Looking for U.S. government information and services?
+           
+          <a
+            class="usa-link"
+            href="https://www.usa.gov"
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            <p
-              class="margin-top-0 measure-1 desktop:measure-4"
-            >
-              Page last updated:
-               
-              <span
-                class="text-white"
-              >
-                Mar 26, 2024
-              </span>
-            </p>
-          </div>
-          <div>
-            <p
-              class="margin-top-0 measure-1 desktop:measure-4"
-            >
-              U.S. Earth Information Center Responsible Official:
-               
-              <a
-                class="usa-link"
-                href="mailto:eleanor.stokes@nasa.gov"
-              >
-                Eleanor Stokes
-              </a>
-            </p>
-          </div>
-        </div>
-        <div
-          class="desktop:display-flex desktop:order-first"
+            Visit USA.gov
+          </a>
+        </p>
+        <p
+          class="margin-y-05"
         >
-          <p
-            class="margin-top-0 measure-1 desktop:measure-4"
+          Page last updated:
+           
+          <span
+            class="text-white"
           >
-            Looking for U.S. government information and services?
-             
-            <a
-              class="usa-link"
-              href="https://www.usa.gov"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Visit USA.gov
-            </a>
-          </p>
-        </div>
+            Mar 26, 2024
+          </span>
+        </p>
+        <p
+          class="margin-y-05"
+        >
+          U.S. Earth Information Center Responsible Official:
+           
+          <a
+            class="usa-link"
+            href="mailto:eleanor.stokes@nasa.gov"
+          >
+            Eleanor Stokes
+          </a>
+        </p>
       </div>
     </div>
   </div>
