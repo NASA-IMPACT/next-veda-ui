@@ -20,7 +20,11 @@ export default function BannerComponent() {
       <BannerHeader
         isOpen={isOpen}
         flagImg={
-          <BannerFlag src='images/uswds/us_flag_small.png' aria-hidden alt='' />
+          <BannerFlag
+            src='/images/uswds/us_flag_small.png'
+            aria-hidden
+            alt=''
+          />
         }
         headerText='An official website of the United States government'
         headerActionText="Here's how you know"
@@ -38,7 +42,7 @@ export default function BannerComponent() {
       <BannerContent id='custom-banner' isOpen={isOpen}>
         <div className='grid-row grid-gap-lg'>
           <BannerGuidance className='tablet:grid-col-6'>
-            <BannerIcon src='images/uswds/icon-dot-gov.svg' alt='' />
+            <BannerIcon src='/images/uswds/icon-dot-gov.svg' alt='' />
             <MediaBlockBody>
               <p>
                 <strong>Official websites use .gov</strong>
@@ -48,7 +52,7 @@ export default function BannerComponent() {
             </MediaBlockBody>
           </BannerGuidance>
           <BannerGuidance className='tablet:grid-col-6'>
-            <BannerIcon src='images/uswds/icon-https.svg' alt='' />
+            <BannerIcon src='/images/uswds/icon-https.svg' alt='' />
             <MediaBlockBody>
               <p>
                 <strong>Secure .gov websites use HTTPS</strong>
