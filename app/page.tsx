@@ -98,6 +98,14 @@ export default function HomePage() {
               );
             })}
           </div>
+          <div className='tablet:grid-col-6'>
+            <Link
+              href='/editor'
+              className='bg-blue-500 hover:bg-blue-600 font-semibold py-3 px-6 rounded-lg inline-block transition-colors'
+            >
+              Open MDX Editor
+            </Link>
+          </div>
         </div>
       </div>
     </section>
