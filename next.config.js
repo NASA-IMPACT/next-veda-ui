@@ -10,6 +10,11 @@ module.exports = {
     moduleResolution: 'bundler',
     include: ['app/**/*.ts', 'app/**/*.tsx'],
   },
+  transpilePackages: ['mdx-editor-test'],
+  experimental: {
+    // This allows importing from external directories, which is needed for linked packages.
+    externalDir: true,
+  },
   async rewrites() {
     return [
       {
@@ -40,7 +45,12 @@ module.exports = {
         'jotai-location',
       ),
       'jotai-optics': path.resolve(__dirname, 'node_modules', 'jotai-optics'),
+    
     };
+    config.module.generator['asset/resource'] =
+      config.module.generator['asset'];
+    config.module.generator['asset/source'] = config.module.generator['asset'];
+    delete config.module.generator['asset'];
     return config;
   },
   sassOptions: {
