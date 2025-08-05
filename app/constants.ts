@@ -64,7 +64,7 @@ export const DATA_EXHIBITS: Exhibit[] = [
     id: 'nasa-hq',
     heading: 'NASA HQ',
     description:
-      'The Earth Information Center at HQ is a physical and virtual experience at NASA Headquarters, where visitors can see how our planet is changing in areas that affect lives and livelihoods– from temperatures in our cities to sea level rise, greenhouse gas emissions to agricultural productivity.',
+      'The Earth Information Center at NASA Headquarters includes a large video Hyperwall, an immersive film called “Space for Earth”, interactive touchscreens, and an LED sculpture called “Earth Pulse” which tracks communications between Earth missions and ground receiving stations.  Visits usually take 15-30 minutes.',
     openingHours: ['Monday - Friday', '8:30am - 5:30pm'],
     address: [
       'NASA Headquarters (East Lobby)',
@@ -77,7 +77,7 @@ export const DATA_EXHIBITS: Exhibit[] = [
     id: 'smithsonian-museum',
     heading: 'Smithsonian National Museum of Natural History',
     description:
-      'The Earth Information Center exhibit at the Smithsonian’s National Museum of Natural History includes a video wall displaying Earth science data visualizations and videos, an interpretive panel showing Earth’s connected systems, information on our changing world, and an overview of how NASA and the Smithsonian study our home planet.',
+      'The Earth Information Center at the Smithsonian’s National Museum of Natural History includes a large video Hyperwall displaying Earth science data visualizations and narrative stories, interpretive panels, and interactive audio/visual experiences showing how NASA and the Smithsonian study our home planet.',
     openingHours: ['Every day (closed on Christmas)', '10am - 5:30pm'],
     address: [
       'Smithsonian National Museum of Natural History',
@@ -90,7 +90,7 @@ export const DATA_EXHIBITS: Exhibit[] = [
     id: 'kennedy-space-center',
     heading: 'Kennedy Space Center',
     description:
-      'The Earth Information Center exhibit at the Kennedy Space Center Visitor Complex reimagines the observation gantry at Launch Complex 39 and includes a data hub featuring a theater show, a Hyperwall display, and an interactive exhibit gallery.',
+      'The Earth Information Center exhibit at the Kennedy Space Center Visitor Complex is located at Launch Complex 39 on the bus tour.  The center includes a data hub featuring an immersive theater show, a Hyperwall display, and an interactive exhibit gallery.',
     openingHours: ['Every day (closed on Christmas)', '9am - 5pm'],
     address: [
       'KSC Visitor Complex (The Gantry at LC-39)',

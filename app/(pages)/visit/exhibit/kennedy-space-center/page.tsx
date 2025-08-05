@@ -43,10 +43,7 @@ const KennedySpaceCenterPage: React.FC = () => {
         <Grid row className='margin-bottom-4 measure-4'>
           <h1 className='text-uppercase'>KENNEDY SPACE CENTER</h1>
           <Paragraph>
-            The Earth Information Center exhibit at the Kennedy Space Center
-            Visitor Complex reimagines the observation gantry at Launch Complex
-            39 and includes a data hub featuring a theater show, a Hyperwall
-            display, and an interactive exhibit gallery.
+            The Earth Information Center exhibit at the Kennedy Space Center Visitor Complex is located at Launch Complex 39 on the bus tour.  The center includes a data hub featuring an immersive theater show, a Hyperwall display, and an interactive exhibit gallery.
           </Paragraph>
         </Grid>
       </GridContainer>

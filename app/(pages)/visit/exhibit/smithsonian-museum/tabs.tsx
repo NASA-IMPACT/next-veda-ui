@@ -14,16 +14,7 @@ export const tabs = [
       <Grid row gap={6}>
         <Grid desktop={{ col: 6 }}>
           <Paragraph className='measure-4 desktop:measure-2'>
-            The Hyperwall features videos, dashboards with real-time data on
-            climate and Earth science, along with dazzling imagery of our
-            planet. The Earth Information Center collects information about
-            Earth on a variety of scales ranging from ground-based data to
-            space-based observations from all our inter-agency partners.
-            Collecting information at each scale is important and, when
-            combined, provides a comprehensive understanding of how the
-            components of the atmosphere, land and ocean influence each other.
-            With this understanding the datasets become more powerful tools for
-            addressing environmental challenges and climate change.
+          The Hyperwall features videos, dashboards with real-time data on Earth systems, along with an integrated view of our planet. The Earth Information Center collects information about Earth on a variety of scales ranging from ground-based data to space-based observations from all our inter-agency partners. Collecting information at each scale is important and, when combined, provides a comprehensive understanding of how the components of the atmosphere, land and ocean influence each other. With this understanding the datasets become more powerful tools for decision-making.
           </Paragraph>
         </Grid>
         <Grid desktop={{ col: 6 }}>

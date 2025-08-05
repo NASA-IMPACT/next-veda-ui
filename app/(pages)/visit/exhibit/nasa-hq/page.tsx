@@ -43,11 +43,7 @@ const NasaHqPage: React.FC = () => {
         <Grid row className='margin-bottom-4 measure-4'>
           <h1 className='text-uppercase'>NASA HQ</h1>
           <Paragraph>
-            The Earth Information Center at HQ is a physical and virtual
-            experience at NASA Headquarters, where visitors can see how our
-            planet is changing in areas that affect lives and livelihoods– from
-            temperatures in our cities to sea level rise, greenhouse gas
-            emissions to agricultural productivity.
+          The Earth Information Center at NASA Headquarters includes a large video Hyperwall, an immersive film called “Space for Earth”, interactive touchscreens, and an LED sculpture called “Earth Pulse” which tracks communications between Earth missions and ground receiving stations.  Visits usually take 15-30 minutes. 
           </Paragraph>
         </Grid>
       </GridContainer>

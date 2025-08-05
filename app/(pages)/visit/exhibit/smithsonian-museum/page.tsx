@@ -47,12 +47,7 @@ const SmithsonianMuseumPage: React.FC = () => {
             Smithsonian National Museum of Natural History
           </h1>
           <Paragraph>
-            The Earth Information Center exhibit at the Smithsonian’s National
-            Museum of Natural History includes a video wall displaying Earth
-            science data visualizations and videos, an interpretive panel
-            showing Earth’s connected systems, information on our changing
-            world, and an overview of how NASA and the Smithsonian study our
-            home planet.
+          The Earth Information Center at the Smithsonian’s National Museum of Natural History includes a large video Hyperwall displaying Earth science data visualizations and narrative stories, interpretive panels, and interactive audio/visual experiences showing how NASA and the Smithsonian study our home planet.
           </Paragraph>
         </Grid>
       </GridContainer>
