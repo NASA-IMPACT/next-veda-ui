@@ -103,14 +103,35 @@ export const DATA_EXHIBITS: Exhibit[] = [
 
 export const DATA_INTERACTIVES: Interactive[] = [
   {
-    id: 'mobile-scenario-mapper',
-    url: 'https://earth.gov/mobile-climate-mapper',
-    title: 'Mobile Scenario Mapper',
-    cardImageAlt: 'Mobile Scenario Mapper',
+    id: 'nasa-eyes-on-earth',
+    url: 'https://eyes.nasa.gov/apps/earth',
+    title: 'NASA Eyes on Earth',
+    cardImageAlt: 'NASA Eyes on Earth',
     description:
-      'The Mobile Scenario Mapper is an extension of NASA’s Earth Information Center exhibit at the Smithsonian National Museum of Natural History. Use this tool to explore how climate change may affect temperatures in any geographic area in the world.',
+      'NASA Eyes on Earth is a way for you to learn about your home planet, our solar system, the universe beyond and the spacecraft exploring them.',
   },
   {
+    id: 'geos-earth-now',
+    title: 'GEOS Earth Now',
+    url: 'https://g6dev.smce.nasa.gov/WebGL/geos_earth_now.html',
+    cardImageAlt: 'GEOS Earth Now',
+    description:
+      'This interactive application lets you explore near real time GEOS weather model data.',
+  },{
+    id: 'planet-pen',
+    title: 'Planet Pen',
+    url: 'https://svs.gsfc.nasa.gov/webapps/planet-pen',
+    cardImageAlt: 'Planet Pen',
+    description:
+      "This interactive experience allows visitors to explore through some of NASA's vast quantity of ISS imagery of the Earth. Users will be prompted to draw shapes and lines which are then taken and compared to find similar shapes in real ISS astronaut photography. Providing a quick and fun way of exploring through the amazing features found on our planet.",
+  },{
+    id: 'your-name-in-landsat',
+    title: 'Your Name in Landsat',
+    url: 'https://science.nasa.gov/specials/your-name-in-landsat/',
+    cardImageAlt: 'Your Name in Landsat',
+    description:
+      'This interactive tool allows users to input their name and see it spelled out using stunning Landsat satellite imagery of Earth, providing a unique and personalized view of our planet from space.',
+  },{
     id: 'hometown-dashboard',
     title: 'Hometown Dashboard',
     url: 'https://earth.gov/hometown-dashboard',
@@ -119,12 +140,20 @@ export const DATA_INTERACTIVES: Interactive[] = [
       'Hometown Dashboard invites users to learn how temperature and precipitation in their home region are projected to change from 1950 to 2100. Select your hometown from a global map, adjust time scales, and interact with visual charts that show historical and predicted climate changes based on different emission scenarios.',
   },
   {
-    id: 'nasa-eyes-on-earth',
-    url: 'https://eyes.nasa.gov/apps/earth',
-    title: 'NASA Eyes on Earth',
-    cardImageAlt: 'NASA Eyes on Earth',
+    id: 'rain-global',
+    url: 'https://storm.pps.eosdis.nasa.gov/storm/outreach/RAIN-Global.html',
+    title: 'Rain Global',
+    cardImageAlt: 'Rain Global',
     description:
-      'NASA Eyes on Earth is a way for you to learn about your home planet, our solar system, the universe beyond and the spacecraft exploring them.',
+      'This interactive application lets you explore near real time IMERG observed precipitation data.',
+  },
+  {
+    id: 'mobile-scenario-mapper',
+    url: 'https://earth.gov/mobile-climate-mapper',
+    title: 'Mobile Scenario Mapper',
+    cardImageAlt: 'Mobile Scenario Mapper',
+    description:
+      'The Mobile Scenario Mapper is an extension of NASA’s Earth Information Center exhibit at the Smithsonian National Museum of Natural History. Use this tool to explore how climate change may affect temperatures in any geographic area in the world.',
   },
 ];
 
