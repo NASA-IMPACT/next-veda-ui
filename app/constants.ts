@@ -103,12 +103,12 @@ export const DATA_EXHIBITS: Exhibit[] = [
 
 export const DATA_INTERACTIVES: Interactive[] = [
   {
-    id: 'mobile-climate-mapper',
+    id: 'mobile-scenario-mapper',
     url: 'https://earth.gov/mobile-climate-mapper',
-    title: 'Mobile Climate Mapper',
-    cardImageAlt: 'Mobile Climate Mapper',
+    title: 'Mobile Scenario Mapper',
+    cardImageAlt: 'Mobile Scenario Mapper',
     description:
-      'The Mobile Climate Mapper is an extension of NASA’s Earth Information Center exhibit at the Smithsonian National Museum of Natural History. Use this tool to explore how climate change may affect temperatures in any geographic area in the world.',
+      'The Mobile Scenario Mapper is an extension of NASA’s Earth Information Center exhibit at the Smithsonian National Museum of Natural History. Use this tool to explore how climate change may affect temperatures in any geographic area in the world.',
   },
   {
     id: 'hometown-dashboard',

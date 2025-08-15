@@ -108,8 +108,8 @@ export const tabs = [
     ),
   },
   {
-    id: 'mobile-climate-mapper',
-    title: 'Mobile Climate Mapper',
+    id: 'mobile-scenario-mapper',
+    title: 'Mobile Scenario Mapper',
     content: (
       <Grid row gap={6}>
         <Grid desktop={{ col: 6 }}>
@@ -125,7 +125,7 @@ export const tabs = [
           <Carousel
             fade={true}
             slides={createImageSlides(
-              images['smithsonian-museum-nmnh']['mobile-climate-mapper'],
+              images['smithsonian-museum-nmnh']['mobile-scenario-mapper'],
             )}
           />
         </Grid>

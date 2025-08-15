@@ -52,8 +52,8 @@
       { "img": "/images/visit/nmnh/nasa-nmnh-features-eyes-on-earth-1.jpg", "alt": "NASA's Eyes on Earth with an image of a globe with the paths of satellites orbiting the globe." },
       { "img": "/images/visit/nmnh/nasa-nmnh-features-eyes-on-earth-2.jpg", "alt": "Visitors exploring the live dispaly of Eyes on Earth with smiles on their faces." }
     ],
-    "mobile-climate-mapper": [
-      { "img": "/images/visit/nmnh/nasa-nmnh-features-mcm-1.jpg", "alt": "NASA's Mobile Climate Mapper, with an image of a globe showing climate change data and a line chart showing different climate scenarios." }
+    "mobile-scenario-mapper": [
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-mcm-1.jpg", "alt": "NASA's Mobile Scenario Mapper, with an image of a globe showing climate change data and a line chart showing different climate scenarios." }
     ]
   }
 }
