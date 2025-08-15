@@ -67,4 +67,45 @@ export const tabs = [
       </Grid>
     ),
   },
+  {
+    id: 'planet-pen',
+    title: 'Planet Pen',
+    content: (
+      <Grid row gap={6}>
+        <Grid desktop={{ col: 6 }}>
+          <Paragraph className='measure-4 desktop:measure-2'>
+            Planet Pen is an interactive experience designed around the idea of seeing Earth from above, like an astronaut.  This experience provides a quick and fun way to explore astronaut photography of Earth taken from the International Space Station.
+            Visitors are prompted to draw shapes and lines and these are used to find near identical shapes in Earth’s landscapes.
+            Visitors are provided with information about the image shown.
+          </Paragraph>
+        </Grid>
+        <Grid desktop={{ col: 6 }}>
+          <Carousel
+            fade={true}
+            slides={createImageSlides(images['nasa-hq']['planet-pen'])}
+          />
+        </Grid>
+      </Grid>
+    ),
+  },
+  {
+    id: 'eyes-on-earth',
+    title: 'Eyes on Earth',
+    content: (
+      <Grid row gap={6}>
+        <Grid desktop={{ col: 6 }}>
+          <Paragraph className='measure-4 desktop:measure-2'>
+            This interactive tool allows users to fly along with NASA's Earth observing missions in real-time, view satellite imagery of recent weather events, and monitor some of Earth's current measurements, including temperature, atmospheric ozone, and groundwater.
+            The kiosk has a touch screen for users to scroll to their location of interest, select a satellite to learn more about a missions, and interact with the 3D globe.
+          </Paragraph>
+        </Grid>
+        <Grid desktop={{ col: 6 }}>
+          <Carousel
+            fade={true}
+            slides={createImageSlides(images['nasa-hq']['eyes-on-earth'])}
+          />
+        </Grid>
+      </Grid>
+    ),
+  },
 ];

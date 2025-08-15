@@ -9,16 +9,24 @@
     "hyperwall": [
       { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-1.jpg", "alt": "Bill Nye interacting with The Earth Information Center's Hyperwall at NASA HQ." },
       { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-2.jpg", "alt": "Children learning about Earth science through The Earth Information Center's display." },
-      { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-3.jpg", "alt": "Guests to NASA HQ observing The Earth Information Center's Hyperwall." }
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-3.jpg", "alt": "Guests to NASA HQ observing The Earth Information Center's Hyperwall." },
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-4.png", "alt": "A group of yong children closely examine the Earth Information Center's Hyperwall at NASA HQ." }
     ],
     "space-for-earth": [
       { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-1.jpg", "alt": "A globe image of Earth with neon trees." },
       { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-2.jpg", "alt": "Guests at NASA HQ exploring Space for Earth's immersive experience." },
-      { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-3.jpg", "alt": "Guests at NASA HQ with their arms raised experiencing Space for Earth.s immersive display." }
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-3.jpg", "alt": "Guests at NASA HQ with their arms raised experiencing Space for Earth.s immersive display." },
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-4.png", "alt": "A woman stands alone in a small room with walls covered in brightly projected data." },
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-5.png", "alt": "A group of children playing in the Earth Information Center's space for Earth, a young girl is framed in the foreground running her left hand along the wall." }
     ],
     "earth-pulse": [
-      { "img": "/images/visit/nasa-hq/nasa-hq-features-earth-pulse-1.jpeg", "alt": "NASA's Earth Pulse showing a live data stream from the U.S. Government's fleet of satellites." },
-      { "img": "/images/visit/nasa-hq/nasa-hq-features-earth-pulse-2.jpeg", "alt": "A side-by-side image of Earth Pulse and a large, ground-based satellite dish." }
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-earth-pulse-1.png", "alt": "NASA's Earth Pulse showing a live data stream from the U.S. Government's fleet of satellites." }
+    ],
+    "planet-pen": [
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-planet-pen-1.png", "alt": "Placeholder, asset requested." }
+    ],
+    "eyes-on-earth": [
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-eyes-on-earth-1.png", "alt": "Placeholder, asset requested." }
     ]
   },
   "kennedy-space-center": {
