@@ -130,6 +130,15 @@ export const DATA_INTERACTIVES: Interactive[] = [
 
 export const DATA_CENTERS: Center[] = [
   {
+    id: 'earth-information-center',
+    title: 'Earth Information Center',
+    description:
+      'Earth Information Centers showcase the visualizations, stories, real-time data, and interactives on Earth.gov in the form of a physical exhibits that are open to the public. Come visit and rediscover Earth!',
+    url: 'https://earth.gov/visit',
+    image: '/images/centers/earth-information-center.png',
+    imageAlt: 'Earth Information Center',
+  },
+  {
     id: 'greenhouse-gas-center',
     title: 'Greenhouse Gas Center',
     description:
