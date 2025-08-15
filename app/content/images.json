@@ -32,10 +32,12 @@
   "kennedy-space-center": {
     "intro": [
       { "img": "/images/visit/kennedy-space-center/kennedy-space-center-gallery-1.png", "alt": "A dim panoramic of a gallery space filled with exhibit pieces, a bright display wall is on the left, a glowing sphere in the center, and led light sculpture is on the right." },
-      { "img": "/images/visit/kennedy-space-center/kennedy-space-center-gallery-2.png", "alt": "A glowing purple hallway with a projected image of Earth at the far end." }
+      { "img": "/images/visit/kennedy-space-center/kennedy-space-center-gallery-2.png", "alt": "A glowing purple hallway with a projected image of Earth at the far end." },
+      { "img": "/images/visit/kennedy-space-center/kennedy-space-center-gallery-3.jpg", "alt": "An exterior doorway leading into Kennedy Space Center's Earth Information Center." }
     ],
     "hyperwall": [
-      { "img": "/images/visit/kennedy-space-center/kennedy-space-center-features-hyperwall-1.png", "alt": "Placeholder, asset requested." }
+      { "img": "/images/visit/kennedy-space-center/kennedy-space-center-features-hyperwall-1.jpg", "alt": "A glowing and curved display wall displays a dashboard of data sectioned in square zones." },
+      { "img": "/images/visit/kennedy-space-center/kennedy-space-center-features-hyperwall-2.jpg", "alt": "A glowing and curved display wall displays a single large visualization of the spread of Los Angeles' Palisades fire." }
     ],
     "seas-of-tomorrow": [
       { "img": "/images/visit/kennedy-space-center/kennedy-space-center-features-seas-of-tomorrow-1.png", "alt": "A woman interacting with a glowing interface set into the wall with data projected onto its surface." }
