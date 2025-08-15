@@ -5,7 +5,7 @@ import Link from 'next/link';
 const PrimarySection = () => {
   const primaryNavItems = [
     { label: 'About', href: '/about' },
-    { label: 'Dashboard', href: '/dashboard' },
+    { label: 'Explore', href: '/explore' },
     { label: 'Visit an Exhibit', href: '/visit' },
     {
       label: 'Contact Us',

@@ -116,15 +116,15 @@ export default function Header() {
       />
     </div>,
     <Link
-      href='/dashboard'
-      key='dashboard'
+      href='/explore'
+      key='explore'
       className={
         isMobileExpanded
           ? 'usa-nav__link'
           : 'usa-button usa-button--outline usa-button--inverse'
       }
     >
-      Dashboard
+      Explore
     </Link>,
   ];
 
