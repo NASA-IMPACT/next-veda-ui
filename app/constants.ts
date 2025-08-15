@@ -99,6 +99,19 @@ export const DATA_EXHIBITS: Exhibit[] = [
     imgSrc: '/images/visit/kennedy-space-center.png',
     imgAlt: 'Kennedy Space Center exterior view',
   },
+  {
+    id: 'frost-museum',
+    heading: 'Phillip and Patricia Frost Museum of Science',
+    description: "NASA's EIC is on display in Frost Science's vizLab gallery, located on Level 1 in the Frost Planetarium lobby.",
+    openingHours: ["Monday - Thursday", "10:00am - 5:00pm", "Friday - Sunday", "10:00am - 6:00pm"],
+    address: [
+      "Phillip and Patricia Frost Museum of Science",
+      "1101 Biscayne Blvd.",
+      "Miami, FL 33132"
+    ],
+    imgSrc: '/images/visit/frost-museum.jpg',
+    imgAlt: 'Phillip and Patricia Frost Museum of Science exterior view',
+  },
 ];
 
 export const DATA_INTERACTIVES: Interactive[] = [

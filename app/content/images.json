@@ -84,5 +84,13 @@
     "mobile-scenario-mapper": [
       { "img": "/images/visit/nmnh/nasa-nmnh-features-mcm-1.jpg", "alt": "NASA's Mobile Scenario Mapper, with an image of a globe showing climate change data and a line chart showing different climate scenarios." }
     ]
+  },
+  "frost-museum": {
+    "intro": [
+      { "img": "/images/visit/frost-museum/frost-museum-gallery-1.png", "alt": "The Hyperwall on display at The Frost Planetarium's Earth Information Center's display." }
+    ],
+    "hyperwall": [
+      { "img": "/images/visit/frost-museum/frost-museum-features-hyperwall-1.jpg", "alt": "The Hyperwall on display at The Frost Planetarium's Earth Information Center's display." }
+    ]
   }
 }
