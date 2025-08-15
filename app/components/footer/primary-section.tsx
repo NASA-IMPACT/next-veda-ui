@@ -27,6 +27,7 @@ const PrimarySection = () => {
         row
         className='display-flex flex-column desktop:flex-row flex-justify'
       >
+        <div/>
         <div className='border-top-1px border-base-darkest desktop:border-0 padding-top-3 desktop:padding-top-0'>
           <nav
             aria-label='Footer navigation'
