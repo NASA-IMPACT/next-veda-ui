@@ -61,12 +61,8 @@ export const tabs = [
       <Grid row gap={6}>
         <Grid desktop={{ col: 6 }}>
           <Paragraph className='measure-4 desktop:measure-2'>
-            This interactive display invites users to learn how temperature and
-            precipitation in their home region are projected to change from 1950
-            to 2100. Select your hometown from a global map, adjust time scales,
-            and interact with visual charts that show historical and predicted
-            climate changes based on different emission scenarios. What future
-            will you choose?
+            This interactive display allows users to learn how temperature and precipitation in their home region are projected to change from 1950 to 2100 under different scenarios.
+            Visitors can select their hometown from a map, adjust time scales, and interact with visual charts that show historical and predicted changes.
           </Paragraph>
         </Grid>
         <Grid desktop={{ col: 6 }}>
@@ -114,11 +110,8 @@ export const tabs = [
       <Grid row gap={6}>
         <Grid desktop={{ col: 6 }}>
           <Paragraph className='measure-4 desktop:measure-2'>
-            This app allows users to explore temperature data between 1950 to
-            2100 a mobile device or computer. While selecting different emission
-            scenarios and timeframes, users interact with a 3D globe to select a
-            region of interest and reveal charts of historical and predicted
-            temperatures.
+            This interactive display allows users to learn how temperature and precipitation in their home region are projected to change from 1950 to 2100 under different scenarios.
+            Visitors can select their hometown from a map, adjust time scales, and interact with visual charts that show historical and predicted changes.
           </Paragraph>
         </Grid>
         <Grid desktop={{ col: 6 }}>
