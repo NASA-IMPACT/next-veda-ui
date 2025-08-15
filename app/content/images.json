@@ -59,7 +59,8 @@
     ],
     "time-unveiled": [
       { "img": "/images/visit/nmnh/nasa-nmnh-features-time-unveiled-1.jpg", "alt": "A 3-panel display of NASA's Time Unveiled exhibit." },
-      { "img": "/images/visit/nmnh/nasa-nmnh-features-time-unveiled-2.jpg", "alt": "NASA's Time Unveiled exhibit from a high vantage point, showing a globe image on the floor." }
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-time-unveiled-2.jpg", "alt": "NASA's Time Unveiled exhibit from a high vantage point, showing a globe image on the floor." },
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-time-unveiled-3.png", "alt": "A woman standing in front of a 3-panel display raises her arm, viewed in profile." }
     ],
     "hometown-dashboard": [
       { "img": "/images/visit/nmnh/nasa-nmnh-features-hometown-dashboard-1.jpg", "alt": "NASA's Hometown Dashboard on display, ready for visitors." },
@@ -67,7 +68,8 @@
     ],
     "eyes-on-earth": [
       { "img": "/images/visit/nmnh/nasa-nmnh-features-eyes-on-earth-1.jpg", "alt": "NASA's Eyes on Earth with an image of a globe with the paths of satellites orbiting the globe." },
-      { "img": "/images/visit/nmnh/nasa-nmnh-features-eyes-on-earth-2.jpg", "alt": "Visitors exploring the live dispaly of Eyes on Earth with smiles on their faces." }
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-eyes-on-earth-2.jpg", "alt": "Visitors exploring the live display of Eyes on Earth with smiles on their faces." },
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-eyes-on-earth-3.png", "alt": "A man interacts with a large touchscreen affixed to its base at an angle like a drafting table." }
     ],
     "mobile-scenario-mapper": [
       { "img": "/images/visit/nmnh/nasa-nmnh-features-mcm-1.jpg", "alt": "NASA's Mobile Scenario Mapper, with an image of a globe showing climate change data and a line chart showing different climate scenarios." }
