@@ -35,15 +35,7 @@ exports[`Footer Component > matches the snapshot (no unintended side-effects) 1`
         class="grid-row display-flex flex-column desktop:flex-row flex-justify"
         data-testid="grid"
       >
-        <div
-          class="padding-bottom-4 desktop:padding-bottom-0"
-        >
-          <p
-            class="margin-0 text-base-light font-body-2xs measure-1"
-          >
-            The EIC was created by NASA and is enabled by contributions across EPA, FEMA, NASA, NOAA, USDA and USGS.
-          </p>
-        </div>
+        <div />
         <div
           class="border-top-1px border-base-darkest desktop:border-0 padding-top-3 desktop:padding-top-0"
         >
@@ -59,9 +51,9 @@ exports[`Footer Component > matches the snapshot (no unintended side-effects) 1`
             </a>
             <a
               class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:margin-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"
-              href="/dashboard"
+              href="/explore"
             >
-              Dashboard
+              Explore
             </a>
             <a
               class="usa-footer__primary-link padding-0 desktop:padding-x-2 desktop:margin-bottom-205 text-white hover:text-base-light text-no-underline text-normal line-height-ui-6 font-ui-2xs"

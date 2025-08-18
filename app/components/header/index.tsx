@@ -44,7 +44,6 @@ export default function Header() {
     setIsDropdownOpen(newIsOpen);
   };
 
-  // Close menu when route changes
   useEffect(() => {
     setExpanded(false);
     setIsDropdownOpen([false, false]);
@@ -75,7 +74,7 @@ export default function Header() {
 
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', handleScroll);
-      handleScroll(); // Initial scroll position
+      handleScroll();
 
       return () => {
         window.removeEventListener('scroll', handleScroll);
@@ -90,12 +89,15 @@ export default function Header() {
   }, [scrollY]);
 
   useEffect(() => {
-    if (pathname == '/') setBackgroundStyle('hidden'); // reset the header
+    if (pathname == '/') setBackgroundStyle('hidden');
   }, [pathname]);
 
   const primaryNavItems = [
     <Link href='/about' key='about' className='usa-nav__link'>
       <span>About</span>
+    </Link>,
+    <Link href='/visit' key='visit' className='usa-nav__link'>
+      <span>Visit an Exhibit</span>
     </Link>,
     <div ref={dropdownRef} key='themes'>
       <NavDropDownButton

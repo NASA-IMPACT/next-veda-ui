@@ -27,7 +27,7 @@ describe('Footer Component', () => {
     render(<Footer />);
     const navItems = [
       'About',
-      'Dashboard',
+      'Explore',
       // 'Mapping App',
       // 'Themes',
       'Visit an Exhibit',

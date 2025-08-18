@@ -88,6 +88,18 @@ exports[`Header Component > matches the snapshot (no unintended side-effects) 1`
         <li
           class="usa-nav__primary-item"
         >
+          <a
+            class="usa-nav__link"
+            href="/visit"
+          >
+            <span>
+              Visit an Exhibit
+            </span>
+          </a>
+        </li>
+        <li
+          class="usa-nav__primary-item"
+        >
           <div>
             <button
               aria-controls="themesDropDown"
@@ -203,9 +215,9 @@ exports[`Header Component > matches the snapshot (no unintended side-effects) 1`
         >
           <a
             class="usa-button usa-button--outline usa-button--inverse"
-            href="/dashboard"
+            href="/explore"
           >
-            Dashboard
+            Explore
           </a>
         </li>
       </ul>

@@ -13,9 +13,7 @@ import { tabs } from './tabs';
 import ScrollToTop from 'app/components/ScrollToTop';
 
 const FrostMuseumPage: React.FC = () => {
-  const slidesIntro = createImageSlides(
-    images['frost-museum'].intro,
-  );
+  const slidesIntro = createImageSlides(images['frost-museum'].intro);
 
   return (
     <>
@@ -44,10 +42,11 @@ const FrostMuseumPage: React.FC = () => {
         </Grid>
         <Grid row className='margin-bottom-4 measure-4'>
           <h1 className='text-uppercase'>
-            Phillip and Patricia Frost Museum of Science 
+            Phillip and Patricia Frost Museum of Science
           </h1>
           <Paragraph>
-           NASA's EIC is on display in Frost Science's vizLab gallery, located on Level 1 in the Frost Planetarium lobby. 
+            NASA&apos;s EIC is on display in Frost Science&apos;s vizLab
+            gallery, located on Level 1 in the Frost Planetarium lobby.
           </Paragraph>
         </Grid>
       </GridContainer>
@@ -63,9 +62,7 @@ const FrostMuseumPage: React.FC = () => {
                   <th scope='row' className='text-bold'>
                     Admission
                   </th>
-                  <td className='measure-1'>
-                    Rates vary
-                  </td>
+                  <td className='measure-1'>Rates vary</td>
                 </tr>
                 <tr>
                   <th scope='row' className='text-bold'>
@@ -73,10 +70,10 @@ const FrostMuseumPage: React.FC = () => {
                   </th>
                   <td className='measure-1'>
                     Open every day of the year
-                    <br/>
+                    <br />
                     Monday - Thursday, 10:00am - 5:00pm
-                    <br/>
-                    Friday - Sunday, 10:00am - 6:00pm 
+                    <br />
+                    Friday - Sunday, 10:00am - 6:00pm
                   </td>
                 </tr>
                 <tr>
@@ -84,7 +81,8 @@ const FrostMuseumPage: React.FC = () => {
                     Address
                   </th>
                   <td className='measure-1'>
-                    Phillip and Patricia Frost Museum of Science, Frost Planetarium lobby
+                    Phillip and Patricia Frost Museum of Science, Frost
+                    Planetarium lobby
                     <br />
                     1101 Biscayne Blvd.
                     <br />
