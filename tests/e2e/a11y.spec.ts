@@ -53,11 +53,11 @@ test.describe('Theme pages', () => {
   });
 });
 
-test.describe('Dashboard page', () => {
+test.describe('Explore page', () => {
   test('should not have any automatically detectable accessibility issues', async ({
     page,
   }, testInfo) => {
-    await page.goto('/dashboard');
+    await page.goto('/explore');
     await expect(page.locator('h1')).toHaveText(/Explore/i);
     const accessibilityScanResults = await new AxeBuilder({ page })
       .exclude('[data-testid="carousel-slide-transitional"]')
