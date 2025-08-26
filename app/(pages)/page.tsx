@@ -44,7 +44,10 @@ export default function HomePage() {
           </Grid>
         </Grid>
         <Grid row>
-          <Link className='usa-button bg-primary-vivid mobile:font-ui-sm' href='/dashboard'>
+          <Link
+            className='usa-button bg-primary-vivid mobile:font-ui-sm'
+            href='/explore'
+          >
             Get Started
             <Icon.ArrowForward
               size={3}

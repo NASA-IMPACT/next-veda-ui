@@ -38,7 +38,7 @@ export const CenterCard: React.FC<CenterCardProps> = ({ center, isWide }) => {
           </p>
         </div>
         <div className='font-body-sm text-bold portal-link'>
-          <span>Open External Portal</span>
+          <span>Open Portal</span>
           <div className='icon-circle bg-primary-vivid'>
             <LaunchIcon size={3} aria-label='Open external portal' />
           </div>

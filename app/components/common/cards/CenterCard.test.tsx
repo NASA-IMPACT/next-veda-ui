@@ -45,6 +45,6 @@ describe('Center Card', () => {
 
   it('should render the center card with portal link text', () => {
     render(<CenterCard center={testCenter} />);
-    expect(screen.getByText('Open External Portal')).toBeInTheDocument();
+    expect(screen.getByText('Open Portal')).toBeInTheDocument();
   });
 });

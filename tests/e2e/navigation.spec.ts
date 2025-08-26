@@ -30,8 +30,8 @@ test.describe('Header Navigation', () => {
 
     if (isMobile) await openMenu(page);
 
-    await nav.getByRole('link', { name: 'Dashboard' }).click();
-    await expect(page).toHaveURL(/.*dashboard/i);
+    await nav.getByRole('link', { name: 'Explore' }).click();
+    await expect(page).toHaveURL(/.*explore/i);
     await expect(page.locator('main')).toBeVisible();
     await expect(page.locator('h1')).toHaveText('Explore');
   });

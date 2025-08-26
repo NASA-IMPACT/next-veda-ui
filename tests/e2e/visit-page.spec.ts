@@ -8,7 +8,7 @@ test.describe('Visit pages', () => {
     expect(page.getByText('The Earth Information Center')).toBeVisible();
 
     const cardGroup = page.locator('[data-testid="CardGroup"]');
-    await expect(cardGroup.locator('[data-testid="Card"]')).toHaveCount(3);
+    await expect(cardGroup.locator('[data-testid="Card"]')).toHaveCount(4);
   });
 
   test('Each card should navigate to the correct page and back', async ({

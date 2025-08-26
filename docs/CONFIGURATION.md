@@ -1,3 +1,5 @@
+# Configuration
+
 This document provides details on how to configure the application, manage environment variables, and use the VEDA UI configuration provider.
 
 ## Environment variables
@@ -11,10 +13,15 @@ These variables configure general API endpoints and settings that are safe to be
 - **`NEXT_PUBLIC_API_STAC_ENDPOINT`**
     Defines the endpoint for accessing the STAC API
 
+- **`NEXT_PUBLIC_GOOGLE_FORM`**
+    URL for the Google Form used for user feedback and contact. When set, displays a "Contact Us" section on the About page. When not set, the feedback section is hidden.
+
     Example:
+
     ```env
     NEXT_PUBLIC_API_STAC_ENDPOINT='https://openveda.cloud/api/stac'
     NEXT_PUBLIC_API_RASTER_ENDPOINT='https://openveda.cloud/api/raster'
+    NEXT_PUBLIC_GOOGLE_FORM='https://docs.google.com/forms/d/e/your-form-id/viewform'
     ```
 
 ### `.env variables`

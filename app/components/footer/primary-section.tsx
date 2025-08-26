@@ -5,7 +5,7 @@ import Link from 'next/link';
 const PrimarySection = () => {
   const primaryNavItems = [
     { label: 'About', href: '/about' },
-    { label: 'Dashboard', href: '/dashboard' },
+    { label: 'Explore', href: '/explore' },
     { label: 'Visit an Exhibit', href: '/visit' },
     {
       label: 'Contact Us',
@@ -27,12 +27,7 @@ const PrimarySection = () => {
         row
         className='display-flex flex-column desktop:flex-row flex-justify'
       >
-        <div className='padding-bottom-4 desktop:padding-bottom-0'>
-          <p className='margin-0 text-base-light font-body-2xs measure-1'>
-            The EIC was created by NASA and is enabled by contributions across
-            EPA, FEMA, NASA, NOAA, USDA and USGS.
-          </p>
-        </div>
+        <div/>
         <div className='border-top-1px border-base-darkest desktop:border-0 padding-top-3 desktop:padding-top-0'>
           <nav
             aria-label='Footer navigation'

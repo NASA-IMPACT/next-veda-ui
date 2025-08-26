@@ -38,7 +38,7 @@ describe('Header Component', () => {
 
   it('contains the main nav items', () => {
     render(<Header />);
-    const navItems = ['About', 'Themes', 'Dashboard'];
+    const navItems = ['About', 'Visit an Exhibit', 'Themes', 'Explore'];
 
     navItems.forEach((item) => {
       const navItem = screen.getByText(item);

@@ -9,24 +9,51 @@
     "hyperwall": [
       { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-1.jpg", "alt": "Bill Nye interacting with The Earth Information Center's Hyperwall at NASA HQ." },
       { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-2.jpg", "alt": "Children learning about Earth science through The Earth Information Center's display." },
-      { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-3.jpg", "alt": "Guests to NASA HQ observing The Earth Information Center's Hyperwall." }
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-3.jpg", "alt": "Guests to NASA HQ observing The Earth Information Center's Hyperwall." },
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-hyperwall-4.png", "alt": "A group of yong children closely examine the Earth Information Center's Hyperwall at NASA HQ." }
     ],
     "space-for-earth": [
       { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-1.jpg", "alt": "A globe image of Earth with neon trees." },
       { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-2.jpg", "alt": "Guests at NASA HQ exploring Space for Earth's immersive experience." },
-      { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-3.jpg", "alt": "Guests at NASA HQ with their arms raised experiencing Space for Earth.s immersive display." }
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-3.jpg", "alt": "Guests at NASA HQ with their arms raised experiencing Space for Earth.s immersive display." },
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-4.png", "alt": "A woman stands alone in a small room with walls covered in brightly projected data." },
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-space-for-earth-5.png", "alt": "A group of children playing in the Earth Information Center's space for Earth, a young girl is framed in the foreground running her left hand along the wall." }
     ],
     "earth-pulse": [
-      { "img": "/images/visit/nasa-hq/nasa-hq-features-earth-pulse-1.jpeg", "alt": "NASA's Earth Pulse showing a live data stream from the U.S. Government's fleet of satellites." },
-      { "img": "/images/visit/nasa-hq/nasa-hq-features-earth-pulse-2.jpeg", "alt": "A side-by-side image of Earth Pulse and a large, ground-based satellite dish." }
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-earth-pulse-1.png", "alt": "NASA's Earth Pulse showing a live data stream from the U.S. Government's fleet of satellites." }
+    ],
+    "planet-pen": [
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-planet-pen-1.png", "alt": "Placeholder, asset requested." }
+    ],
+    "eyes-on-earth": [
+      { "img": "/images/visit/nasa-hq/nasa-hq-features-eyes-on-earth-1.png", "alt": "Placeholder, asset requested." }
     ]
   },
   "kennedy-space-center": {
     "intro": [
-      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-1.jpg", "alt": "Visitors to NASA HQ enjoying a multi-wall display of satellite imagery." }
+      { "img": "/images/visit/kennedy-space-center/kennedy-space-center-gallery-1.png", "alt": "A dim panoramic of a gallery space filled with exhibit pieces, a bright display wall is on the left, a glowing sphere in the center, and led light sculpture is on the right." },
+      { "img": "/images/visit/kennedy-space-center/kennedy-space-center-gallery-2.png", "alt": "A glowing purple hallway with a projected image of Earth at the far end." },
+      { "img": "/images/visit/kennedy-space-center/kennedy-space-center-gallery-3.jpg", "alt": "An exterior doorway leading into Kennedy Space Center's Earth Information Center." }
     ],
     "hyperwall": [
-      { "img": "/images/visit/nasa-hq/nasa-hq-gallery-2.jpg", "alt": "Children interacting with a large panel display at NASA HQ." }
+      { "img": "/images/visit/kennedy-space-center/kennedy-space-center-features-hyperwall-1.jpg", "alt": "A glowing and curved display wall displays a dashboard of data sectioned in square zones." },
+      { "img": "/images/visit/kennedy-space-center/kennedy-space-center-features-hyperwall-2.jpg", "alt": "A glowing and curved display wall displays a single large visualization of the spread of Los Angeles' Palisades fire." }
+    ],
+    "seas-of-tomorrow": [
+      { "img": "/images/visit/kennedy-space-center/kennedy-space-center-features-seas-of-tomorrow-1.png", "alt": "A woman interacting with a glowing interface set into the wall with data projected onto its surface." }
+    ],
+    "dome-to-dome": [
+      { "img": "/images/visit/kennedy-space-center/kennedy-space-center-features-dome-to-dome-1.png", "alt": "A group of visitors stand in a room with projection on its walls, an astronaut is floating in space in the center of the front wall." },
+      { "img": "/images/visit/kennedy-space-center/kennedy-space-center-features-dome-to-dome-2.png", "alt": "A woman stands alone in a room with projection on its walls, the image of an astronaut observing the earth from space stretches across the left, front, and right walls." }
+    ],
+    "earth-pulse": [
+      { "img": "/images/visit/kennedy-space-center/kennedy-space-center-features-earth-pulse-1.png", "alt": "NASA's Earth Pulse showing a live data stream from the U.S. Government's fleet of satellites." }
+    ],
+    "planet-pen": [
+      { "img": "/images/visit/kennedy-space-center/kennedy-space-center-features-planet-pen-1.png", "alt": "A silver pedestal with a touch-screen on its top is set in-front of a circular opening the wall, a female astronaut in the International Space Station is floating on screen, a message instructs users to tap to begin." }
+    ],
+    "science-on-a-sphere": [
+      { "img": "/images/visit/kennedy-space-center/kennedy-space-center-features-science-on-a-sphere-1.png", "alt": "A glowing sphere is suspended above the ground, surrounded by a silver railing with touch-screens affixed to it." } 
     ]
   },
   "smithsonian-museum-nmnh": {
@@ -42,7 +69,8 @@
     ],
     "time-unveiled": [
       { "img": "/images/visit/nmnh/nasa-nmnh-features-time-unveiled-1.jpg", "alt": "A 3-panel display of NASA's Time Unveiled exhibit." },
-      { "img": "/images/visit/nmnh/nasa-nmnh-features-time-unveiled-2.jpg", "alt": "NASA's Time Unveiled exhibit from a high vantage point, showing a globe image on the floor." }
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-time-unveiled-2.jpg", "alt": "NASA's Time Unveiled exhibit from a high vantage point, showing a globe image on the floor." },
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-time-unveiled-3.png", "alt": "A woman standing in front of a 3-panel display raises her arm, viewed in profile." }
     ],
     "hometown-dashboard": [
       { "img": "/images/visit/nmnh/nasa-nmnh-features-hometown-dashboard-1.jpg", "alt": "NASA's Hometown Dashboard on display, ready for visitors." },
@@ -50,10 +78,19 @@
     ],
     "eyes-on-earth": [
       { "img": "/images/visit/nmnh/nasa-nmnh-features-eyes-on-earth-1.jpg", "alt": "NASA's Eyes on Earth with an image of a globe with the paths of satellites orbiting the globe." },
-      { "img": "/images/visit/nmnh/nasa-nmnh-features-eyes-on-earth-2.jpg", "alt": "Visitors exploring the live dispaly of Eyes on Earth with smiles on their faces." }
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-eyes-on-earth-2.jpg", "alt": "Visitors exploring the live display of Eyes on Earth with smiles on their faces." },
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-eyes-on-earth-3.png", "alt": "A man interacts with a large touchscreen affixed to its base at an angle like a drafting table." }
     ],
-    "mobile-climate-mapper": [
-      { "img": "/images/visit/nmnh/nasa-nmnh-features-mcm-1.jpg", "alt": "NASA's Mobile Climate Mapper, with an image of a globe showing climate change data and a line chart showing different climate scenarios." }
+    "mobile-scenario-mapper": [
+      { "img": "/images/visit/nmnh/nasa-nmnh-features-mcm-1.jpg", "alt": "NASA's Mobile Scenario Mapper, with an image of a globe showing climate change data and a line chart showing different climate scenarios." }
+    ]
+  },
+  "frost-museum": {
+    "intro": [
+      { "img": "/images/visit/frost-museum/frost-museum-gallery-1.png", "alt": "The Hyperwall on display at The Frost Planetarium's Earth Information Center's display." }
+    ],
+    "hyperwall": [
+      { "img": "/images/visit/frost-museum/frost-museum-features-hyperwall-1.jpg", "alt": "The Hyperwall on display at The Frost Planetarium's Earth Information Center's display." }
     ]
   }
 }

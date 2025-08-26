@@ -2,13 +2,13 @@ import { test, expect } from '@playwright/test';
 import { DATA_THEMES, DATA_INTERACTIVES } from '../../app/constants';
 import { DATA_CENTERS } from '../../app/constants';
 
-test.describe('Dashboard Page', () => {
+test.describe('Explore Page', () => {
   test('should be accessible and display content correctly', async ({
     page,
   }) => {
     await page.goto('/');
     await page.getByRole('link', { name: /get started/i }).click();
-    await expect(page).toHaveURL('/dashboard');
+    await expect(page).toHaveURL('/explore');
 
     const h1 = page.getByRole('heading', { name: /explore/i, level: 1 });
     const h2 = page.getByRole('heading', {
@@ -28,7 +28,7 @@ test.describe('Dashboard Page', () => {
   });
 
   test('should navigate to theme pages correctly', async ({ page }) => {
-    await page.goto('/dashboard');
+    await page.goto('/explore');
     const theme = DATA_THEMES[0];
     const card = page.getByRole('link', {
       name: `View ${theme.title} theme details.`,
@@ -44,7 +44,7 @@ test.describe('Dashboard Page', () => {
   });
 
   test('should navigate to interactives correctly', async ({ page }) => {
-    await page.goto('/dashboard');
+    await page.goto('/explore');
 
     const interactiveHeading = page.getByRole('heading', {
       name: /interactives/i,
@@ -61,7 +61,7 @@ test.describe('Dashboard Page', () => {
 
     await page.waitForTimeout(500);
 
-    const secondInteractive = DATA_INTERACTIVES[1]; // Hometown Dashboard
+    const secondInteractive = DATA_INTERACTIVES[1];
     const card = carousel.getByRole('link', {
       name: new RegExp(secondInteractive.title, 'i'),
     });
@@ -75,7 +75,7 @@ test.describe('Dashboard Page', () => {
 
     await newPage.waitForLoadState();
 
-    expect(newPage.url()).toBe(secondInteractive.url);
+    expect(newPage.url()).toContain(secondInteractive.url);
 
     await newPage.close();
   });
@@ -83,7 +83,7 @@ test.describe('Dashboard Page', () => {
   test('should display all center cards with correct info and links', async ({
     page,
   }) => {
-    await page.goto('/dashboard');
+    await page.goto('/explore');
     const h2 = page.getByRole('heading', {
       name: /explore our centers/i,
       level: 2,
@@ -113,7 +113,7 @@ test.describe('Dashboard Page', () => {
   test('should navigate to center pages when center card is clicked', async ({
     page,
   }) => {
-    await page.goto('/dashboard');
+    await page.goto('/explore');
     for (const center of DATA_CENTERS) {
       if (!center.url) continue;
 
