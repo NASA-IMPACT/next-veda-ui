@@ -53,6 +53,10 @@ Additions to Earth.gov will occur in the coming months, including some new featu
 - More and different kinds of data.
 - AI integration for data discovery and analysis.
 
-<h2 id='feedback' data-title='Feedback'>We want your help! Please Share Your Ideas and Feedback!</h2>
+{process.env.NEXT_PUBLIC_GOOGLE_FORM && (
+  <>
+    <h2 id='feedback' data-title='Feedback'>We want your help! Please Share Your Ideas and Feedback!</h2>
 
-Please contact us by filling out <a href={process.env.GOOGLE_FORM}>this form</a>.
+    Please contact us by filling out <a href={process.env.NEXT_PUBLIC_GOOGLE_FORM}>this form</a>.
+  </>
+)}
