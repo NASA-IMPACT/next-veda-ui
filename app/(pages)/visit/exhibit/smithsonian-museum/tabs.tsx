@@ -85,7 +85,7 @@ export const tabs = [
           <Paragraph className='measure-4 desktop:measure-2'>
             This interactive tool allows users to fly along with NASA&apos;s
             Earth observing missions in real-time, view satellite imagery of
-            recent weather events, and monitor some of Earth&apos;s vital signs,
+            recent weather events, and monitor some of Earth&apos;s current measurements,
             including temperature, carbon dioxide, atmospheric ozone, and sea
             level. The kiosk has a touch screen for users to scroll to their
             location of interest, select a satellite to learn more about a
