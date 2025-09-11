@@ -3,7 +3,7 @@ services:
   strapi:
     container_name: strapi
     build:
-      context: ./cms
+      context: ./CMS
       dockerfile: Dockerfile
     restart: unless-stopped
     env_file: .env
@@ -17,11 +17,11 @@ services:
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
       NODE_ENV: development
     volumes:
-      - ./cms/_docker_volumes/public/uploads:/opt/app/public/uploads
-      - ./cms/config:/opt/app/config
-      - ./cms/src:/opt/app/src
-      - ./cms/package.json:/opt/package.json
-      - ./cms/yarn.lock:/opt/yarn.lock
+      - ./CMS/_docker_volumes/public/uploads:/opt/app/public/uploads
+      - ./CMS/config:/opt/app/config
+      - ./CMS/src:/opt/app/src
+      - ./CMS/package.json:/opt/package.json
+      - ./CMS/yarn.lock:/opt/yarn.lock
     ports:
       - "1337:1337"
     depends_on:
