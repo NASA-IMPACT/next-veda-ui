@@ -376,7 +376,7 @@
     "@devseed-ui/collecticons" "^4.1.0"
     "@devseed-ui/theme-provider" "^4.1.0"
 
-"@devseed-ui/collecticons@4.1.0", "@devseed-ui/collecticons@^4.1.0":
+"@devseed-ui/collecticons@^4.1.0":
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@devseed-ui/collecticons/-/collecticons-4.1.0.tgz#d0d5237f1c03ce59d0d3a44cfd019d613761aba6"
   integrity sha512-hJWfflJZe6tjRtjgyk+zs/2UuLugGy+Kbs2nNULREAAjBp1Kt4stcrwKkAtbev/dbC+u0hGXPP8gCd5sG5c4Ag==
@@ -2080,10 +2080,10 @@
   resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.21.3.tgz#2977727d8fc8dfa079112d9f4d4c019110f1732c"
   integrity sha512-ldZXEhOBb8Is7xLs01fR3YEc3DERiz5silj8tnGkFZytt1abEvl/GhUmCE0PMLaMPTa3Jk4HbKmRlHmu+gCftg==
 
-"@teamimpact/veda-ui@6.11.1":
-  version "6.11.1"
-  resolved "https://registry.yarnpkg.com/@teamimpact/veda-ui/-/veda-ui-6.11.1.tgz#f239c99f61e9b056a73394fd313dd047641d033a"
-  integrity sha512-gYucUt4gTpaqSDj2lmFFFd2OE2Px2OVIgRYd1AuP05pxfRuNyWO/cAsNmZSjJCYMc25BVVv0hXZJG2lts1TIaQ==
+"@teamimpact/veda-ui@6.17.1":
+  version "6.17.1"
+  resolved "https://registry.yarnpkg.com/@teamimpact/veda-ui/-/veda-ui-6.17.1.tgz#0abc38f5d8b6ccbab7f099a1b97330aca3660af8"
+  integrity sha512-Cp8ZraLurU49sb0pq/RZgc2GQ4CqHeCUQNvWq6h5IhZbxv/ixmz1PgxReZQmZ7Ta5OPTUv0hvAz0YDZPNIEezw==
   dependencies:
     "@codemirror/lang-markdown" "^6.1.1"
     "@codemirror/state" "^6.2.1"
@@ -2092,7 +2092,6 @@
     "@devseed-ui/accordion" "4.1.0"
     "@devseed-ui/animation" "4.1.0"
     "@devseed-ui/button" "4.1.0"
-    "@devseed-ui/collecticons" "4.1.0"
     "@devseed-ui/date-picker" "4.1.0"
     "@devseed-ui/dropdown" "4.1.0"
     "@devseed-ui/form" "4.1.0"
@@ -2134,6 +2133,7 @@
     "@types/styled-components" "^5.1.26"
     autoprefixer "^10.4.19"
     axios "^0.25.0"
+    classnames "^2.3.2"
     clipboard "^2.0.11"
     codemirror "^6.0.1"
     d3 "^7.6.1"
@@ -3599,7 +3599,7 @@ chrome-trace-event@^1.0.2:
   resolved "https://registry.yarnpkg.com/chrome-trace-event/-/chrome-trace-event-1.0.4.tgz#05bffd7ff928465093314708c93bdfa9bd1f0f5b"
   integrity sha512-rNjApaLzuwaOTjCiT8lSDdGN1APCiqkChLMJxJPWLunPAt5fy8xgU9/jNOchV84wfIxrA0lRQB7oCT8jrn/wrQ==
 
-classnames@^2.2.5, classnames@^2.2.6:
+classnames@^2.2.5, classnames@^2.2.6, classnames@^2.3.2:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.5.1.tgz#ba774c614be0f016da105c858e7159eae8e7687b"
   integrity sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==
