@@ -1,0 +1,286 @@
+---
+id: urban-effects template
+name: "Italy: From Alps to Sea"
+description: "Exploring Italy's diverse landscape through satellite imagery, elevation data, population patterns, and wetland methane emissions"
+media:
+  src: https://images.unsplash.com/photo-1552598715-7eeb9232a2ac?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  alt: A foggy view of Tuscany, Italy
+  author:
+    name: Engjell Gjepali
+    url: https://unsplash.com/@iamengjell
+pubDate: 2026-03-04
+taxonomy:
+  - name: Topics
+    values:
+      - Satellite Imagery
+      - Elevation
+      - Socioeconomic
+      - Methane
+---
+
+<Block>
+  <Prose>
+  # Italy: A Journey Through Data
+
+  Italy's distinctive boot-shaped peninsula offers a remarkable study in geographic diversity. From the snow-capped peaks of the Alps in the north to the sun-drenched coastlines of Sicily, Italy encompasses an extraordinary range of landscapes within a relatively compact area.
+
+  Using Earth observation data, we can explore how terrain, human settlement, and environmental processes interact across this iconic Mediterranean nation. This story combines four distinct datasets—satellite imagery, elevation models, population density, and wetland methane emissions—to paint a comprehensive picture of Italy's geography and its environmental significance.
+
+  Scroll through the journey below to explore Italy from north to south.
+  </Prose>
+</Block>
+
+<ScrollytellingBlock>
+  <Chapter
+    center={[6.0, 45.8]}
+    zoom={8}
+    datasetId='tandemx-edem'
+    layerId='TDM30_EDEM_dem'
+    datetime='2010-01-01'
+  >
+  ### The Italian Alps: Europe's Rooftop
+
+  The northern boundary of Italy is defined by the majestic Alps, forming a natural barrier between the Italian peninsula and continental Europe. The TanDEM-X elevation model reveals the dramatic topography of this region, where peaks rise to over 4,000 meters above sea level.
+
+  Monte Bianco (Mont Blanc), straddling the Italian-French border, reaches 4,808 meters—the highest point in the Alps. These mountains serve as crucial water towers for the Po River basin, feeding the agricultural heartland of northern Italy.
+  </Chapter>
+
+  <Chapter
+    center={[6.76, 45.83]}
+    zoom={11}
+    datasetId='tandemx-edem'
+    layerId='TDM30_EDEM_dem'
+    datetime='2010-01-01'
+  >
+  ### Monte Bianco: The White Mountain
+
+  Zooming in on Monte Bianco, the elevation data reveals the intricate network of ridges, glaciers, and valleys that characterize the highest peaks in the Alps. The Aosta Valley below is one of Italy's smallest and least populated regions, shaped entirely by its mountainous terrain.
+
+  The glaciers visible in this data have been retreating dramatically over recent decades due to climate change, with significant implications for water resources downstream.
+  </Chapter>
+
+  <Chapter
+    center={[11.54, 46.41]}
+    zoom={10}
+    datasetId='tandemx-edem'
+    layerId='TDM30_EDEM_dem'
+    datetime='2010-01-01'
+  >
+  ### The Dolomites: Pale Mountains
+
+  Moving east, we encounter the Dolomites—a UNESCO World Heritage Site known for their distinctive pale limestone peaks. Unlike the granite Alps to the west, the Dolomites create dramatic vertical walls and spires that have made this region famous among climbers and tourists alike.
+
+  The elevation model shows how these ancient coral reefs, lifted by tectonic forces over millions of years, now form some of Europe's most striking mountain scenery.
+  </Chapter>
+
+  <Chapter
+    center={[11.84, 46.41]}
+    zoom={10}
+    datasetId='hls_2.0'
+    layerId='HLSL30_2.0_true_color'
+    datetime='2026-02-28'
+  >
+  ### The Dolomites in True Color
+
+  Switching to Harmonized Landsat Sentinel-2 satellite imagery, we can see the Dolomites in natural color. The contrast between the pale rock faces, dark green coniferous forests, and bright alpine meadows creates the distinctive visual character of this region.
+
+  These high-altitude ecosystems are particularly sensitive to climate change, with vegetation zones shifting upward and snow cover diminishing over recent decades.
+  </Chapter>
+
+  <Chapter
+    center={[8.9, 45.46]}
+    zoom={10}
+    datasetId='sedac-population-density'
+    layerId='nasa-sedac-population'
+    datetime='2005-01-01'
+  >
+  ### Milan: Industrial Capital
+
+  Descending from the Alps, we reach the Po Valley—Italy's most densely populated region. Milan, visible as the bright concentration of population density, is Italy's economic powerhouse and second-largest city.
+
+  The SEDAC population data reveals how settlement patterns follow the flat terrain of the Po Valley, with dense urban corridors connecting major cities. Over 10 million people live in the greater Milan metropolitan area.
+  </Chapter>
+
+  <Chapter
+    center={[8.9, 45.0]}
+    zoom={7}
+    datasetId='sedac-population-density'
+    layerId='nasa-sedac-population'
+    datetime='2020-01-01'
+  >
+  ### The Po Valley: Italy's Heartland
+
+  Zooming out reveals the full extent of population concentration in northern Italy. The Po Valley (Pianura Padana) stretches from Turin in the west to Venice in the east, covering approximately 46,000 square kilometers.
+
+  This lowland plain is home to major cities including Milan, Turin, Bologna, Verona, and Venice. It's also Italy's most productive agricultural region, producing rice, wheat, corn, and supporting extensive dairy farming.
+  </Chapter>
+
+  <Chapter
+    center={[11.8, 45.0]}
+    zoom={9}
+    datasetId='lpjeosim-wetland-ch4'
+    layerId='ch4-wetlands-emissions-m-ens'
+    datetime='2022-07-01'
+  >
+  ### Po Delta: Wetland Methane Emissions
+
+  At the eastern end of the Po Valley, the river empties into the Adriatic Sea through an extensive delta system. The LPJ-EOSIM wetland methane model shows emissions from this region's wetlands and rice paddies.
+
+  Italy is Europe's largest rice producer, with the Po Valley accounting for over 50% of European rice production. Rice paddies maintain flooded conditions similar to natural wetlands, making them significant sources of methane emissions.
+  </Chapter>
+
+  <Chapter
+    center={[10.8, 45.0]}
+    zoom={9}
+    datasetId='lpjeosim-wetland-ch4'
+    layerId='ch4-wetlands-emissions-m-ens'
+    datetime='2022-01-01'
+    compareDatetime='2022-07-01'
+  >
+  ### Seasonal Variation in Methane
+
+  Comparing winter (January) and summer (July) methane emissions reveals the strong seasonal pattern in wetland emissions. Warmer summer temperatures increase microbial activity in waterlogged soils, leading to higher methane production.
+
+  Understanding these seasonal patterns is crucial for Italy's climate mitigation strategies, as the agricultural sector must balance food production with greenhouse gas reduction targets.
+  </Chapter>
+
+  <Chapter
+    center={[12.5, 42.5]}
+    zoom={8}
+    datasetId='tandemx-edem'
+    layerId='TDM30_EDEM_dem'
+    datetime='2010-01-01'
+  >
+  ### The Apennines: Italy's Spine
+
+  Running down the length of the Italian peninsula, the Apennine Mountains form the country's geological backbone. While not as high as the Alps—the highest peak, Corno Grande, reaches 2,912 meters—the Apennines shape Italy's climate, hydrology, and settlement patterns.
+
+  The Gran Sasso massif, visible here in the Abruzzo region, contains the highest peaks in the Apennines and hosts the only glacier in the central Mediterranean region.
+  </Chapter>
+
+  <Chapter
+    center={[12.2, 41.9]}
+    zoom={10}
+    datasetId='sedac-population-density'
+    layerId='nasa-sedac-population'
+    datetime='2020-01-01'
+  >
+  ### Rome: The Eternal City
+
+  At the heart of the Italian peninsula lies Rome, one of the world's most historically significant cities and Italy's capital. The population density data shows the characteristic pattern of a major European capital: a dense urban core surrounded by progressively less dense suburban zones.
+
+  Rome's metropolitan area is home to over 4 million people. The city's growth has been shaped by both its ancient heritage—Roman ruins constrain modern development in the historic center—and suburban expansion along major transportation corridors.
+  </Chapter>
+
+  <Chapter
+    center={[14.0, 40.85]}
+    zoom={9}
+    datasetId='sedac-population-density'
+    layerId='nasa-sedac-population'
+    datetime='2020-01-01'
+  >
+  ### Naples: Living with Vesuvius
+
+  The Bay of Naples is one of the most densely populated regions in Europe, as the population data dramatically shows. The bright concentration of over 3 million people living around Mount Vesuvius—one of the world's most dangerous volcanoes—represents a significant natural hazard management challenge.
+
+  The "red zone" immediately surrounding Vesuvius contains hundreds of thousands of residents who would need to evacuate in the event of an eruption.
+  </Chapter>
+
+  <Chapter
+    center={[14.0, 40.85]}
+    zoom={9}
+    datasetId='hls_2.0'
+    layerId='HLSL30_2.0_true_color'
+    datetime='2026-03-03'
+  >
+  ### Bay of Naples in True Color
+
+  The satellite imagery reveals the intricate pattern of urban development surrounding Mount Vesuvius. The volcano's dark cone stands in stark contrast to the dense urban fabric that extends right up to its slopes.
+
+  The coastal areas from Naples through Sorrento show intensive development along the Mediterranean shore, while the islands of Capri and Ischia are visible in the bay.
+  </Chapter>
+
+  <Chapter
+    center={[14.38, 40.82]}
+    zoom={12}
+    datasetId='tandemx-edem'
+    layerId='TDM30_EDEM_dem'
+    datetime='2010-01-01'
+  >
+  ### Mount Vesuvius: A Volcanic Threat
+
+  The TanDEM-X elevation model reveals the distinctive crater of Mount Vesuvius, which last erupted in 1944. The volcano rises to 1,281 meters above sea level, with a crater approximately 300 meters deep.
+
+  Vesuvius is part of the Campanian volcanic arc and sits atop a magma chamber that could produce a Plinian eruption—the same type that destroyed Pompeii in 79 AD. Scientists monitor the volcano continuously for signs of renewed activity.
+  </Chapter>
+
+  <Chapter
+    center={[14.6, 37.75]}
+    zoom={9}
+    datasetId='tandemx-edem'
+    layerId='TDM30_EDEM_dem'
+    datetime='2010-01-01'
+  >
+  ### Mount Etna: Europe's Tallest Active Volcano
+
+  Sicily, the Mediterranean's largest island, is dominated by Mount Etna, Europe's most active volcano. Rising to over 3,300 meters, Etna's massive cone is clearly visible in the elevation data.
+
+  Unlike Vesuvius, Etna erupts frequently—sometimes multiple times per year—with lava flows that occasionally threaten nearby communities. The fertile volcanic soils surrounding the mountain support extensive agriculture, including vineyards and citrus groves.
+  </Chapter>
+
+  <Chapter
+    center={[13.5, 37.6]}
+    zoom={8}
+    datasetId='hls_2.0'
+    layerId='HLSL30_2.0_true_color'
+    datetime='2026-03-03'
+  >
+  ### Sicily: Mediterranean Crossroads
+
+  The satellite imagery of Sicily shows the island's varied landscape—from the volcanic slopes of Etna to the agricultural interior and the coastal cities. Sicily's position at the center of the Mediterranean has made it a crossroads of civilizations for millennia.
+
+  The island's population is concentrated along the coasts, particularly around Palermo in the northwest and Catania at the foot of Mount Etna. The interior remains largely agricultural and sparsely populated.
+  </Chapter>
+
+  <Chapter
+    center={[11.0, 42.5]}
+    zoom={6}
+    datasetId='tandemx-edem'
+    layerId='TDM30_EDEM_dem'
+    datetime='2010-01-01'
+  >
+  ### Italy: A Complete View
+
+  Zooming out to see all of Italy, the TanDEM-X elevation model reveals the geographic story of this peninsula. The Alps form the northern boundary, the Apennines run like a spine down the center, and the Po Valley lies as a flat lowland between them.
+
+  The two major islands—Sicily and Sardinia—add to Italy's territorial complexity, while the long coastlines along the Tyrrhenian, Adriatic, and Ionian seas have shaped the nation's maritime history and economy.
+  </Chapter>
+</ScrollytellingBlock>
+
+<Block>
+  <Prose>
+  ## Conclusion: A Land of Contrasts
+
+  Italy's geography tells a story of remarkable diversity within a relatively small area. The data visualizations in this story reveal:
+
+  - **Dramatic elevation changes**: From sea level to over 4,800 meters in less than 200 kilometers
+  - **Dense population centers**: Concentrated in lowland plains and coastal areas, shaped by millennia of human history
+  - **Active wetland ecosystems**: Contributing to the global methane budget through both natural processes and agricultural practices
+  - **Ongoing volcanic activity**: Etna and Vesuvius continue to shape the landscape and pose risks to nearby populations
+
+  Earth observation data provides powerful tools for understanding these complex systems. As Italy faces challenges from climate change, urbanization, and environmental hazards, continued monitoring through satellite systems and models will be essential for informed decision-making.
+  </Prose>
+</Block>
+
+<Block>
+  <Prose>
+  ## Data Sources
+
+  This story utilizes data from the following sources:
+
+  - **Harmonized Landsat Sentinel-2 (HLS)**: NASA/USGS/ESA collaborative project providing surface reflectance data at 30-meter resolution
+  - **TanDEM-X EDEM**: German Aerospace Center (DLR) and Airbus Defence and Space global elevation model at 30-meter resolution
+  - **SEDAC Gridded Population of the World**: NASA SEDAC/Columbia University population density estimates at ~1km resolution
+  - **LPJ-EOSIM Wetland Methane Emissions**: NASA Goddard Space Flight Center model estimates of wetland methane emissions
+  </Prose>
+</Block>
