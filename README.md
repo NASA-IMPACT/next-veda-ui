@@ -1,6 +1,9 @@
-# NEXT JS w. VEDA UI
+# ⛔ This repository is currently a beta release and is unsupported <br><br> NEXT JS w. VEDA UI
 
 Next.js instance that uses the [VEDA-UI components library](https://github.com/nasa-IMPACT/veda-ui) and [USWDS](https://designsystem.digital.gov/), to build applications for geospatial data visualization, storytelling and analysis.
+
+#### ⚠️ Deprecation details
+This project was marked unsupported due to lack of development and active developer ownership. If / when this project is revisited, consider updating `veda-ui` to the latest release and managing all open [dependency vulnerabilities](https://github.com/NASA-IMPACT/next-veda-ui/security/dependabot).
 
 ## Getting Started
 
