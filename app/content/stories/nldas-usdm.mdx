@@ -1,0 +1,72 @@
+---
+id: nldas-usdm
+name: "From Data to Drought Maps: How NLDAS Powers the U.S. Drought Monitor"
+description: "Discover how upcoming NLDAS-3 upgrades will empower U.S. Drought Monitor authors with near real-time data, expanded regional coverage, and new metrics to more accurately map the nation's water deficits"
+media:
+  src: /images/story/drought-cover.jpg
+  alt: 2013 New Mexico Reservoir from NASA Earth Observatory.
+  author:
+    name: NASA
+    url: https://science.nasa.gov/earth/explore/drought/
+taxonomy:
+  - name: Topics
+    values:
+      - Drought
+  - name: Subtopics
+    values:
+      - Drought
+      - Water Availability
+  - name: Source
+    values:
+      - NASA Water Insight
+---
+
+<Block>
+    <Prose>
+    Every Thursday morning, the U.S. Drought Monitor (USDM) releases a map that is closely watched by farmers, water managers, and policymakers across the country. The map looks simple with varying shades of yellow, orange, and red stretching across the states. Behind the colors, a complex series of data is considered by a designated “author” to draw this map.
+
+    Each week, the USDM author pours over dozens of data layers such as precipitation indices, soil moisture, recent precipitation, and vegetation health to help inform how the previous drought classifications should be updated based on conditions of the previous week. Additionally, the author receives feedback and recommendations from state and local experts who provide their own perspective and relay ground truth reports that corroborate the input datasets. All this information is compiled with a convergence of evidence approach to come up with the representative drought classifications across the entire U.S.
+    
+    One key variable that is examined by the USDM authors is soil moisture, which is especially important during the growing season. The USDM authors presently use version-2 of North American Land Data Assimilation System (NLDAS-2) and the NASA SPoRT-Land Information System (SPoRT-LIS) as two key gridded input datasets representing soil moisture states, but only over the Continental United States. NLDAS-3 will provide an increased spatial domain including Alaska, Hawaii, and Puerto Rico. It will also bring crucial improvements to data latency; by delivering Near Real-Time (NRT) data, NLDAS-3 will allow authors to capture rapidly changing conditions and significantly increase the accuracy of their weekly maps. Integrating this data into a weekly national map is not automatic, but requires deep and ongoing collaboration. Through Water Insight, a major emphasis is placed on the co-development of these tools directly with stakeholders, particularly leadership at the National Drought Mitigation Center (NDMC) at The University of Nebraska-Lincoln (UNL) and the USDM. For years, we have worked hand-in-hand with the USDM to understand their evolving needs. The ultimate goal is not just to provide better science, but to ensure that these improvements are practical, addressing specific challenges directly.
+
+    ### The NLDAS-3 Engine: Seeing the Invisible
+
+    Think of NLDAS-3 as a virtual replica of the Earth’s surface and subsurface. We cannot physically place a moisture probe into every square inch of North American soil, so NLDAS-3 fills that gap. It takes multiple weather observations such as rainfall, temperature, and sunlight, and uses computer models to calculate approximately where the water goes. Does it evaporate? Did it soak into the topsoil? Did it sink deep into the aquifers?
+
+    By modeling these variables over long periods of time, NLDAS-3 provides the USDM with rankings of the current conditions relative to historical periods, known as percentiles. These percentiles are a way to compare today’s water levels against decades of historical data. For example, if a region is in the 5th percentile, it means it is drier right now than 95% of the historical record.
+
+    ### A Tale of Two Summers: 2007 vs. 2011
+
+    To understand how the USDM uses this data, we can look at a stark comparison of the U.S. Southern Plains (including Texas, Oklahoma, and New Mexico) on August 1st during two different years: a wet year (2007) and a severe drought year (2011).
+
+    NLDAS breaks the environment down into distinct layers, allowing USDM authors to see how deep a drought goes:
+
+    ## The First Line of Defense: Soil Moisture (0-100cm)
+    Drought usually begins in the top layer of soil. Looking at the NLDAS Soil Moisture maps, 2007 is a sea of blue, indicating exceptionally wet soils. Fast forward to 2011, and the map is covered in deep reds. This tells USDM authors that the soil is critically dry, meaning crops and pastures are in immediate need of rainfall. In many cases, one good rainfall isn’t nearly enough to relieve the drought. 
+
+    ## The Above-Ground Impact: Vegetation Health (Leaf Area Index)
+    How are the plants reacting to soil and atmospheric conditions? Under the current NLDAS-2 system, USDM authors do not have a metric for this. A major upgrade coming with NLDAS-3 is the introduction of new variables like Leaf Area Index (LAI), which estimates vegetation health and density based on measurements from earth-observing satellites. Looking at the new NLDAS-3 capabilities applied to our comparison years, the 2011 map shows widespread red and orange, indicating stressed, sparse, and even dying vegetation compared to the healthy vegetation shown in 2007. Having this new data layer will allow authors to directly confirm the physical toll the lack of moisture is taking on the landscape. 
+
+    ## The Deep Reserves: Groundwater and Water Table Depth
+    A short dry spell ruins lawns; a long drought drains aquifers. The USDM needs to know if a drought has lasted long enough to impact deep water reserves. The NLDAS maps for Ground Water Storage and Water Table Depth show warmer colors creeping across Texas and Oklahoma in 2011. This data is crucial for the USDM, as it signals a long-term, systemic drought that will take a significant time and rainfall to recover from. 
+
+    ## The Big Picture: Terrestrial Water Storage
+    Finally, NLDAS rolls snow, soil moisture, and groundwater into one metric: Terrestrial Water Storage. The stark contrast between the saturated blues of 2007 and the depleted reds of 2011 gives USDM authors a comprehensive look at the total water deficit in the region. 
+
+
+    ### Conclusuion
+
+    The USDM doesn’t solely rely on rainfall amounts in a given week. By feeding these specific NLDAS data layers into their weekly analysis, USDM authors can see the invisible. They can differentiate between a brief dry spell and a devastating, deep-rooted drought. However, the upcoming shift to NLDAS-3 will elevate this capability significantly. By expanding coverage, delivering NRT data to catch rapid shifts, and introducing new variables like LAI, NLDAS-3 will provide a more accurate and complete picture of drought conditions nationwide. 
+    </Prose>
+</Block>
+
+<Block>
+  <Prose>
+    #### Authorship
+    Writers: Trent Cowan<sup>1</sup>, Mitchell Dodson<sup>1</sup>, Jonathan Case<sup>1</sup>, David Mocko<sup>2</sup>, Kim Locke<sup>2</sup>, Ryan Wade<sup>1</sup>
+    
+    <sup>1</sup> The University of Alabama in Huntsville (UAH)
+    
+    <sup>2</sup> Goddard Space Flight Center (GSFC)
+  </Prose>
+</Block>
